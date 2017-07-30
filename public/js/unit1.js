@@ -1,6 +1,7 @@
-var game = new Phaser.Game(1024, 720, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update, render: render });
 
-var btn = new Array();
+var btnNext;
+var btnBack;
 var txt = new Array();
 var sound = new Array();
 var timer;
@@ -10,12 +11,6 @@ var m_player;
 var m_carrot;
 var m_mushroom;
 
-//Setting const here!
-
-var distance = 1;
-
-//Speed di chuyen
-var direction = 2;
 
 // Setting sound start
 var flag_sound = 0;
@@ -61,6 +56,7 @@ function preload() {
 	game.load.audio('1_2', 'assets/sounds/unit1/1_2.mp3');
 	// Load button sprite
 	game.load.image('btnNext', 'assets/images/unit1/ic_button_next.png');
+	game.load.image('btnBack', 'assets/images/unit1/ic_button_back.png');
 
 	game.load.image('nen', 'assets/images/unit1/bg_board.png');
 
@@ -70,16 +66,14 @@ function create() {
 
 	// PHYSICS SYSTEM
 	game.physics.startSystem(Phaser.Physics.ARCADE);
-
+	game.world.setBounds(0, 0, 1366, 768);
 	// BACKGROUND
-	bg = game.add.tileSprite(0, 0, 1024, 720, 'bg');
-	game.world.setBounds(0, 0, 1024, 720);
-	bg_mushroom = game.add.tileSprite(0, 0, 1024, 720, 'bg_mushroom');
-	bg_carrot = game.add.tileSprite(0, 0, 1024, 720, 'bg_carrot');
+	bg_mushroom = game.add.tileSprite(0, 0, 1366, 768, 'bg_mushroom');
+	bg_carrot = game.add.tileSprite(0, 0, 1366, 768, 'bg_carrot');
+	bg = game.add.tileSprite(0, 0, 1366, 768, 'bg');
 
 	// TIMER
 	// PLAYER
-
 	m_player = game.add.sprite(350, 450, 'm_player');
 	m_player.scale.setTo(0.5, 0.5);
 
@@ -88,7 +82,6 @@ function create() {
 	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
 	//frame begin
 	m_player.animations.add('idle', [0], 8, true);
-
 	// Add physic for player .. physic type > ARCADE
 	game.physics.enable(m_player, Phaser.Physics.ARCADE);
 	m_player.body.collideWorldBounds = true;
@@ -96,13 +89,6 @@ function create() {
 
 	// Setting camera follow player.
 	game.camera.follow(m_player);
-
-	// carrot
-	m_carrot = game.add.sprite(2300, 150, 'carrot');
-	m_carrot.scale.setTo(1.1, 1.1);
-
-	m_mushroom = game.add.sprite(3300, 250, 'mushroom');
-	m_mushroom.scale.setTo(1.1, 1.1);
 
 	//btnx1 = game.add.button(1400,550, 'btnNext', actionOnClick, this); 
 
@@ -126,179 +112,102 @@ function create() {
 }
 
 function render() {
-	//var text = game.debug.spriteInfo(bg, 32, 32);
+	// var text = game.debug.spriteInfo(text_rabbit, 32, 32);
+	//game.debug.spriteInfo(text_rabbit, 32, 32);
 }
 
 
 function showRabbit() {
 
-	nen = game.add.tileSprite(0, 0, 1035, 769, 'nen');
-	nen.scale.setTo(0.5,0.5);
-	game.world.setBounds(0, 0, 400, 769);
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	var style = { font: 'bolder 300px Arial', fill: 'red' };
-	txt[0] = game.add.text(950, 150, '1', style);
-	txt[0].inputEnabled = true;
-	txt[0].events.onInputDown.add(fail, this);
-	txt[0].scale.setTo(0.5, 0.5);
-	//game.add.tween(txt[0]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(txt[0].scale).to({ x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
+	rabbit_ = game.add.tileSprite(-50, 700, 267, 416, 'rabbit_');
+	rabbit_.inputEnabled = true;
+	game.add.tween(rabbit_).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	var style1 = { font: 'bolder 100px Arial', fill: 'red' };
-	txt[1] = game.add.text(500, 600, 'một', style1);
+	setTimeout(function () {
 
-	var style4 = { font: 'bolder 100px Arial', fill: 'black' };
-	txt[6] = game.add.text(700, 600, 'chú thỏ', style4);
+		text_number1 = game.add.tileSprite(1400, 700, 207, 516, 'text_number1');
+		text_rabbit = game.add.tileSprite(500, -50, 319, 66, 'text_rabbit');
+		text_number1.inputEnabled = true;
+		game.add.tween(text_number1).to({ x: 750, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_rabbit.inputEnabled = true;
+		game.add.tween(text_rabbit).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
+	}, 4000);
 
-	flag_sound = 1;
-	setTimeout(function () { btn[0] = game.add.button(1400, 620, 'btnNext', movenext1, this); btn[0].scale.setTo(0.5, 0.5); }, 5000);
+	setTimeout(function () {
+		btn();
+	}, 8000);
+
 }
 
-function fail() {
-	txt[0].scale.setTo(0.5, 0.5);
-	//game.add.tween(txt[0]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(txt[0].scale).to({ x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
+function btn() {
+
+	btnNext = game.add.button(700, 600, 'btnNext', mission, this);
+	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
+
 }
 
-function movenext1() {
-	flag_sound = 2;
+function mission() {
+
+	btnNext.pendingDestroy = true;
+	btnBack.pendingDestroy = true;
+	m_player.x = 0;
 	nen.destroy();
-	txt[0].destroy();
-	txt[1].destroy();
-	txt[6].destroy();
-	bg.x -= speed;
-	direction = 3;
-	btn[0].alpha = 0;
-	m_player.animations.play('walk');
-}
-
-function add_so2() {
-	nen = game.add.tileSprite(0, 0, 5096, 720, 'nen');
-	game.world.setBounds(0, 0, 5096, 720);
-
-	m_carrot.visible = true;
-	m_player.visible = false;
-
-	var style = { font: 'bolder 300px Arial', fill: 'red' };
-	txt[2] = game.add.text(950, 150, '1', style);
-	txt[2].inputEnabled = true;
-	txt[2].events.onInputDown.add(fail1, this);
-	txt[2].scale.setTo(0.5, 0.5);
-	//game.add.tween(txt[2]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(txt[2].scale).to({ x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
-
-	var style1 = { font: 'bolder 100px Arial', fill: 'red' };
-	txt[3] = game.add.text(500, 600, 'một', style1);
-
-	var style5 = { font: 'bolder 100px Arial', fill: 'black' };
-	txt[7] = game.add.text(700, 600, 'củ cà rốt', style5);
-
-	flag_sound = 3;
-	setTimeout(function () { btn[1] = game.add.button(1400, 620, 'btnNext', movenext2, this); btn[1].scale.setTo(0.5, 0.5); }, 5000);
-}
-
-function fail1() {
-	txt[2].scale.setTo(0.5, 0.5);
-	//game.add.tween(txt[2]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(txt[2].scale).to({ x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
-}
-
-function movenext2() {
-	m_player.visible = true;
-	m_carrot.visible = false;
-	nen.destroy();
-	flag_sound = 4;
-	txt[2].destroy();
-	txt[3].destroy();
-	txt[7].destroy();
-	bg.x -= speed;
-	direction = 3;
-	btn[1].alpha = 0;
-	m_player.animations.play('walk');
-}
-
-function add_so3() {
-	nen = game.add.tileSprite(0, 0, 5096, 720, 'nen');
-	game.world.setBounds(0, 0, 5096, 720);
-
-	m_mushroom.visible = true;
-	m_player.visible = false;
-
-	var style = { font: 'bolder 300px Arial', fill: 'red' };
-	txt[4] = game.add.text(950, 150, '1', style);
-	txt[4].inputEnabled = true;
-	txt[4].events.onInputDown.add(fail2, this);
-	txt[4].scale.setTo(0.5, 0.5);
-	//game.add.tween(txt[4]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(txt[4].scale).to({ x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
-
-	var style1 = { font: 'bolder 100px Arial', fill: 'red' };
-	txt[5] = game.add.text(550, 600, 'một', style1);
-
-	var style6 = { font: 'bolder 100px Arial', fill: 'black' };
-	txt[8] = game.add.text(750, 600, 'cây nấm', style6);
-
-	flag_sound = 5;
-	setTimeout(function () { btn[2] = game.add.button(1400, 620, 'btnNext', movenext3, this); btn[2].scale.setTo(0.5, 0.5); }, 5000);
-}
-
-function fail2() {
-	txt[4].scale.setTo(0.5, 0.5);
-	//game.add.tween(txt[4]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(txt[4].scale).to({ x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
-}
-
-function movenext3() {
-	var winx = window.location = "unit1_game1";
+	text_rabbit.destroy();
+	text_number1.destroy();
+	rabbit_.destroy();
+	//m_player.destroy();
+	flag++;
 }
 
 var setPlay = false;
+var temp = 0;
+var flag = 0;
+
 function backPlayer() {
 	if (m_player.x < game.width / 2) {
+		setPlay = false;
 		m_player.animations.play('walk');
 	} else {
+		temp++;
 		setPlay = true;
 		m_player.animations.play('idle');
 	}
 }
+
 
 function update() {
 	// Function called 60 times per second
 	//Check flag
 	//Flag 1
 
-	//backPlayer();
-showRabbit();
-	if (setPlay) {
+	backPlayer();
+
+	//
+	if (setPlay && temp == 1) {
 		showRabbit();
 	}
 
+	if (flag == 1) {
+		bg.destroy();
+		game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
+	}
 
+	// if (setPlay && temp == 2) {
+	// 	showRabbit();
 	// }
-	// if (bg.x <= flag[1] && bg.x >= flag[1] - distance) {
-	// 	bg.x = -1800;
-	// 	direction = 0;
-	// 	speed = 0;
-	// 	m_player.animations.play('idle');
-	// 	if (check_flag == 1) {
-	// 		add_so2();
-	// 		check_flag = 2;
-	// 	}
 
-	// }
-	// if (bg.x <= flag[2] && bg.x >= flag[2] - distance) {
-	// 	bg.x = -3000;
-	// 	direction = 0;
-	// 	speed = 0;
-	// 	m_player.animations.play('idle');
-	// 	if (check_flag == 2) {
-	// 		add_so3();
-	// 		check_flag = 3;
-	// 	}
+	if (flag == 2) {
+		bg_carrot.destroy();
+		game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
+		showRabbit();
+	}
 
+	// if (setPlay && temp == 3) {
+	// 	showRabbit();
 	// }
-	// Flag Sound
 
 	if (flag_sound == 0) {
 
