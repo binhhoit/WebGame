@@ -7,7 +7,7 @@ var timer;
 var flag = new Array();
 
 var m_player;
-var m_carot;
+var m_carrot;
 var m_mushroom;
 
 //Setting const here!
@@ -28,10 +28,20 @@ function preload() {
 
 	// Load background 
 	game.load.image('bg', 'assets/images/unit1/bg.png');
+	game.load.image('bg_mushroom', 'assets/images/unit1/bg_mushroom.png');
+	game.load.image('bg_carrot', 'assets/images/unit1/bg_carrot.png');
 
 	// Load image
-	game.load.image('carot', 'assets/images/unit1/ic_carrot.png');
-	game.load.image('nam', 'assets/images/unit1/ic_mushroom.png');
+	game.load.image('carrot', 'assets/images/unit1/ic_carrot.png');
+	game.load.image('mushroom', 'assets/images/unit1/ic_mushroom.png');
+	game.load.image('text_number1', 'assets/images/unit1/text_number1.png');
+	game.load.image('text_carrot', 'assets/images/unit1/text_carrot.png');
+	game.load.image('text_mushroom', 'assets/images/unit1/text_mushroom.png');
+	game.load.image('text_rabbit', 'assets/images/unit1/text_rabbit.png');
+	game.load.image('rabbit_', 'assets/images/unit1/character/rabbit.png');
+	game.load.image('carrot_', 'assets/images/unit1/character/carrot.png');
+	game.load.image('mushroom', 'assets/images/unit1/mushroom.png');
+
 
 	// Load spritesheet
 	game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit.png', 236, 355, 16);
@@ -41,12 +51,12 @@ function preload() {
 	game.load.audio('Thodaochoi', 'assets/sounds/unit1/1_Thodaochoi.mp3');
 	game.load.audio('so1', 'assets/sounds/unit1/1_So1.mp3');
 	game.load.audio('Motchutho', 'assets/sounds/unit1/1_Motchutho.mp3');
-	game.load.audio('Thothaycarot', 'assets/sounds/unit1/1_3.mp3');
-	game.load.audio('Motcarot', 'assets/sounds/unit1/1_Carot.mp3');
-	game.load.audio('thothaynam', 'assets/sounds/unit1/1_5.mp3');
-	game.load.audio('nam', 'assets/sounds/unit1/1_Cay nam.mp3');
-	game.load.audio('carot', 'assets/sounds/unit1/1_4.mp3');
-	game.load.audio('hainam', 'assets/sounds/unit1/1_ThoHainam.mp3');
+	game.load.audio('Thothaycarrot', 'assets/sounds/unit1/1_3.mp3');
+	game.load.audio('Motcarrot', 'assets/sounds/unit1/1_carrot.mp3');
+	game.load.audio('thothaymushroom', 'assets/sounds/unit1/1_5.mp3');
+	game.load.audio('mushroom', 'assets/sounds/unit1/1_Cay mushroom.mp3');
+	game.load.audio('carrot', 'assets/sounds/unit1/1_4.mp3');
+	game.load.audio('haimushroom', 'assets/sounds/unit1/1_ThoHaimushroom.mp3');
 	game.load.audio('yeah', 'assets/sounds/unit1/yeah.mp3');
 	game.load.audio('1_2', 'assets/sounds/unit1/1_2.mp3');
 	// Load button sprite
@@ -54,11 +64,6 @@ function preload() {
 
 	game.load.image('nen', 'assets/images/unit1/bg_board.png');
 
-	// Gán Flag
-	flag[0] = -600;
-	flag[1] = -1800;
-	flag[2] = -3000;
-	flag[3] = -4500;
 }
 
 function create() {
@@ -69,6 +74,8 @@ function create() {
 	// BACKGROUND
 	bg = game.add.tileSprite(0, 0, 1024, 720, 'bg');
 	game.world.setBounds(0, 0, 1024, 720);
+	bg_mushroom = game.add.tileSprite(0, 0, 1024, 720, 'bg_mushroom');
+	bg_carrot = game.add.tileSprite(0, 0, 1024, 720, 'bg_carrot');
 
 	// TIMER
 	// PLAYER
@@ -90,11 +97,11 @@ function create() {
 	// Setting camera follow player.
 	game.camera.follow(m_player);
 
-	// Carot
-	m_carot = game.add.sprite(2300, 150, 'carot');
-	m_carot.scale.setTo(1.1, 1.1);
+	// carrot
+	m_carrot = game.add.sprite(2300, 150, 'carrot');
+	m_carrot.scale.setTo(1.1, 1.1);
 
-	m_mushroom = game.add.sprite(3300, 250, 'nam');
+	m_mushroom = game.add.sprite(3300, 250, 'mushroom');
 	m_mushroom.scale.setTo(1.1, 1.1);
 
 	//btnx1 = game.add.button(1400,550, 'btnNext', actionOnClick, this); 
@@ -104,13 +111,13 @@ function create() {
 	sound[1] = game.sound.add('Thodaochoi');
 	sound[2] = game.sound.add('so1');
 	sound[3] = game.sound.add('Motchutho');
-	sound[4] = game.sound.add('Thothaycarot');
-	sound[5] = game.sound.add('Motcarot');
-	sound[6] = game.sound.add('Thohaicarot');
-	sound[7] = game.sound.add('thothaynam');
-	sound[10] = game.sound.add('nam');
-	sound[11] = game.sound.add('carot');
-	sound[12] = game.sound.add('hainam');
+	sound[4] = game.sound.add('Thothaycarrot');
+	sound[5] = game.sound.add('Motcarrot');
+	sound[6] = game.sound.add('Thohaicarrot');
+	sound[7] = game.sound.add('thothaymushroom');
+	sound[10] = game.sound.add('mushroom');
+	sound[11] = game.sound.add('carrot');
+	sound[12] = game.sound.add('haimushroom');
 	sound[13] = game.sound.add('1_2');
 
 	//m_sound[0] = game.add.audio('m_sound1');
@@ -170,7 +177,7 @@ function add_so2() {
 	nen = game.add.tileSprite(0, 0, 5096, 720, 'nen');
 	game.world.setBounds(0, 0, 5096, 720);
 
-	m_carot.visible = true;
+	m_carrot.visible = true;
 	m_player.visible = false;
 
 	var style = { font: 'bolder 300px Arial', fill: 'red' };
@@ -199,7 +206,7 @@ function fail1() {
 
 function movenext2() {
 	m_player.visible = true;
-	m_carot.visible = false;
+	m_carrot.visible = false;
 	nen.destroy();
 	flag_sound = 4;
 	txt[2].destroy();
@@ -261,8 +268,8 @@ function update() {
 	//Check flag
 	//Flag 1
 
-	backPlayer();
-
+	//backPlayer();
+showRabbit();
 	if (setPlay) {
 		showRabbit();
 	}
