@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hello Boy</title>
+
+    <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+    <!-- Custom CSS -->
+    <link href="/api/assets/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+    <div id="selecter" class="container">
+
+        <div id="login" class="bg_container " align="center">
+
+            <form action="">
+                <div class="div_form" align="right">
+                    <div class="div_text text_style" align="right">TÊN ĐĂNG NHẬP</div>
+                    <div class="div_text text_style" align="right">MẬT KHẨU</div>
+
+                </div>
+                <div class="div_input">
+                    <div class="div_inputs">
+                        <input type="email" />
+
+                    </div>
+                    <div class="div_inputs">
+                        <input type="password" />
+                    </div>
+                </div>
+
+            </form>
+            <div class="groupbtn">
+                <div class="image">
+                    <img  onclick=" login()" class="mouse" src="/api/assets/images/login/ic_login.png" alt="">
+                </div>
+                <div class="image" style="float:none;    margin-right: 29%;">
+                    <img  onclick=" passToRegister()" class="mouse" src="/api/assets/images/login/ic_signin.png" alt="">
+                </div>
+                <div style="    margin-right: 40%;font-size: 14px;" class="text_style">
+                    <div>HOẶC</div>
+                </div>
+            </div>
+
+            <div class="group_social">
+                <div style="    font-size: 17px;" class="image_social text_style">
+                    <div>ĐĂNG NHẬP BẰNG</div>
+                </div>
+                <div class="image_social">
+                    <img class="mouse" style="margin-left: 63%;" src="/api/assets/images/login/ic_fb.png" alt="" width="70%" height="15%">
+                </div>
+                <div class="image_social">
+                    <img class="mouse" src="/api/assets/images/login/ic_gmail.png" alt="" width="70%">
+                </div>
+                <div style="margin-left:4%" class="image_social">
+                    <img class="mouse" src="/api/assets/images/login/ic_twitter.png" alt="" width="70%">
+                </div>
+            </div>
+
+        </div>
+        <div id="register" class="bg_containerx hidden" align="center">
+
+            <form action="">
+                <div class="group_name">
+                    <div class="name text_style">TÊN</div>
+                    <div class="name div_inputs name_input">
+                        <input type="email" />
+
+                    </div>
+                    <div class="name text_style">Họ</div>
+                    <div class="name div_inputs name_input">
+                        <input type="password" />
+                    </div>
+                </div>
+                <div class="div_form" align="right">
+                    <div class="div_text text_style" align="right">TÊN ĐĂNG NHẬP</div>
+                    <div class="div_text text_style" align="right">MẬT KHẨU</div>
+
+                </div>
+                <div class="div_input">
+                    <div class="div_inputs">
+                        <input type="email" />
+
+                    </div>
+                    <div class="div_inputs">
+                        <input type="password" />
+                    </div>
+                </div>
+
+            </form>
+            <div class="groupbtn">
+                <div class="image" style="float:none;    margin-right: 55%;">
+                    <img class="mouse" src="/api/assets/images/login/ic_signin.png" alt="">
+                </div>
+                <div style="    margin-right: 37%;font-size: 14px;" class="text_style">
+                    <div>
+                        <div style="float:left ;  margin-left: 25%;">ĐÃ CÓ TÀI KHOẢN</div>
+                        <div class="mouse" style="color:brown ;  margin-right: 30%;">
+                            <u onclick="passToLogin()">ĐĂNG NHẬP</u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.container -->
+    <script src="/api/assets/js/btn_click.js"></script>
+    <!-- jQuery -->
+    <script src="/api/assets/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/api/assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
