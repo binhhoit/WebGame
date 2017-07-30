@@ -1,5 +1,4 @@
-
-var game = new Phaser.Game(1500, 720, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1024, 720, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update, render: render });
 
 var btn = new Array();
 var txt = new Array();
@@ -28,15 +27,14 @@ function preload() {
 	// Function called first to load all the assets
 
 	// Load background 
-	game.load.image('bg', 'assets/images/unit1/bg6.jpg');
+	game.load.image('bg', 'assets/images/unit1/bg.png');
 
 	// Load image
-	game.load.image('carot', 'assets/images/unit1/cucarot.png');
-	game.load.image('nam', 'assets/images/unit1/mushroom1.png');
+	game.load.image('carot', 'assets/images/unit1/ic_carrot.png');
+	game.load.image('nam', 'assets/images/unit1/ic_mushroom.png');
 
 	// Load spritesheet
-	game.load.spritesheet('m_player', 'assets/images/unit1/tho1.png', 192.75, 284);
-
+	game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit.png', 236, 355, 16);
 
 	// Load sound
 	game.load.audio('Thokia', 'assets/sounds/unit1/1_Chutho.mp3');
@@ -52,9 +50,9 @@ function preload() {
 	game.load.audio('yeah', 'assets/sounds/unit1/yeah.mp3');
 	game.load.audio('1_2', 'assets/sounds/unit1/1_2.mp3');
 	// Load button sprite
-	game.load.image('btnNext', 'assets/images/unit1/button1.png');
+	game.load.image('btnNext', 'assets/images/unit1/ic_button_next.png');
 
-	game.load.image('nen', 'assets/images/unit1/nenchu.png');
+	game.load.image('nen', 'assets/images/unit1/bg_board.png');
 
 	// Gán Flag
 	flag[0] = -600;
@@ -69,22 +67,19 @@ function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
 	// BACKGROUND
-	bg = game.add.tileSprite(0, 0, 5096, 720, 'bg');
-	game.world.setBounds(0, 0, 5096, 720);
-
-
+	bg = game.add.tileSprite(0, 0, 1024, 720, 'bg');
+	game.world.setBounds(0, 0, 1024, 720);
 
 	// TIMER
 	// PLAYER
 
-	m_player = game.add.sprite(350, 150, 'm_player');
-	m_player.scale.setTo(1.5, 1.5);
+	m_player = game.add.sprite(350, 450, 'm_player');
+	m_player.scale.setTo(0.5, 0.5);
 
 	// add animation
-	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 10, true);
-	//game.add.tween(m_player ).to({ x: game.width }, 10000, Phaser.Easing.Linear.None, true);
-
-
+	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 16, true);
+	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
+	//frame begin
 	m_player.animations.add('idle', [0], 8, true);
 
 	// Add physic for player .. physic type > ARCADE
@@ -102,10 +97,7 @@ function create() {
 	m_mushroom = game.add.sprite(3300, 250, 'nam');
 	m_mushroom.scale.setTo(1.1, 1.1);
 
-
-
 	//btnx1 = game.add.button(1400,550, 'btnNext', actionOnClick, this); 
-
 
 	// Add sound
 	sound[0] = game.sound.add('Thokia');
@@ -124,8 +116,6 @@ function create() {
 	//m_sound[0] = game.add.audio('m_sound1');
 	sound[0].play();
 
-
-
 }
 
 function render() {
@@ -133,11 +123,12 @@ function render() {
 }
 
 
+function showRabbit() {
 
+	nen = game.add.tileSprite(0, 0, 1035, 769, 'nen');
+	nen.scale.setTo(0.5,0.5);
+	game.world.setBounds(0, 0, 400, 769);
 
-function add_so1() {
-	nen = game.add.tileSprite(0, 0, 5096, 720, 'nen');
-	game.world.setBounds(0, 0, 5096, 720);
 	var style = { font: 'bolder 300px Arial', fill: 'red' };
 	txt[0] = game.add.text(950, 150, '1', style);
 	txt[0].inputEnabled = true;
@@ -156,6 +147,7 @@ function add_so1() {
 	flag_sound = 1;
 	setTimeout(function () { btn[0] = game.add.button(1400, 620, 'btnNext', movenext1, this); btn[0].scale.setTo(0.5, 0.5); }, 5000);
 }
+
 function fail() {
 	txt[0].scale.setTo(0.5, 0.5);
 	//game.add.tween(txt[0]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
@@ -173,9 +165,6 @@ function movenext1() {
 	btn[0].alpha = 0;
 	m_player.animations.play('walk');
 }
-
-
-
 
 function add_so2() {
 	nen = game.add.tileSprite(0, 0, 5096, 720, 'nen');
@@ -207,6 +196,7 @@ function fail1() {
 	//game.add.tween(txt[2]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
 	game.add.tween(txt[2].scale).to({ x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
 }
+
 function movenext2() {
 	m_player.visible = true;
 	m_carot.visible = false;
@@ -220,8 +210,6 @@ function movenext2() {
 	btn[1].alpha = 0;
 	m_player.animations.play('walk');
 }
-
-
 
 function add_so3() {
 	nen = game.add.tileSprite(0, 0, 5096, 720, 'nen');
@@ -247,76 +235,62 @@ function add_so3() {
 	flag_sound = 5;
 	setTimeout(function () { btn[2] = game.add.button(1400, 620, 'btnNext', movenext3, this); btn[2].scale.setTo(0.5, 0.5); }, 5000);
 }
+
 function fail2() {
 	txt[4].scale.setTo(0.5, 0.5);
 	//game.add.tween(txt[4]).to({ y: [0, 150], x: [850, 950] }, 4000, Phaser.Easing.Quadratic.InOut, true);
 	game.add.tween(txt[4].scale).to({ x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
 }
+
 function movenext3() {
 	var winx = window.location = "unit1_game1";
-
 }
 
-
+var setPlay = false;
+function backPlayer() {
+	if (m_player.x < game.width / 2) {
+		m_player.animations.play('walk');
+	} else {
+		setPlay = true;
+		m_player.animations.play('idle');
+	}
+}
 
 function update() {
 	// Function called 60 times per second
 	//Check flag
 	//Flag 1
-	if (bg.x <= 0 && bg.x > -3500) {
-		bg.x -= direction;
-		m_carot.x -= direction;
-		m_mushroom.x -= direction;
-		m_player.animations.play('walk');
-	}
-	if (bg.x > 0) {
-		bg.x = 0;
-		m_player.animations.play('idle');
 
-	}
-	if (bg.x <= -3500) {
-		bg.x = -3500;
-		direction = 0;
-		m_player.animations.play('idle');
+	backPlayer();
 
-	}
-	// Xét flag 
-	//Flag 1
-	if (bg.x <= flag[0] && bg.x >= flag[0] - distance) {
-		bg.x = -600;
-		direction = 0;
-		speed = 0;
-		m_player.animations.play('idle');
-		if (check_flag == 0) {
-			add_so1();
-			check_flag = 1;
-		}
-
-	}
-	if (bg.x <= flag[1] && bg.x >= flag[1] - distance) {
-		bg.x = -1800;
-		direction = 0;
-		speed = 0;
-		m_player.animations.play('idle');
-		if (check_flag == 1) {
-			add_so2();
-			check_flag = 2;
-		}
-
-	}
-	if (bg.x <= flag[2] && bg.x >= flag[2] - distance) {
-		bg.x = -3000;
-		direction = 0;
-		speed = 0;
-		m_player.animations.play('idle');
-		if (check_flag == 2) {
-			add_so3();
-			check_flag = 3;
-		}
-
+	if (setPlay) {
+		showRabbit();
 	}
 
 
+	// }
+	// if (bg.x <= flag[1] && bg.x >= flag[1] - distance) {
+	// 	bg.x = -1800;
+	// 	direction = 0;
+	// 	speed = 0;
+	// 	m_player.animations.play('idle');
+	// 	if (check_flag == 1) {
+	// 		add_so2();
+	// 		check_flag = 2;
+	// 	}
+
+	// }
+	// if (bg.x <= flag[2] && bg.x >= flag[2] - distance) {
+	// 	bg.x = -3000;
+	// 	direction = 0;
+	// 	speed = 0;
+	// 	m_player.animations.play('idle');
+	// 	if (check_flag == 2) {
+	// 		add_so3();
+	// 		check_flag = 3;
+	// 	}
+
+	// }
 	// Flag Sound
 
 	if (flag_sound == 0) {
@@ -342,6 +316,7 @@ function update() {
 		flag_sound = -1;
 
 	}
+
 	function Delay1() {
 		m_player.visible = false;
 	}
