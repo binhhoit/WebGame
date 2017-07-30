@@ -28,6 +28,8 @@ function preload() {
 
 	// Load background 
 	game.load.image('bg', 'assets/images/unit1/bg.png');
+	game.load.image('bg_mushroom', 'assets/images/unit1/bg_mushroom.png');
+	game.load.image('bg_carrot', 'assets/images/unit1/bg_carrot.png');
 
 	// Load image
 	game.load.image('carot', 'assets/images/unit1/ic_carrot.png');
@@ -69,6 +71,8 @@ function create() {
 	// BACKGROUND
 	bg = game.add.tileSprite(0, 0, 1024, 720, 'bg');
 	game.world.setBounds(0, 0, 1024, 720);
+	bg_mushroom = game.add.tileSprite(0, 0, 1024, 720, 'bg_mushroom');
+	bg_carrot = game.add.tileSprite(0, 0, 1024, 720, 'bg_carrot');
 
 	// TIMER
 	// PLAYER
@@ -261,8 +265,8 @@ function update() {
 	//Check flag
 	//Flag 1
 
-	backPlayer();
-
+	//backPlayer();
+showRabbit();
 	if (setPlay) {
 		showRabbit();
 	}
