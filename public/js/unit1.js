@@ -36,7 +36,7 @@ function preload() {
 	game.load.image('text_rabbit', 'assets/images/unit1/text_rabbit.png');
 	game.load.image('rabbit_', 'assets/images/unit1/character/rabbit.png');
 	game.load.image('carrot_', 'assets/images/unit1/character/carrot.png');
-	game.load.image('mushroom', 'assets/images/unit1/mushroom.png');
+	game.load.image('mushroom_', 'assets/images/unit1/character/mushroom.png');
 
 
 	// Load spritesheet
@@ -144,12 +144,63 @@ function showRabbit() {
 
 }
 
-function btn() {
 
-	btnNext = game.add.button(700, 600, 'btnNext', mission, this);
-	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
+function showCarrot() {
+
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
+
+	carrot_ = game.add.tileSprite(-50, 700, 267, 416, 'carrot_');
+	carrot_.inputEnabled = true;
+	game.add.tween(carrot_).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number1 = game.add.tileSprite(1400, 700, 207, 516, 'text_number1');
+		text_rabbit = game.add.tileSprite(500, -50, 319, 66, 'text_carrot');
+		text_number1.inputEnabled = true;
+		game.add.tween(text_number1).to({ x: 750, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_carrot.inputEnabled = true;
+		game.add.tween(text_carrot).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
 
 }
+
+function showMushroom() {
+
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
+
+	mushroom_ = game.add.tileSprite(-50, 700, 267, 416, 'mushroom_');
+	mushroom_.inputEnabled = true;
+	game.add.tween(mushroom_).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number1 = game.add.tileSprite(1400, 700, 207, 516, 'text_number1');
+		text_mushroom = game.add.tileSprite(500, -50, 319, 66, 'text_mushroom');
+		text_number1.inputEnabled = true;
+		game.add.tween(text_number1).to({ x: 750, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_mushroom.inputEnabled = true;
+		game.add.tween(text_mushroom).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
+
+}
+
+function btn() {
+	btnNext = game.add.button(700, 600, 'btnNext', mission, this);
+	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
+}
+
+
 
 function mission() {
 
@@ -212,11 +263,11 @@ function update() {
 			console.log("cach 1");
 		}
 		if (backgroundCount == 2) {
-			showRabbit();
+			showCarrot();
 			console.log("cach 2");
 		}
 		if (backgroundCount == 3) {
-			showRabbit();
+			showMushroom();
 			console.log("cach 3");
 		}
 	}
