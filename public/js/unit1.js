@@ -5,8 +5,9 @@ var btnBack;
 var txt = new Array();
 var sound = new Array();
 var timer;
-var flag = new Array();
 
+var flag = false;
+var backgroundCount = 1;
 var m_player;
 var m_carrot;
 var m_mushroom;
@@ -47,11 +48,11 @@ function preload() {
 	game.load.audio('so1', 'assets/sounds/unit1/1_So1.mp3');
 	game.load.audio('Motchutho', 'assets/sounds/unit1/1_Motchutho.mp3');
 	game.load.audio('Thothaycarrot', 'assets/sounds/unit1/1_3.mp3');
-	game.load.audio('Motcarrot', 'assets/sounds/unit1/1_carrot.mp3');
+	game.load.audio('Motcarrot', 'assets/sounds/unit1/1_Carot.mp3');
 	game.load.audio('thothaymushroom', 'assets/sounds/unit1/1_5.mp3');
-	game.load.audio('mushroom', 'assets/sounds/unit1/1_Cay mushroom.mp3');
+	game.load.audio('mushroom', 'assets/sounds/unit1/1_Cay nam.mp3');
 	game.load.audio('carrot', 'assets/sounds/unit1/1_4.mp3');
-	game.load.audio('haimushroom', 'assets/sounds/unit1/1_ThoHaimushroom.mp3');
+	game.load.audio('haimushroom', 'assets/sounds/unit1/1_ThoHainam.mp3');
 	game.load.audio('yeah', 'assets/sounds/unit1/yeah.mp3');
 	game.load.audio('1_2', 'assets/sounds/unit1/1_2.mp3');
 	// Load button sprite
@@ -109,6 +110,7 @@ function create() {
 	//m_sound[0] = game.add.audio('m_sound1');
 	sound[0].play();
 
+	flag = true;
 }
 
 function render() {
@@ -159,55 +161,66 @@ function mission() {
 	text_number1.destroy();
 	rabbit_.destroy();
 	//m_player.destroy();
-	flag++;
+	backgroundCount++;
+	if (backgroundCount == 2) {
+		backPlayerBackgroundTwo();
+	}
+	if (backgroundCount == 3) {
+		backPlayerBackgroundThree();
+	}
 }
 
-var setPlay = false;
-var temp = 0;
-var flag = 0;
+function backPlayerBackgroundTwo() {
+	bg.destroy();
+	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
+}
 
+function backPlayerBackgroundThree() {
+	bg_carrot.destroy();
+	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
+
+}
+var loop;
+var temp = 0
 function backPlayer() {
 	if (m_player.x < game.width / 2) {
-		setPlay = false;
 		m_player.animations.play('walk');
+		loop = true;
+		temp = 0;
 	} else {
+		if (temp == 1) {
+			loop = false;
+		} else {
+			loop = true;
+		}
 		temp++;
-		setPlay = true;
 		m_player.animations.play('idle');
 	}
 }
+
 
 
 function update() {
 	// Function called 60 times per second
 	//Check flag
 	//Flag 1
-
 	backPlayer();
 
-	//
-	if (setPlay && temp == 1) {
-		showRabbit();
+	if (!loop && flag) {
+		if (backgroundCount == 1) {
+			showRabbit();
+			console.log("cach 1");
+		}
+		if (backgroundCount == 2) {
+			showRabbit();
+			console.log("cach 2");
+		}
+		if (backgroundCount == 3) {
+			showRabbit();
+			console.log("cach 3");
+		}
 	}
 
-	if (flag == 1) {
-		bg.destroy();
-		game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
-	}
-
-	// if (setPlay && temp == 2) {
-	// 	showRabbit();
-	// }
-
-	if (flag == 2) {
-		bg_carrot.destroy();
-		game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
-		showRabbit();
-	}
-
-	// if (setPlay && temp == 3) {
-	// 	showRabbit();
-	// }
 
 	if (flag_sound == 0) {
 
