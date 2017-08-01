@@ -156,7 +156,7 @@ function showCarrot() {
 	setTimeout(function () {
 
 		text_number1 = game.add.tileSprite(1400, 700, 207, 516, 'text_number1');
-		text_rabbit = game.add.tileSprite(500, -50, 319, 66, 'text_carrot');
+		text_carrot = game.add.tileSprite(500, -50, 319, 66, 'text_carrot');
 		text_number1.inputEnabled = true;
 		game.add.tween(text_number1).to({ x: 750, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_carrot.inputEnabled = true;
