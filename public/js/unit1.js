@@ -2,7 +2,6 @@ var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: prel
 
 var btnNext;
 var btnBack;
-var txt = new Array();
 var sound = new Array();
 var timer;
 
@@ -73,7 +72,6 @@ function create() {
 	bg_carrot = game.add.tileSprite(0, 0, 1366, 768, 'bg_carrot');
 	bg = game.add.tileSprite(0, 0, 1366, 768, 'bg');
 
-	// TIMER
 	// PLAYER
 	m_player = game.add.sprite(350, 450, 'm_player');
 	m_player.scale.setTo(0.5, 0.5);
@@ -81,7 +79,7 @@ function create() {
 	// add animation
 	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 16, true);
 	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
-	//frame begin
+	//frame stop
 	m_player.animations.add('idle', [0], 8, true);
 	// Add physic for player .. physic type > ARCADE
 	game.physics.enable(m_player, Phaser.Physics.ARCADE);
@@ -90,8 +88,6 @@ function create() {
 
 	// Setting camera follow player.
 	game.camera.follow(m_player);
-
-	//btnx1 = game.add.button(1400,550, 'btnNext', actionOnClick, this); 
 
 	// Add sound
 	sound[0] = game.sound.add('Thokia');
@@ -132,7 +128,7 @@ function showRabbit() {
 		text_number1 = game.add.tileSprite(1400, 700, 207, 516, 'text_number1');
 		text_rabbit = game.add.tileSprite(500, -50, 319, 66, 'text_rabbit');
 		text_number1.inputEnabled = true;
-		game.add.tween(text_number1).to({ x: 750, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number1).to({ x: 800, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_rabbit.inputEnabled = true;
 		game.add.tween(text_rabbit).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
@@ -149,16 +145,17 @@ function showCarrot() {
 
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	carrot_ = game.add.tileSprite(-50, 700, 267, 416, 'carrot_');
+	carrot_ = game.add.tileSprite(-50, 700, 113, 214, 'carrot_');
+	carrot_.scale.setTo(1.5, 1.5);
 	carrot_.inputEnabled = true;
-	game.add.tween(carrot_).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(carrot_).to({ x: 350, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number1 = game.add.tileSprite(1400, 700, 207, 516, 'text_number1');
-		text_carrot = game.add.tileSprite(500, -50, 319, 66, 'text_carrot');
+		text_carrot = game.add.tileSprite(500, -50, 352, 66, 'text_carrot');
 		text_number1.inputEnabled = true;
-		game.add.tween(text_number1).to({ x: 750, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number1).to({ x: 800, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_carrot.inputEnabled = true;
 		game.add.tween(text_carrot).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
@@ -174,16 +171,17 @@ function showMushroom() {
 
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	mushroom_ = game.add.tileSprite(-50, 700, 267, 416, 'mushroom_');
+	mushroom_ = game.add.tileSprite(-50, 700, 199, 173, 'mushroom_');
 	mushroom_.inputEnabled = true;
-	game.add.tween(mushroom_).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	mushroom_.scale.setTo(1.5, 1.5);
+	game.add.tween(mushroom_).to({ x: 300, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number1 = game.add.tileSprite(1400, 700, 207, 516, 'text_number1');
-		text_mushroom = game.add.tileSprite(500, -50, 319, 66, 'text_mushroom');
+		text_mushroom = game.add.tileSprite(500, -50, 346, 66, 'text_mushroom');
 		text_number1.inputEnabled = true;
-		game.add.tween(text_number1).to({ x: 750, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number1).to({ x: 800, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_mushroom.inputEnabled = true;
 		game.add.tween(text_mushroom).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
@@ -200,29 +198,67 @@ function btn() {
 	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
 }
 
-
-
 function mission() {
 
 	btnNext.pendingDestroy = true;
 	btnBack.pendingDestroy = true;
+
 	m_player.x = 0;
+
 	nen.destroy();
-	text_rabbit.destroy();
-	text_number1.destroy();
-	rabbit_.destroy();
-	//m_player.destroy();
+
 	backgroundCount++;
+
 	if (backgroundCount == 2) {
+		text_rabbit.destroy();
+		text_number1.destroy();
+		rabbit_.destroy();
+
 		backPlayerBackgroundTwo();
 	}
+
 	if (backgroundCount == 3) {
+		text_carrot.destroy();
+		text_number1.destroy();
+		carrot_.destroy();
 		backPlayerBackgroundThree();
+	}
+
+	if (backgroundCount == 4) {
+		backToNextGame();
 	}
 }
 
 function backPlayerBackgroundTwo() {
 	bg.destroy();
+	setTimeout(function () {
+		carrot = game.add.tileSprite(800, 400, 211, 400, 'carrot');
+		// var size = 0.5;
+		// var i = 0;
+		// var a = 0;
+		// while (i < 500) {
+		// 	i++;
+		// 	var check;
+		// 	a++;
+
+		// 	if (a < 30) {
+		// 		check = true;
+		// 	} else {
+		// 		if (a == 60)
+		// 			a = 0;
+		// 		check = false;
+		// 	}
+
+		// 	if (check) {
+		// 		size = size + 0.001;
+		// 	} else {
+		// 		size = size - 0.001;
+		// 	}
+
+		// 	console.log(i + "\t" + size);
+			 carrot.scale.setTo(size, size);
+		}
+	}, 1000);
 	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
@@ -231,8 +267,14 @@ function backPlayerBackgroundThree() {
 	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
+
+function backToNextGame() {
+	console.log("next the game");
+}
+
 var loop;
 var temp = 0
+
 function backPlayer() {
 	if (m_player.x < game.width / 2) {
 		m_player.animations.play('walk');
@@ -249,26 +291,25 @@ function backPlayer() {
 	}
 }
 
-
-
 function update() {
 	// Function called 60 times per second
-	//Check flag
-	//Flag 1
 	backPlayer();
 
 	if (!loop && flag) {
 		if (backgroundCount == 1) {
-			showRabbit();
-			console.log("cach 1");
+			setTimeout(function () {
+				showRabbit();
+			}, 3000);
 		}
 		if (backgroundCount == 2) {
-			showCarrot();
-			console.log("cach 2");
+			setTimeout(function () {
+				showCarrot();
+			}, 3000);
 		}
 		if (backgroundCount == 3) {
-			showMushroom();
-			console.log("cach 3");
+			setTimeout(function () {
+				showMushroom();
+			}, 3000);
 		}
 	}
 
@@ -276,7 +317,6 @@ function update() {
 	if (flag_sound == 0) {
 
 		flag_sound = -1;
-
 	}
 	if (flag_sound == 1) {
 		//So 1
