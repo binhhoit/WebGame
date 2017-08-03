@@ -9,12 +9,12 @@ var style={font:"70px Arial", fill:"#FFFFFF"}
 
 //BACKGROUND
 
-const BACKGROUND_IMAGE='assets/images/unit2_game1/nengame1.png';
-//const BACKGROUND_GRASS='assets/images/unit2_game1/grass.png';
+const BACKGROUND_IMAGE='assets/images/unit2_game1/nengame.png';
+
 const BACKGROUND_POSX = 0;
 const BACKGROUND_POSY = 0;
-const BACKGROUND_WIDTH = 1024;
-const BACKGROUND_HEIGHT = 720;
+const BACKGROUND_WIDTH = 1366;
+const BACKGROUND_HEIGHT = 768;
 
 // FLOWER
 
@@ -53,6 +53,6 @@ const SOUND_FAIL ="assets/sounds/unit2_1/Fail.mp3";
 const SOUND_END ="assets/sounds/unit2_1/End.mp3";
 
 // Button
-const BUTTON_IMAGE="assets/images/unit2_game1/button.png";
-const BUTTON_AGAIN="assets/images/unit2_game1/ButtonAgain.png";
-const BUTTON_NEXT="assets/images/unit2_game1/next.png";
+const BUTTON_IMAGE="assets/images/unit2_game1/ic_next.png";
+const BUTTON_AGAIN="assets/images/unit2_game1/ic_next.png";
+const BUTTON_NEXT="assets/images/unit2_game1/ic_next.png";

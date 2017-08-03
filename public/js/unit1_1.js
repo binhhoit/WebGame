@@ -9,21 +9,22 @@ function preload () {
 	
 	game.scale.forceOrientation(false, true);
 	
-    game.load.image('carot1', 'assets/images/carot1.png');
-	game.load.image('carot2', 'assets/images/carot2.png');
-	game.load.image('carot3', 'assets/images/carot3.png');
-	game.load.audio('music','assets/sounds/score.mp3');
-	game.load.audio('music1','assets/sounds/fail1.mp3');
-	game.load.audio('music3','assets/sounds/gioi_qua.mp3');
-	game.load.audio('music4','assets/sounds/hoan_ho.mp3');
-	game.load.audio('music5','assets/sounds/yeah.mp3');
-	game.load.audio('music6','assets/sounds/1_Game1.mp3');
-	game.load.image('gio', 'assets/images/gio.png');
-	game.load.image('btn','assets/images/button.png');
-	game.load.audio('music7','assets/sounds/fail1.mp3');
+    game.load.image('carot1', 'assets/images/unit1_game1/carot_1.png');
+	game.load.image('carot2', 'assets/images/unit1_game1/carot_2.png');
+	game.load.image('carot3', 'assets/images/unit1_game1/carot_2.png');
+	game.load.image('gio', 'assets/images/unit1_game1/gio.png');
+	game.load.image('btn','assets/images/unit1_game1/ic_next.png');
+
+	game.load.audio('music','assets/sounds/unit1_1/score.mp3');
+	game.load.audio('music1','assets/sounds/unit1_1/fail1.mp3');
+	game.load.audio('music3','assets/sounds/unit1_1/gioi_qua.mp3');
+	game.load.audio('music4','assets/sounds/unit1_1/hoan_ho.mp3');
+	game.load.audio('music5','assets/sounds/unit1_1/yeah.mp3');
+	game.load.audio('music6','assets/sounds/unit1_1/1_Game1.mp3');
+	game.load.audio('music7','assets/sounds/unit1_1/fail1.mp3');
 	
 	
-	game.load.image('background','assets/images/nengame1.png');
+	game.load.image('background','assets/images/unit1_game1/bg.png');
 	
 }
 

@@ -1,7 +1,4 @@
-﻿	// Initialize Phaser, and creates full game
-
-	//var game = new Phaser.Game(4262,3000,Phaser.CANVAS, 'gameContainer',{ preload: preload, create: create, update:update,render:render });
-	var game = new Phaser.Game(1024,720,Phaser.CANVAS, 'gameContainer',{ preload: preload, create: create, update:update,render:render });
+﻿var game = new Phaser.Game(1366,768,Phaser.CANVAS, 'gameContainer',{ preload: preload, create: create, update:update,render:render });
 
 	// Creates a new 'main' state that wil contain the game
 	var background;
@@ -223,7 +220,7 @@
     }
 	function Next(){
 		
-		window_next = window.location="/bcm/level2/game2/index.html";
+		window_next = window.location="api/unit1_game2";
 		
 	}
 	function Delay(){
@@ -253,7 +250,7 @@
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		//this.scale.pageAlignHorizontally = true;
 		//this.scale.pageAlignVertically = true;
-		this.scale.setScreenSize( true );
+		//this.scale.setScreenSize( true );
 	}
 	function render(){
 		/*game.debug.inputInfo(32, 32);*/

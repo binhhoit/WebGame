@@ -2,20 +2,23 @@ var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: prel
 
 var btnNext;
 var btnBack;
+
 var sound = new Array();
-var timer;
 
 var flag = false;
 var backgroundCount = 1;
+var showCarrot_ = false;
+var showMushroom_ = false;
+
 var m_player;
 var m_carrot;
 var m_mushroom;
+var carrot;
+var mushroom;
 
+var zoom = true;
+var loop;
 
-// Setting sound start
-var flag_sound = 0;
-var check_flag = 0;
-var speed = 2;
 function preload() {
 
 	game.scale.forceOrientation(false, true);
@@ -225,6 +228,11 @@ function mission() {
 	}
 
 	if (backgroundCount == 4) {
+		m_player.destroy();
+		mushroom_.destroy();
+		mushroom.destroy();
+		text_mushroom.destroy();
+		text_number1.destroy();
 		backToNextGame();
 	}
 }
@@ -233,47 +241,31 @@ function backPlayerBackgroundTwo() {
 	bg.destroy();
 	setTimeout(function () {
 		carrot = game.add.tileSprite(800, 400, 211, 400, 'carrot');
-		// var size = 0.5;
-		// var i = 0;
-		// var a = 0;
-		// while (i < 500) {
-		// 	i++;
-		// 	var check;
-		// 	a++;
-
-		// 	if (a < 30) {
-		// 		check = true;
-		// 	} else {
-		// 		if (a == 60)
-		// 			a = 0;
-		// 		check = false;
-		// 	}
-
-		// 	if (check) {
-		// 		size = size + 0.001;
-		// 	} else {
-		// 		size = size - 0.001;
-		// 	}
-
-		// 	console.log(i + "\t" + size);
-			 carrot.scale.setTo(size, size);
-		}
+		carrot.scale.setTo(0.5, 0.5)
+		showCarrot_ = true;
 	}, 1000);
+
 	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
 function backPlayerBackgroundThree() {
+	showCarrot_ = false;
+	carrot.destroy();
 	bg_carrot.destroy();
+
+	setTimeout(function () {
+		mushroom = game.add.tileSprite(800, 500, 279, 244, 'mushroom');
+		mushroom.scale.setTo(0.5, 0.5)
+		showMushroom_ = true;
+	}, 1000);
+
 	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
 
 function backToNextGame() {
-	console.log("next the game");
+	window_next = window.location = "/api/unit1_game1";
 }
-
-var loop;
-var temp = 0
 
 function backPlayer() {
 	if (m_player.x < game.width / 2) {
@@ -313,54 +305,32 @@ function update() {
 		}
 	}
 
-
-	if (flag_sound == 0) {
-
-		flag_sound = -1;
-	}
-	if (flag_sound == 1) {
-		//So 1
-		setTimeout(function () { sound[2].play(); }, 1000);
-		// Mot Chu tho
-		setTimeout(function () { sound[3].play(); }, 2000);
-
-		setTimeout(function () { sound[13].play(); }, 4000);
-		flag_sound = -1;
-	}
-	if (flag_sound == 2) {
-
-		setTimeout(function () { sound[4].play(); }, 1000);
-		game.time.events.add(Phaser.Timer.SECOND * 3, Delay1, this);
-
-
-		flag_sound = -1;
-
+	if (showCarrot_) {
+		if (zoom) {
+			setTimeout(function () {
+				zoom = false;
+				carrot.scale.setTo(0.5, 0.5);
+			}, 500);
+		} else {
+			setTimeout(function () {
+				zoom = true;
+				carrot.scale.setTo(0.55, 0.55);
+			}, 500);
+		}
 	}
 
-	function Delay1() {
-		m_player.visible = false;
-	}
-	if (flag_sound == 3) {
-		//So 1
-
-		setTimeout(function () { sound[2].play(); }, 1000);
-
-		setTimeout(function () { sound[5].play(); }, 2000);
-		setTimeout(function () { sound[11].play(); }, 4000);
-		flag_sound = -1;
-	}
-
-	if (flag_sound == 4) {
-		setTimeout(function () { sound[7].play(); }, 1000);
-		game.time.events.add(Phaser.Timer.SECOND * 4, Delay2, this);
-		setTimeout(function () { sound[2].play(); }, 8000);
-		setTimeout(function () { sound[10].play(); }, 9000);
-		setTimeout(function () { sound[12].play(); }, 11000);
-		flag_sound = -1;
-
-	}
-	function Delay2() {
-		m_player.visible = false;
+	if (showMushroom_) {
+		if (zoom) {
+			setTimeout(function () {
+				zoom = false;
+				mushroom.scale.setTo(0.5, 0.5);
+			}, 500);
+		} else {
+			setTimeout(function () {
+				zoom = true;
+				mushroom.scale.setTo(0.55, 0.55);
+			}, 500);
+		}
 	}
 
 }
