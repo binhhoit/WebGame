@@ -1,7 +1,8 @@
-var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create });
+var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create, render: render });
 
 var scoretext;
 var diem = 0;
+var basket;
 
 function preload() {
 
@@ -31,63 +32,89 @@ function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	game.world.setBounds(0, 0, 1366, 768);
 	var background = game.add.tileSprite(0, 0, 1366, 768, 'background');
-	//background.scale.setTo(0.7, 0.9);
+	//background.scale.setTo(1, 1);
 	var style = { font: "30px r0c0iLinotte", fill: "#000" };
 	//scoretext = game.add.text(0, 10, '0',style);
 
 	music6 = game.add.audio('music6');
 	music6.onDecoded.add(start, this);
 
-	var image = game.add.sprite(200, 400, 'carrot1');
-	image.scale.setTo(0.5, 0.5);
-	image.inputEnabled = true;
+	//1->5 carrot 1 / 6->8 carrot 2
+	var carrot_one = game.add.sprite(200, 400, 'carrot1');
+	carrot_one.scale.setTo(1, 1);
+	carrot_one.inputEnabled = true;
 
-	image.events.onInputDown.add(score, this);
-	image.events.onInputDown.add(action, this);
-	image.events.onInputDown.add(animation, this);
-	image.events.onInputDown.add(process1, this);
+	carrot_one.events.onInputDown.add(score, this);
+	carrot_one.events.onInputDown.add(action, this);
+	carrot_one.events.onInputDown.add(animation, this);
+	carrot_one.events.onInputDown.add(process1, this);
 
-	var image1 = game.add.sprite(350, 400, 'carrot2');
-	image1.scale.setTo(0.5, 0.5);
-	image1.inputEnabled = true;
+	var carrot_two = game.add.sprite(550, 200, 'carrot1');
+	carrot_two.scale.setTo(1, 1);
+	carrot_two.inputEnabled = true;
 
-	image1.events.onInputDown.add(fail, this);
-	image1.events.onInputDown.add(action1, this);
-	image1.events.onInputDown.add(animation3, this);
+	carrot_two.events.onInputDown.add(score1, this);
+	carrot_two.events.onInputDown.add(action, this);
+	carrot_two.events.onInputDown.add(animation1, this);
+	carrot_two.events.onInputDown.add(process1, this);
 
-	var image2 = game.add.sprite(550, 400, 'carrot1');
-	image2.scale.setTo(0.5, 0.5);
-	image2.inputEnabled = true;
+	var carrot_three = game.add.sprite(550, 500, 'carrot1');
+	carrot_three.scale.setTo(1, 1);
+	carrot_three.inputEnabled = true;
 
-	image2.events.onInputDown.add(score1, this);
-	image2.events.onInputDown.add(action, this);
-	image2.events.onInputDown.add(animation1, this);
-	image2.events.onInputDown.add(process1, this);
+	carrot_three.events.onInputDown.add(score2, this);
+	carrot_three.events.onInputDown.add(action, this);
+	carrot_three.events.onInputDown.add(animation1, this);
+	carrot_three.events.onInputDown.add(process1, this);
+
+	var carrot_four = game.add.sprite(450, 300, 'carrot1');
+	carrot_four.scale.setTo(1, 1);
+	carrot_four.inputEnabled = true;
+
+	carrot_four.events.onInputDown.add(score2, this);
+	carrot_four.events.onInputDown.add(action, this);
+	carrot_four.events.onInputDown.add(animation2, this);
+	carrot_four.events.onInputDown.add(process1, this);
+
+	var carrot_five = game.add.sprite(499, 300, 'carrot1');
+	carrot_five.scale.setTo(1, 1);
+	carrot_five.inputEnabled = true;
+
+	carrot_five.events.onInputDown.add(score2, this);
+	carrot_five.events.onInputDown.add(action, this);
+	carrot_five.events.onInputDown.add(animation2, this);
+	carrot_five.events.onInputDown.add(process1, this);
+
+	var carrot_six = game.add.sprite(120, 400, 'carrot2');
+	carrot_six.scale.setTo(1, 1);
+	carrot_six.inputEnabled = true;
+
+	carrot_six.events.onInputDown.add(score2, this);
+	carrot_six.events.onInputDown.add(action, this);
+	carrot_six.events.onInputDown.add(animation2, this);
+	carrot_six.events.onInputDown.add(process1, this);
+
+	var carrot_seven = game.add.sprite(350, 400, 'carrot2');
+	carrot_seven.scale.setTo(1, 1);
+	carrot_seven.inputEnabled = true;
+
+	carrot_seven.events.onInputDown.add(fail, this);
+	carrot_seven.events.onInputDown.add(action1, this);
+	carrot_seven.events.onInputDown.add(animation3, this);
+
+	var carrot_eight = game.add.sprite(750, 400, 'carrot2');
+	carrot_eight.scale.setTo(1, 1);
+	carrot_eight.inputEnabled = true;
+
+	carrot_eight.events.onInputDown.add(fail, this);
+	carrot_eight.events.onInputDown.add(action1, this);
+	carrot_eight.events.onInputDown.add(animation4, this);
 
 
-
-	var image3 = game.add.sprite(750, 400, 'carrot2');
-	image3.scale.setTo(0.5, 0.5);
-	image3.inputEnabled = true;
-
-	image3.events.onInputDown.add(fail, this);
-	image3.events.onInputDown.add(action1, this);
-	image3.events.onInputDown.add(animation4, this);
-
-
-
-
-	var image4 = game.add.sprite(950, 400, 'carrot1');
-	image4.scale.setTo(0.5, 0.5);
-	image4.inputEnabled = true;
-
-	image4.events.onInputDown.add(score2, this);
-	image4.events.onInputDown.add(action, this);
-	image4.events.onInputDown.add(animation2, this);
-	image4.events.onInputDown.add(process1, this);
-
-	var basket = game.add.sprite(20, 420, 'basket');
+	basket = game.add.sprite(79.8, 57.2, 'basket');
 	basket.scale.setTo(0.3, 0.3);
+	basket.inputEnabled = true;
+	basket.input.enableDrag();
 
 
 	//var btnNext = game.add.button(900, 500, 'btnNext', process, this);
@@ -96,6 +123,10 @@ function create() {
 
 }
 
+function render() {
+	game.debug.spriteInfo(basket, 32, 32);
+	//game.debug.spriteInfo(Apple_5,32,32);
+}
 
 function start() {
 
