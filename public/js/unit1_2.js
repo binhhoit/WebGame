@@ -1,18 +1,19 @@
-var game = new Phaser.Game(1366, 768, Phaser.AUTO, 'game_div', { preload: preload, create: create });
+var game = new Phaser.Game(1366, 768, Phaser.AUTO, 'game_div', { preload: preload, create: create, render: render });
 
 var scoretext;
 var diem = 0;
 var music;
+var mushroom_one, mushroom_two, mushroom_three, mushroom_four, mushroom_six, mushroom_seven;
 
 function preload() {
 
-	game.load.image('background', 'assets/mushrooms/unit1_game2/nengame1.png');
+	game.load.image('background', 'assets/images/unit1_game2/nengame1.png');
 
-	game.load.image('btnNext', 'assets/mushrooms/unit1_game2/ic_button_next.png');
-	game.load.image('basketMushroom1', 'assets/mushrooms/unit1_game2/basketMushroomone.png');
-	game.load.image('basketMushroom2', 'assets/mushrooms/unit1_game2/basketMushroomTwo.png');
+	game.load.image('btnNext', 'assets/images/unit1_game2/ic_button_next.png');
+	game.load.image('basketMushroom1', 'assets/images/unit1_game2/basketMushroomone.png');
+	game.load.image('basketMushroom2', 'assets/images/unit1_game2/basketMushroomTwo.png');
 
-	
+
 	game.load.audio('music', 'assets/sounds/unit1_2/score.mp3');
 	//game.load.audio('music2', 'assets/sounds/unit1_2/music.mp3');
 	game.load.audio('music1', 'assets/sounds/unit1_2/fail1.mp3');
@@ -32,47 +33,47 @@ function create() {
 	music4 = game.add.audio('music4');
 	music4.onDecoded.add(start, this);
 
-
-	var mushroom_one = game.add.sprite(400, 420, 'basketMushroom1');
+	mushroom_one = game.add.sprite(98.6, 529, 'basketMushroom1');
 	mushroom_one.scale.setTo(0.8, 0.8);
 	mushroom_one.inputEnabled = true;
-	mushroom_one.events.onInputDown.add(score, this);
-	mushroom_one.events.onInputDown.add(animation, this);
-	mushroom_one.events.onInputDown.add(process1, this);
 
-	var mushroom_two = game.add.sprite(400, 420, 'basketMushroom1');
+	mushroom_one.events.onInputDown.add(score, this);
+	mushroom_one.events.onInputDown.add(animationTrue, this);
+	mushroom_one.events.onInputDown.add(process, this);
+
+	mushroom_two = game.add.sprite(388.7, 270, 'basketMushroom1');
 	mushroom_two.scale.setTo(0.8, 0.8);
 	mushroom_two.inputEnabled = true;
 	mushroom_two.events.onInputDown.add(score, this);
-	mushroom_two.events.onInputDown.add(animation, this);
-	mushroom_two.events.onInputDown.add(process1, this);
+	mushroom_two.events.onInputDown.add(animationTrue, this);
+	mushroom_two.events.onInputDown.add(process, this);
 
-	var mushroom_three = game.add.sprite(400, 420, 'basketMushroom1');
+	mushroom_three = game.add.sprite(726.3, 64, 'basketMushroom1');
 	mushroom_three.scale.setTo(0.8, 0.8);
 	mushroom_three.inputEnabled = true;
 	mushroom_three.events.onInputDown.add(score, this);
-	mushroom_three.events.onInputDown.add(animation, this);
-	mushroom_three.events.onInputDown.add(process1, this);
+	mushroom_three.events.onInputDown.add(animationTrue, this);
+	mushroom_three.events.onInputDown.add(process, this);
 
-	var mushroom_four = game.add.sprite(400, 420, 'basketMushroom1');
+	mushroom_four = game.add.sprite(893, 64, 'basketMushroom1');
 	mushroom_four.scale.setTo(0.8, 0.8);
 	mushroom_four.inputEnabled = true;
 	mushroom_four.events.onInputDown.add(score, this);
-	mushroom_four.events.onInputDown.add(animation, this);
-	mushroom_four.events.onInputDown.add(process1, this);
+	mushroom_four.events.onInputDown.add(animationTrue, this);
+	mushroom_four.events.onInputDown.add(process, this);
 
 
-	var mushroom_six = game.add.sprite(600, 420, 'basketMushroom2');
+	mushroom_six = game.add.sprite(1079.1, 64, 'basketMushroom2');
 	mushroom_six.scale.setTo(0.8, 0.8);
 	mushroom_six.inputEnabled = true;
 	mushroom_six.events.onInputDown.add(fail, this);
-	mushroom_six.events.onInputDown.add(animation1, this);
+	mushroom_six.events.onInputDown.add(animationFalse, this);
 
-	var mushroom_seven = game.add.sprite(600, 420, 'basketMushroom2');
+	mushroom_seven = game.add.sprite(802, 532, 'basketMushroom2');
 	mushroom_seven.scale.setTo(0.8, 0.8);
 	mushroom_seven.inputEnabled = true;
 	mushroom_seven.events.onInputDown.add(fail, this);
-	mushroom_seven.events.onInputDown.add(animation1, this);
+	mushroom_seven.events.onInputDown.add(animationFalse_, this);
 
 
 	//var btnNext = game.add.button(900, 500, 'btnNext', process, this);
@@ -86,9 +87,9 @@ function create() {
 
 //}
 
-//function render() {
-//    game.debug.soundInfo(music, 20, 32);
-//}
+function render() {
+	//game.debug.spriteInfo(mushroom_one, 32, 32);
+}
 
 function start() {
 
@@ -112,43 +113,39 @@ function fail() {
 }
 
 
-function animation(mushroom) {
-	music = game.add.audio('music3');
-	music.play();
-	mushroom.inputEnabled = false;
-	diem++;
-	//scoretext.text = diem;
-	mushroom.animations.add('teeter');
-	mushroom.animations.play('teeter', 5, true);
-	game.add.tween(mushroom).to({ y: [100, 400], x: [100, 120] }, 2000, Phaser.Easing.Quadratic.InOut, true);
 
+function animationTrue(image) {
+	image.destroy();
 }
 
-function animation1(mushroom1) {
+function animationFalse(image) {
 
-	mushroom1.animations.add('teeter');
-	mushroom1.animations.play('teeter', 5, true);
-	game.add.tween(mushroom1).to({ y: [150, 430], x: [600, 600] }, 2000, Phaser.Easing.Quadratic.InOut, true);
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [1079.1, 1079.1], y: [-64, 64] }, 2000, Phaser.Easing.Quadratic.InOut, true);
 }
 
-function animation2(mushroom2) {
+function animationFalse_(image) {
 
-	mushroom2.animations.add('teeter');
-	mushroom2.animations.play('teeter', 5, true);
-	game.add.tween(mushroom2).to({ y: [150, 430], x: [800, 800] }, 2000, Phaser.Easing.Quadratic.InOut, true);
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [802, 802], y: [432, 532] }, 2000, Phaser.Easing.Quadratic.InOut, true);
 }
 
-function process1() {
+
+function process() {
 	if (diem >= 4) {
 		music = game.add.audio('music5');
 		music.play();
-		game.time.events.add(Phaser.Timer.SECOND * 3, Delay1, this);
+		setTimeout(function() {
+			delay();
+		}, 2000);
 	}
 	else {
 		false;
 	}
 }
 
-function Delay1() {
+function delay() {
 	var winx = window.location = "/api/unit2";
 }
