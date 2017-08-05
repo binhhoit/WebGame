@@ -42,8 +42,7 @@ function preload() {
 
 
 	// Load spritesheet
-	//  game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit.png', 198.375, 283, 8);
-	game.load.spritesheet('m_player', 'assets/images/unit1/character/squirrel.png', 216, 256, 13);
+	game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit.png', 198.375, 283, 8);
 	game.load.spritesheet('m_player_carrot', 'assets/images/unit1/character/animation_rabbit_carrot.png', 198.375, 283, 8);
 
 	// Load sound
