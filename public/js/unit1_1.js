@@ -4,6 +4,7 @@ var scoretext;
 var diem = 0;
 var basket;
 
+
 function preload() {
 
 	game.scale.forceOrientation(false, true);
@@ -32,99 +33,83 @@ function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	game.world.setBounds(0, 0, 1366, 768);
 	var background = game.add.tileSprite(0, 0, 1366, 768, 'background');
-	//background.scale.setTo(1, 1);
 	var style = { font: "30px r0c0iLinotte", fill: "#000" };
-	//scoretext = game.add.text(0, 10, '0',style);
 
 	music6 = game.add.audio('music6');
 	music6.onDecoded.add(start, this);
 
 	//1->5 carrot 1 / 6->8 carrot 2
-	var carrot_one = game.add.sprite(200, 400, 'carrot1');
+	var carrot_one = game.add.sprite(277.7, 223.2, 'carrot1');
 	carrot_one.scale.setTo(1, 1);
 	carrot_one.inputEnabled = true;
 
 	carrot_one.events.onInputDown.add(score, this);
-	carrot_one.events.onInputDown.add(action, this);
 	carrot_one.events.onInputDown.add(animation, this);
 	carrot_one.events.onInputDown.add(process1, this);
 
-	var carrot_two = game.add.sprite(550, 200, 'carrot1');
+	var carrot_two = game.add.sprite(398.6, 223.2, 'carrot1');
 	carrot_two.scale.setTo(1, 1);
 	carrot_two.inputEnabled = true;
 
 	carrot_two.events.onInputDown.add(score1, this);
-	carrot_two.events.onInputDown.add(action, this);
 	carrot_two.events.onInputDown.add(animation1, this);
 	carrot_two.events.onInputDown.add(process1, this);
 
-	var carrot_three = game.add.sprite(550, 500, 'carrot1');
+	var carrot_three = game.add.sprite(779.3, 11, 'carrot1');
 	carrot_three.scale.setTo(1, 1);
 	carrot_three.inputEnabled = true;
 
 	carrot_three.events.onInputDown.add(score2, this);
-	carrot_three.events.onInputDown.add(action, this);
-	carrot_three.events.onInputDown.add(animation1, this);
+	carrot_three.events.onInputDown.add(animation2, this);
 	carrot_three.events.onInputDown.add(process1, this);
 
-	var carrot_four = game.add.sprite(450, 300, 'carrot1');
+	var carrot_four = game.add.sprite(721.5, 479.2, 'carrot1');
 	carrot_four.scale.setTo(1, 1);
 	carrot_four.inputEnabled = true;
 
 	carrot_four.events.onInputDown.add(score2, this);
-	carrot_four.events.onInputDown.add(action, this);
-	carrot_four.events.onInputDown.add(animation2, this);
+	carrot_four.events.onInputDown.add(animation3, this);
 	carrot_four.events.onInputDown.add(process1, this);
 
-	var carrot_five = game.add.sprite(499, 300, 'carrot1');
+	var carrot_five = game.add.sprite(878, 479.2, 'carrot1');
 	carrot_five.scale.setTo(1, 1);
 	carrot_five.inputEnabled = true;
 
 	carrot_five.events.onInputDown.add(score2, this);
-	carrot_five.events.onInputDown.add(action, this);
-	carrot_five.events.onInputDown.add(animation2, this);
+	carrot_five.events.onInputDown.add(animation4, this);
 	carrot_five.events.onInputDown.add(process1, this);
 
-	var carrot_six = game.add.sprite(120, 400, 'carrot2');
+	var carrot_six = game.add.sprite(53.6, 479.2, 'carrot2');
 	carrot_six.scale.setTo(1, 1);
 	carrot_six.inputEnabled = true;
 
 	carrot_six.events.onInputDown.add(score2, this);
-	carrot_six.events.onInputDown.add(action, this);
-	carrot_six.events.onInputDown.add(animation2, this);
-	carrot_six.events.onInputDown.add(process1, this);
+	carrot_six.events.onInputDown.add(animation5, this);
 
-	var carrot_seven = game.add.sprite(350, 400, 'carrot2');
+	var carrot_seven = game.add.sprite(932.2, 11, 'carrot2');
 	carrot_seven.scale.setTo(1, 1);
 	carrot_seven.inputEnabled = true;
 
 	carrot_seven.events.onInputDown.add(fail, this);
-	carrot_seven.events.onInputDown.add(action1, this);
-	carrot_seven.events.onInputDown.add(animation3, this);
+	carrot_seven.events.onInputDown.add(animation6, this);
 
-	var carrot_eight = game.add.sprite(750, 400, 'carrot2');
+	var carrot_eight = game.add.sprite(1092.3, 11, 'carrot2');
 	carrot_eight.scale.setTo(1, 1);
 	carrot_eight.inputEnabled = true;
 
 	carrot_eight.events.onInputDown.add(fail, this);
-	carrot_eight.events.onInputDown.add(action1, this);
-	carrot_eight.events.onInputDown.add(animation4, this);
+	carrot_eight.events.onInputDown.add(animation7, this);
 
 
-	basket = game.add.sprite(79.8, 57.2, 'basket');
-	basket.scale.setTo(0.3, 0.3);
-	basket.inputEnabled = true;
-	basket.input.enableDrag();
-
+	basket = game.add.sprite(59.8, 57.2, 'basket');
+	basket.scale.setTo(0.4, 0.4);
 
 	//var btnNext = game.add.button(900, 500, 'btnNext', process, this);
 	//btnNext.scale.setTo(0.3);
-
-
 }
 
 function render() {
-	game.debug.spriteInfo(basket, 32, 32);
+	//game.debug.spriteInfo(carrot_one, 32, 32);
 	//game.debug.spriteInfo(Apple_5,32,32);
 }
 
@@ -133,8 +118,6 @@ function start() {
 	music6.fadeIn(4000);
 
 }
-
-
 
 function score() {
 
@@ -173,75 +156,75 @@ function fail() {
 
 }
 
-function action(image) {
-	image.visible = image.scale.setTo(0.4);
-
-}
-function action1(image1) {
-
-	image1.visible = image1.scale.setTo(0.4);
-}
-
-function action(image2) {
-
-	image2.visible = image2.scale.setTo(0.4);
-}
-function action1(image3) {
-
-	image3.visible = image3.scale.setTo(0.4);
-}
-
-function action(image4) {
-
-	image4.visible = image4.scale.setTo(0.4);
-}
-
 function animation(image) {
 	image.inputEnabled = false;
 	diem++;
-	//scoretext.text = diem;
 	image.animations.add('teeter');
 	image.animations.play('teeter', 5, true);
-	game.add.tween(image).to({ y: [100, 400], x: [200, 50] }, 2000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(image).to({ x: [249.2, 33.1], y: [-7.3, 62.1] }, 2000, Phaser.Easing.Quadratic.InOut, true);
 
 }
 
-function animation1(image2) {
-	image2.inputEnabled = false;
+function animation1(image) {
+	image.inputEnabled = false;
 	diem++;
-	//scoretext.text = diem;
-	image2.animations.add('teeter');
-	image2.animations.play('teeter', 5, true);
-	game.add.tween(image2).to({ y: [100, 420], x: [200, 70] }, 2000, Phaser.Easing.Quadratic.InOut, true);
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [249.2, 61.4], y: [-7.3, 62.1] }, 2000, Phaser.Easing.Quadratic.InOut, true);
 }
 
-function animation2(image4) {
-	image4.inputEnabled = false;
+function animation2(image) {
+	image.inputEnabled = false;
 	diem++;
-	//scoretext.text = diem;
-	image4.animations.add('teeter');
-	image4.animations.play('teeter', 5, true);
-	game.add.tween(image4).to({ y: [100, 440], x: [200, 90] }, 2000, Phaser.Easing.Quadratic.InOut, true);
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [249.2, 99.7], y: [-7.3, 62.1] }, 3000, Phaser.Easing.Quadratic.InOut, true);
 }
 
-function animation3(image1) {
-	image1.animations.add('teeter');
-	image1.animations.play('teeter', 5, true);
-	game.add.tween(image1).to({ y: [250, 450], x: [350, 350] }, 1000, Phaser.Easing.Quadratic.InOut, true);
+function animation3(image) {
+	image.inputEnabled = false;
+	diem++;
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [249.2, 130.8], y: [-7.3, 62.1] }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 }
 
-function animation4(image3) {
-	image3.animations.add('teeter');
-	image3.animations.play('teeter', 5, true);
-	game.add.tween(image3).to({ y: [250, 450], x: [750, 750] }, 1000, Phaser.Easing.Quadratic.InOut, true);
+function animation4(image) {
+	image.inputEnabled = false;
+	diem++;
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [249.2, 162.1], y: [-7.3, 62.1] }, 3000, Phaser.Easing.Quadratic.InOut, true);
 }
+
+function animation5(image) {
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [53.6, 53.6], y: [379.2, 479.2] }, 1000, Phaser.Easing.Quadratic.InOut, true);
+}
+
+function animation6(image) {
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [932.2, 932.2], y: [-111, 11] }, 1000, Phaser.Easing.Quadratic.InOut, true);
+}
+
+function animation7(image) {
+	image.animations.add('teeter');
+	image.animations.play('teeter', 5, true);
+	game.add.tween(image).to({ x: [1092.3, 1092.3], y: [-111, 11] }, 1000, Phaser.Easing.Quadratic.InOut, true);
+}
+
+
 
 function process1() {
-	if (diem >= 3) {
+	if (diem >= 5) {
 		music = game.add.audio('music3');
 		music.play();
-		game.time.events.add(Phaser.Timer.SECOND * 3, Delay1, this);
+		setTimeout(function () {
+			Delay1;
+		}, 3000);
 	}
 	else {
 		false;

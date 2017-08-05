@@ -42,7 +42,9 @@ function preload() {
 
 
 	// Load spritesheet
-	game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit.png', 236, 355, 16);
+	//  game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit.png', 198.375, 283, 8);
+	game.load.spritesheet('m_player', 'assets/images/unit1/character/squirrel.png', 216, 256, 13);
+	game.load.spritesheet('m_player_carrot', 'assets/images/unit1/character/animation_rabbit_carrot.png', 198.375, 283, 8);
 
 	// Load sound
 	game.load.audio('Thokia', 'assets/sounds/unit1/1_Chutho.mp3');
@@ -76,14 +78,16 @@ function create() {
 	bg = game.add.tileSprite(0, 0, 1366, 768, 'bg');
 
 	// PLAYER
-	m_player = game.add.sprite(350, 450, 'm_player');
-	m_player.scale.setTo(0.5, 0.5);
+	m_player = game.add.sprite(0, 200, 'm_player');
+	m_player.scale.setTo(1.6, 1.6);
+
 
 	// add animation
-	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 16, true);
-	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
+	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6], 8, true);
+	game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 	//frame stop
-	m_player.animations.add('idle', [0], 8, true);
+	m_player.animations.add('idle', [0], 16, true);
+
 	// Add physic for player .. physic type > ARCADE
 	game.physics.enable(m_player, Phaser.Physics.ARCADE);
 	m_player.body.collideWorldBounds = true;
@@ -221,6 +225,11 @@ function mission() {
 	}
 
 	if (backgroundCount == 3) {
+		m_player.destroy();
+		m_player_carrot = game.add.sprite(0, 200, 'm_player_carrot');
+		m_player_carrot.scale.setTo(1.6, 1.6);
+		m_player_carrot.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		m_player_carrot.animations.add('idle', [0], 16, true);
 		text_carrot.destroy();
 		text_number1.destroy();
 		carrot_.destroy();
@@ -245,7 +254,7 @@ function backPlayerBackgroundTwo() {
 		showCarrot_ = true;
 	}, 1000);
 
-	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
+	game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
 function backPlayerBackgroundThree() {
@@ -255,11 +264,11 @@ function backPlayerBackgroundThree() {
 
 	setTimeout(function () {
 		mushroom = game.add.tileSprite(800, 500, 279, 244, 'mushroom');
-		mushroom.scale.setTo(0.5, 0.5)
+		mushroom.scale.setTo(0.7, 0.7)
 		showMushroom_ = true;
 	}, 1000);
 
-	game.add.tween(m_player).to({ x: game.width / 2 }, 11000, Phaser.Easing.Linear.None, true);
+	game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
 
@@ -268,7 +277,7 @@ function backToNextGame() {
 }
 
 function backPlayer() {
-	if (m_player.x < game.width / 2) {
+	if (m_player.x < game.width / 3) {
 		m_player.animations.play('walk');
 		loop = true;
 		temp = 0;
@@ -283,25 +292,45 @@ function backPlayer() {
 	}
 }
 
+function backPlayer_carrot() {
+	if (m_player_carrot.x < game.width / 3) {
+		m_player_carrot.animations.play('walk');
+		loop = true;
+		temp = 0;
+	} else {
+		if (temp == 1) {
+			loop = false;
+		} else {
+			loop = true;
+		}
+		temp++;
+		m_player_carrot.animations.play('idle');
+	}
+}
+
 function update() {
 	// Function called 60 times per second
-	backPlayer();
+	if (backgroundCount == 3) {
+		backPlayer_carrot();
+	} else {
+		backPlayer();
+	}
 
 	if (!loop && flag) {
 		if (backgroundCount == 1) {
 			setTimeout(function () {
 				showRabbit();
-			}, 3000);
+			}, 1000);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				showCarrot();
-			}, 3000);
+			}, 1000);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
 				showMushroom();
-			}, 3000);
+			}, 1000);
 		}
 	}
 
