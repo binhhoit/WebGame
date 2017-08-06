@@ -3,124 +3,130 @@
 	* Copyright 2013-2016 Start Bootstrap
 	* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
 	*/
-@font-face{
-    font-family: fs;
-    src:  url('/api/assets/fonts/fs.ttf'); /* IE9+ */
-}
+
+	@font-face {
+	    font-family: fs;
+	    src: url('/api/assets/fonts/fs.ttf');
+	    /* IE9+ */
+	}
+
 	body {
-	margin-top: 50px;
-	margin-bottom: 50px;
-	background: url(/api/assets/images/login/bg_login_register.png) no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	    margin-top: 50px;
+	    margin-bottom: 50px;
+	    background: url(/api/assets/images/login/bg_login_register.png) no-repeat center center fixed;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
 	}
 
-
-	.container{
+	.container {
 	    background: url(/api/assets/images/login/login.png);
-		background-size: 55% 80%;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		min-height: 650px;
-
+	    background-size: 55% 80%;
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    background-attachment: fixed;
+	    min-height: 650px;
 	}
-	.containerR{
+
+	.containerR {
 	    background: url(/api/assets/images/login/sign_in.png);
-		background-size: 55% 80%;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		min-height: 650px;
+	    background-size: 55% 80%;
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    background-attachment: fixed;
+	    min-height: 650px;
 	}
 
-	 .bg_container{
-		height: 50%;
-		padding-top: 13%;
-	} 
+	.bg_container {
+	    height: 50%;
+	    padding-top: 13%;
+	}
 
-	 .bg_containerx{
-		height: 50%;
-		padding-top: 13%;
-	} 
+	.bg_containerx {
+	    height: 50%;
+	    padding-top: 13%;
+	}
 
 	.div_text {
-		margin-bottom: 9%;
-		float: none;
+	    margin-bottom: 9%;
+	    float: none;
 	}
 
 	input {
-		font-size: 20pt;
-		width: 89%;
-		height: 54px;
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;				
+	    font-size: 20pt;
+	    width: 89%;
+	    height: 54px;
+	    -moz-border-radius: 10px;
+	    -webkit-border-radius: 10px;
 	}
 
-	.div_form{
-		width: 20%;
-		float: left;
-		margin-left: 25%;
-
+	.div_form {
+	    width: 20%;
+	    float: left;
+	    margin-left: 25%;
 	}
 
 	.div_input {
-		width: 30%;
-		margin-left: 20%;
-	
+	    width: 30%;
+	    margin-left: 20%;
 	}
 
-	.div_inputs{
-		margin-bottom: 5%;
-		font-family: fs;
-		font-size-adjust: 30px;
-		color: #000;
+	.div_inputs {
+	    margin-bottom: 5%;
+	    font-family: fs;
+	    font-size-adjust: 30px;
+	    color: #000;
 	}
 
 	.image {
-		float: left;
-		width: 14%;
-		margin-left: 8%;
-	}
-	.groupbtn{
-		margin-left: 42%;
+	    float: left;
+	    width: 14%;
+	    margin-left: 8%;
 	}
 
-	.image_social{
-		float: left;
-		margin-left: 9%;
-	}
-	.group_social{
-		margin-top: 2%;
-		width: 57%;
-    	margin-left: 11%;
+	.groupbtn {
+	    margin-left: 42%;
 	}
 
-	.text_style{
-		size: 10px;
-		color: #ffffff;
-		font-family: fs;
-		font-size: 29px;
+	.image_social {
+	    float: left;
+	    margin-left: 9%;
+	}
 
+	.group_social {
+	    margin-top: 2%;
+	    width: 57%;
+	    margin-left: 11%;
 	}
-	.hidden{
-		display: none;
+
+	.text_style {
+	    size: 10px;
+	    color: #ffffff;
+	    font-family: fs;
+	    font-size: 29px;
 	}
+
+	.hidden {
+	    display: none;
+	}
+
 	.name {
-		float: left;
-		margin-left: 3%;
-		margin-bottom: 3%;
+	    float: left;
+	    margin-left: 3%;
+	    margin-bottom: 3%;
 	}
+
 	.name_input {
-		width: 13%;
-		margin-left: 2%;
+	    width: 13%;
+	    margin-left: 2%;
 	}
-	.group_name{
-		margin-left: 39%;
-   	 	margin-bottom: -1%;
+
+	.group_name {
+	    margin-left: 39%;
+	    margin-bottom: -1%;
 	}
-	.mouse{
-		cursor:pointer;
+
+	.mouse {
+	    cursor: pointer;
 	}

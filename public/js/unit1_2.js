@@ -59,7 +59,7 @@ function create() {
 	mushroom_four.scale.setTo(0.8, 0.8);
 	mushroom_four.inputEnabled = true;
 	mushroom_four.events.onInputDown.add(score, this);
-	mushroom_four.events.onInputDown.add(animationTrue, this);
+		mushroom_four.events.onInputDown.add(animationTrue, this);
 	mushroom_four.events.onInputDown.add(process, this);
 
 

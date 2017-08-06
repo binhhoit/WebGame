@@ -1,187 +1,171 @@
-	// Initialize Phaser, and creates full game
+var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'gameContainer', { preload: preload, create: create, update: update, render: render });
 
-	var game = new Phaser.Game(1024,720, Phaser.CANVAS, 'gameContainer',{ preload: preload, create: create, update:update,render:render  });
-   
-	// Creates a new 'main' state that wil contain the game
-	var background;
-	var basket;
-	var text;
-	var Basket_1,Basket_2,Basket_3;
-	var sound = new Array(4);
-	var ScoreText;
-	var Score = 0;
-	var style;
-	var tween = new Array(4);
-	var count=0;
-	var button;
-	var button1;
-	var strText;
-	
-	//var sound =new Array();
-	// Function called first to load all the assetsme
-	function preload(){
+// Creates a new 'main' state that wil contain the game
+var background;
+var Bear_1, Bear_2, Bear_3;
+var sound = new Array(4);
+var Score = 0;
+var button;
+var button1;
+
+//var sound =new Array();
+// Function called first to load all the assetsme
+function preload() {
 	// load background
-		game.load.image('bg',BACKGROUND_IMAGE);
-		//game.scale.forceOrientation(false, true);
-		
-	//load soc
-		game.load.image('Soc1',SOC_IMAGE1);
-		game.load.image('Soc2',SOC_IMAGE2);
-		game.load.image('Soc3',SOC_IMAGE3);
+	game.load.image('bg', BACKGROUND_IMAGE);
+	//game.scale.forceOrientation(false, true);
+
+	//load StumpTree
+	game.load.image('StumpTree1', STUMP_TREE_1);
+	game.load.image('StumpTree2', STUMP_TREE_2);
+	game.load.image('StumpTree3', STUMP_TREE_3);
 
 	// load Basket
-		game.load.image('Basket_1',BASKET_1);
-		game.load.image('Basket_2',BASKET_2);
-		game.load.image('Basket_3',BASKET_3);
+	game.load.image('Bear_1', BEAR_1);
+	game.load.image('Bear_2', BEAR_2);
+	game.load.image('Bear_3', BEAR_3);
 
 
 	// load sound
-		game.load.audio('start',SOUND_START);
-		game.load.audio('Score_a',SOUND_SCORE);
-		game.load.audio('fail',SOUND_FAIL);
-		game.load.audio('end',SOUND_END);
-		game.load.audio('drop',SOUND_DROP);
+	game.load.audio('start', SOUND_START);
+	game.load.audio('Score_a', SOUND_SCORE);
+	game.load.audio('fail', SOUND_FAIL);
+	game.load.audio('end', SOUND_END);
+	game.load.audio('drop', SOUND_DROP);
 	// load button
-		//game.load.image('again',BUTTON_AGAIN);
-		//game.load.image('btn',BUTTON_IMAGE);
-		game.load.image('next',BUTTON_NEXT);
+	game.load.image('again', BUTTON_AGAIN);
+	game.load.image('btn', BUTTON_IMAGE);
+	game.load.image('next', BUTTON_NEXT);
 	// process responsive
 
-	}
+}
 
-	// Fuction called after 'preload' to setup the game  
-	function create(){ 
+// Fuction called after 'preload' to setup the game  
+function create() {
 	// create background
-		background = game.add.sprite(BACKGROUND_POSX,BACKGROUND_POSY,'bg');	
-			
-    // Set Score Text
-    	style = { font: "64px r0c0iLinotte",fill: "#f00"};
-	// create sprite Baskets
-				
+	background = game.add.sprite(BACKGROUND_POSX, BACKGROUND_POSY, 'bg');
 
-		// add sound
-		sound[0] = game.add.audio('start');
-		sound[0].play();
-		sound[1] =game.add.audio('Score_a');
-		sound[2] =game.add.audio('fail');
-		sound[3] =game.add.audio('end');
-		sound[4] =game.add.audio('drop');
+	// add sound
+	sound[0] = game.add.audio('start');
+	sound[0].play();
+	sound[1] = game.add.audio('Score_a');
+	sound[2] = game.add.audio('fail');
+	sound[3] = game.add.audio('end');
+	sound[4] = game.add.audio('drop');
 
-		// create soc
-      	Soc_1 = game.add.sprite(100,600,'Soc1');
-      	Soc_1.scale.setTo(0.2);
-		Soc_2 = game.add.sprite(400,600,'Soc2');
-      	Soc_2.scale.setTo(0.2);
-		Soc_3 = game.add.sprite(700,600,'Soc3');
-      	Soc_3.scale.setTo(0.2);
+	// create StumpTree
+	StumpTree_1 = game.add.sprite(560, 423.6, 'StumpTree1');
+	StumpTree_1.scale.setTo(1.2);
+	StumpTree_2 = game.add.sprite(826, 423.6, 'StumpTree2');
+	StumpTree_2.scale.setTo(1.2);
+	StumpTree_3 = game.add.sprite(1081, 423.6, 'StumpTree3');
+	StumpTree_3.scale.setTo(1.2);
 
-		
-		
-		Basket_1 = game.add.sprite(BASKET_1_POSX,BASKET_1_POSY,'Basket_1');
-		Basket_1.scale.setTo(0.2);
-		Basket_2 = game.add.sprite(BASKET_2_POSX,BASKET_2_POSY,'Basket_2');
-		Basket_2.scale.setTo(0.2);
-		Basket_3 = game.add.sprite(BASKET_3_POSX,BASKET_3_POSY,'Basket_3');
-		Basket_3.scale.setTo(0.2);
+	Bear_1 = game.add.sprite(BEAR_1_POSX, BEAR_1_POSY, 'Bear_1');
+	Bear_1.scale.setTo(0.8, 1);
+	Bear_2 = game.add.sprite(BEAR_2_POSX, BEAR_2_POSY, 'Bear_2');
+	Bear_2.scale.setTo(0.8, 1);
+	Bear_3 = game.add.sprite(BEAR_3_POSX, BEAR_3_POSY, 'Bear_3');
+	Bear_3.scale.setTo(0.8, 1);
 
-		//create drag and drop Basket		
-		Basket_1.inputEnabled = true;					//cho phep nhap						
-		Basket_1.input.enableDrag();                     //kich hoat keo tha
-		Basket_1.events.onInputDown.add(score_s, this);	//âm thanh khi kéo
-		Basket_1.events.onDragStop.add(stopDrag_1);		// quy định các luật dừng
-		Basket_2.inputEnabled = true;					
-		Basket_2.input.enableDrag();
-		Basket_2.events.onInputDown.add(score_s, this);
-		Basket_2.events.onDragStop.add(stopDrag_2);
-		Basket_3.inputEnabled = true;					
-		Basket_3.input.enableDrag();
-		Basket_3.events.onInputDown.add(score_s, this);
-		Basket_3.events.onDragStop.add(stopDrag_3);
-		
-    }
-	
-	function score_s(){
-		sound[4].play();		
-		}
-	
-	//drap and drop Basket 1
-		function stopDrag_1(){
-		Basket_1.scale.setTo(0.2);
-		if(Basket_1.y >300 && Basket_1.x >600 && Basket_1.x <900){
-			Basket_1.inputEnabled = false;	
-			Basket_1.x= '700';
-			Basket_1.y= '360';
-			Score++;
-			sound[1].play();
-			}else{
-					Basket_1.x= BASKET_1_POSX;
-					Basket_1.y= BASKET_1_POSY;
-					Basket_1.scale.setTo(0.2);
-					sound[2].play();
-					}
-		Process();							
-		}
-	//drag and drop Basket2
-	function stopDrag_2(){
-		Basket_2.scale.setTo(0.2);
-		if(Basket_2.y >300 && Basket_2.x >0 && Basket_2.x < 200){
-						Basket_2.inputEnabled = false;	
-						Basket_2.x= '80';
-						Basket_2.y= '320';
-						Score++;
-						sound[1].play();
-						}else{
-							
-									Basket_2.x= BASKET_2_POSX;
-									Basket_2.y= BASKET_2_POSY;
-									Basket_2.scale.setTo(0.2);
-									sound[2].play();
-									}
-		Process();		
-		}
-	//drag and drop Basket3
-		function stopDrag_3(){
-		Basket_3.scale.setTo(0.2);
-		if(Basket_3.y >300 && Basket_3.x >350 && Basket_3.x < 600){
-			Basket_3.inputEnabled = false;	
-			Basket_3.x= '400';
-			Basket_3.y= '400';
-			Score++;
-			sound[1].play();
-			}else{
-				Basket_3.x= BASKET_3_POSX;
-				Basket_3.y= BASKET_3_POSY;
-				Basket_3.scale.setTo(0.2);
-				sound[2].play();
-				}
-		Process();							
-		}
-	//drag and drop Basket4
+	//create drag and drop Basket		
+	Bear_1.inputEnabled = true;					//cho phep nhap						
+	Bear_1.input.enableDrag();                     //kich hoat keo tha
+	Bear_1.events.onInputDown.add(score_s, this);	//âm thanh khi kéo
+	Bear_1.events.onDragStop.add(stopDrag_1);		// quy định các luật dừng
+
+	Bear_2.inputEnabled = true;
+	Bear_2.input.enableDrag();
+	Bear_2.events.onInputDown.add(score_s, this);
+	Bear_2.events.onDragStop.add(stopDrag_2);
+
+	Bear_3.inputEnabled = true;
+	Bear_3.input.enableDrag();
+	Bear_3.events.onInputDown.add(score_s, this);
+	Bear_3.events.onDragStop.add(stopDrag_3);
+
+}
+
+function score_s() {
+	sound[4].play();
+}
+
+//drap and drop Basket 1
+function stopDrag_1() {
+	Bear_1.scale.setTo(0.8, 1);
+	if (Bear_1.y > 132 && Bear_1.y < 268 && Bear_1.x > 571 && Bear_1.x < 669) {
+		Bear_1.inputEnabled = false;
+		Bear_1.x = '618.5';
+		Bear_1.y = '142.5';
+		Score++;
+	} else {
+		Bear_1.x = BEAR_1_POSX;
+		Bear_1.y = BEAR_1_POSY;
+		Bear_1.scale.setTo(0.8, 1);
+		sound[2].play();
+	}
+	Process();
+}
+//drag and drop Basket2
+function stopDrag_2() {
+	Bear_2.scale.setTo(0.8, 1);
+	if (Bear_2.y > 132 && Bear_2.y < 268 && Bear_2.x > 830 && Bear_2.x < 943) {
+		Bear_2.inputEnabled = false;
+		Bear_2.x = '881.6';
+		Bear_2.y = '142.5';
+		Score++;
+		sound[1].play();
+	} else {
+
+		Bear_2.x = BEAR_2_POSX;
+		Bear_2.y = BEAR_2_POSY;
+		Bear_2.scale.setTo(0.8, 1);
+		sound[2].play();
+	}
+	Process();
+}
+//drag and drop Basket3
+function stopDrag_3() {
+	Bear_3.scale.setTo(0.8, 1);
+	if (Bear_3.y > 132 && Bear_3.y < 268 && Bear_3.x > 1086 && Bear_3.x < 1207) {
+		Bear_3.inputEnabled = false;
+		Bear_3.x = '1141';
+		Bear_3.y = '142.5';
+		Score++;
+		sound[1].play();
+	} else {
+		Bear_3.x = BEAR_3_POSX;
+		Bear_3.y = BEAR_3_POSY;
+		Bear_3.scale.setTo(0.8, 1);
+		sound[2].play();
+	}
+	Process();
+}
+//drag and drop Basket4
 
 
-	function Process(){			
-	 if ( Score == 3)
-    {   
+function Process() {
+	if (Score == 3) {
 		sound[3].play();
-		game.time.events.add(Phaser.Timer.SECOND * 3, Process2, this);     
-    }
-	}				
-	
-	function Process2()
-	{
-		game.add.tween(winx = window.location="/bcm/level3/game2/index.html").to( 
+		game.time.events.add(Phaser.Timer.SECOND * 3, Process2, this);
+	}
+}
+
+function Process2() {
+	game.add.tween(winx = window.location = "unit3_game2").to(
 		{ alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
-		
-	}
-	
-	
-   
-	function update(){		
-		game.scale.forceOrientation(false, true);
-		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-		this.scale.setScreenSize( true );		
-	}
-	function render() {
-     //game.debug.spriteInfo(Score,32,32);
-	 //game.debug.spriteInfo(Basket_4,32,32);
+
+}
+
+
+
+function update() {
+	game.scale.forceOrientation(false, true);
+	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+	//this.scale.setScreenSize(true);
+}
+
+function render() {
+	// game.debug.spriteInfo(Bear_1, 32, 32);
+	// game.debug.spriteInfo(StumpTree_1, 32, 500);
 }

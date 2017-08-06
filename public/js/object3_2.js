@@ -1,55 +1,55 @@
 //GAME_SIZE
 
-const GAME_WIDTH=window.innerWidth;
-const GAME_HEIGHT=window.innerHeight;
+const GAME_WIDTH = window.innerWidth;
+const GAME_HEIGHT = window.innerHeight;
 
 //STYLE TEXT
 
-var style={font:"70px Arial", fill:"#FFFFFF"}
+var style = { font: "70px Arial", fill: "#FFFFFF" }
 
 //BACKGROUND
 
-const BACKGROUND_IMAGE = 'assets/images/nen.png';
+const BACKGROUND_IMAGE = 'assets/images/unit3_game2/bg.png';
 const BACKGROUND_POSX = 0;
 const BACKGROUND_POSY = 0;
-const BACKGROUND_WIDTH = 1024;
-const BACKGROUND_HEIGHT = 720;
+const BACKGROUND_WIDTH = 1366;
+const BACKGROUND_HEIGHT = 768;
 
 
 
-const HUMATONG_1 ="assets/images/humatong.png";
+const HONEY_1 = "assets/images/unit3_game2/honey.png";
 
 
 
 // Basket
-const BASKET_IMAGE="assets/images/gio.png";
+const BASKET_IMAGE = "assets/images/unit3_game2/bear.png";
 
 // button 
-const BUTTON_IMAGE="assets/images/button.png";
-const BUTTON_AGAIN="assets/images/ButtonAgain.png";
-const BUTTON_NEXT="assets/images/next.png";
+const BUTTON_CHECK = "assets/images/unit3_game2/ic_button_check.png";
+const BUTTON_AGAIN = "assets/images/unit3_game2/ic_button_restart.png";
+const BUTTON_NEXT = "assets/images/unit3_game2/ic_button_next.png";
 //Position
 
 
-const HUMATONG_1_POSX = 220;
-const HUMATONG_1_POSY = 290;
+const HONEY_1_POSX = 520;
+const HONEY_1_POSY = 450;
 
-const HUMATONG_2_POSX = 370;
-const HUMATONG_2_POSY = 300;
+const HONEY_2_POSX = 670;
+const HONEY_2_POSY = 450;
 
-const HUMATONG_3_POSX = 520;
-const HUMATONG_3_POSY = 325;
+const HONEY_3_POSX = 820;
+const HONEY_3_POSY = 450;
 
-const HUMATONG_4_POSX = 660;
-const HUMATONG_4_POSY = 308;
+const HONEY_4_POSX = 960;
+const HONEY_4_POSY = 450;
 
-const HUMATONG_5_POSX = 820;
-const HUMATONG_5_POSY = 310;
+const HONEY_5_POSX = 1120;
+const HONEY_5_POSY = 450;
 
 // Load sound
 
-const SOUND_START ="assets/sounds/start_intro.mp3";
-const SOUND_SCORE ="assets/sounds/Score.mp3";
-const SOUND_FAIL ="assets/sounds/Fail.mp3";
-const SOUND_END ="assets/sounds/End.mp3";
+const SOUND_START = "assets/sounds/unit3_2/start_intro.mp3";
+const SOUND_SCORE = "assets/sounds/unit3_2/Score.mp3";
+const SOUND_FAIL = "assets/sounds/unit3_2/Fail.mp3";
+const SOUND_END = "assets/sounds/unit3_2/End.mp3";
 
