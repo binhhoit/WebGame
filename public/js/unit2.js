@@ -383,7 +383,7 @@ function update() {
     
 }*/
 
-var game = new Phaser.Game(1500, 720, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+/*var game = new Phaser.Game(1500, 720, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
     game.load.spritesheet('bot', 'assets/images/bee3.png', 1514.25, 1833, 8);
@@ -716,6 +716,250 @@ function update() {
 	}
 	
 	
+}*/
+var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update});
+
+var btnNext;
+var btnBack;
+
+var sound = new Array();
+
+var flag = false;
+var backgroundCount = 1;
+var showBee_ = false;
+var showButterfly_ = false;
+
+var m_flower;
+var m_butterfly;
+var m_bee;
+var bee;
+var butterfly;
+
+var zoom = true;
+var loop;
+var temp;
+
+function preload() {
+
+	game.scale.forceOrientation(false, true);
+	// Function called first to load all the assets
+
+	// Load background 
+	game.load.image('bg', 'assets/images/unit2/bg.png');
+	//game.load.image('bg_mushroom', 'assets/images/unit2/bg_mushroom.png');
+	//game.load.image('bg_carrot', 'assets/images/unit2/bg_carrot.png');
+
+	// Load image
+	game.load.image('text_number2', 'assets/images/unit2/text_number2.png');
+	game.load.image('text_flower', 'assets/images/unit2/texy_flower.png');
+	game.load.image('text_butterfly', 'assets/images/unit2/text_butterfly.png');
+	game.load.image('text_bee', 'assets/images/unit2/text_bee.png');
+	game.load.image('bee_', 'assets/images/unit2/ic_bee.png');
+	//game.load.image('butterfly_', 'assets/images/unit2/ic_butterfly.png');
+	game.load.image('flower_', 'assets/images/unit2/ic_flower.png');
+
+
+	// Load spritesheet
+	game.load.spritesheet('m_bee', 'assets/images/unit2/character/bee.png', 198.375, 283, 8);
+	game.load.spritesheet('m_butterfly', 'assets/images/unit2/character/butterfly.png', 198.375, 283, 8);
+
+	// Load sound
+	//game.load.audio('Thokia', 'assets/sounds/unit2/1_Chutho.mp3');
+
+
+	// Load button sprite
+	game.load.image('btnNext', 'assets/images/unit2/ic_button_next.png');
+	game.load.image('btnBack', 'assets/images/unit2/ic_button_back.png');
+
+	game.load.image('nen', 'assets/images/unit2/bg_board.png');
+
+}
+
+function create() {
+	// PHYSICS SYSTEM
+	game.physics.startSystem(Phaser.Physics.ARCADE);
+	game.world.setBounds(0, 0, 1366, 768);
+	// BACKGROUND
+	bg = game.add.tileSprite(0,0,1366,768,'bg');
+
+	// FLOWER
+	m_flower = game.add.tileSprite(700, 400, 161, 280, 'flower_');
+	m_flower.scale.setTo(1, 1);
+
+	m_flower = game.add.tileSprite(500, 400, 161, 280, 'flower_');
+	m_flower.scale.setTo(1, 1);
+	// add animation
+	//m_flower.animations.add('walk', [0, 1, 2, 3, 4, 5, 6], 8, true);
+	//game.add.tween(m_flower).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
+	//frame stop
+	//m_flower.animations.add('idle', [0], 16, true);
+
+	// Add physic for player .. physic type > ARCADE
+	game.physics.enable(m_flower, Phaser.Physics.ARCADE);
+	m_flower.body.collideWorldBounds = true;
+	m_flower.body.bounce.setTo(0.8, 0.8);
+
+	// Setting camera follow player.
+	game.camera.follow(m_flower);
+
+	
+	setTimeout(function () {
+		loop=false;
+		flag = true;
+	},3000);
+}
+
+function showFlower() {
+
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
+
+	flower_ = game.add.tileSprite(300, 190, 322, 280, 'flower_');
+	flower_.inputEnabled = true;
+	//game.add.tween(flower_).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number2 = game.add.tileSprite(1400, 700, 207, 516, 'text_number2');
+		text_flower = game.add.tileSprite(500, -50, 319, 66, 'text_flower');
+		text_number2.inputEnabled = true;
+		game.add.tween(text_number2).to({ x: 800, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_flower.inputEnabled = true;
+		game.add.tween(text_flower).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
+
 }
 
 
+function btn() {
+	btnNext = game.add.button(700, 600, 'btnNext', mission, this);
+	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
+}
+
+function mission() {
+
+	btnNext.pendingDestroy = true;
+	btnBack.pendingDestroy = true;
+
+	m_player.x = 0;
+
+	nen.destroy();
+
+	backgroundCount++;
+
+	if (backgroundCount == 2) {
+		text_rabbit.destroy();
+		text_number1.destroy();
+		rabbit_.destroy();
+
+		backPlayerBackgroundTwo();
+	}
+
+	if (backgroundCount == 3) {
+		m_player.destroy();
+		m_player_carrot = game.add.sprite(0, 200, 'm_player_carrot');
+		m_player_carrot.scale.setTo(1.6, 1.6);
+		m_player_carrot.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		m_player_carrot.animations.add('idle', [0], 16, true);
+		text_carrot.destroy();
+		text_number1.destroy();
+		carrot_.destroy();
+		backPlayerBackgroundThree();
+	}
+
+	if (backgroundCount == 4) {
+		m_player.destroy();
+		mushroom_.destroy();
+		mushroom.destroy();
+		text_mushroom.destroy();
+		text_number1.destroy();
+		backToNextGame();
+	}
+}
+
+function backPlayer() {
+	if (m_flower.x < game.width / 3) {
+		m_flower.animations.play('walk');
+		loop = true;
+		temp = 0;
+	} else {
+		if (temp == 1) {
+			loop = false;
+		} else {
+			loop = true;
+		}
+		temp++;
+		m_flower.animations.play('idle');
+	}
+}
+
+function backPlayer_carrot() {
+	if (m_player_carrot.x < game.width / 3) {
+		//m_player_carrot.animations.play('walk');
+		loop = true;
+		temp = 0;
+	} else {
+		if (temp == 1) {
+			loop = false;
+		} else {
+			loop = true;
+		}
+		temp++;
+		m_player_carrot.animations.play('idle');
+	}
+}
+
+function update() {
+	// Function called 60 times per second
+
+	if (!loop && flag) {
+		if (backgroundCount == 1) {
+			setTimeout(function () {
+				showFlower();
+			}, 1000);
+		}
+		if (backgroundCount == 2) {
+			setTimeout(function () {
+				showBee();
+			}, 1000);
+		}
+		if (backgroundCount == 3) {
+			setTimeout(function () {
+				showButterfly();
+			}, 1000);
+		}
+	}
+
+	if (showBee_) {
+		if (zoom) {
+			setTimeout(function () {
+				zoom = false;
+				carrot.scale.setTo(0.5, 0.5);
+			}, 500);
+		} else {
+			setTimeout(function () {
+				zoom = true;
+				carrot.scale.setTo(0.55, 0.55);
+			}, 500);
+		}
+	}
+
+	if (showButterfly_) {
+		if (zoom) {
+			setTimeout(function () {
+				zoom = false;
+				mushroom.scale.setTo(0.5, 0.5);
+			}, 500);
+		} else {
+			setTimeout(function () {
+				zoom = true;
+				mushroom.scale.setTo(0.55, 0.55);
+			}, 500);
+		}
+	}
+
+}
