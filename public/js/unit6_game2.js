@@ -106,7 +106,7 @@
 				frag += '<div class="card" data-id="'+ v.id +'"><div class="inside">\
 				<div class="front"><img src="'+ v.img +'"\
 				alt="'+ v.name +'" /></div>\
-				<div class="back"><img src="image/logo.png"\
+				<div class="back"><img src="assets/images/unit6_game2/logo.png"\
 				alt="laivanduc" /></div></div>\
 				</div>';
 			});
@@ -117,32 +117,32 @@
 	var cards = [
 		{
 			name: "so1",
-			img: "image/so1.png",
+			img: "assets/images/unit6_game2/so1.png",
 			id: 1,
 		},
 		{
 			name: "so2",
-			img: "image/so2.png",
+			img: "assets/images/unit6_game2/so2.png",
 			id: 2
 		},
 		{
 			name: "so3",
-			img: "image/so3.png",
+			img: "assets/images/unit6_game2/so3.png",
 			id: 3
 		},
 		{
 			name: "so4",
-			img: "image/so4.png",
+			img: "assets/images/unit6_game2/so4.png",
 			id: 4
 		}, 
 		{
 			name: "so5",
-			img: "image/so5.png",
+			img: "assets/images/unit6_game2/so5.png",
 			id: 5
 		},
 		{
 			name: "so6",
-			img: "image/so6.png",
+			img: "assets/images/unit6_game2/so6.png",
 			id: 6
 		},
 		

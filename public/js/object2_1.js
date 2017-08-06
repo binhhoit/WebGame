@@ -9,7 +9,7 @@ var style={font:"70px Arial", fill:"#FFFFFF"}
 
 //BACKGROUND
 
-const BACKGROUND_IMAGE='assets/images/unit2_game1/nengame.png';
+const BACKGROUND_IMAGE='assets/images/unit2_game1/bg.png';
 
 const BACKGROUND_POSX = 0;
 const BACKGROUND_POSY = 0;
