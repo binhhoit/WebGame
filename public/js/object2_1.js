@@ -1,58 +1,66 @@
 //GAME_SIZE
 
-const GAME_WIDTH=window.innerWidth;
-const GAME_HEIGHT=window.innerHeight;
+const GAME_WIDTH = window.innerWidth;
+const GAME_HEIGHT = window.innerHeight;
 
 //STYLE TEXT
 
-var style={font:"70px Arial", fill:"#FFFFFF"}
+var style = { font: "70px Arial", fill: "#FFFFFF" }
 
 //BACKGROUND
 
-const BACKGROUND_IMAGE='assets/images/unit2_game1/bg.png';
+const BACKGROUND_IMAGE = 'assets/images/unit2_game1/bg.png';
 
 const BACKGROUND_POSX = 0;
 const BACKGROUND_POSY = 0;
 const BACKGROUND_WIDTH = 1366;
 const BACKGROUND_HEIGHT = 768;
 
-// FLOWER
+// BEE
 
-const FLOWER_1 ="assets/images/unit2_game1/flower1.png";
-const FLOWER_2 ="assets/images/unit2_game1/flower2.png";
-const FLOWER_3 ="assets/images/unit2_game1/flower3.png";
+const BEE_1 = "assets/images/unit2_game1/bee_1.png";
+const BEE_2 = "assets/images/unit2_game1/bee_2.png";
+const BEE_3 = "assets/images/unit2_game1/bee_3.png";
 
-// Basket
+//Position BEE
 
-const BASKET_IMAGE="assets/images/unit2_game1/gio.png";
-const BASKET_POSX=150;
-const BASKET_POSY=500;
+const BEE_0_POSX = 1185;
+const BEE_0_POSY = 237.2;
 
-//Position flower
+const BEE_1_POSX = 1100.9;
+const BEE_1_POSY = 4.7;
 
-const FLOWER_1_POSX =200;
-const FLOWER_1_POSY =180;
+const BEE_2_POSX = 734.4;
+const BEE_2_POSY = 5.7;
 
-const FLOWER_2_POSX = 360;
-const FLOWER_2_POSY = 180;
+const BEE_3_POSX = 816;
+const BEE_3_POSY = 494.2;
 
-const FLOWER_3_POSX = 520;
-const FLOWER_3_POSY = 180;
+const BEE_4_POSX = 998.8;
+const BEE_4_POSY = 356.5;
 
-const FLOWER_4_POSX = 680;
-const FLOWER_4_POSY = 180;
+const BEE_5_POSX = 468.7;
+const BEE_5_POSY = 386.1;
 
-const FLOWER_5_POSX = 840;
-const FLOWER_5_POSY = 180;
+const BEE_6_POSX = 776.6;
+const BEE_6_POSY = 272.1;
+
+const BEE_7_POSX = 592.7;
+const BEE_7_POSY = 205.6;
+
+const BEE_8_POSX = 915.9;
+const BEE_8_POSY = 120;
 
 
 // Load sound
-const SOUND_START ="assets/sounds/unit2_1/2_Game1.mp3";
-const SOUND_SCORE ="assets/sounds/unit2_1/Score.mp3";
-const SOUND_FAIL ="assets/sounds/unit2_1/Fail.mp3";
-const SOUND_END ="assets/sounds/unit2_1/End.mp3";
+const SOUND_START = "assets/sounds/unit2_1/2_Game1.mp3";
+const SOUND_SCORE = "assets/sounds/unit2_1/Score.mp3";
+const SOUND_FAIL = "assets/sounds/unit2_1/Fail.mp3";
+const SOUND_END = "assets/sounds/unit2_1/End.mp3";
+const SOUND_DROP = "assets/sounds/unit2_1/drop.mp3";
+
 
 // Button
-const BUTTON_IMAGE="assets/images/unit2_game1/ic_next.png";
-const BUTTON_AGAIN="assets/images/unit2_game1/ic_next.png";
-const BUTTON_NEXT="assets/images/unit2_game1/ic_next.png";
+const BUTTON_IMAGE = "assets/images/unit2_game1/ic_button_next.png";
+const BUTTON_AGAIN = "assets/images/unit2_game1/ic_button_next.png";
+const BUTTON_NEXT = "assets/images/unit2_game1/ic_button_next.png";

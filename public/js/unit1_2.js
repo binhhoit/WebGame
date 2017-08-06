@@ -59,7 +59,7 @@ function create() {
 	mushroom_four.scale.setTo(0.8, 0.8);
 	mushroom_four.inputEnabled = true;
 	mushroom_four.events.onInputDown.add(score, this);
-		mushroom_four.events.onInputDown.add(animationTrue, this);
+	mushroom_four.events.onInputDown.add(animationTrue, this);
 	mushroom_four.events.onInputDown.add(process, this);
 
 
@@ -137,7 +137,7 @@ function process() {
 	if (diem >= 4) {
 		music = game.add.audio('music5');
 		music.play();
-		setTimeout(function() {
+		setTimeout(function () {
 			delay();
 		}, 2000);
 	}
