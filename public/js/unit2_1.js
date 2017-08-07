@@ -256,10 +256,10 @@ function Process() {
 		button = game.add.button(1200, 600, 'next', next, this, 2, 1, 0);
 		button.scale.setTo(1.5);
 		sound[1].play();
-		
-		setTimeout(function() {
+
+		setTimeout(function () {
 			delay();
-			setTimeout(function() {
+			setTimeout(function () {
 				next();
 			}, 3000);
 		}, 1000);
@@ -276,13 +276,13 @@ function next() {
 
 }
 function delay() {
-	setTimeout(function() {
+	setTimeout(function () {
 		sound[3].play();
 	}, 2000);
 }
 
 function button() {
-	button1 = game.add.button(1200, 600,'again', ProcessAgain, this);
+	button1 = game.add.button(1200, 600, 'again', ProcessAgain, this);
 	button1.scale.setTo(1.5);
 }
 
