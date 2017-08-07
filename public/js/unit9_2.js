@@ -1,6 +1,6 @@
 	// Initialize Phaser, and creates full game
 
-	var game = new Phaser.Game(1024,720, Phaser.CANVAS, 'gameContainer',{ preload: preload, create: create, update:update,render:render  });
+	var game = new Phaser.Game(1366,768, Phaser.CANVAS, 'gameContainer',{ preload: preload, create: create, update:update,render:render  });
    
 	// Creates a new 'main' state that wil contain the game
 	var background;
@@ -23,7 +23,7 @@
 	// load background
 		game.load.image('bg',BACKGROUND_IMAGE);
 		//game.scale.forceOrientation(false, true);
-		game.load.audio('End',SOUND_END);
+		//game.load.audio('End',SOUND_END);
 	}
 
 	// Fuction called after 'preload' to setup the game  
@@ -35,7 +35,7 @@
     	style = { font: "64px r0c0iLinotte",fill: "#f00"};
 	// create sprite Birds
 				
-		sound[1] =game.add.audio('End');
+		// sound[1] =game.add.audio('End');
 		// add sound
 		/*sound[0] = game.add.audio('start');
 		sound[0].play();
@@ -51,7 +51,7 @@
 	function update(){		
 		game.scale.forceOrientation(false, true);
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-		this.scale.setScreenSize( true );		
+		//this.scale.setScreenSize( true );		
 	}
 	function render() {
      //game.debug.spriteInfo(Score,32,32);

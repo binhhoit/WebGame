@@ -62,5 +62,5 @@ const SOUND_DROP = "assets/sounds/unit2_1/drop.mp3";
 
 // Button
 const BUTTON_IMAGE = "assets/images/unit2_game1/ic_button_next.png";
-const BUTTON_AGAIN = "assets/images/unit2_game1/ic_button_next.png";
+const BUTTON_AGAIN = "assets/images/unit2_game1/ic_button_restart.png";
 const BUTTON_NEXT = "assets/images/unit2_game1/ic_button_next.png";
