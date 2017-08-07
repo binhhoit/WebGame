@@ -383,56 +383,60 @@ function update() {
     
 }*/
 
-/*var game = new Phaser.Game(1500, 720, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1366, 768, Phaser.AUTO, 'game_div', { preload: preload, create: create, update: update });
 
 function preload() {
-    game.load.spritesheet('bot', 'assets/images/bee3.png', 1514.25, 1833, 8);
-	game.load.spritesheet('khi', 'assets/images/tho1.png', 192.75, 284, 16);
-	game.load.spritesheet('buom', 'assets/images/buom2.png', 564.230769, 250, 13);
-	game.load.image('bg','assets/images/bg6.jpg');
-	game.load.image('hoa','assets/images/hoa1.png');
-	game.load.image('nen','assets/images/nenchu.png');
-	game.load.image('btn','assets/images/button1.png');
+	game.scale.forceOrientation(false, true);
+
+    game.load.spritesheet('bot', 'assets/images/unit2/bee3.png', 1514.25, 1833, 8);
+	//game.load.spritesheet('khi', 'assets/images/unit2/tho1.png', 192.75, 284, 16);
+	game.load.spritesheet('buom', 'assets/images/unit2/buom2.png', 564.230769, 250, 13);
+	game.load.image('bg','assets/images/unit2/bg.png');
+	game.load.image('hoa','assets/images/unit2/hoa1.png');
+
+	game.load.image('text_number2', 'assets/images/unit2/text_number2.png');
+	game.load.image('text_flower', 'assets/images/unit2/texy_flower.png');
+	game.load.image('text_butterfly', 'assets/images/unit2/text_butterfly.png');
+	game.load.image('text_bee', 'assets/images/unit2/text_bee.png');
+
+	game.load.image('nen','assets/images/unit2/bg_board.png');
+	game.load.image('btnNext', 'assets/images/unit1/ic_button_next.png');
+	game.load.image('btnBack', 'assets/images/unit1/ic_button_back.png');
 	
-	game.load.audio('1', 'assets/sound/2_2 bong hoa.mp3');
-	game.load.audio('2', 'assets/sound/2_2 con buom.mp3');
-	game.load.audio('3', 'assets/sound/2_2 con ong.mp3');
-	game.load.audio('4', 'assets/sound/2_2.mp3');
-	game.load.audio('5', 'assets/sound/2_3.mp3');
-	game.load.audio('6', 'assets/sound/2_4.mp3');
-	game.load.audio('7', 'assets/sound/2_5.mp3');
-	game.load.audio('8', 'assets/sound/2_Gioithieu.mp3');
-	game.load.audio('9', 'assets/sound/2_So 2.mp3');
+	game.load.audio('1', 'assets/sound/unit2/2_2 bong hoa.mp3');
+	game.load.audio('2', 'assets/sound/unit2/2_2 con buom.mp3');
+	game.load.audio('3', 'assets/sound/unit2/2_2 con ong.mp3');
+	game.load.audio('4', 'assets/sound/unit2/2_2.mp3');
+	game.load.audio('5', 'assets/sound/unit2/2_3.mp3');
+	game.load.audio('6', 'assets/sound/unit2/2_4.mp3');
+	game.load.audio('7', 'assets/sound/unit2/2_5.mp3');
+	game.load.audio('8', 'assets/sound/unit2/2_Gioithieu.mp3');
+	game.load.audio('9', 'assets/sound/unit2/2_So 2.mp3');
 	
-	
-	flag[0] = -2500;
 }
-var flag = new Array();
+var flag ;
+var loop;
+var temp =0;
 var sound = new Array();
-var bot;
 var distance = 1;
 var flag_sound = 0;
-//Speed di chuyen
-var direction = 2;
+var backgroundCount = 1;
 
-// Setting sound start
-var speed = 2;
 function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
-	//game.stage.backgroundColor = '#6CF';
-	bg = game.add.tileSprite(0,0,5096,720, 'bg');
-	game.world.setBounds(0,0,5096,720);
-	game.scale.forceOrientation(false, true);
+	game.world.setBounds(0, 0, 1366, 768);
+	// BACKGROUND
+	bg = game.add.tileSprite(0,0,1366,768,'bg');
 	
-	hoa = game.add.sprite(2500, 180, 'hoa');
-	hoa.scale.setTo(0.7, 0.7);
+	hoa = game.add.sprite(700, 400, 'hoa');
+	hoa.scale.setTo(0.5, 0.5);
 	
 	
     //  This sprite is using a texture atlas for all of its animation data
-    bot = game.add.sprite(2700, 130, 'bot');
-	bot1 = game.add.sprite(2800, 150, 'bot');
-	buom = game.add.sprite(2500, 200, 'buom');
+    /*bot = game.add.sprite(750, 300, 'bot');
+	bot1 = game.add.sprite(880, 320, 'bot');
+	buom = game.add.sprite(760, 400, 'buom');
 
 	bot.scale.setTo(0.1, 0.1);
 	bot1.scale.setTo(0.1, 0.1);
@@ -449,17 +453,17 @@ function create() {
     //  true means it will loop when it finishes
     bot.animations.play('run', 10, true);
 	bot1.animations.play('run', 10, true);
-	buom.animations.play('run', 5, true);
+	buom.animations.play('run', 5, true);*/
 
 	
-	khi = game.add.sprite(300, 200, 'khi');
-	khi.scale.setTo(1.3, 1.3);
-	khi.animations.add('run');
-	khi.animations.play('run', 10, true);
+	//khi = game.add.sprite(300, 200, 'khi');
+	//khi.scale.setTo(1.3, 1.3);
+	//khi.animations.add('run');
+	//khi.animations.play('run', 10, true);
 	
 	
 
-	game.camera.follow(khi);
+	game.camera.follow(hoa);
 	
 	sound[0] = game.sound.add('1');
 	sound[1] = game.sound.add('2');
@@ -471,188 +475,232 @@ function create() {
 	sound[7] = game.sound.add('8');
 	sound[8] = game.sound.add('9');
 
-	
+	sound[0].play();
+
+	flag = true;
 	
 }
 
+function btn() {
+	btnNext = game.add.button(700, 600, 'btnNext', mission, this);
+	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
+}
 
+function showFlower() {
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
+
+	hoa = game.add.tileSprite(-50, 700, 721, 664, 'hoa');
+	hoa.inputEnabled = true;
+	hoa.scale.setTo(0.5, 0.5);
+	game.add.tween(hoa).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number2 = game.add.tileSprite(1400, 700, 235, 516, 'text_number2');
+		text_flower = game.add.tileSprite(500, -50, 348, 66, 'text_flower');
+		text_number2.inputEnabled = true;
+		game.add.tween(text_number2).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_flower.inputEnabled = true;
+		game.add.tween(text_flower).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
+}
+
+function showBee() {
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
+	
+	bot = game.add.tileSprite(-50, 700, 1500, 1800, 'bot');
+	bot1 = game.add.tileSprite(-120, 750, 1500, 1800, 'bot');
+
+	bot.scale.setTo(0.1, 0.1);
+	bot1.scale.setTo(0.1, 0.1);
+
+	bot.inputEnabled = true;
+	bot1.inputEnabled = true;
+
+	game.add.tween(bot).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(bot1).to({ x: 410, y: 280 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number2 = game.add.tileSprite(1400, 700, 235, 516, 'text_number2');
+		text_bee = game.add.tileSprite(500, -50, 308, 66, 'text_bee');
+		text_number2.inputEnabled = true;
+		game.add.tween(text_number2).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_bee.inputEnabled = true;
+		game.add.tween(text_bee).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
+
+	
+}
+
+function showButterfly() {
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
+
+	buom = game.add.tileSprite(-50, 700, 450, 250, 'buom');
+	buom.inputEnabled = true;
+	buom.scale.setTo(1, 1);
+	game.add.tween(buom).to({ x: 300, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number2 = game.add.tileSprite(1400, 700, 235, 516, 'text_number2');
+		text_butterfly = game.add.tileSprite(500, -50, 352, 66, 'text_butterfly');
+		text_number2.inputEnabled = true;
+		game.add.tween(text_number2).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_butterfly.inputEnabled = true;
+		game.add.tween(text_butterfly).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
+
+	
+}
+
+function mission() {
+
+	btnNext.pendingDestroy = true;
+	btnBack.pendingDestroy = true;
+
+	//hoa.x = 0;
+
+	nen.destroy();
+
+	backgroundCount++;
+
+	if (backgroundCount == 2) {
+		text_flower.destroy();
+		text_number2.destroy();
+		hoa.destroy();
+
+		bg = game.add.tileSprite(0,0,1366,768,'bg');
+		hoa = game.add.sprite(700, 400, 'hoa');
+		hoa.scale.setTo(0.5, 0.5);
+		backPlayerBackgroundTwo();
+	}
+
+	if (backgroundCount == 3) {
+		text_bee.destroy();
+		text_number2.destroy();
+		hoa.destroy();
+		bot.destroy();
+		bot1.destroy();
+
+		bg = game.add.tileSprite(0,0,1366,768,'bg');
+		hoa = game.add.sprite(700, 400, 'hoa');
+		hoa.scale.setTo(0.5, 0.5);
+		backPlayerBackgroundThree();
+	}
+
+	if (backgroundCount == 4) {
+		hoa.destroy();
+		text_butterfly.destroy();
+		text_number2.destroy();
+		buom.destroy();
+		backToNextGame();
+	}
+}
+
+function backPlayerBackgroundTwo() {
+	setTimeout(function () {
+		bot = game.add.sprite(750, 300, 'bot');
+		bot1 = game.add.sprite(880, 320, 'bot');
+		bot.inputEnabled = true;
+		bot1.inputEnabled = true;
+
+		bot.scale.setTo(0.1, 0.1);
+		bot1.scale.setTo(0.1, 0.1);
+
+		bot.animations.add('run');
+		bot1.animations.add('run');
+
+	    bot.animations.play('run', 10, true);
+		bot1.animations.play('run', 10, true);
+
+	}, 500);
+
+	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
+}
+
+function backPlayerBackgroundThree() {
+	setTimeout(function () {
+		buom = game.add.sprite(760, 400, 'buom');
+		buom.scale.setTo(0.5, 0.5);
+		buom.inputEnabled = true;
+
+		buom.animations.add('run');
+		buom.animations.play('run', 5, true);
+
+	}, 500);
+
+	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
+
+}
+
+function backPlayer() {
+	if (hoa.x < game.width / 3) {
+		loop = true;
+		temp = 0;
+	} else {
+		if (temp == 1) {
+			loop = false;
+		} else {
+			loop = true;
+		}
+		temp++;
+	}
+}
+
+function backPlayer_carrot() {
+	if (backgroundCount ==3) {
+		loop = true;
+		temp = 0;
+	} else {
+		if (temp == 0) {
+			loop = false;
+		} else {
+			loop = true;
+		}
+		temp++;
+	}
+	backgroundCount ++;
+}
 
 function update() {
+	if (backgroundCount ==3 || backgroundCount ==4){
+		backPlayer_carrot();
+	} 
+	else 
+		backPlayer();
 
-	khi.x += 2;
-
-	
-	if(bot.x == 2700 && bot1.x == 2900){
-		
-		
-		
-		//bot = bot.animations.play('run', 10, true);
-		//bot1 = bot1.animations.play('run', 10, true);
-		bot.scale.setTo(0.2, 0.2);	
-		bot1.scale.setTo(0.2, 0.2);	
-		
-		hoa.visible = false;
-		buom.visible = false;
-		game.time.events.add(Phaser.Timer.SECOND * 5, Delay1, this);
-		
-		function Delay1(){
-			
-			
-			
-			bot = bot.animations.play('run', 10, true);
-			bot1 = bot1.animations.play('run', 10, true);
-			
-			
-			
-			var nen = game.add.tileSprite(0,0,5096,720, 'nen');
-			game.world.setBounds(0,0,5096,720);
-			var style = { font: 'bolder 300px Arial', fill: 'red'};
-  			var text = game.add.text(1950, 100, '2',style);
-			text.scale.setTo(0.5, 0.5);
-			game.add.tween(text.scale).to( { x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
-		
-			var style1 = { font: 'bolder 100px Arial', fill: 'red'};
-			var text1 = game.add.text(2100, 600, 'hai',style1);
-	
-			var style2 = { font: 'bolder 100px Arial', fill: 'black'};
-			var text2 = game.add.text(2300, 600, 'con ong',style2);
-			setTimeout(function(){btn = game.add.button(2900,620, 'btn', actionbtn, this); btn.scale.setTo(0.5, 0.5);}, 3000);
-			
-			
-			function actionbtn()
-			{
-			
-				nen.destroy();
-				text.destroy();
-				text1.destroy();
-				text2.destroy();
-				//bg.x  -= speed;
-				//direction = 3;
-				btn.destroy();
-			
-			}
-			
-		}		
-	}
-	
-
-	
-	if(flag[0])
+	if(!loop && flag)
 	{
-		
-		if(khi.x == 2000){
-			game.camera.follow(hoa);
-			khi.visible = false;
-			bot.visible = false;
-			bot1.visible = false;
-			buom.visible = false;
-			
-			flag_sound = 1;
-			
-			var nen = game.add.tileSprite(0,0,5096,720, 'nen');
-			game.world.setBounds(0,0,5096,720);
-			
-			var style = { font: 'bolder 300px Arial', fill: 'red'};
-  			var text = game.add.text(2100, 150, '2',style);
-			text.scale.setTo(0.5, 0.5);
-			game.add.tween(text.scale).to( { x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
-			
-			var style1 = { font: 'bolder 100px Arial', fill: 'red'};
-			var text1 = game.add.text(2200, 600, 'hai',style1);
-	
-			var style2 = { font: 'bolder 100px Arial', fill: 'black'};
-			var text2 = game.add.text(2400, 600, 'bông hoa',style2);
-			
-		
-			
-			setTimeout(function(){btn = game.add.button(3100,620, 'btn', actionbtn,this); btn.scale.setTo(0.5, 0.5);}, 4000);
-			function actionbtn()
-			{
-				
-				flag_sound = 2;
-				bot.visible = true;
-				bot1.visible = true;
-				nen.destroy();
-				text.destroy();
-				text1.destroy();
-				text2.destroy();
-				btn.destroy();
-				game.time.events.add(Phaser.Timer.SECOND * 3, delay1, this);
-			}
-			
-			function delay1(){
-				
-				bot.scale.setTo(0.2, 0.2);	
-				bot1.scale.setTo(0.2, 0.2);
-
-				khi.visible = false;
-				hoa.visible = false;
-				buom.visible = false;
-				
-				flag_sound = 3;
-				
-				var nen = game.add.tileSprite(0,0,5096,720, 'nen');
-				game.world.setBounds(0,0,5096,720);
-			
-				var style = { font: 'bolder 300px Arial', fill: 'red'};
-  				var text = game.add.text(2100, 150, '2',style);
-				text.scale.setTo(0.5, 0.5);
-				game.add.tween(text.scale).to( { x: 1.5, y: 1.5 }, 5000, Phaser.Easing.Quadratic.InOut, true);
-				
-				var style1 = { font: 'bolder 100px Arial', fill: 'red'};
-				var text1 = game.add.text(2200, 600, 'hai',style1);
-		
-				var style2 = { font: 'bolder 100px Arial', fill: 'black'};
-				var text2 = game.add.text(2400, 600, 'con ong',style2);
-					
-		
-			
-				setTimeout(function(){btn = game.add.button(3100,620, 'btn', actionbtn1,this); btn.scale.setTo(0.5, 0.5);}, 4000);
-				function actionbtn1()
-				{
-					flag_sound = 4;
-					bot.visible = false;
-					bot1.visible = false;
-					hoa.visible = true;
-					buom.visible = true;
-					nen.destroy();
-					text.destroy();
-					text1.destroy();
-					text2.destroy();
-					btn.destroy();
-					game.time.events.add(Phaser.Timer.SECOND * 3, delay2, this);
-				}
-				function delay2(){
-				
-					flag_sound = 5;
-					khi.visible = false;
-					hoa.visible = false;
-					buom.scale.setTo(0.8, 0.8);	
-
-					var nen = game.add.tileSprite(0,0,5096,720, 'nen');
-					game.world.setBounds(0,0,5096,720);
-			
-					var style = { font: 'bolder 300px Arial', fill: 'red'};
-  					var text = game.add.text(2100, 150, '2',style);
-					text.scale.setTo(0.5, 0.5);
-					game.add.tween(text.scale).to( { x: 1.5, y: 1.5 }, 4000, Phaser.Easing.Quadratic.InOut, true);
-				
-					var style1 = { font: 'bolder 100px Arial', fill: 'red'};
-					var text1 = game.add.text(2200, 600, 'hai',style1);
-		
-					var style2 = { font: 'bolder 100px Arial', fill: 'black'};
-					var text2 = game.add.text(2400, 600, 'con buom',style2);
-					
-		
-			
-					setTimeout(function(){btn = game.add.button(3100,620, 'btn', actionbtn,this); btn.scale.setTo(0.5, 0.5);}, 4000);
-					function actionbtn()
-					{
-				
-						var winx = window.location="http://localhost/bcm/level2/game1/index.html";
-					}
-				}
-			}
+		if(backgroundCount ==1){
+			setTimeout(function () {
+				showFlower();
+			},3000);
+		}
+		if (backgroundCount == 2) {
+			setTimeout(function () {
+				showBee();
+			}, 2000);
+		}
+		if (backgroundCount == 5) {
+			setTimeout(function () {
+				showButterfly();
+			}, 2000);
 		}
 	}
 	
@@ -716,8 +764,9 @@ function update() {
 	}
 	
 	
-}*/
-var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update});
+}
+
+/*var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update});
 
 var btnNext;
 var btnBack;
@@ -832,6 +881,7 @@ function showFlower() {
 		btn();
 	}, 8000);
 
+	loop=true;
 }
 
 
@@ -962,4 +1012,4 @@ function update() {
 		}
 	}
 
-}
+}*/
