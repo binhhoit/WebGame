@@ -138,16 +138,8 @@ function create() {
 	sound[2] = game.add.audio('fail');
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
-	// add tween
 
-	// add button
-	button = game.add.button(900, 600, 'btn', Process, this);
-	button.scale.setTo(0.4);
-
-	/*button = game.add.button(500, 570, 'btn',process,this, 2, 1, 0);
-button.scale.setTo(0.4);*/
-	/*process();*/
-
+	button();
 }
 
 function score_s() {
@@ -261,42 +253,41 @@ function Process() {
 
 	button.visible = false;
 	if (Score == 6) {
-		button = game.add.button(1200, 600, 'next', Next, this, 2, 1, 0);
+		button = game.add.button(1200, 600, 'next', next, this, 2, 1, 0);
 		button.scale.setTo(1.5);
 		sound[1].play();
-		game.time.events.add(Phaser.Timer.SECOND * 1, Delay, this);
-		/*var String_1 ='Hoan hô, bạn giỏi lắm'
-		var info = game.add.text(300, 40,String_1,style);*/
+		
+		setTimeout(function() {
+			delay();
+			setTimeout(function() {
+				next();
+			}, 3000);
+		}, 1000);
+
 	} else {
 		/*var String_2 ='Bạn ơi, thiếu rùi \n mình làm lại nhé'
 		var info = game.add.text(300, 40,String_2,style);*/
 		//Button();
 	}
 }
-function Next() {
+function next() {
 
-	window_next = window.location = "api/unit1_game2";
+	window_next = window.location = "/api/unit2_game2";
 
 }
-function Delay() {
-
-	game.add.tween(sound[3].play()).to(2000, Phaser.Easing.Linear.None, true);
+function delay() {
+	setTimeout(function() {
+		sound[3].play();
+	}, 2000);
 }
 
-function Button() {
-	bee[0].inputEnabled = false;
-	bee[1].inputEnabled = false;
-	bee[2].inputEnabled = false;
-	bee[3].inputEnabled = false;
-	bee[4].inputEnabled = false;
-	button1 = game.add.button(900, 600, 'again', ProcessAgain, this);
-	button1.scale.setTo(0.4);
+function button() {
+	button1 = game.add.button(1200, 600,'again', ProcessAgain, this);
+	button1.scale.setTo(1.5);
 }
+
 function ProcessAgain() {
 	game.state.start(game.state.current);
-	//game.state.restart();
-	//game.state.start(game.state.current);
-	//var winx = window.location="index.html";
 }
 
 // Function called 60 times per second

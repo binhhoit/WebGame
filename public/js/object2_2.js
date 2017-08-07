@@ -9,22 +9,22 @@ var style={font:"70px Arial", fill:"#FFFFFF"}
 
 //BACKGROUND
 
-const BACKGROUND_IMAGE='assets/images/nengame.png';
-//const BACKGROUND_GRASS='assets/images/grass.png';
+const BACKGROUND_IMAGE='assets/images/unit2_game2/bg.png';
+//const BACKGROUND_GRASS='assets/images/unit2_game2/grass.png';
 const BACKGROUND_POSX = 0;
 const BACKGROUND_POSY = 0;
-const BACKGROUND_WIDTH = 1024;
-const BACKGROUND_HEIGHT = 720;
+const BACKGROUND_WIDTH = 1366;
+const BACKGROUND_HEIGHT = 768;
 
 // FLOWER
 
-const FLOWER_1 ="assets/images/flower1.png";
-const FLOWER_2 ="assets/images/flower2.png";
-const FLOWER_3 ="assets/images/flower3.png";
+const FLOWER_1 ="assets/images/unit2_game2/bee1.png";
+const FLOWER_2 ="assets/images/unit2_game2/bee2.png";
+const FLOWER_3 ="assets/images/unit2_game2/bee3.png";
 
 // Basket
 
-const BASKET_IMAGE="assets/images/gio.png";
+const BASKET_IMAGE="assets/images/unit2_game2/bee1.png";
 const BASKET_POSX=150;
 const BASKET_POSY=500;
 
@@ -47,19 +47,19 @@ const FLOWER_5_POSY =200;
 
 
 // Load sound
-const SOUND_START ="assets/sounds/2_Game2.mp3";
-const SOUND_SCORE ="assets/sounds/Score.mp3";
-const SOUND_FAIL ="assets/sounds/Fail.mp3";
-const SOUND_END ="assets/sounds/End.mp3";
+const SOUND_START ="assets/sounds/unit2_2/2_Game2.mp3";
+const SOUND_SCORE ="assets/sounds/unit2_2/Score.mp3";
+const SOUND_FAIL ="assets/sounds/unit2_2/Fail.mp3";
+const SOUND_END ="assets/sounds/unit2_2/End.mp3";
 
 // Button
-const BUTTON_IMAGE="assets/images/button.png";
-const BUTTON_AGAIN="assets/images/ButtonAgain.png";
-const BUTTON_NEXT="assets/images/next.png";
+const BUTTON_IMAGE="assets/images/unit2_game2/ic_button_back.png";
+const BUTTON_AGAIN="assets/images/unit2_game2/ic_button_restart.png";
+const BUTTON_NEXT="assets/images/unit2_game2/ic_button_next.png";
 
 // BEE_IMAGE
- const BEE_IMAGE_1="assets/images/ong.png"
- const BEE_IMAGE_2="assets/images/ong1.png";
+ const BEE_IMAGE_1="assets/images/unit2_game2/bee1.png"
+ const BEE_IMAGE_2="assets/images/unit2_game2/bee2.png";
 
 // FLOWER_IMAGE
-const FLOWER_IMAGE="assets/images/hoa.png";
+const FLOWER_IMAGE="assets/images/unit2_game2/bee1.png";
