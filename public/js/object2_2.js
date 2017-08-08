@@ -64,29 +64,29 @@ const BUTTON_IMAGE = "assets/images/unit2_game2/ic_button_next.png";
 const BUTTON_AGAIN = "assets/images/unit2_game2/ic_button_restart.png";
 const BUTTON_NEXT = "assets/images/unit2_game2/ic_button_next.png";
 
-const Y_1 = 47.2;
-const X_1 = 464.7;
+const X_1 = 47.2;
+const Y_1 = 464.7;
 
-const Y_2 = 131.3;
-const X_2 = 324.9;
+const X_2 = 131.3;
+const Y_2 = 324.9;
 
-const Y_3 = 423.3;
-const X_3 = 475.9;
+const X_3 = 423.3;
+const Y_3 = 475.9;
 
-const Y_4 = 524.2;
-const X_4 = 319.8;
+const X_4 = 524.2;
+const Y_4 = 319.8;
 
-const Y_5 = 782.5;
-const X_5 = 472.8;
+const X_5 = 782.5;
+const Y_5 = 472.8;
 
-const Y_6 = 786.1;
-const X_6 = 148.5;
+const X_6 = 786.1;
+const Y_6 = 148.5;
 
-const Y_7 = 875;
-const X_7 = 311.7;
+const X_7 = 875;
+const Y_7 = 311.7;
 
-const Y_8 = 1146.5;
-const X_8 = 142.4;
+const X_8 = 1146.5;
+const Y_8 = 142.4;
 
-const Y_9 = 1151.3;
-const X_9 = 489.1;
+const X_9 = 1151.3;
+const Y_9 = 489.1;
