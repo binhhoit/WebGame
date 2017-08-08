@@ -1,68 +1,67 @@
 1//GAME_SIZE
 
-const GAME_WIDTH=window.innerWidth;
-const GAME_HEIGHT=window.innerHeight;
+const GAME_WIDTH = window.innerWidth;
+const GAME_HEIGHT = window.innerHeight;
 
 //STYLE TEXT
 
-var style={font:"70px Arial", fill:"#FFFFFF"}
+var style = { font: "70px Arial", fill: "#FFFFFF" }
 
 //BACKGROUND
 
-const BACKGROUND_IMAGE1 = 'assets/images/nen3.png';
-const BACKGROUND_IMAGE2 = 'assets/images/nen4.png';
-const BACKGROUND_IMAGE3 = 'assets/images/nen5.png';
+const BACKGROUND = 'assets/images/unit5_game1/bg.png';
 
 const BACKGROUND_POSX = 0;
 const BACKGROUND_POSY = 0;
-const BACKGROUND_WIDTH = 1024;
-const BACKGROUND_HEIGHT = 720;
-
-
-
-//basket
-const APPLE ="assets/images/apple.png";
-
-
+const BACKGROUND_WIDTH = 1366;
+const BACKGROUND_HEIGHT = 768;
 
 // button 
-const BUTTON_IMAGE="assets/images/button.png";
-const BUTTON_AGAIN="assets/images/ButtonAgain.png";
-const BUTTON_3="assets/images/so3.png";
-const BUTTON_4="assets/images/so4.png";
-const BUTTON_5="assets/images/so5.png";
-const BUTTON_31="assets/images/so3_1.png";
-const BUTTON_41="assets/images/so4_1.png";
-const BUTTON_51="assets/images/so5_1.png";
+const BUTTON_IMAGE = "assets/images/unit5_game1/ic_button_next.png";
+const BUTTON_AGAIN = "assets/images/unit5_game1/ic_button_restart.png";
 
-const BUTTON_sound="assets/images/sound.png";
+const BUTTON_3 = "assets/images/unit5_game1/ic_button_3.png";
+const BUTTON_4 = "assets/images/unit5_game1/ic_button_4.png";
+const BUTTON_5 = "assets/images/unit5_game1/ic_button_5.png";
+
+const BANANA = "assets/images/unit5_game1/banana.png";
+
 //position number
 
 const So_3_POSX = 230;
 const So_3_POSY = 150;
 
-const So_4_POSX = 430;
+const So_4_POSX = 530;
 const So_4_POSY = 150;
 
-const So_5_POSX = 630;
+const So_5_POSX = 830;
 const So_5_POSY = 150;
 
-const So_31_POSX = 230;
-const So_31_POSY = 150;
+const BANANA_1_POSX = 30;
+const BANANA_1_POSY = 450;
 
-const So_41_POSX = 430;
-const So_41_POSY = 150;
+const BANANA_2_POSX = 230;
+const BANANA_2_POSY = 450;
 
-const So_51_POSX = 630;
-const So_51_POSY = 150;
+const BANANA_3_POSX = 430;
+const BANANA_3_POSY = 450;
 
-const Sound_POSX = 20;
-const Sound_POSY = 40;
+const BANANA_4_POSX = 630;
+const BANANA_4_POSY = 450;
+
+const BANANA_5_POSX = 830;
+const BANANA_5_POSY = 450;
+
+const BANANA_6_POSX = 560;
+const BANANA_6_POSY = 450;
+
+const BANANA_7_POSX = 300;
+const BANANA_7_POSY = 450;
 
 // Load sound
-const SOUND_START ="assets/sounds/Start.mp3";
-const SOUND_DROP ="assets/sounds/drop.mp3";
-const SOUND_SCORE ="assets/sounds/Score.mp3";
-const SOUND_FAIL ="assets/sounds/Fail.mp3";
-const SOUND_END ="assets/sounds/End.mp3";
+const SOUND_START = "assets/sounds/unit5_1/Start.mp3";
+const SOUND_DROP = "assets/sounds/unit5_1/drop.mp3";
+const SOUND_SCORE = "assets/sounds/unit5_1/Score.mp3";
+const SOUND_FAIL = "assets/sounds/unit5_1/Fail.mp3";
+const SOUND_END = "assets/sounds/unit5_1/End.mp3";
 

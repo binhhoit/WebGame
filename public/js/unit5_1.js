@@ -1,6 +1,6 @@
 // Initialize Phaser, and creates full game
 
-var game = new Phaser.Game(1024, 720, Phaser.CANVAS, 'gameContainer', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'gameContainer', { preload: preload, create: create, update: update, render: render });
 
 // Creates a new 'main' state that wil contain the game
 var background;
@@ -21,9 +21,8 @@ var strText;
 // Function called first to load all the assetsme
 function preload() {
 	// load background
-	game.load.image('bg', BACKGROUND_IMAGE1);
+	game.load.image('bg', BACKGROUND);
 	//game.scale.forceOrientation(false, true);
-
 
 	// load sound
 	game.load.audio('start', SOUND_START);// âm thanh bài này ghi nhầm cần ghi âm lại
@@ -38,10 +37,7 @@ function preload() {
 	game.load.image('So4', BUTTON_4);
 	game.load.image('So5', BUTTON_5);
 
-	game.load.image('So41', BUTTON_41);
-	game.load.image('So51', BUTTON_51);
-
-	game.load.image('soundbt', BUTTON_sound);
+	game.load.image('banana', BANANA);
 	// process responsive
 
 }
@@ -50,9 +46,6 @@ function preload() {
 function create() {
 	// create background
 	background = game.add.sprite(BACKGROUND_POSX, BACKGROUND_POSY, 'bg');
-	// Set Score Text
-	style = { font: "64px r0c0iLinotte", fill: "#f00" };
-	// create sprite Apple
 
 	// add sound
 	sound[0] = game.add.audio('start');
@@ -66,17 +59,22 @@ function create() {
 	// create Basket
 
 	//load button
-	button3 = game.add.button(So_3_POSX, So_3_POSY, 'So3', Pass, this, 2, 1, 0);
-	button3.scale.setTo(0.3);
+	button3 = game.add.button(So_3_POSX, So_3_POSY, 'So3', Faile1, this, 2, 1, 0);
+	button3.scale.setTo(1.1, 1);
 
-	button4 = game.add.button(So_4_POSX, So_4_POSY, 'So4', Faile1, this, 2, 1, 0);
-	button4.scale.setTo(0.3);
+	button4 = game.add.button(So_4_POSX, So_4_POSY, 'So4', Pass, this, 2, 1, 0);
+	button4.scale.setTo(1.1, 1);
 
 	button5 = game.add.button(So_5_POSX, So_5_POSY, 'So5', Faile2, this, 2, 1, 0);
-	button5.scale.setTo(0.3);
+	button5.scale.setTo(1.1, 1);
 
-	button5 = game.add.button(Sound_POSX, Sound_POSY, 'soundbt', score_s1, this, 2, 1, 0);
-	button5.scale.setTo(0.3);
+	game.add.button(BANANA_1_POSX, BANANA_1_POSY, 'banana');
+	game.add.button(BANANA_7_POSX, BANANA_7_POSY, 'banana');
+	game.add.button(BANANA_6_POSX, BANANA_6_POSY, 'banana');
+	game.add.button(BANANA_5_POSX, BANANA_5_POSY, 'banana');
+
+
+
 }
 
 function score_s1() {
@@ -91,44 +89,34 @@ function score_s() {
 }
 
 function Pass() {
-	button3.scale.setTo(0.4)
+	button4.scale.setTo(1.2, 1.1)
 	score_s();
-	button4.inputEnabled = false;
+	button3.inputEnabled = false;
 	button5.inputEnabled = false;
-	var String_1 = 'Hoan hô, bạn giỏi lắm';
-	var info = game.add.text(300, 40, String_1, style);
 	game.time.events.add(Phaser.Timer.SECOND * 1, next, this);
 
 }
 function next() {
-	var winx = window.location = "index2.html";
+	var winx = window.location = "unit5_game1_2";
 }
+
 function Faile1() {
-	button41 = game.add.button(So_41_POSX, So_41_POSY, 'So41', Rong, this, 2, 1, 0);
-	button41.scale.setTo(0.3);
-	button3.inputEnabled = false;
+	button3.scale.setTo(1.2, 1.1)
+	button4.inputEnabled = false;
 	button5.inputEnabled = false;
 	sound[2].play();
 
-	var String_3 = 'Bạn ơi, sai rồi \nmình làm lại nhé';
-	var info = game.add.text(300, 40, String_3, style);
 	game.time.events.add(Phaser.Timer.SECOND * 1, Process1, this);
 
 }
 function Faile2() {
-	button51 = game.add.button(So_51_POSX, So_51_POSY, 'So51', Rong, this, 2, 1, 0);
-	button51.scale.setTo(0.3);
+	button5.scale.setTo(1.2, 1.1)
 	button3.inputEnabled = false;
 	button4.inputEnabled = false;
 	sound[2].play();
-	var String_3 = 'Bạn ơi, sai rồi \nmình làm lại nhé';
-	var info = game.add.text(300, 40, String_3, style);
 	game.time.events.add(Phaser.Timer.SECOND * 1, Process1, this);
 
 }
-function Rong()
-{ }
-
 function Process1() {
 	game.state.start(game.state.current);
 	//var winx = window.location="/index1.html";
@@ -136,14 +124,9 @@ function Process1() {
 }
 
 function update() {
-
-	var String_4 = Score;
-	var info = game.add.text(200, 40, String_4, style);
 	game.scale.forceOrientation(false, true);
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-	//this.scale.pageAlignHorizontally = true;
-	//this.scale.pageAlignVertically = true;
-	this.scale.setScreenSize(true);
+
 }
 function render() {
 	//game.debug.spriteInfo(Score,32,32);

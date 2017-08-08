@@ -59,19 +59,17 @@ function create() {
 	// create Basket
 
 	//load button
-	button3 = game.add.button(So_3_POSX, So_3_POSY, 'So3', Faile1, this, 2, 1, 0);
+	button3 = game.add.button(So_3_POSX, So_3_POSY, 'So3', Pass, this, 2, 1, 0);
 	button3.scale.setTo(1.1, 1);
 
 	button4 = game.add.button(So_4_POSX, So_4_POSY, 'So4', Faile2, this, 2, 1, 0);
 	button4.scale.setTo(1.1, 1);
 
-	button5 = game.add.button(So_5_POSX, So_5_POSY, 'So5', Pass, this, 2, 1, 0);
+	button5 = game.add.button(So_5_POSX, So_5_POSY, 'So5', Faile1, this, 2, 1, 0);
 	button5.scale.setTo(1.1, 1);
 
 	game.add.button(BANANA_1_POSX, BANANA_1_POSY, 'banana');
-	game.add.button(BANANA_2_POSX, BANANA_2_POSY, 'banana');
 	game.add.button(BANANA_3_POSX, BANANA_3_POSY, 'banana');
-	game.add.button(BANANA_4_POSX, BANANA_4_POSY, 'banana');
 	game.add.button(BANANA_5_POSX, BANANA_5_POSY, 'banana');
 
 
@@ -89,21 +87,21 @@ function score_s() {
 }
 
 function Pass() {
-	button5.scale.setTo(1.2, 1.1)
+	button3.scale.setTo(1.2, 1.1)
 	score_s();
-	button3.inputEnabled = false;
+	button5.inputEnabled = false;
 	button4.inputEnabled = false;
 	game.time.events.add(Phaser.Timer.SECOND * 1, next, this);
 
 }
 function next() {
-	var winx = window.location = "unit5_game1_3";
+	var winx = window.location = "unit5_game2";
 }
 
 function Faile1() {
-	button3.scale.setTo(1.2, 1.1)
+	button5.scale.setTo(1.2, 1.1)
+	button3.inputEnabled = false;
 	button4.inputEnabled = false;
-	button5.inputEnabled = false;
 	sound[2].play();
 
 	game.time.events.add(Phaser.Timer.SECOND * 1, Process1, this);

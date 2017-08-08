@@ -218,6 +218,16 @@ module.exports = router => {
 		res.render(__dirname + ("/view/level5/game1/index"));
 	});
 
+	router.get('/unit5_game1_2', (req, res) => {
+
+		res.render(__dirname + ("/view/level5/game1/index1"));
+	});
+
+	router.get('/unit5_game1_3', (req, res) => {
+
+		res.render(__dirname + ("/view/level5/game1/index2"));
+	});
+
 	router.get('/unit5_game2', (req, res) => {
 
 		res.render(__dirname + ("/view/level5/game2/index"));
