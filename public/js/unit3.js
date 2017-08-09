@@ -101,10 +101,10 @@ function btn() {
 function showBear() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	gau = game.add.tileSprite(-50, 700, 447, 264, 'gau');
+	gau = game.add.tileSprite(-50, 700, 496, 264, 'gau');
 	gau.inputEnabled = true;
 	gau.scale.setTo(1, 1);
-	game.add.tween(gau).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(gau).to({ x: 280, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
@@ -231,15 +231,15 @@ function backPlayerBackgroundThree() {
 	showBehive_= false;
 	bg_bee.destroy();
 	setTimeout(function () {
-		matong = game.add.sprite(500,450,'matong');
+		matong = game.add.sprite(485,325,'matong');
 		matong.scale.setTo(0.65,0.65);
 		matong.inputEnabled= true;
 
-		matong1 = game.add.sprite(790,435,'matong');
+		matong1 = game.add.sprite(810,380,'matong');
 		matong1.scale.setTo(0.5,0.5);
 		matong1.inputEnabled= true;
 
-		matong2 = game.add.sprite(910,440,'matong');
+		matong2 = game.add.sprite(935,350,'matong');
 		matong2.scale.setTo(0.65,0.65);
 		matong2.inputEnabled= true;
 
