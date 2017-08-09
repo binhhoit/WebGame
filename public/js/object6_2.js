@@ -5,8 +5,6 @@ const GAME_HEIGHT=window.innerHeight;
 
 //STYLE TEXT
 
-var style={font:"70px Arial", fill:"#FFFFFF"}
-
 //BACKGROUND
 
 const BACKGROUND_IMAGE = 'assets/images/unit6_game2/bg.png';
