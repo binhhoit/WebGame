@@ -26,31 +26,31 @@ function preload()  {
 	// Function called first to load all the assets
 
 	// Load background 
-	game.load.image('bg', 'assets/images/bg6.png');
+	game.load.image('bg', 'assets/images/unit5/bg.png');
 
 	// Load image
-	game.load.image('khi', 'assets/images/chukhi.png');
-	game.load.image('cay', 'assets/images/tree.png');
-	game.load.image('tao', 'assets/images/tao.png');
-	game.load.image('cay1', 'assets/images/banana tree.png');
-	game.load.image('chuoi', 'assets/images/banana.png');
+	game.load.image('khi', 'assets/images/unit5/chukhi.png');
+	game.load.image('cay', 'assets/images/unit5/tree.png');
+	game.load.image('tao', 'assets/images/unit5/tao.png');
+	game.load.image('cay1', 'assets/images/unit5/banana tree.png');
+	game.load.image('chuoi', 'assets/images/unit5/banana.png');
 	// Load spritesheet
-	game.load.spritesheet('m_player', 'assets/images/tho1.png', 192.75, 284);
+	game.load.spritesheet('m_player', 'assets/images/unit5/tho1.png', 192.75, 284);
 
 
 	// Load sound
-	game.load.audio('1','assets/sounds/5_Gioi thieu.mp3');
-	game.load.audio('2','assets/sounds/5_1.mp3');
-	game.load.audio('3','assets/sounds/5_So 5.mp3');
-	game.load.audio('4','assets/sounds/5_5 con khi.mp3');
-	game.load.audio('5','assets/sounds/5_2.mp3');
-	game.load.audio('6','assets/sounds/5_3.mp3');
-	game.load.audio('7','assets/sounds/5_5 qua tao.mp3');
-	game.load.audio('8','assets/sounds/3_4.mp3');
+	game.load.audio('1','assets/sounds/unit5/5_Gioi thieu.mp3');
+	game.load.audio('2','assets/sounds/unit5/5_1.mp3');
+	game.load.audio('3','assets/sounds/unit5/5_So 5.mp3');
+	game.load.audio('4','assets/sounds/unit5/5_5 con khi.mp3');
+	game.load.audio('5','assets/sounds/unit5/5_2.mp3');
+	game.load.audio('6','assets/sounds/unit5/5_3.mp3');
+	game.load.audio('7','assets/sounds/unit5/5_5 qua tao.mp3');
+	game.load.audio('8','assets/sounds/unit5/3_4.mp3');
 	// Load button sprite
-	game.load.image('btnNext', 'assets/images/button1.png');
+	game.load.image('btnNext', 'assets/images/unit5/button1.png');
 	
-	game.load.image('nen','assets/images/nenchu.png');
+	game.load.image('nen','assets/images/unit5/nenchu.png');
 
 	// Gán Flag
 	flag[0] = -1100;
@@ -81,7 +81,7 @@ function create() {
 	//game.add.tween(m_player ).to({ x: game.width }, 10000, Phaser.Easing.Linear.None, true);
 
 	//animations stop
-	m_player.animations.add('idle', [0], 8, true);
+	m_player.animations.add('idle', [8], 8, true);
 
 	// Add physic for player .. physic type > ARCADE
 	game.physics.enable(m_player, Phaser.Physics.ARCADE);
@@ -304,9 +304,6 @@ function update() {
 		cay1.x -=direction ;
 		chuoi.x -=direction ;
 
-		
-		
-		
 		m_player.animations.play('walk');
 	}
 	if(bg.x > 0)

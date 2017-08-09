@@ -8,17 +8,20 @@ function preload()  {
 
 	// Load background 
 	game.load.image('bg', 'assets/images/unit4/bg.png');
+	game.load.image('bg_1', 'assets/images/unit4/bg_1.png');
 
 	// Load image
 	game.load.image('cay', 'assets/images/unit4/ic_tree.png');
-	game.load.image('soc', 'assets/images/unit4/ic_squirrel.png');
+	game.load.image('msoc', 'assets/images/unit4/ic_squirrel.png');
 	game.load.image('hatde', 'assets/images/unit4/ic_chestnut.png');
+	game.load.image('asoc', 'assets/images/unit4/ic_soc.png');
+	game.load.image('sochatde', 'assets/images/unit4/ic_sochatde.png');
 	// Load spritesheet
 
-	game.load.image('text_number4', 'assets/images/unit3/text_number4.png');
-	game.load.image('text_tree', 'assets/images/unit3/text_tree.png');
-	game.load.image('text_squirrel', 'assets/images/unit3/text_squirrel.png');
-	game.load.image('text_chestnut', 'assets/images/unit3/text_chestnut.png');
+	game.load.image('text_number4', 'assets/images/unit4/text_number4.png');
+	game.load.image('text_tree', 'assets/images/unit4/text_tree.png');
+	game.load.image('text_squirrel', 'assets/images/unit4/text_squirrel.png');
+	game.load.image('text_chestnut', 'assets/images/unit4/text_chestnut.png');
 
 	// Load sound
 	game.load.audio('1', 'assets/sounds/unit4/4_Gioithieu.mp3');
@@ -51,6 +54,7 @@ var showBehive_;
 var toong;
 
 var zoom = true;
+var start =1;
 
 function create() {
 
@@ -86,22 +90,22 @@ function btn() {
 	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
 }
 
-function showBear() {
+function show1() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	gau = game.add.tileSprite(-50, 700, 447, 264, 'gau');
-	gau.inputEnabled = true;
-	gau.scale.setTo(1, 1);
-	game.add.tween(gau).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	cay = game.add.tileSprite(-50, 700, 350, 365, 'cay');
+	cay.inputEnabled = true;
+	cay.scale.setTo(1, 1);
+	game.add.tween(cay).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
-		text_number3 = game.add.tileSprite(1400, 700, 235, 516, 'text_number3');
-		text_bear = game.add.tileSprite(550, -50, 298, 66, 'text_bear');
-		text_number3.inputEnabled = true;
-		game.add.tween(text_number3).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-		text_bear.inputEnabled = true;
-		game.add.tween(text_bear).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
+		text_tree = game.add.tileSprite(550, -50, 318, 66, 'text_tree');
+		text_number4.inputEnabled = true;
+		game.add.tween(text_number4).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_tree.inputEnabled = true;
+		game.add.tween(text_tree).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -110,23 +114,23 @@ function showBear() {
 	}, 8000);
 }
 
-function showBehive() {
+function show2() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 	
-	toong1 = game.add.tileSprite(300,190,420,280,'toong');
-	toong1.scale.setTo(1,1);
-	toong1.inputEnabled = true;
+	msoc = game.add.tileSprite(-50,700,337,359,'msoc');
+	msoc.scale.setTo(1,1);
+	msoc.inputEnabled = true;
 
-	game.add.tween(toong1).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(msoc).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
-		text_number3 = game.add.tileSprite(1400, 700, 235, 516, 'text_number3');
-		text_beehive = game.add.tileSprite(530, -50, 258, 66, 'text_beehive');
-		text_number3.inputEnabled = true;
-		game.add.tween(text_number3).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-		text_beehive.inputEnabled = true;
-		game.add.tween(text_beehive).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
+		text_squirrel = game.add.tileSprite(530, -50, 315, 66, 'text_squirrel');
+		text_number4.inputEnabled = true;
+		game.add.tween(text_number4).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_squirrel.inputEnabled = true;
+		game.add.tween(text_squirrel).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -137,22 +141,22 @@ function showBehive() {
 	
 }
 
-function showHoney() {
+function show3() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	humatong = game.add.tileSprite(-50, 700, 442, 168, 'humatong');
-	humatong.inputEnabled = true;
-	humatong.scale.setTo(1.1, 1.1);
-	game.add.tween(humatong).to({ x: 300, y: 240 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	hatde = game.add.tileSprite(-50, 700, 263, 294, 'hatde');
+	hatde.inputEnabled = true;
+	hatde.scale.setTo(1.1, 1.1);
+	game.add.tween(hatde).to({ x: 340, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
-		text_number3 = game.add.tileSprite(1400, 700, 235, 516, 'text_number3');
-		text_honey = game.add.tileSprite(450, -50, 390, 66, 'text_honey');
-		text_number3.inputEnabled = true;
-		game.add.tween(text_number3).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-		text_honey.inputEnabled = true;
-		game.add.tween(text_honey).to({ x: 450, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
+		text_chestnut = game.add.tileSprite(450, -50, 289, 66, 'text_chestnut');
+		text_number4.inputEnabled = true;
+		game.add.tween(text_number4).to({ x: 780, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_chestnut.inputEnabled = true;
+		game.add.tween(text_chestnut).to({ x: 550, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -174,71 +178,74 @@ function mission() {
 	backgroundCount++;
 
 	if (backgroundCount == 2) {
-		text_bear.destroy();
-		text_number3.destroy();
-		gau.destroy();
+		text_tree.destroy();
+		text_number4.destroy();
+		cay.destroy();
 
-		bg_bee = game.add.tileSprite(0,0,1366,768,'bg_bee');
 		backPlayerBackgroundTwo();
 	}
 
 	if (backgroundCount == 3) {
-		text_beehive.destroy();
-		text_number3.destroy();
-		toong.destroy();
+		text_squirrel.destroy();
+		text_number4.destroy();
+		msoc.destroy();
+		bg.destroy();
 
-		bg = game.add.tileSprite(0,0,1366,768,'bg');
-		gau = game.add.sprite(500, 320, 'gau');
-		gau.scale.setTo(1, 1);
-		gau.inputEnabled = true;
+		bg_1 = game.add.tileSprite(0,0,1366,768,'bg_1');
+
 		backPlayerBackgroundThree();
 	}
 
 	if (backgroundCount == 4) {
-		hoa.destroy();
 		text_butterfly.destroy();
-		text_number2.destroy();
-		buom.destroy();
+		text_number4.destroy();
+
 		backToNextGame();
 	}
 }
 
 function backPlayerBackgroundTwo() {
-	bg.destroy();
+	start =0 ;
 	setTimeout(function () {
-		toong = game.add.sprite(720,12,'toong');
-		toong.scale.setTo(1,1);
-		toong.inputEnabled = true;
+		soc = game.add.sprite(50,450,'asoc');
+		soc.scale.setTo(1,1);
 
-		showBehive_=true;
+		soc1 = game.add.sprite(265,400,'asoc');
+		soc1.scale.setTo(1,1);
+
+		soc2 = game.add.sprite(550,450,'asoc');
+		soc2.scale.setTo(1,1);
+
+		soc3 = game.add.sprite(820,450,'asoc');
+		soc3.scale.setTo(1,1);
+
 	}, 1000);
 	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
 function backPlayerBackgroundThree() {
-	showBehive_= false;
-	bg_bee.destroy();
+	start =0 ;
 	setTimeout(function () {
-		matong = game.add.sprite(500,450,'matong');
-		matong.scale.setTo(0.65,0.65);
-		matong.inputEnabled= true;
+		sochatde = game.add.sprite(50,450,'sochatde');
+		sochatde.scale.setTo(1,1);
 
-		matong1 = game.add.sprite(790,435,'matong');
-		matong1.scale.setTo(0.5,0.5);
-		matong1.inputEnabled= true;
+		sochatde1 = game.add.sprite(300,500,'sochatde');
+		sochatde1.scale.setTo(1,1);
 
-		matong2 = game.add.sprite(910,440,'matong');
-		matong2.scale.setTo(0.65,0.65);
-		matong2.inputEnabled= true;
+		sochatde2 = game.add.sprite(550,500,'sochatde');
+		sochatde2.scale.setTo(1,1);
 
-	}, 1000);
+		sochatde3 = game.add.sprite(750,470,'sochatde');
+		sochatde3.scale.setTo(1,1);
+
+	}, 100);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
 
 function backPlayer() {
-	if (backgroundCount==0) {
+	if (start==0) {
 		loop = true;
 		temp = 0;
 	} else {
@@ -249,59 +256,27 @@ function backPlayer() {
 		}
 		temp++;
 	}
-	backgroundCount ++;
-}
-
-function backPlayer_2() {
-	if (gau.x < game.width /5) {
-		loop = true;
-		temp = 0;
-	} else {
-		if (temp == 1) {
-			loop = false;
-		} else {
-			loop = true;
-		}
-		temp++;
-	}
-}
-
-function backPlayer_3() {
-	if (backgroundCount ==4) {
-		loop = true;
-		temp = 0;
-	} else {
-		if (temp == 0) {
-			loop = false;
-		} else {
-			loop = true;
-		}
-		temp++;
-	}
-	backgroundCount ++;
+	start ++;
 }
 
 function update() {
-	if (backgroundCount ==4 || backgroundCount ==5){
-		backPlayer_3();
-	}
-	else 
-		backPlayer();
+
+	backPlayer();
 
 	if(!loop && flag){
-		if(backgroundCount ==2){
+		if(backgroundCount ==1){
 			setTimeout(function () {
-				showBear();
+				show1();
 			},3000);
+		}
+		if (backgroundCount == 2) {
+			setTimeout(function () {
+				show2();
+			}, 4000);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
-				showBehive();
-			}, 4000);
-		}
-		if (backgroundCount == 6) {
-			setTimeout(function () {
-				showHoney();
+				show3();
 			}, 3000);
 		}
 	}

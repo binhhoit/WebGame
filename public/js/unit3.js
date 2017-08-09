@@ -125,7 +125,7 @@ function showBear() {
 function showBehive() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 	
-	toong1 = game.add.tileSprite(300,190,420,280,'toong');
+	toong1 = game.add.tileSprite(-50,700,420,280,'toong');
 	toong1.scale.setTo(1,1);
 	toong1.inputEnabled = true;
 
