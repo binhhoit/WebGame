@@ -1,36 +1,48 @@
 
 
-var game = new Phaser.Game(1500, 720, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1500, 721, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
-    game.load.spritesheet('bot', 'assets/images/con chim.png', 1464.875, 987, 8);
-	game.load.spritesheet('khi', 'assets/images/tho1.png', 192.75, 284, 16);
 
-	game.load.image('bg','assets/images/bg6.jpg');
+	game.load.image('bg','assets/images/unit6/bg.png');
 
 
-	game.load.image('trung','assets/images/trứng.png');
-	game.load.image('totrung','assets/images/tổ trứng.png');
+	game.load.image('trung','assets/images/unit6/character/egg.png');
+	game.load.image('totrung','assets/images/unit6/character/nest.png');
 	
-	game.load.image('nen','assets/images/nenchu.png');
-	game.load.image('btn','assets/images/button1.png');
-	
-	game.load.audio('1', 'assets/sound/6_6 con chim.mp3');
-	game.load.audio('2', 'assets/sound/6_6 qua trung.mp3');
-	game.load.audio('3', 'assets/sound/6_ 6 to chim.mp3');
-	game.load.audio('4', 'assets/sound/6_2.mp3');
-	game.load.audio('5', 'assets/sound/6_3.mp3');
-	game.load.audio('6', 'assets/sound/6_4.mp3');
-	game.load.audio('7', 'assets/sound/6_5.mp3');
-	game.load.audio('8', 'assets/sound/6_gioi thieu.mp3');
-	game.load.audio('9', 'assets/sound/6_So 6.mp3');
-	game.load.audio('10', 'assets/sound/6_1.mp3');
+	game.load.image('bird', 'assets/images/unit6/ic_bird.png');
+	game.load.image('egg', 'assets/images/unit6/ic_egg.png');
+	game.load.image('nest','assets/images/unit6/ic_nest.png')
 
+	game.load.image('text_number6', 'assets/images/unit6/text_number6.png');
+	game.load.image('text_bird', 'assets/images/unit6/text_bird.png');
+	game.load.image('text_egg', 'assets/images/unit6/text_egg.png');
+	game.load.image('text_nest', 'assets/images/unit6/text_nest.png');
 	
-	
-	flag[0] = -3500;
+	game.load.audio('1', 'assets/sound/unit6/6_6 con chim.mp3');
+	game.load.audio('2', 'assets/sound/unit6/6_6 qua trung.mp3');
+	game.load.audio('3', 'assets/sound/unit6/6_ 6 to chim.mp3');
+	game.load.audio('4', 'assets/sound/unit6/6_2.mp3');
+	game.load.audio('5', 'assets/sound/unit6/6_3.mp3');
+	game.load.audio('6', 'assets/sound/unit6/6_4.mp3');
+	game.load.audio('7', 'assets/sound/unit6/6_5.mp3');
+	game.load.audio('8', 'assets/sound/unit6/6_gioi thieu.mp3');
+	game.load.audio('9', 'assets/sound/unit6/6_So 6.mp3');
+	game.load.audio('10', 'assets/sound/unit6/6_1.mp3');
+
+
+	// Load spritesheet
+	game.load.spritesheet('m_player', 'assets/images/unit5/tho1.png', 1, 1);
+	// Load button sprite
+	game.load.image('nen','assets/images/unit5/bg_board.png');
+	game.load.image('btnNext', 'assets/images/unit6/ic_button_next.png');
+	game.load.image('btnBack', 'assets/images/unit6/ic_button_back.png');
 }
-var flag = new Array();
+var flag ;
+var loop;
+var temp =0;
+var backgroundCount = 1;
+var start =1;
 var sound = new Array();
 var bot;
 var distance = 1;
@@ -44,89 +56,30 @@ function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	//game.stage.backgroundColor = '#6CF';
-	bg = game.add.tileSprite(0,0,5096,720, 'bg');
-	game.world.setBounds(0,0,5096,720);
+	bg = game.add.tileSprite(0,0,6096,720, 'bg');
+	game.world.setBounds(0,0,6096,720);
 	game.scale.forceOrientation(false, true);
 	
+	m_player = game.add.sprite(0, 0, 'm_player');
+	m_player.scale.setTo(0.1, 0.1);
 
-	trung = game.add.sprite(2800, 450, 'trung');
-	trung1 = game.add.sprite(2900, 450, 'trung');
-	trung2 = game.add.sprite(3000, 450, 'trung');
-	trung3 = game.add.sprite(3100, 450, 'trung');
-	trung4 = game.add.sprite(3200, 450, 'trung');
-	trung5 = game.add.sprite(3300, 450, 'trung');
-	
-	trung.scale.setTo(0.15, 0.15);
-	trung1.scale.setTo(0.15, 0.15);
-	trung2.scale.setTo(0.15, 0.15);
-	trung3.scale.setTo(0.15, 0.15);
-	trung4.scale.setTo(0.15, 0.15);
-	trung5.scale.setTo(0.15, 0.15);
-	
-	totrung = game.add.sprite(2800, 480, 'totrung');
-	totrung1 = game.add.sprite(2900, 480, 'totrung');
-	totrung2 = game.add.sprite(3000, 480, 'totrung');
-	totrung3 = game.add.sprite(3100, 480, 'totrung');
-	totrung4 = game.add.sprite(3200, 480, 'totrung');
-	totrung5 = game.add.sprite(3300, 480, 'totrung');
-	
-	totrung.scale.setTo(0.15, 0.15);
-	totrung1.scale.setTo(0.15, 0.15);
-	totrung2.scale.setTo(0.15, 0.15);
-	totrung3.scale.setTo(0.15, 0.15);
-	totrung4.scale.setTo(0.15, 0.15);
-	totrung5.scale.setTo(0.15, 0.15);
-	
+	// add animation
+	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 10, true);
+	//game.add.tween(m_player ).to({ x: game.width }, 10000, Phaser.Easing.Linear.None, true);
 
-	
-	
-    //  This sprite is using a texture atlas for all of its animation data
-    bot = game.add.sprite(2900, 50, 'bot');
-	bot1 = game.add.sprite(3000, 50, 'bot');
-	bot2 = game.add.sprite(3100, 50, 'bot');
-	bot3 = game.add.sprite(2900, 150, 'bot');
-	bot4 = game.add.sprite(3000, 150, 'bot');
-	bot5= game.add.sprite(3100, 100, 'bot');
+	//animations stop
+	m_player.animations.add('idle', [0], 8, true);
 
+	// Add physic for player .. physic type > ARCADE
+	game.physics.enable(m_player, Phaser.Physics.ARCADE);
+	m_player.body.collideWorldBounds = true;
+	m_player.body.bounce.setTo(0.8, 0.8);
 
+	// Setting camera follow player.
+	game.camera.follow(m_player);
 
-	bot.scale.setTo(0.1, 0.1);
-	bot1.scale.setTo(0.1, 0.1);
-	bot2.scale.setTo(0.1, 0.1);
-	bot3.scale.setTo(0.1, 0.1);
-	bot4.scale.setTo(0.1, 0.1);
-	bot5.scale.setTo(0.1, 0.1);
-
-
-    //  Here we add a new animation called 'run'
-    //  We haven't specified any frames because it's using every frame in the texture atlas
-    bot.animations.add('run');
-	bot1.animations.add('run');
-	bot2.animations.add('run');
-	bot3.animations.add('run');
-	bot4.animations.add('run');
-	bot5.animations.add('run');
-
-
-    //  And this starts the animation playing by using its key ("run")
-    //  15 is the frame rate (15fps)
-    //  true means it will loop when it finishes
-    bot.animations.play('run', 5, true);
-	bot1.animations.play('run', 5, true);
-	bot2.animations.play('run', 5, true);
-	bot3.animations.play('run', 5, true);
-	bot4.animations.play('run', 5, true);
-	bot5.animations.play('run', 5, true);
-
-	
-	khi = game.add.sprite(1700, 200, 'khi');
-	khi.scale.setTo(1.3, 1.3);
-	khi.animations.add('run');
-	khi.animations.play('run', 10, true);
-	
-	
-
-	game.camera.follow(khi);
+	bird = game.add.sprite(815, 35, 'bird');
+	bird.scale.setTo(0.85,0.85);
 	
 	sound[0] = game.sound.add('1');
 	sound[1] = game.sound.add('2');
@@ -139,310 +92,201 @@ function create() {
 	sound[8] = game.sound.add('9');
 	sound[9] = game.sound.add('10');
 
-
-	
+	flag= true;
 	
 }
 
+function btn() {
+	btnNext = game.add.button(800, 560, 'btnNext', mission, this);
+	btnBack = game.add.button(700, 560, 'btnBack', mission, this);
+}
 
+function show1() {
+	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
+
+	bird = game.add.tileSprite(-50, 700, 440, 227, 'bird');
+	bird.inputEnabled = true;
+	bird.scale.setTo(1, 1);
+	game.add.tween(bird).to({ x: 350, y: 205 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
+		text_bird = game.add.tileSprite(550, -50, 348, 66, 'text_bird');
+		text_number6.inputEnabled = true;
+		game.add.tween(text_number6).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_bird.inputEnabled = true;
+		game.add.tween(text_bird).to({ x: 580, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
+}
+
+function show2() {
+	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
+	
+	tao_ = game.add.tileSprite(-50,700,352,232,'tao_');
+	tao_.scale.setTo(1,1);
+	tao_.inputEnabled = true;
+
+	game.add.tween(tao_).to({ x: 400, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
+		text_apple = game.add.tileSprite(530, -50, 342, 66, 'text_apple');
+		text_number6.inputEnabled = true;
+		game.add.tween(text_number6).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_apple.inputEnabled = true;
+		game.add.tween(text_apple).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
+
+	
+}
+
+function show3() {
+	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
+
+	chuoi_ = game.add.tileSprite(-50, 700, 303, 202, 'chuoi_');
+	chuoi_.inputEnabled = true;
+	chuoi_.scale.setTo(1.1, 1.1);
+	game.add.tween(chuoi_).to({ x: 385, y: 195 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+
+		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
+		text_banana = game.add.tileSprite(450, -50, 395, 66, 'text_banana');
+		text_number6.inputEnabled = true;
+		game.add.tween(text_number6).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_banana.inputEnabled = true;
+		game.add.tween(text_banana).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	}, 4000);
+
+	setTimeout(function () {
+		btn();
+	}, 8000);
+
+}
+
+function mission() {
+
+	btnNext.pendingDestroy = true;
+	btnBack.pendingDestroy = true;
+
+	//m_player.x = 0;
+
+	nen.destroy();
+
+	backgroundCount++;
+
+	if (backgroundCount == 2) {
+		text_monkey.destroy();
+		text_number6.destroy();
+		khi_.destroy();
+
+		backPlayerBackgroundTwo();
+	}
+
+	if (backgroundCount == 3) {
+		text_apple.destroy();
+		text_number6.destroy();
+		tao_.destroy();
+	}
+
+	if (backgroundCount == 4) {
+		text_butterfly.destroy();
+		text_number6.destroy();
+
+		backToNextGame();
+	}
+}
+
+function backPlayerBackgroundTwo() {
+	start =0 ;
+	setTimeout(function () {
+		tao = game.add.sprite(200,25,'tao');
+		tao.scale.setTo(1,1);
+
+	}, 1000);
+	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
+}
+
+function backPlayerBackgroundThree() {
+	setTimeout(function () {
+		chuoi= game.add.sprite(740,595,'chuoi');
+		chuoi.scale.setTo(1,1);
+
+	}, 100);
+
+	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
+
+}
+
+function backPlayer() {
+	if (start==0) {
+		loop = true;
+		temp = 0;
+	} else {
+		if (temp == 1) {
+			loop = false;
+		} else {
+			loop = true;
+		}
+		temp++;
+	}
+	start ++;
+}
 
 function update() {
+	if(backgroundCount ==3){
+		if(bg.x > -1230){
+			bg.x -= direction;
+			tao.x -= direction;
+			khi.x -= direction;
 
-	khi.x += 2;
-
-
-	
-
-	
-	if(flag[0])
-	{
-
-		if(khi.x == 2600){
-			//game.camera.follow(lake);
-		
-			khi.visible = false;
-			
-			trung.visible = false;
-			trung1.visible = false;
-			trung2.visible = false;
-			trung3.visible = false;
-			trung4.visible = false;
-			trung5.visible = false;
-			
-			totrung.visible = false;
-			totrung1.visible = false;
-			totrung2.visible = false;
-			totrung3.visible = false;
-			totrung4.visible = false;
-			totrung5.visible = false;
-			
-			bot.scale.setTo(0.2, 0.2);
-			bot.x = 2400;
-			bot.y = 100;
-			bot1.scale.setTo(0.2, 0.2);
-			bot1.x = 2500;
-			bot1.y = 100;
-			bot2.scale.setTo(0.2, 0.2);
-			bot2.x = 2600;
-			bot2.y = 100;
-			bot3.scale.setTo(0.2, 0.2);
-			bot3.x = 2500;
-			bot3.y = 300;
-			bot4.scale.setTo(0.2, 0.2);
-			bot4.x = 2600;
-			bot4.y = 300;
-			bot5.scale.setTo(0.2, 0.2);
-			bot5.x = 2700;
-			bot5.y = 300;
-			
-			
-			flag_sound = 1;
-			
-			var nen = game.add.tileSprite(0,0,5096,720, 'nen');
-			game.world.setBounds(0,0,5096,720);
-			
-			var style = { font: 'bolder 300px Arial', fill: 'red'};
-  			var text = game.add.text(2100, 150, '6',style);
-			text.scale.setTo(0.5, 0.5);
-			game.add.tween(text.scale).to( { x: 1.5, y: 1.5 }, 7000, Phaser.Easing.Quadratic.InOut, true);
-			
-			var style1 = { font: 'bolder 100px Arial', fill: 'red'};
-			var text1 = game.add.text(2200, 600, 'sáu',style1);
-	
-			var style2 = { font: 'bolder 100px Arial', fill: 'black'};
-			var text2 = game.add.text(2500, 600, 'con chim',style2);
-			
-		
-			
-			setTimeout(function(){btn = game.add.button(3200,620, 'btn', actionbtn,this); btn.scale.setTo(0.5, 0.5);}, 8000);
-			function actionbtn()
-			{
-
-				flag_sound = 2;
-				bot.visible = false;
-				bot1.visible = false;
-				bot2.visible = false;
-				bot3.visible = false;
-				bot4.visible = false;
-				bot5.visible = false;
-				
-				totrung.visible = true;
-				totrung1.visible = true;
-				totrung2.visible = true;
-				totrung3.visible = true;
-				totrung4.visible = true;
-				totrung5.visible = true;
-		
-			
-				nen.destroy();
-				text.destroy();
-				text1.destroy();
-				text2.destroy();
-				btn.destroy();
-				game.time.events.add(Phaser.Timer.SECOND * 3, delay1, this);
-			}
-			
-			function delay1(){
-				
-				
-				
-				totrung.scale.setTo(0.3, 0.3);
-				totrung.x = 2500;
-				totrung.y = 300;
-				totrung1.scale.setTo(0.3, 0.3);
-				totrung1.x = 2700;
-				totrung1.y = 300;
-				totrung2.scale.setTo(0.3, 0.3);
-				totrung2.x = 2900;
-				totrung2.y = 300;
-				totrung3.scale.setTo(0.3, 0.3);
-				totrung3.x = 2500;
-				totrung3.y = 400;
-				totrung4.scale.setTo(0.3, 0.3);
-				totrung4.x = 2700;
-				totrung4.y = 400;
-				totrung5.scale.setTo(0.3, 0.3);
-				totrung5.x = 2900;
-				totrung5.y = 400;
-			
-				
-				
-	
-				khi.visible = false;
-	
-				
-				
-				flag_sound = 3;
-				
-				var nen = game.add.tileSprite(0,0,5096,720, 'nen');
-				game.world.setBounds(0,0,5096,720);
-			
-				var style = { font: 'bolder 300px Arial', fill: 'red'};
-  				var text = game.add.text(2200, 150, '6',style);
-				text.scale.setTo(0.5, 0.5);
-				game.add.tween(text.scale).to( { x: 1.5, y: 1.5 }, 10000, Phaser.Easing.Quadratic.InOut, true);
-				
-				var style1 = { font: 'bolder 100px Arial', fill: 'red'};
-				var text1 = game.add.text(2300, 600, 'sáu',style1);
-		
-				var style2 = { font: 'bolder 100px Arial', fill: 'black'};
-				var text2 = game.add.text(2600, 600, 'tổ chim',style2);
-					
-		
-			
-				setTimeout(function(){btn = game.add.button(3200,620, 'btn', actionbtn1,this); btn.scale.setTo(0.5, 0.5);}, 11000);
-				function actionbtn1()
-				{
-					flag_sound = 4;
-
-					bot.visible = false;
-					bot1.visible = false;
-					bot2.visible = false;
-					bot3.visible = false;
-					bot4.visible = false;
-					bot5.visible = false;
-				
-					totrung.visible = false;
-					totrung1.visible = false;
-					totrung2.visible = false;
-					totrung3.visible = false;
-					totrung4.visible = false;
-					totrung5.visible = false;
-					
-					trung.visible = true;
-					trung1.visible = true;
-					trung2.visible = true;
-					trung3.visible = true;
-					trung4.visible = true;
-					trung5.visible = true;
-
-	
-					nen.destroy();
-					text.destroy();
-					text1.destroy();
-					text2.destroy();
-					btn.destroy();
-					game.time.events.add(Phaser.Timer.SECOND * 3, delay2, this);
-				}
-				function delay2(){
-				
-					flag_sound = 5;
-					
-					trung.scale.setTo(1, 1);
-					trung.x = 2400;
-					trung.y = 150;
-					trung1.scale.setTo(1, 1);
-					trung1.x = 2600;
-					trung1.y = 150;
-					trung2.scale.setTo(1, 1);
-					trung2.x = 2800;
-					trung2.y = 150;
-					trung3.scale.setTo(1, 1);
-					trung3.x = 2400;
-					trung3.y = 350;
-					trung4.scale.setTo(1, 1);
-					trung4.x = 2600;
-					trung4.y = 350;
-					trung5.scale.setTo(1, 1);
-					trung5.x = 2800;
-					trung5.y = 350;
-					
-					
-					khi.visible = false;
-				
-	
-
-					var nen = game.add.tileSprite(0,0,5096,720, 'nen');
-					game.world.setBounds(0,0,5096,720);
-			
-					var style = { font: 'bolder 300px Arial', fill: 'red'};
-  					var text = game.add.text(2200, 150, '6',style);
-					text.scale.setTo(0.5, 0.5);
-					game.add.tween(text.scale).to( { x: 1.5, y: 1.5 }, 10000, Phaser.Easing.Quadratic.InOut, true);
-				
-					var style1 = { font: 'bolder 100px Arial', fill: 'red'};
-					var text1 = game.add.text(2300, 600, 'sáu',style1);
-		
-					var style2 = { font: 'bolder 100px Arial', fill: 'black'};
-					var text2 = game.add.text(2600, 600, 'quả trứng',style2);
-					
-		
-			
-					setTimeout(function(){btn = game.add.button(3200,620, 'btn', actionbtn,this); btn.scale.setTo(0.5, 0.5);}, 11000);
-					function actionbtn()
-					{
-				
-						var winx = window.location="http:/bcm/level6/game1/";
-					}
-				}
-			}
+			m_player.animations.play('walk');
+		}
+		if(bg.x <= -1230)
+		{
+			backPlayerBackgroundThree();
+			start =0 ;
+			bg.x = -1215;
+			direction = 0;
+			m_player.animations.play('idle');
+			stop = true;
 		}
 	}
-	
-	
-	if( flag_sound == 0)
-	{
-		setTimeout(function(){sound[7].play();}, 0);
-		setTimeout(function(){sound[9].play();}, 4000);
-		
-		flag_sound = -1;
-	}
-	
 
-	
-	if(flag_sound == 1)
-	{
+	backPlayer();
 
-		
-		setTimeout(function(){sound[8].play();}, 4000);
-		setTimeout(function(){sound[0].play();}, 5000);
-		
-		
-	
-		
-		flag_sound = -1;
-	}
-	if( flag_sound == 2)
-	{
-		
-		setTimeout(function(){sound[3].play();}, 0);
-		setTimeout(function(){sound[4].play();}, 2000);
-		flag_sound = -1;
 
+	if(!loop && flag){
+		if(backgroundCount ==1){
+			setTimeout(function () {
+				show1();
+			},3000);
+		}
+		if (backgroundCount == 2) {
+			setTimeout(function () {
+				show2();
+			}, 4000);
+		}
+		if (backgroundCount == 3 && stop) {
+			setTimeout(function () {
+				show3();
+			}, 3000);
+		}
 	}
-	
-	if( flag_sound == 3)
-	{
-		
-		setTimeout(function(){sound[8].play();}, 7000);
-		
-		setTimeout(function(){sound[2].play();}, 8000);
-	
-		flag_sound = -1;
-
-	}
-	
-	if( flag_sound == 4)
-	{
-		
-		setTimeout(function(){sound[5].play();}, 0);
-		setTimeout(function(){sound[6].play();}, 3000);
-		flag_sound = -1;
-
-	}
-	
-	if( flag_sound == 5)
-	{
-		
-		setTimeout(function(){sound[8].play();}, 8000);
-		
-		setTimeout(function(){sound[1].play();}, 9000);
-	
-		flag_sound = -1;
-
-	}
-	
-	
 }
+
 
 
