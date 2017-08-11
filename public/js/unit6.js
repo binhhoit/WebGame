@@ -8,7 +8,8 @@ function preload() {
 
 
 	game.load.image('trung','assets/images/unit6/character/egg.png');
-	game.load.image('totrung','assets/images/unit6/character/nest.png');
+	game.load.image('totrungm','assets/images/unit6/character/nest.png');
+	game.load.image('totrung','assets/images/unit6/character/nest_1.png');
 	
 	game.load.image('bird', 'assets/images/unit6/ic_bird.png');
 	game.load.image('egg', 'assets/images/unit6/ic_egg.png');
@@ -33,6 +34,8 @@ function preload() {
 
 	// Load spritesheet
 	game.load.spritesheet('m_player', 'assets/images/unit5/tho1.png', 1, 1);
+	game.load.spritesheet('m_bird', 'assets/images/unit6/character/bird.png', 245, 164,10);
+
 	// Load button sprite
 	game.load.image('nen','assets/images/unit5/bg_board.png');
 	game.load.image('btnNext', 'assets/images/unit6/ic_button_next.png');
@@ -52,6 +55,7 @@ var direction = 2;
 
 // Setting sound start
 var speed = 2;
+var bird;
 function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -80,6 +84,9 @@ function create() {
 
 	bird = game.add.sprite(815, 35, 'bird');
 	bird.scale.setTo(0.85,0.85);
+	//bird = game.add.sprite(815,35,'m_bird');
+	//var walk = bird.animations.add('walk');
+	//bird.animations.play('walk', 6, true)
 	
 	sound[0] = game.sound.add('1');
 	sound[1] = game.sound.add('2');
@@ -104,10 +111,10 @@ function btn() {
 function show1() {
 	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
 
-	bird = game.add.tileSprite(-50, 700, 440, 227, 'bird');
-	bird.inputEnabled = true;
-	bird.scale.setTo(1, 1);
-	game.add.tween(bird).to({ x: 350, y: 205 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	bird_ = game.add.tileSprite(-50, 700, 440, 227, 'bird');
+	bird_.inputEnabled = true;
+	bird_.scale.setTo(1, 1);
+	game.add.tween(bird_).to({ x: 350, y: 205 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
@@ -128,20 +135,20 @@ function show1() {
 function show2() {
 	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
 	
-	tao_ = game.add.tileSprite(-50,700,352,232,'tao_');
-	tao_.scale.setTo(1,1);
-	tao_.inputEnabled = true;
+	nest = game.add.tileSprite(-50,700,447,207,'nest');
+	nest.scale.setTo(1,1);
+	nest.inputEnabled = true;
 
-	game.add.tween(tao_).to({ x: 400, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(nest).to({ x: 400, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
-		text_apple = game.add.tileSprite(530, -50, 342, 66, 'text_apple');
+		text_nest = game.add.tileSprite(530, -50, 330, 66, 'text_nest');
 		text_number6.inputEnabled = true;
 		game.add.tween(text_number6).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-		text_apple.inputEnabled = true;
-		game.add.tween(text_apple).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_nest.inputEnabled = true;
+		game.add.tween(text_nest).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -155,19 +162,19 @@ function show2() {
 function show3() {
 	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
 
-	chuoi_ = game.add.tileSprite(-50, 700, 303, 202, 'chuoi_');
-	chuoi_.inputEnabled = true;
-	chuoi_.scale.setTo(1.1, 1.1);
-	game.add.tween(chuoi_).to({ x: 385, y: 195 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	egg = game.add.tileSprite(-50, 700, 357, 246, 'egg');
+	egg.inputEnabled = true;
+	egg.scale.setTo(1.1, 1.1);
+	game.add.tween(egg).to({ x: 385, y: 195 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
-		text_banana = game.add.tileSprite(450, -50, 395, 66, 'text_banana');
+		text_egg = game.add.tileSprite(450, -50, 378, 66, 'text_egg');
 		text_number6.inputEnabled = true;
 		game.add.tween(text_number6).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-		text_banana.inputEnabled = true;
-		game.add.tween(text_banana).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		text_egg.inputEnabled = true;
+		game.add.tween(text_egg).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -189,17 +196,18 @@ function mission() {
 	backgroundCount++;
 
 	if (backgroundCount == 2) {
-		text_monkey.destroy();
+		text_bird.destroy();
 		text_number6.destroy();
-		khi_.destroy();
+		bird_.destroy();
 
-		backPlayerBackgroundTwo();
 	}
 
 	if (backgroundCount == 3) {
-		text_apple.destroy();
+		text_nest.destroy();
 		text_number6.destroy();
-		tao_.destroy();
+		nest.destroy();
+
+		backPlayerBackgroundThree();
 	}
 
 	if (backgroundCount == 4) {
@@ -211,19 +219,50 @@ function mission() {
 }
 
 function backPlayerBackgroundTwo() {
-	start =0 ;
+	//start =0 ;
 	setTimeout(function () {
-		tao = game.add.sprite(200,25,'tao');
-		tao.scale.setTo(1,1);
+		totrung = game.add.sprite(950,15,'totrung');
+		totrung.scale.setTo(1,1);
 
-	}, 1000);
+		totrung1 = game.add.sprite(1130,5,'totrung');
+		totrung1.scale.setTo(1,1);
+
+		totrung2 = game.add.sprite(1300,15,'totrung');
+		totrung2.scale.setTo(1,1);
+
+		totrung3 = game.add.sprite(950,150,'totrung');
+		totrung3.scale.setTo(1,1);
+
+		totrung4 = game.add.sprite(1130,100,'totrung');
+		totrung4.scale.setTo(1,1);
+
+		totrung5 = game.add.sprite(1300,150,'totrung');
+		totrung5.scale.setTo(1,1);
+
+	}, 500);
 	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
 function backPlayerBackgroundThree() {
+	start =0;
 	setTimeout(function () {
-		chuoi= game.add.sprite(740,595,'chuoi');
-		chuoi.scale.setTo(1,1);
+		egg = game.add.sprite(1000,20,'trung');
+		egg.scale.setTo(1,1);
+
+		egg1 = game.add.sprite(1180,10,'trung');
+		egg1.scale.setTo(1,1);
+
+		egg2 = game.add.sprite(1350,20,'trung');
+		egg2.scale.setTo(1,1);
+
+		egg3 = game.add.sprite(1000,155,'trung');
+		egg3.scale.setTo(1,1);
+
+		egg4 = game.add.sprite(1180,105,'trung');
+		egg4.scale.setTo(1,1);
+
+		egg5 = game.add.sprite(1350,155,'trung');
+		egg5.scale.setTo(1,1);
 
 	}, 100);
 
@@ -247,23 +286,22 @@ function backPlayer() {
 }
 
 function update() {
-	if(backgroundCount ==3){
-		if(bg.x > -1230){
-			bg.x -= direction;
-			tao.x -= direction;
-			khi.x -= direction;
+	if(backgroundCount ==2){
+		if(bg.x > -550){
+			bg.x -=direction;
+			bird.x -= direction;
 
 			m_player.animations.play('walk');
+			
 		}
-		if(bg.x <= -1230)
-		{
-			backPlayerBackgroundThree();
-			start =0 ;
-			bg.x = -1215;
-			direction = 0;
+		if(bg.x <= -550){
+			backPlayerBackgroundTwo();
+			start = 0;
+			direction =0;
+			bg.x = -548;
 			m_player.animations.play('idle');
-			stop = true;
 		}
+
 	}
 
 	backPlayer();
@@ -282,7 +320,7 @@ function update() {
 		}
 		if (backgroundCount == 3 && stop) {
 			setTimeout(function () {
-				show3();
+				//show3();
 			}, 3000);
 		}
 	}
