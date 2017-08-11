@@ -5,33 +5,25 @@ const GAME_HEIGHT=window.innerHeight;
 
 //STYLE TEXT
 
-var style={font:"70px Arial", fill:"#FFFFFF"}
-
 //BACKGROUND
 
-const BACKGROUND_IMAGE = 'assets/images/nen.png';
+const BACKGROUND_IMAGE = 'assets/images/unit8_game1/nen.png';
 const BACKGROUND_POSX = 0;
 const BACKGROUND_POSY = 0;
-const BACKGROUND_WIDTH = 1024;
-const BACKGROUND_HEIGHT = 720;
-
-
+const BACKGROUND_WIDTH = 1366;
+const BACKGROUND_HEIGHT = 768;
 
 //number
-const NUMBER_1 ="assets/images/so1.png";
-const NUMBER_2 ="assets/images/so2.png";
-const NUMBER_3 ="assets/images/so3.png";
-const NUMBER_4 ="assets/images/so4.png";
-const NUMBER_5 ="assets/images/so5.png";
-const NUMBER_6 ="assets/images/so6.png";
-const NUMBER_7 ="assets/images/so7.png";
-const NUMBER_8 ="assets/images/so8.png";
-const NUMBER_9 ="assets/images/so9.png";
-
-
+const NUMBER_1 ="assets/images/unit8_game1/so1.png";
+const NUMBER_2 ="assets/images/unit8_game1/so2.png";
+const NUMBER_3 ="assets/images/unit8_game1/so3.png";
+const NUMBER_4 ="assets/images/unit8_game1/so4.png";
+const NUMBER_5 ="assets/images/unit8_game1/so5.png";
+const NUMBER_6 ="assets/images/unit8_game1/so6.png";
+const NUMBER_7 ="assets/images/unit8_game1/so7.png";
+const NUMBER_8 ="assets/images/unit8_game1/so8.png";
 
 //Position
-
 
 const NUMBER_1_POSX = 27.3;
 const NUMBER_1_POSY = 20;
@@ -65,9 +57,9 @@ const NUMBER_10_POSY = 20;
 
 
 // Load sound
-const SOUND_START ="assets/sounds/start.mp3";
-const SOUND_DROP ="assets/sounds/drop.mp3";
-const SOUND_SCORE ="assets/sounds/Score.mp3";
-const SOUND_FAIL ="assets/sounds/Fail.mp3";
-const SOUND_END ="assets/sounds/End.mp3";
+const SOUND_START ="assets/sounds/unit8_1/start.mp3";
+const SOUND_DROP ="assets/sounds/unit8_1/drop.mp3";
+const SOUND_SCORE ="assets/sounds/unit8_1/Score.mp3";
+const SOUND_FAIL ="assets/sounds/unit8_1/Fail.mp3";
+const SOUND_END ="assets/sounds/unit8_1/End.mp3";
 

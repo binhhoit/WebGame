@@ -1,50 +1,46 @@
 //GAME_SIZE
 
-const GAME_WIDTH=window.innerWidth;
-const GAME_HEIGHT=window.innerHeight;
-
-//STYLE TEXT
-
-var style={font:"70px Arial", fill:"#FFFFFF"}
+const GAME_WIDTH = window.innerWidth;
+const GAME_HEIGHT = window.innerHeight;
 
 //BACKGROUND
 
-const BACKGROUND_IMAGE = 'assets/images/nen.png';
+const BACKGROUND_IMAGE = 'assets/images/unit8_game2/bg.png';
 const BACKGROUND_POSX = 0;
 const BACKGROUND_POSY = 0;
-const BACKGROUND_WIDTH = 1024;
-const BACKGROUND_HEIGHT = 720;
+const BACKGROUND_WIDTH = 1366;
+const BACKGROUND_HEIGHT = 768;
 
 
 
 //number
-const NUMBER_1 ="assets/images/so6.png";
-const NUMBER_2 ="assets/images/so8.png";
-const NUMBER_3 ="assets/images/so2.png";
-const NUMBER_4 ="assets/images/so5.png";
-
+const DRAGONFLY_6 = "assets/images/unit8_game2/dragonfly_6.png";
+const DRAGONFLY_8 = "assets/images/unit8_game2/dragonfly_8.png";
+const DRAGONFLY_2 = "assets/images/unit8_game2/dragonfly_2.png";
+const DRAGONFLY_3 = "assets/images/unit8_game2/dragonfly_3.png";
 
 //Position
 
 
-const NUMBER_1_POSX = 30.3;
-const NUMBER_1_POSY = 62.1;
+const DRAGONFLY_6_POSX = 30.3;
+const DRAGONFLY_6_POSY = 62.1;
 
-const NUMBER_2_POSX = 300;
-const NUMBER_2_POSY = 62.1;
+const DRAGONFLY_8_POSX = 300;
+const DRAGONFLY_8_POSY = 62.1;
 
-const NUMBER_3_POSX = 550;
-const NUMBER_3_POSY = 62.1;
+const DRAGONFLY_2_POSX = 550;
+const DRAGONFLY_2_POSY = 62.1;
 
-const NUMBER_4_POSX = 800;
-const NUMBER_4_POSY = 62.1;
+const DRAGONFLY_3_POSX = 800;
+const DRAGONFLY_3_POSY = 62.1;
+
 
 
 
 // Load sound
-const SOUND_START ="assets/sounds/start.mp3";
-const SOUND_DROP ="assets/sounds/drop.mp3";
-const SOUND_SCORE ="assets/sounds/Score.mp3";
-const SOUND_FAIL ="assets/sounds/Fail.mp3";
-const SOUND_END ="assets/sounds/End.mp3";
+const SOUND_START = "assets/sounds/unit8_2/start.mp3";
+const SOUND_DROP = "assets/sounds/unit8_2/drop.mp3";
+const SOUND_SCORE = "assets/sounds/unit8_2/Score.mp3";
+const SOUND_FAIL = "assets/sounds/unit8_2/Fail.mp3";
+const SOUND_END = "assets/sounds/unit8_2/End.mp3";
 
