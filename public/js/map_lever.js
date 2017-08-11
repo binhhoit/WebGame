@@ -35,7 +35,7 @@ function preload() {
 }
 
 function render() {
-  game.debug.spriteInfo(level[9], 32, 32);
+  //game.debug.spriteInfo(level[9], 32, 32);
 }
 
 function create() {
