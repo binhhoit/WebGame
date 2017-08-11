@@ -30,7 +30,10 @@ function preload() {
 	game.load.image('Number_6', NUMBER_6);
 	game.load.image('Number_7', NUMBER_7);
 	game.load.image('Number_8', NUMBER_8);
-	game.load.image('Number_9', NUMBER_9);
+
+	game.load.spritesheet('Butterfly', BUTTERFLY, 200, 177);
+	game.load.spritesheet('Dragonfly', DRAGONFLY, 329, 292);
+	game.load.spritesheet('Ladybug', LADYBUG, 250, 239);
 
 
 	// load sound
@@ -63,21 +66,108 @@ function create() {
 
 
 	Number_1 = game.add.sprite(NUMBER_1_POSX, NUMBER_1_POSY, 'Number_1');
-
 	Number_2 = game.add.sprite(NUMBER_2_POSX, NUMBER_2_POSY, 'Number_2');
-
 	Number_3 = game.add.sprite(NUMBER_3_POSX, NUMBER_3_POSY, 'Number_3');
-
 	Number_4 = game.add.sprite(NUMBER_4_POSX, NUMBER_4_POSY, 'Number_4');
-
 	Number_5 = game.add.sprite(NUMBER_5_POSX, NUMBER_5_POSY, 'Number_5');
-
 	Number_6 = game.add.sprite(NUMBER_6_POSX, NUMBER_6_POSY, 'Number_6');
-
 	Number_7 = game.add.sprite(NUMBER_7_POSX, NUMBER_7_POSY, 'Number_7');
-
 	Number_8 = game.add.sprite(NUMBER_8_POSX, NUMBER_8_POSY, 'Number_8');
 
+	Dragonfly_1 = game.add.sprite(DRAGONFLY_1_POSX, DRAGONFLY_1_POSY, 'Dragonfly');
+	Dragonfly_1.scale.setTo(0.4);
+	Dragonfly_2 = game.add.sprite(DRAGONFLY_2_POSX, DRAGONFLY_2_POSY, 'Dragonfly');
+	Dragonfly_2.scale.setTo(0.4);
+	Dragonfly_3 = game.add.sprite(DRAGONFLY_3_POSX, DRAGONFLY_3_POSY, 'Dragonfly');
+	Dragonfly_3.scale.setTo(0.4);
+	Dragonfly_4 = game.add.sprite(DRAGONFLY_4_POSX, DRAGONFLY_4_POSY, 'Dragonfly');
+	Dragonfly_4.scale.setTo(0.4);
+	Dragonfly_5 = game.add.sprite(DRAGONFLY_5_POSX, DRAGONFLY_5_POSY, 'Dragonfly');
+	Dragonfly_5.scale.setTo(0.4);
+	Dragonfly_6 = game.add.sprite(DRAGONFLY_6_POSX, DRAGONFLY_6_POSY, 'Dragonfly');
+	Dragonfly_6.scale.setTo(0.4);
+	Dragonfly_7 = game.add.sprite(DRAGONFLY_7_POSX, DRAGONFLY_7_POSY, 'Dragonfly');
+	Dragonfly_7.scale.setTo(0.4);
+
+
+	Dragonfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_7.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+
+	Dragonfly_1.animations.play('walk');
+	Dragonfly_2.animations.play('walk');
+	Dragonfly_3.animations.play('walk');
+	Dragonfly_4.animations.play('walk');
+	Dragonfly_5.animations.play('walk');
+	Dragonfly_6.animations.play('walk');
+	Dragonfly_7.animations.play('walk');
+
+	Butterfly_1 = game.add.sprite(BUTTERFLY_1_POSX, BUTTERFLY_1_POSY, 'Butterfly');
+	Butterfly_1.scale.setTo(0.6);
+	Butterfly_2 = game.add.sprite(BUTTERFLY_2_POSX, BUTTERFLY_2_POSY, 'Butterfly');
+	Butterfly_2.scale.setTo(0.6);
+	Butterfly_3 = game.add.sprite(BUTTERFLY_3_POSX, BUTTERFLY_3_POSY, 'Butterfly');
+	Butterfly_3.scale.setTo(0.6);
+	Butterfly_4 = game.add.sprite(BUTTERFLY_4_POSX, BUTTERFLY_4_POSY, 'Butterfly');
+	Butterfly_4.scale.setTo(0.6);
+	Butterfly_5 = game.add.sprite(BUTTERFLY_5_POSX, BUTTERFLY_5_POSY, 'Butterfly');
+	Butterfly_5.scale.setTo(0.6);
+	Butterfly_6 = game.add.sprite(BUTTERFLY_6_POSX, BUTTERFLY_6_POSY, 'Butterfly');
+	Butterfly_6.scale.setTo(0.6);
+
+	Butterfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Butterfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Butterfly_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Butterfly_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Butterfly_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Butterfly_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+
+	Butterfly_1.animations.play('walk');
+	Butterfly_2.animations.play('walk');
+	Butterfly_3.animations.play('walk');
+	Butterfly_4.animations.play('walk');
+	Butterfly_5.animations.play('walk');
+	Butterfly_6.animations.play('walk');
+
+	Ladybug_1 = game.add.sprite(LADYBUG_1_POSX, LADYBUG_1_POSY, 'Ladybug');
+	Ladybug_1.scale.setTo(0.4);
+	Ladybug_2 = game.add.sprite(LADYBUG_2_POSX, LADYBUG_2_POSY, 'Ladybug');
+	Ladybug_2.scale.setTo(0.4);
+	Ladybug_3 = game.add.sprite(LADYBUG_3_POSX, LADYBUG_3_POSY, 'Ladybug');
+	Ladybug_3.scale.setTo(0.4);
+	Ladybug_4 = game.add.sprite(LADYBUG_4_POSX, LADYBUG_4_POSY, 'Ladybug');
+	Ladybug_4.scale.setTo(0.4);
+	Ladybug_5 = game.add.sprite(LADYBUG_5_POSX, LADYBUG_5_POSY, 'Ladybug');
+	Ladybug_5.scale.setTo(0.4);
+	Ladybug_6 = game.add.sprite(LADYBUG_6_POSX, LADYBUG_6_POSY, 'Ladybug');
+	Ladybug_6.scale.setTo(0.4);
+	Ladybug_7 = game.add.sprite(LADYBUG_7_POSX, LADYBUG_7_POSY, 'Ladybug');
+	Ladybug_7.scale.setTo(0.4);
+	Ladybug_8 = game.add.sprite(LADYBUG_8_POSX, LADYBUG_8_POSY, 'Ladybug');
+	Ladybug_8.scale.setTo(0.4);
+
+
+	Ladybug_1.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+	Ladybug_2.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+	Ladybug_3.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+	Ladybug_4.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+	Ladybug_5.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+	Ladybug_6.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+	Ladybug_7.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+	Ladybug_8.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+
+	Ladybug_1.animations.play('walk');
+	Ladybug_2.animations.play('walk');
+	Ladybug_3.animations.play('walk');
+	Ladybug_4.animations.play('walk');
+	Ladybug_5.animations.play('walk');
+	Ladybug_6.animations.play('walk');
+	Ladybug_7.animations.play('walk');
+	Ladybug_8.animations.play('walk');
 
 	//create drag and drop Number		
 	Number_1.inputEnabled = true;					//cho phep nhap						
@@ -142,19 +232,12 @@ function StopDrag_5() {
 	score_f();
 }
 
-function StopDrag_7() {
-	Number_7.x = NUMBER_7_POSX;
-	Number_7.y = NUMBER_7_POSY;
-	score_f();
-}
 function StopDrag_8() {
 	Number_8.x = NUMBER_8_POSX;
 	Number_8.y = NUMBER_8_POSY;
 	score_f();
 }
-function StopDrag_9() {
 
-}
 
 // sound  drop
 function score_s() {
@@ -166,56 +249,50 @@ function score_f() {
 }
 
 
-//drap and drop Number 9
-function StopDrag_9() {
-	Number_9.scale.setTo(0.45);
-	if (Number_9.y > 496 && Number_9.x < 290 && Number_9.x > 126) {
-		Number_9.inputEnabled = false;
-		Number_9.x = '212.1';
-		Number_9.y = '589.9';
-		Score++;
-		sound[1].play();
-	} else {
-		Number_9.x = NUMBER_9_POSX;
-		Number_9.y = NUMBER_9_POSY;
-		score_f();
-		Number_9.scale.setTo(0.5);
-
-	}
-	Process();
-}
 //drag and drop Number6
 function StopDrag_6() {
-	Number_6.scale.setTo(0.45);
-	if (Number_6.y > 496 && Number_6.x < 941 && Number_6.x > 768) {
+	if (Number_6.y > 574 && Number_6.x < 419 && Number_6.x > 300) {
 		Number_6.inputEnabled = false;
-		Number_6.x = '851.1';
-		Number_6.y = '589.9';
+		Number_6.x = '359.1';
+		Number_6.y = '620.9';
 		Score++;
 		sound[1].play();
 	} else {
 		Number_6.x = NUMBER_6_POSX;
 		Number_6.y = NUMBER_6_POSY;
 		score_f();
-		Number_6.scale.setTo(0.5);
+	}
+	Process();
+}
 
+
+//drag and drop Number7
+function StopDrag_7() {
+	if (Number_7.y > 574 && Number_7.x < 774 && Number_7.x > 660) {
+		Number_7.inputEnabled = false;
+		Number_7.x = '717.1';
+		Number_7.y = '617.9';
+		Score++;
+		sound[1].play();
+	} else {
+		Number_7.x = NUMBER_7_POSX;
+		Number_7.y = NUMBER_7_POSY;
+		score_f();
 	}
 	Process();
 }
 //drag and drop NUMBER8
 function StopDrag_8() {
-	Number_8.scale.setTo(0.45);
-	if (Number_8.y > 496 && Number_8.x < 600 && Number_8.x > 419) {
+	if (Number_8.y > 574 && Number_8.x < 1135 && Number_8.x > 1038) {
 		Number_8.inputEnabled = false;
-		Number_8.x = '508.1';
-		Number_8.y = '589.9';
+		Number_8.x = '1078.1';
+		Number_8.y = '620.9';
 		Score++;
 		sound[1].play();
 	} else {
 		Number_8.x = NUMBER_8_POSX;
 		Number_8.y = NUMBER_8_POSY;
 		score_f();
-		Number_8.scale.setTo(0.5);
 
 	}
 	Process();
@@ -225,13 +302,16 @@ function StopDrag_8() {
 function Process() {
 	if (Score == 3) {
 		sound[3].play();
-		game.time.events.add(Phaser.Timer.SECOND * 4, Process2, this);
+		setTimeout(function() {
+			Process2();
+		}, 4000);
 	}
 }
 
 function Process2() {
-	game.add.tween(winx = window.location = "/bcm/level8/game2").to(
-		{ alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
+setTimeout(function() {
+	 window.location = "unit8_game2";
+}, 2000);
 
 }
 
@@ -244,5 +324,7 @@ function update() {
 }
 function render() {
 	//game.debug.spriteInfo(Score,32,32);
-	//game.debug.spriteInfo(Number_4,32,32);
+	//game.debug.spriteInfo(Number_1, 32, 32);
+	// game.debug.spriteInfo(Ladybug_1, 522, 32);
+	// game.debug.spriteInfo(Butterfly_1, 922, 32);
 }

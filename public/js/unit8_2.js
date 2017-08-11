@@ -56,7 +56,7 @@ function create() {
 	Dragonfly_2 = game.add.sprite(DRAGONFLY_2_POSX, DRAGONFLY_2_POSY, 'Dragonfly_2');
 	Dragonfly_2.scale.setTo(0.8);
 	Dragonfly_3 = game.add.sprite(DRAGONFLY_3_POSX, DRAGONFLY_3_POSY, 'Dragonfly_3');
-	Dragonfly_3.scale.setTo(0.7);
+	Dragonfly_3.scale.setTo(0.8);
 
 	Dragonfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
 	Dragonfly_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
