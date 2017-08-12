@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(1500, 720, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update, render: render});
+var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update, render: render});
 
 
 var sound = new Array();
@@ -71,7 +71,7 @@ function preload()  {
 
 
 	// Load button sprite
-	game.load.image('nen','assets/images/unit5/bg_board.png');
+	game.load.image('nen','assets/images/unit6/bg_board.png');
 	game.load.image('btnNext', 'assets/images/unit5/ic_button_next.png');
 	game.load.image('btnBack', 'assets/images/unit5/ic_button_back.png');
 
@@ -83,8 +83,8 @@ function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
 	// BACKGROUND
-	bg = game.add.tileSprite(0,0,6096,720, 'bg');
-	game.world.setBounds(0,0,6096,720);
+	bg = game.add.tileSprite(0,0,6096,768, 'bg');
+	game.world.setBounds(0,0,6096,768);
 
 	
 	
@@ -109,7 +109,7 @@ function create() {
 	// Setting camera follow player.
 	game.camera.follow(m_player);
 
-	khi = game.add.sprite(400, 500, 'khi');
+	khi = game.add.sprite(400, 550, 'khi');
 
 	// Add sound
 	sound[0] = game.sound.add('1');
@@ -131,26 +131,26 @@ function render(){
 	//var text = game.debug.spriteInfo(bg, 32, 32);
 }
 function btn() {
-	btnNext = game.add.button(800, 560, 'btnNext', mission, this);
-	btnBack = game.add.button(700, 560, 'btnBack', mission, this);
+	btnNext = game.add.button(700, 600, 'btnNext', mission, this);
+	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
 }
 
 function show1() {
-	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
 	khi_ = game.add.tileSprite(-50, 700, 383, 354, 'khi_');
 	khi_.inputEnabled = true;
 	khi_.scale.setTo(1, 1);
-	game.add.tween(khi_).to({ x: 400, y: 165 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(khi_).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number5 = game.add.tileSprite(1400, 700, 235, 500, 'text_number5');
 		text_monkey = game.add.tileSprite(550, -50, 322, 66, 'text_monkey');
 		text_number5.inputEnabled = true;
-		game.add.tween(text_number5).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number5).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_monkey.inputEnabled = true;
-		game.add.tween(text_monkey).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_monkey).to({ x: 500, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -160,22 +160,22 @@ function show1() {
 }
 
 function show2() {
-	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 	
 	tao_ = game.add.tileSprite(-50,700,352,232,'tao_');
 	tao_.scale.setTo(1,1);
 	tao_.inputEnabled = true;
 
-	game.add.tween(tao_).to({ x: 400, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(tao_).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number5 = game.add.tileSprite(1400, 700, 235, 500, 'text_number5');
 		text_apple = game.add.tileSprite(530, -50, 342, 66, 'text_apple');
 		text_number5.inputEnabled = true;
-		game.add.tween(text_number5).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number5).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_apple.inputEnabled = true;
-		game.add.tween(text_apple).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_apple).to({ x: 500, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -187,21 +187,21 @@ function show2() {
 }
 
 function show3() {
-	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
+	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
 	chuoi_ = game.add.tileSprite(-50, 700, 303, 202, 'chuoi_');
 	chuoi_.inputEnabled = true;
 	chuoi_.scale.setTo(1.1, 1.1);
-	game.add.tween(chuoi_).to({ x: 385, y: 195 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(chuoi_).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number5 = game.add.tileSprite(1400, 700, 235, 500, 'text_number5');
 		text_banana = game.add.tileSprite(450, -50, 395, 66, 'text_banana');
 		text_number5.inputEnabled = true;
-		game.add.tween(text_number5).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number5).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_banana.inputEnabled = true;
-		game.add.tween(text_banana).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_banana).to({ x: 500, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -256,7 +256,7 @@ function backPlayerBackgroundTwo() {
 
 function backPlayerBackgroundThree() {
 	setTimeout(function () {
-		chuoi= game.add.sprite(740,595,'chuoi');
+		chuoi= game.add.sprite(740,615,'chuoi');
 		chuoi.scale.setTo(1,1);
 
 	}, 100);

@@ -18,16 +18,7 @@ const BACKGROUND_HEIGHT = 720;
 
 
 //basket
-const CHESTNUT_1 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_2 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_3 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_4 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_5 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_6 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_7 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_8 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_9 = "assets/images/unit4_game1/chestnut.png";
-const CHESTNUT_10 = "assets/images/unit4_game1/chestnut.png";
+const CHESTNUT= "assets/images/unit4_game1/chestnut.png";
 
 const SQUIRREL = "assets/images/unit4_game1/squirrel_animation.png";
 
@@ -38,39 +29,59 @@ const BUTTON_NEXT = "assets/images/unit4_game1/ic_button_next.png";
 //Position
 
 
-const CHESTNUT_1_POSX = 50;
-const CHESTNUT_1_POSY = 200;
+const CHESTNUT_1_POSX = 7.4;
+const CHESTNUT_1_POSY = 108;
 
-const CHESTNUT_2_POSX = 150;
-const CHESTNUT_2_POSY = 250;
+const CHESTNUT_2_POSX = 101;
+const CHESTNUT_2_POSY = 132;
 
-const CHESTNUT_3_POSX = 250;
-const CHESTNUT_3_POSY = 200;
+const CHESTNUT_3_POSX = 204;
+const CHESTNUT_3_POSY = 152;
 
-const CHESTNUT_4_POSX = 350;
-const CHESTNUT_4_POSY = 250;
+const CHESTNUT_4_POSX = 303;
+const CHESTNUT_4_POSY = 161;
 
-const CHESTNUT_5_POSX = 450;
-const CHESTNUT_5_POSY = 220;
+const CHESTNUT_5_POSX = 429;
+const CHESTNUT_5_POSY = 149;
 
-const CHESTNUT_6_POSX = 550;
-const CHESTNUT_6_POSY = 200;
+const CHESTNUT_6_POSX = 830;
+const CHESTNUT_6_POSY = 187;
 
-const CHESTNUT_7_POSX = 650;
-const CHESTNUT_7_POSY = 240;
+const CHESTNUT_7_POSX = 940;
+const CHESTNUT_7_POSY = 190;
 
-const CHESTNUT_8_POSX = 750;
-const CHESTNUT_8_POSY = 250;
+const CHESTNUT_8_POSX = 1065;
+const CHESTNUT_8_POSY = 186;
 
-const CHESTNUT_9_POSX = 850;
-const CHESTNUT_9_POSY = 220;
+const CHESTNUT_9_POSX = 1208;
+const CHESTNUT_9_POSY = 157;
 
-const CHESTNUT_10_POSX = 920;
-const CHESTNUT_10_POSY = 270;
+const BASKET_1_POSX = 226;
+const BASKET_1_POSY = 540;
 
+const BASKET_2_POSX = 314;
+const BASKET_2_POSY = 540;
 
+const BASKET_3_POSX = 529;
+const BASKET_3_POSY = 540;
 
+const BASKET_4_POSX = 582;
+const BASKET_4_POSY = 540;
 
+const BASKET_5_POSX = 633;
+const BASKET_5_POSY = 540;
+
+const BASKET_6_POSX = 818;
+const BASKET_6_POSY = 540;
+
+const BASKET_7_POSX = 864;
+const BASKET_7_POSY = 540;
+
+const BASKET_8_POSX = 890;
+const BASKET_8_POSY = 540;
+
+const BASKET_9_POSX = 919;
+const BASKET_9_POSY = 540;
 
 // Load sound
 const SOUND_START = "assets/sounds/unit4_1/4_Game 1.mp3";

@@ -1,6 +1,6 @@
 
 
-var game = new Phaser.Game(1500, 721, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1366, 768, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -13,7 +13,7 @@ function preload() {
 	
 	game.load.image('bird', 'assets/images/unit6/ic_bird.png');
 	game.load.image('egg', 'assets/images/unit6/ic_egg.png');
-	game.load.image('nest','assets/images/unit6/ic_nest.png')
+	game.load.image('nest','assets/images/unit6/ic_totrung.png')
 
 	game.load.image('text_number6', 'assets/images/unit6/text_number6.png');
 	game.load.image('text_bird', 'assets/images/unit6/text_bird.png');
@@ -37,7 +37,7 @@ function preload() {
 	game.load.spritesheet('m_bird', 'assets/images/unit6/character/bird.png', 245, 164,10);
 
 	// Load button sprite
-	game.load.image('nen','assets/images/unit5/bg_board.png');
+	game.load.image('nen','assets/images/unit6/bg_board.png');
 	game.load.image('btnNext', 'assets/images/unit6/ic_button_next.png');
 	game.load.image('btnBack', 'assets/images/unit6/ic_button_back.png');
 }
@@ -60,8 +60,8 @@ function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	//game.stage.backgroundColor = '#6CF';
-	bg = game.add.tileSprite(0,0,6096,720, 'bg');
-	game.world.setBounds(0,0,6096,720);
+	bg = game.add.tileSprite(0,0,6096,768, 'bg');
+	game.world.setBounds(0,0,6096,768);
 	game.scale.forceOrientation(false, true);
 	
 	m_player = game.add.sprite(0, 0, 'm_player');
@@ -104,8 +104,8 @@ function create() {
 }
 
 function btn() {
-	btnNext = game.add.button(800, 560, 'btnNext', mission, this);
-	btnBack = game.add.button(700, 560, 'btnBack', mission, this);
+	btnNext = game.add.button(700, 600, 'btnNext', mission, this);
+	btnBack = game.add.button(600, 600, 'btnBack', mission, this);
 }
 
 function show1() {
@@ -114,16 +114,16 @@ function show1() {
 	bird_ = game.add.tileSprite(-50, 700, 440, 227, 'bird');
 	bird_.inputEnabled = true;
 	bird_.scale.setTo(1, 1);
-	game.add.tween(bird_).to({ x: 350, y: 205 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(bird_).to({ x: 320, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
 		text_bird = game.add.tileSprite(550, -50, 348, 66, 'text_bird');
 		text_number6.inputEnabled = true;
-		game.add.tween(text_number6).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number6).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_bird.inputEnabled = true;
-		game.add.tween(text_bird).to({ x: 580, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_bird).to({ x: 500, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -139,16 +139,16 @@ function show2() {
 	nest.scale.setTo(1,1);
 	nest.inputEnabled = true;
 
-	game.add.tween(nest).to({ x: 400, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(nest).to({ x: 320, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
 		text_nest = game.add.tileSprite(530, -50, 330, 66, 'text_nest');
 		text_number6.inputEnabled = true;
-		game.add.tween(text_number6).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number6).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_nest.inputEnabled = true;
-		game.add.tween(text_nest).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_nest).to({ x: 500, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -165,16 +165,16 @@ function show3() {
 	egg = game.add.tileSprite(-50, 700, 357, 246, 'egg');
 	egg.inputEnabled = true;
 	egg.scale.setTo(1.1, 1.1);
-	game.add.tween(egg).to({ x: 385, y: 195 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(egg).to({ x: 320, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 
 		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
 		text_egg = game.add.tileSprite(450, -50, 378, 66, 'text_egg');
 		text_number6.inputEnabled = true;
-		game.add.tween(text_number6).to({ x: 880, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_number6).to({ x: 800, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 		text_egg.inputEnabled = true;
-		game.add.tween(text_egg).to({ x: 620, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+		game.add.tween(text_egg).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	}, 4000);
 
@@ -221,22 +221,22 @@ function mission() {
 function backPlayerBackgroundTwo() {
 	//start =0 ;
 	setTimeout(function () {
-		totrung = game.add.sprite(950,15,'totrung');
+		totrung = game.add.sprite(850,15,'totrung');
 		totrung.scale.setTo(1,1);
 
-		totrung1 = game.add.sprite(1130,5,'totrung');
+		totrung1 = game.add.sprite(1030,5,'totrung');
 		totrung1.scale.setTo(1,1);
 
-		totrung2 = game.add.sprite(1300,15,'totrung');
+		totrung2 = game.add.sprite(1200,15,'totrung');
 		totrung2.scale.setTo(1,1);
 
-		totrung3 = game.add.sprite(950,150,'totrung');
+		totrung3 = game.add.sprite(850,150,'totrung');
 		totrung3.scale.setTo(1,1);
 
-		totrung4 = game.add.sprite(1130,100,'totrung');
+		totrung4 = game.add.sprite(1030,100,'totrung');
 		totrung4.scale.setTo(1,1);
 
-		totrung5 = game.add.sprite(1300,150,'totrung');
+		totrung5 = game.add.sprite(1200,150,'totrung');
 		totrung5.scale.setTo(1,1);
 
 	}, 500);
@@ -246,22 +246,22 @@ function backPlayerBackgroundTwo() {
 function backPlayerBackgroundThree() {
 	start =0;
 	setTimeout(function () {
-		egg = game.add.sprite(1000,20,'trung');
+		egg = game.add.sprite(900,20,'trung');
 		egg.scale.setTo(1,1);
 
-		egg1 = game.add.sprite(1180,10,'trung');
+		egg1 = game.add.sprite(1080,10,'trung');
 		egg1.scale.setTo(1,1);
 
-		egg2 = game.add.sprite(1350,20,'trung');
+		egg2 = game.add.sprite(1250,20,'trung');
 		egg2.scale.setTo(1,1);
 
-		egg3 = game.add.sprite(1000,155,'trung');
+		egg3 = game.add.sprite(900,155,'trung');
 		egg3.scale.setTo(1,1);
 
-		egg4 = game.add.sprite(1180,105,'trung');
+		egg4 = game.add.sprite(1080,105,'trung');
 		egg4.scale.setTo(1,1);
 
-		egg5 = game.add.sprite(1350,155,'trung');
+		egg5 = game.add.sprite(1250,155,'trung');
 		egg5.scale.setTo(1,1);
 
 	}, 100);
@@ -287,18 +287,18 @@ function backPlayer() {
 
 function update() {
 	if(backgroundCount ==2){
-		if(bg.x > -550){
+		if(bg.x > -650){
 			bg.x -=direction;
 			bird.x -= direction;
 
 			m_player.animations.play('walk');
 			
 		}
-		if(bg.x <= -550){
+		if(bg.x <= -650){
 			backPlayerBackgroundTwo();
 			start = 0;
 			direction =0;
-			bg.x = -548;
+			bg.x = -648;
 			m_player.animations.play('idle');
 		}
 
@@ -318,9 +318,9 @@ function update() {
 				show2();
 			}, 4000);
 		}
-		if (backgroundCount == 3 && stop) {
+		if (backgroundCount == 3) {
 			setTimeout(function () {
-				//show3();
+				show3();
 			}, 3000);
 		}
 	}
