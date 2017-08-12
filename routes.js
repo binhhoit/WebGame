@@ -301,5 +301,10 @@ module.exports = router => {
 		res.render(__dirname + ("/view/level0/game1/index"));
 	});
 
+		router.get('/intro', (req, res) => {
+
+		res.render(__dirname + ("/view/intro/index"));
+	});
+
 
 }
