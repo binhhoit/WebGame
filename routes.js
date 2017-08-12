@@ -298,12 +298,8 @@ module.exports = router => {
 
 	router.get('/unit0_game1', (req, res) => {
 
-		res.render(__dirname + ("/view/leve2/game1/index"));
+		res.render(__dirname + ("/view/level0/game1/index"));
 	});
 
-	router.get('/unit0_game2', (req, res) => {
-
-		res.render(__dirname + ("/view/leve0/game2/index"));
-	});
 
 }
