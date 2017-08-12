@@ -25,8 +25,12 @@ var start =1;
 var stop = false;
 
 var tao;
-var khi;
+var khi2;
 var chuoi;
+
+var showkhi_;
+var zoom = true;
+var run_banana =false;
 function preload()  { 
 
 	game.scale.forceOrientation(false, true);
@@ -109,7 +113,18 @@ function create() {
 	// Setting camera follow player.
 	game.camera.follow(m_player);
 
-	khi = game.add.sprite(400, 550, 'khi');
+	//khi = game.add.sprite(400, 550, 'khi');
+	khi1 = game.add.sprite(470,540,'khi1');
+	khi2 = game.add.sprite(800,520,'khi2');
+	khi3 = game.add.sprite(1000,480,'khi3');
+	khi4 = game.add.sprite(320,450,'khi4');
+	khi5 = game.add.sprite(680,450,'khi5');
+
+	khi1.scale.setTo(0.7);
+	khi2.scale.setTo(0.7);
+	khi3.scale.setTo(0.7);
+	khi4.scale.setTo(0.7);
+	khi5.scale.setTo(0.7);
 
 	// Add sound
 	sound[0] = game.sound.add('1');
@@ -234,6 +249,11 @@ function mission() {
 		text_apple.destroy();
 		text_number5.destroy();
 		tao_.destroy();
+
+		showkhi_ = true;
+		setTimeout(function () {
+			run_banana =true;
+		},1000);
 	}
 
 	if (backgroundCount == 4) {
@@ -255,6 +275,7 @@ function backPlayerBackgroundTwo() {
 }
 
 function backPlayerBackgroundThree() {
+	showkhi_ = false;
 	setTimeout(function () {
 		chuoi= game.add.sprite(740,615,'chuoi');
 		chuoi.scale.setTo(1,1);
@@ -286,11 +307,15 @@ function backPlayer() {
 }
 
 function update() {
-	if(backgroundCount ==3){
+	if(backgroundCount ==3 && run_banana){
 		if(bg.x > -1230){
 			bg.x -= direction;
 			tao.x -= direction;
-			khi.x -= direction;
+			khi1.x -= direction;
+			khi2.x -= direction;
+			khi3.x -= direction;
+			khi4.x -= direction;
+			khi5.x -= direction;
 
 			m_player.animations.play('walk');
 		}
@@ -323,6 +348,21 @@ function update() {
 			setTimeout(function () {
 				show3();
 			}, 3000);
+		}
+	}
+
+	if(showkhi_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				khi2.scale.setTo(0.7, 0.7);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				khi2.scale.setTo(0.8, 0.8);
+			}, 500);
 		}
 	}
 }
