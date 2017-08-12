@@ -62,7 +62,7 @@
 				sound[1].play();
 			}, 1000);
 			setTimeout(function () {
-				winx = window.location = "/bcm";
+				winx = window.location = "/api";
 			}, 3000);
 		},
 
