@@ -1,11 +1,11 @@
 
-var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update, render: render});
+var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'game_div', { preload: preload, create: create, update: update});
 
 function preload()  { 
 
 	game.scale.forceOrientation(false, true);
 	// Function called first to load all the assets
-
+	game.load.spritesheet('Squirrel', 'assets/images/unit4/character/squirrel_animation.png', 192, 270);
 	// Load background 
 	game.load.image('bg', 'assets/images/unit4/bg.png');
 	game.load.image('bg_1', 'assets/images/unit4/bg_1.png');
@@ -78,10 +78,6 @@ function create() {
 	//m_sound[0] = game.add.audio('m_sound1');
 
 	flag= true;
-}
-
-function render(){
-	//var text = game.debug.spriteInfo(bg, 32, 32);
 }
 
 
@@ -206,20 +202,27 @@ function mission() {
 
 function backPlayerBackgroundTwo() {
 	start =0 ;
+	
+	Squirrel1 = game.add.sprite(50, 450, 'Squirrel');
+	Squirrel1.scale.setTo(1);
+	Squirrel2 = game.add.sprite(265, 450, 'Squirrel');
+	Squirrel2.scale.setTo(1);
+	Squirrel3 = game.add.sprite(550, 450, 'Squirrel');
+	Squirrel3.scale.setTo(1);
+	Squirrel4 = game.add.sprite(820, 450, 'Squirrel');
+	Squirrel4.scale.setTo(1);
+
 	setTimeout(function () {
-		soc = game.add.sprite(50,450,'asoc');
-		soc.scale.setTo(1,1);
+		Squirrel1.animations.add('walk', [0, 1,2,3,4,5,6], 5, true);
+		//Squirrel2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6], 5, true);
+		//Squirrel3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6], 5, true);
+		//Squirrel4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6], 5, true);
 
-		soc1 = game.add.sprite(265,400,'asoc');
-		soc1.scale.setTo(1,1);
-
-		soc2 = game.add.sprite(550,450,'asoc');
-		soc2.scale.setTo(1,1);
-
-		soc3 = game.add.sprite(820,450,'asoc');
-		soc3.scale.setTo(1,1);
-
-	}, 1000);
+		Squirrel1.animations.play('walk');
+		//Squirrel2.animations.play('walk');
+		//Squirrel3.animations.play('walk');
+		//Squirrel4.animations.play('walk');
+	},500)
 	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
@@ -243,6 +246,11 @@ function backPlayerBackgroundThree() {
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
+
+function backToNextGame() {
+	window_next = window.location = "/api/unit4_game1";
+}
+
 
 function backPlayer() {
 	if (start==0) {
@@ -271,28 +279,13 @@ function update() {
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
-				show2();
+				//show2();
 			}, 4000);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
 				show3();
 			}, 3000);
-		}
-	}
-	
-	if(showBehive_){
-		if(zoom){
-			setTimeout(function () {
-				zoom = false;
-				toong.scale.setTo(1, 1);
-			}, 500);
-		}
-		else {
-			setTimeout(function () {
-				zoom = true;
-				toong.scale.setTo(1.2, 1.2);
-			}, 500);
 		}
 	}
 }

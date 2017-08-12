@@ -3,18 +3,18 @@
 var game = new Phaser.Game(1366, 768, Phaser.AUTO, 'game_div', { preload: preload, create: create, update: update });
 
 function preload() {
-    game.load.spritesheet('buom', 'assets/images/unit0/butterfly_pink.png', 540.857142857, 374, 7);
-	game.load.spritesheet('chuonchuon', 'assets/images/unit0/dragonfly.png', 358.571428571, 211, 7);
-	game.load.spritesheet('duck', 'assets/images/unit0/duck.png', 140, 236, 8);
+    game.load.spritesheet('buom', 'assets/images/unit0/butterfly_pink.png', 200, 177);
+	game.load.spritesheet('chuonchuon', 'assets/images/unit0/dragonfly.png', 329, 292);
+	game.load.spritesheet('duck', 'assets/images/unit0/duck.png', 140, 236);
 
 	game.load.image('bg','assets/images/unit0/bg_duck.png');
 	game.load.image('bg_dragonfly','assets/images/unit0/bg_dragonfly.png');
 	game.load.image('bg_butterfly','assets/images/unit0/bg_butterfly.png');
 
 	game.load.image('text_number0', 'assets/images/unit0/text_number0.png');
-	game.load.image('text_dragonfly', 'assets/images/unit2/text_dragonfly.png');
-	game.load.image('text_butterfly', 'assets/images/unit2/text_butterfly.png');
-	game.load.image('text_duck', 'assets/images/unit2/text_duck.png');
+	game.load.image('text_dragonfly', 'assets/images/unit0/text_dragonfly.png');
+	game.load.image('text_butterfly', 'assets/images/unit0/text_butterfly.png');
+	game.load.image('text_duck', 'assets/images/unit0/text_duck.png');
 	
 	game.load.audio('1', 'assets/sound/unit9/9_9 con ca.mp3');
 	game.load.audio('2', 'assets/sound/unit9/9_9 oc sen.mp3');
@@ -34,7 +34,7 @@ function preload() {
 }
 var flag ;
 var loop;
-var temp =0;
+var temp =2;
 var backgroundCount = 1;
 var start =1;
 var sound = new Array();
@@ -47,6 +47,8 @@ var direction = 2;
 // Setting sound start
 var speed = 2;
 var Duck,Duck1,Duck2;
+var Dragonfly_1,Dragonfly_2,Dragonfly_3,Dragonfly_4,Dragonfly_5,Dragonfly_6;
+var Butterfly_1,Butterfly_2,Butterfly_3,Butterfly_4,Butterfly_5,Butterfly_6,Butterfly_7,Butterfly_8;
 
 function create() {
 	
@@ -96,77 +98,51 @@ function btn() {
 function show1() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	ic_fish = game.add.tileSprite(-50, 700, 487, 284, 'ic_fish');
-	ic_fish.inputEnabled = true;
-	ic_fish.scale.setTo(1, 1);
-	game.add.tween(ic_fish).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	text_number0 = game.add.tileSprite(1400, 700, 240, 442, 'text_number0');
+	text_duck = game.add.tileSprite(550, -50, 374, 66, 'text_duck');
+	text_number0.inputEnabled = true;
+	game.add.tween(text_number0).to({ x: 580, y: 180 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	text_duck.inputEnabled = true;
+	game.add.tween(text_duck).to({ x: 530, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	setTimeout(function () {
-
-		text_number9 = game.add.tileSprite(1400, 700, 240, 442, 'text_number9');
-		text_fish = game.add.tileSprite(550, -50, 296, 66, 'text_fish');
-		text_number9.inputEnabled = true;
-		game.add.tween(text_number9).to({ x: 830, y: 150 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-		text_fish.inputEnabled = true;
-		game.add.tween(text_fish).to({ x: 530, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-
-	}, 4000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 4000);
 }
 
 function show2() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 	
-	ic_turtle1 = game.add.tileSprite(-50,700,336,345,'ic_turtle1');
-	ic_turtle1.scale.setTo(1,1);
-	ic_turtle1.inputEnabled = true;
 
-	game.add.tween(ic_turtle1).to({ x: 350, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	text_number0 = game.add.tileSprite(1400, 700, 240, 442, 'text_number0');
+	text_dragonfly = game.add.tileSprite(550, -50, 627, 66, 'text_dragonfly');
+	text_number0.inputEnabled = true;
+	game.add.tween(text_number0).to({ x: 580, y: 180 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	text_dragonfly.inputEnabled = true;
+	game.add.tween(text_dragonfly).to({ x: 430, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	setTimeout(function () {
-
-		text_number9 = game.add.tileSprite(1400, 700, 240, 442, 'text_number9');
-		text_turtle = game.add.tileSprite(530, -50, 326, 66, 'text_turtle');
-		text_number9.inputEnabled = true;
-		game.add.tween(text_number9).to({ x: 800, y: 180 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-		text_turtle.inputEnabled = true;
-		game.add.tween(text_turtle).to({ x: 530, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-
-	}, 4000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
-
+	}, 4000);
 	
 }
 
 function show3() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	ic_snail = game.add.tileSprite(-50, 700, 390, 360, 'ic_snail');
-	ic_snail.inputEnabled = true;
-	ic_snail.scale.setTo(1, 1);
-	game.add.tween(ic_snail).to({ x: 350, y: 200 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	text_number0 = game.add.tileSprite(1400, 700, 240, 442, 'text_number0');
+	text_butterfly = game.add.tileSprite(550, -50, 470, 66, 'text_butterfly');
+	text_number0.inputEnabled = true;
+	game.add.tween(text_number0).to({ x: 580, y: 180 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	text_butterfly.inputEnabled = true;
+	game.add.tween(text_butterfly).to({ x: 480, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	setTimeout(function () {
-
-		text_number9 = game.add.tileSprite(1400, 700, 240, 442, 'text_number9');
-		text_snail = game.add.tileSprite(450, -50, 416, 66, 'text_snail');
-		text_number9.inputEnabled = true;
-		game.add.tween(text_number9).to({ x: 820, y: 180 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-		text_snail.inputEnabled = true;
-		game.add.tween(text_snail).to({ x: 530, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-
-	}, 4000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
-
+	}, 4000);
 }
 
 function mission() {
@@ -181,29 +157,38 @@ function mission() {
 	backgroundCount++;
 
 	if (backgroundCount == 2) {
-		text_fish.destroy();
-		text_number9.destroy();
-		ic_fish.destroy();
+		text_duck.destroy();
+		text_number0.destroy();
 
-		bg_turtle = game.add.tileSprite(0,0,6096,768, 'bg_turtle');
+		Duck.destroy();
+		Duck1.destroy();
+		Duck2.destroy();
+
+		bg_dragonfly = game.add.tileSprite(0,0,6096,768, 'bg_dragonfly');
 
 		backPlayerBackgroundTwo();
 
 	}
 
 	if (backgroundCount == 3) {
-		text_turtle.destroy();
-		text_number9.destroy();
-		ic_turtle1.destroy();
+		text_dragonfly.destroy();
+		text_number0.destroy();
 
-		bg_snail = game.add.tileSprite(0,0,6096,768, 'bg_snail');
+		Dragonfly_1.destroy();
+		Dragonfly_2.destroy();
+		Dragonfly_3.destroy();
+		Dragonfly_4.destroy();
+		Dragonfly_5.destroy();
+		Dragonfly_6.destroy();
+
+		bg_butterfly = game.add.tileSprite(0,0,6096,768, 'bg_butterfly');
 
 		backPlayerBackgroundThree();
 	}
 
 	if (backgroundCount == 4) {
 		text_butterfly.destroy();
-		text_number9.destroy();
+		text_number0.destroy();
 
 		backToNextGame();
 	}
@@ -211,24 +196,100 @@ function mission() {
 
 function backPlayerBackgroundTwo() {
 	bg.destroy();
-	start =0 ;
 	setTimeout(function () {
-		turtle = game.add.sprite(100,200,'turtle');
-		turtle.scale.setTo(1,1);
+		Dragonfly_2 = game.add.sprite(500,120,'chuonchuon');
+		Dragonfly_2.scale.setTo(0.6);
+
+		Dragonfly_3 = game.add.sprite(750,150,'chuonchuon');
+		Dragonfly_3.scale.setTo(0.6);
+
+		Dragonfly_4 = game.add.sprite(950,250,'chuonchuon');
+		Dragonfly_4.scale.setTo(0.6);
+
+		Dragonfly_5 = game.add.sprite(384,300,'chuonchuon');
+		Dragonfly_5.scale.setTo(0.6);
+
+		Dragonfly_6 = game.add.sprite(650,350,'chuonchuon');
+		Dragonfly_6.scale.setTo(0.6);
+
+		Dragonfly_1 = game.add.sprite(900,400,'chuonchuon');
+		Dragonfly_1.scale.setTo(0.6);
+
 	}, 100);
+
+	setTimeout(function () {
+		Dragonfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+		Dragonfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+		Dragonfly_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+		Dragonfly_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+		Dragonfly_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+		Dragonfly_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+
+		Dragonfly_1.animations.play('walk');
+		Dragonfly_2.animations.play('walk');
+		Dragonfly_3.animations.play('walk');
+		Dragonfly_4.animations.play('walk');
+		Dragonfly_5.animations.play('walk');
+		Dragonfly_6.animations.play('walk');
+	},1000);
 }
 
 function backPlayerBackgroundThree() {
-	bg_turtle.destroy();
-	start =0;
+	bg_dragonfly.destroy();
 	setTimeout(function () {
-		snail = game.add.sprite(50,420,'snail');
-		snail.scale.setTo(1,1);
+		Butterfly_1 = game.add.sprite(300,150,'buom');
+		Butterfly_1.scale.setTo(1.2,1.2);
+
+		Butterfly_2 = game.add.sprite(500,150,'buom');
+		Butterfly_2.scale.setTo(1.2,1.2);
+
+		Butterfly_3 = game.add.sprite(700,150,'buom');
+		Butterfly_3.scale.setTo(1.2,1.2);
+
+		Butterfly_4 = game.add.sprite(900,150,'buom');
+		Butterfly_4.scale.setTo(1.2,1.2);
+
+		Butterfly_5 = game.add.sprite(200,400,'buom');
+		Butterfly_5.scale.setTo(1.2,1.2);
+
+		Butterfly_6 = game.add.sprite(400,400,'buom');
+		Butterfly_6.scale.setTo(1.2,1.2);
+
+		Butterfly_7 = game.add.sprite(600,400,'buom');
+		Butterfly_7.scale.setTo(1.2,1.2);
+
+		Butterfly_8 = game.add.sprite(800,400,'buom');
+		Butterfly_8.scale.setTo(1.2,1.2);
+
 	}, 100);
 
+	setTimeout(function () {
+		Butterfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_7.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_8.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+
+		Butterfly_1.animations.play('walk');
+		Butterfly_2.animations.play('walk');
+		Butterfly_3.animations.play('walk');
+		Butterfly_4.animations.play('walk');
+		Butterfly_5.animations.play('walk');
+		Butterfly_6.animations.play('walk');
+		Butterfly_7.animations.play('walk');
+		Butterfly_8.animations.play('walk');
+	},1000);
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
+
+function backToNextGame() {
+	window_next = window.location = "/api/unit1";
+}
+
 
 function backPlayer() {
 	if (start==0) {
@@ -260,24 +321,58 @@ function update() {
 		}
 	}
 
+	if(backgroundCount ==2 && Dragonfly_1 != undefined){
+		if(Dragonfly_1.y > -300){
+			Dragonfly_1.y -= direction;
+			Dragonfly_2.y -= direction;
+			Dragonfly_3.y -= direction;
+			Dragonfly_4.y -= direction;
+			Dragonfly_5.y -= direction;
+			Dragonfly_6.y -= direction;
+		}
+
+		if(Dragonfly_1.y == -300){
+			start =0 ;
+			Dragonfly_1.y = -301;
+		}
+	}
+
+	if(backgroundCount ==3 & Butterfly_5 != undefined){
+		if(Butterfly_5.x < 1368){
+			Butterfly_1.x +=direction;
+			Butterfly_2.x +=direction;
+			Butterfly_3.x +=direction;
+			Butterfly_4.x +=direction;
+			Butterfly_5.x +=direction;
+			Butterfly_6.x +=direction;
+			Butterfly_7.x +=direction;
+			Butterfly_8.x +=direction;
+		}
+
+		if(Butterfly_5.x == 1368){
+			start =0;
+			Butterfly_5.x = 1370;
+		}
+	}
+
 	backPlayer();
 
 
 	if(!loop && flag){
 		if(backgroundCount ==1){
 			setTimeout(function () {
-				//show1();
-			},3000);
+				show1();
+			},2000);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				show2();
-			}, 4000);
+			}, 2000);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
 				show3();
-			}, 3000);
+			}, 2000);
 		}
 	}
 }

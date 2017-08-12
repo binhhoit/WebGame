@@ -70,21 +70,6 @@ function create() {
 	game.world.setBounds(0,0,6096,768);
 	game.scale.forceOrientation(false, true);
 	
-	m_player = game.add.sprite(0, 0, 'm_player');
-	m_player.scale.setTo(0.1, 0.1);
-
-	// add animation
-	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 10, true);
-	//game.add.tween(m_player ).to({ x: game.width }, 10000, Phaser.Easing.Linear.None, true);
-
-	//animations stop
-	m_player.animations.add('idle', [0], 8, true);
-
-	// Add physic for player .. physic type > ARCADE
-	game.physics.enable(m_player, Phaser.Physics.ARCADE);
-	m_player.body.collideWorldBounds = true;
-	m_player.body.bounce.setTo(0.8, 0.8);
-
 	// Setting camera follow player.
 	game.camera.follow(m_player);
 	
@@ -314,6 +299,11 @@ function backPlayerBackgroundThree() {
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
+
+function backToNextGame() {
+	window_next = window.location = "/api/unit8_game1";
+}
+
 
 function backPlayer() {
 	if (start==0) {

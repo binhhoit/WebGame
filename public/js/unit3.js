@@ -29,7 +29,7 @@ function preload()  {
 	game.load.image('btnBack', 'assets/images/unit1/ic_button_back.png');
 
 	// Load spritesheet
-	game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit_carrot.png', 198.375, 283, 8);
+	game.load.spritesheet('bear', 'assets/images/unit3/character/bear.png', 110, 205);
 
 	//thay am thanh, doi ten vaf duong dan
 	game.load.audio('1','assets/sounds/unit3/3_Gioithieu.mp3');
@@ -57,6 +57,8 @@ var toong;
 
 var zoom = true;
 
+var bear;
+
 function create() {
 
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -66,7 +68,6 @@ function create() {
 
 	gau = game.add.sprite(500, 320, 'gau');
 	gau.scale.setTo(1, 1);
-
 
 	game.camera.follow(gau);
 
@@ -101,7 +102,7 @@ function btn() {
 function showBear() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	gau = game.add.tileSprite(-50, 700, 496, 264, 'gau');
+	gau = game.add.tileSprite(-50, 700, 498, 262, 'gau');
 	gau.inputEnabled = true;
 	gau.scale.setTo(1, 1);
 	game.add.tween(gau).to({ x: 280, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
@@ -191,6 +192,13 @@ function mission() {
 		gau.destroy();
 
 		bg_bee = game.add.tileSprite(0,0,1366,768,'bg_bee');
+
+		//bear = game.add.sprite(100,500,'bear');
+		//bear.scale.setTo(0.8);
+
+		//bear.animations.add('walk', [0, 1, 2, 3, 4, 5], 10, true);
+		//bear.animations.play('walk');
+
 		backPlayerBackgroundTwo();
 	}
 
@@ -248,6 +256,11 @@ function backPlayerBackgroundThree() {
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
+
+function backToNextGame() {
+	window_next = window.location = "/api/unit3_game1";
+}
+
 
 function backPlayer() {
 	if (gau.x < game.width / 3) {
