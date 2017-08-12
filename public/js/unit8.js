@@ -3,17 +3,17 @@
 var game = new Phaser.Game(1366, 768, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
-    game.load.spritesheet('bot', 'assets/images/unit8/character/buom2.png', 564.230769, 250, 13);
-	game.load.spritesheet('buom', 'assets/images/unit8/character/Frog.png', 982, 554, 4);
-	game.load.spritesheet('bo', 'assets/images/unit8/character/ladybugs.png', 292, 224, 2);
+    game.load.spritesheet('chuonchuon', 'assets/images/unit8/character/dragonfly.png', 329, 292);
+	game.load.spritesheet('buom', 'assets/images/unit8/character/butterfly_pink.png', 200, 177);
+	game.load.spritesheet('bo', 'assets/images/unit8/character/ladybug.png', 250, 239);
 
 	game.load.image('bg','assets/images/unit8/bg.png');
 	game.load.image('bg_flower','assets/images/unit8/bg_flower.png');
 	game.load.image('bg_ladybug','assets/images/unit8/bg_ladybug.png');
 
-	game.load.image('buom', 'assets/images/unit8/ic_buom.png');
-	game.load.image('bo', 'assets/images/unit8/ic_bo.png');
-	game.load.image('chuonchuon', 'assets/images/unit8/ic_chuonchuon.png');
+	//game.load.image('buom', 'assets/images/unit8/ic_buom.png');
+	//game.load.image('bo', 'assets/images/unit8/ic_bo.png');
+	//game.load.image('chuonchuon', 'assets/images/unit8/ic_chuonchuon.png');
 
 	game.load.image('ic_butterfly', 'assets/images/unit8/ic_butterfly.png');
 	game.load.image('ic_dragonfly', 'assets/images/unit8/ic_dragonfly.png');
@@ -73,29 +73,48 @@ function create() {
 	// Setting camera follow player.
 	game.camera.follow(m_player);
 	
-	chuonchuon = game.add.sprite(200,150,'chuonchuon');
-	chuonchuon.scale.setTo(1.6,1.6);
+	Dragonfly_1 = game.add.sprite(200,150,'chuonchuon');
+	Dragonfly_1.scale.setTo(1,1);
 
-	chuonchuon = game.add.sprite(500,120,'chuonchuon');
-	chuonchuon.scale.setTo(1.6,1.6);
+	Dragonfly_2 = game.add.sprite(500,120,'chuonchuon');
+	Dragonfly_2.scale.setTo(1,1);
 
-	chuonchuon = game.add.sprite(750,150,'chuonchuon');
-	chuonchuon.scale.setTo(1.6,1.6);
+	Dragonfly_3 = game.add.sprite(750,150,'chuonchuon');
+	Dragonfly_3.scale.setTo(1,1);
 
-	chuonchuon = game.add.sprite(950,250,'chuonchuon');
-	chuonchuon.scale.setTo(1.6,1.6);
+	Dragonfly_4 = game.add.sprite(950,250,'chuonchuon');
+	Dragonfly_4.scale.setTo(1,1);
 
-	chuonchuon = game.add.sprite(150,300,'chuonchuon');
-	chuonchuon.scale.setTo(1.6,1.6);
+	Dragonfly_5 = game.add.sprite(150,300,'chuonchuon');
+	Dragonfly_5.scale.setTo(1,1);
 
-	chuonchuon = game.add.sprite(380,350,'chuonchuon');
-	chuonchuon.scale.setTo(1.6,1.6);
+	Dragonfly_6 = game.add.sprite(380,350,'chuonchuon');
+	Dragonfly_6.scale.setTo(1,1);
 
-	chuonchuon = game.add.sprite(650,380,'chuonchuon');
-	chuonchuon.scale.setTo(1.6,1.6);
+	Dragonfly_7 = game.add.sprite(650,380,'chuonchuon');
+	Dragonfly_7.scale.setTo(1,1);
 
-	chuonchuon = game.add.sprite(920,400,'chuonchuon');
-	chuonchuon.scale.setTo(1.6,1.6);
+	Dragonfly_8 = game.add.sprite(920,400,'chuonchuon');
+	Dragonfly_8.scale.setTo(1,1);
+
+
+	Dragonfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_7.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+	Dragonfly_8.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+
+	Dragonfly_1.animations.play('walk');
+	Dragonfly_2.animations.play('walk');
+	Dragonfly_3.animations.play('walk');
+	Dragonfly_4.animations.play('walk');
+	Dragonfly_5.animations.play('walk');
+	Dragonfly_6.animations.play('walk');
+	Dragonfly_7.animations.play('walk');
+	Dragonfly_8.animations.play('walk');
 
 	sound[0] = game.sound.add('1');
 	sound[1] = game.sound.add('2');
@@ -238,30 +257,47 @@ function backPlayerBackgroundTwo() {
 	bg.destroy();
 	start =0 ;
 	setTimeout(function () {
-		buom = game.add.sprite(300,150,'buom');
-		buom.scale.setTo(1.2,1.2);
+		Butterfly_1 = game.add.sprite(300,150,'buom');
+		Butterfly_1.scale.setTo(1.2,1.2);
 
-		buom = game.add.sprite(500,150,'buom');
-		buom.scale.setTo(1.2,1.2);
+		Butterfly_2 = game.add.sprite(500,150,'buom');
+		Butterfly_2.scale.setTo(1.2,1.2);
 
-		buom = game.add.sprite(700,150,'buom');
-		buom.scale.setTo(1.2,1.2);
+		Butterfly_3 = game.add.sprite(700,150,'buom');
+		Butterfly_3.scale.setTo(1.2,1.2);
 
-		buom = game.add.sprite(900,150,'buom');
-		buom.scale.setTo(1.2,1.2);
+		Butterfly_4 = game.add.sprite(900,150,'buom');
+		Butterfly_4.scale.setTo(1.2,1.2);
 
-		buom = game.add.sprite(200,400,'buom');
-		buom.scale.setTo(1.2,1.2);
+		Butterfly_5 = game.add.sprite(200,400,'buom');
+		Butterfly_5.scale.setTo(1.2,1.2);
 
-		buom = game.add.sprite(400,400,'buom');
-		buom.scale.setTo(1.2,1.2);
+		Butterfly_6 = game.add.sprite(400,400,'buom');
+		Butterfly_6.scale.setTo(1.2,1.2);
 
-		buom = game.add.sprite(600,400,'buom');
-		buom.scale.setTo(1.2,1.2);
+		Butterfly_7 = game.add.sprite(600,400,'buom');
+		Butterfly_7.scale.setTo(1.2,1.2);
 
-		buom = game.add.sprite(800,400,'buom');
-		buom.scale.setTo(1.2,1.2);
+		Butterfly_8 = game.add.sprite(800,400,'buom');
+		Butterfly_8.scale.setTo(1.2,1.2);
 
+		Butterfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_7.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_8.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+
+		Butterfly_1.animations.play('walk');
+		Butterfly_2.animations.play('walk');
+		Butterfly_3.animations.play('walk');
+		Butterfly_4.animations.play('walk');
+		Butterfly_5.animations.play('walk');
+		Butterfly_6.animations.play('walk');
+		Butterfly_7.animations.play('walk');
+		Butterfly_8.animations.play('walk');
 
 	}, 100);
 }
@@ -270,30 +306,48 @@ function backPlayerBackgroundThree() {
 	bg_flower
 	start =0;
 	setTimeout(function () {
-		bo = game.add.sprite(260,230,'bo');
-		bo.scale.add(0.3,0.3);
+		Ladybug_1 = game.add.sprite(260,230,'bo');
+		Ladybug_1.scale.add(0.1,0.1);
 
-		bo = game.add.sprite(100,430,'bo');
-		bo.scale.add(0.3,0.3);
+		Ladybug_2 = game.add.sprite(100,430,'bo');
+		Ladybug_2.scale.add(0.1,0.1);
 
-		bo = game.add.sprite(300,480,'bo');
-		bo.scale.add(0.3,0.3);
+		Ladybug_3 = game.add.sprite(300,480,'bo');
+		Ladybug_3.scale.add(0.1,0.1);
 
-		bo = game.add.sprite(450,480,'bo');
-		bo.scale.add(0.3,0.3);
+		Ladybug_4 = game.add.sprite(450,480,'bo');
+		Ladybug_4.scale.add(0.1,0.1);
 
-		bo = game.add.sprite(600,480,'bo');
-		bo.scale.add(0.3,0.3);
+		Ladybug_5 = game.add.sprite(600,480,'bo');
+		Ladybug_5.scale.add(0.1,0.1);
 
-		bo = game.add.sprite(750,480,'bo');
-		bo.scale.add(0.3,0.3);
+		Ladybug_6 = game.add.sprite(750,480,'bo');
+		Ladybug_6.scale.add(0.1,0.1);
 
-		bo = game.add.sprite(900,480,'bo');
-		bo.scale.add(0.3,0.3);
+		Ladybug_7 = game.add.sprite(900,480,'bo');
+		Ladybug_7.scale.add(0.1,0.1);
 
-		bo = game.add.sprite(1050,480,'bo');
-		bo.scale.add(0.3,0.3);
+		Ladybug_8 = game.add.sprite(1050,480,'bo');
+		Ladybug_8.scale.add(0.1,0.1);
 
+
+		Ladybug_1.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+		Ladybug_2.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+		Ladybug_3.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+		Ladybug_4.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+		Ladybug_5.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+		Ladybug_6.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+		Ladybug_7.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+		Ladybug_8.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+
+		Ladybug_1.animations.play('walk');
+		Ladybug_2.animations.play('walk');
+		Ladybug_3.animations.play('walk');
+		Ladybug_4.animations.play('walk');
+		Ladybug_5.animations.play('walk');
+		Ladybug_6.animations.play('walk');
+		Ladybug_7.animations.play('walk');
+		Ladybug_8.animations.play('walk');
 	}, 100);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);

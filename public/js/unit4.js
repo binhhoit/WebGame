@@ -5,7 +5,7 @@ function preload()  {
 
 	game.scale.forceOrientation(false, true);
 	// Function called first to load all the assets
-	game.load.spritesheet('Squirrel', 'assets/images/unit4/character/squirrel_animation.png', 192, 270);
+	game.load.spritesheet('Squirrel', 'assets/images/unit4/character/squirrel_animation.png', 192, 252);
 	// Load background 
 	game.load.image('bg', 'assets/images/unit4/bg.png');
 	game.load.image('bg_1', 'assets/images/unit4/bg_1.png');
@@ -213,12 +213,12 @@ function backPlayerBackgroundTwo() {
 	Squirrel4.scale.setTo(1);
 
 	setTimeout(function () {
-		Squirrel1.animations.add('walk', [0, 1,2,3,4,5,6], 5, true);
+		//Squirrel1.animations.add('walk', [0, 1,2,3,4,5,6], 5, true);
 		//Squirrel2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6], 5, true);
 		//Squirrel3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6], 5, true);
 		//Squirrel4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6], 5, true);
 
-		Squirrel1.animations.play('walk');
+		//Squirrel1.animations.play('walk');
 		//Squirrel2.animations.play('walk');
 		//Squirrel3.animations.play('walk');
 		//Squirrel4.animations.play('walk');
@@ -279,7 +279,7 @@ function update() {
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
-				//show2();
+				show2();
 			}, 4000);
 		}
 		if (backgroundCount == 3) {

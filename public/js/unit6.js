@@ -34,7 +34,7 @@ function preload() {
 
 	// Load spritesheet
 	game.load.spritesheet('m_player', 'assets/images/unit5/tho1.png', 1, 1);
-	game.load.spritesheet('m_bird', 'assets/images/unit6/character/bird.png', 245, 164,10);
+	game.load.spritesheet('m_bird', 'assets/images/unit6/character/bird.png', 300, 239, 8);
 
 	// Load button sprite
 	game.load.image('nen','assets/images/unit6/bg_board.png');
@@ -55,7 +55,7 @@ var direction = 2;
 
 // Setting sound start
 var speed = 2;
-var bird;
+var Bird_1,Bird_2,Bird_3,Bird_4, Bird_5,Bird_6;
 function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -63,7 +63,7 @@ function create() {
 	bg = game.add.tileSprite(0,0,6096,768, 'bg');
 	game.world.setBounds(0,0,6096,768);
 	game.scale.forceOrientation(false, true);
-	
+
 	m_player = game.add.sprite(0, 0, 'm_player');
 	m_player.scale.setTo(0.1, 0.1);
 
@@ -82,11 +82,36 @@ function create() {
 	// Setting camera follow player.
 	game.camera.follow(m_player);
 
-	bird = game.add.sprite(815, 35, 'bird');
-	bird.scale.setTo(0.85,0.85);
-	//bird = game.add.sprite(815,35,'m_bird');
-	//var walk = bird.animations.add('walk');
-	//bird.animations.play('walk', 6, true)
+	//bird = game.add.sprite(815, 35, 'm_bird');
+	//bird.scale.setTo(0.85,0.85);
+
+	Bird_1 = game.add.sprite(815,35,'m_bird');
+	Bird_2 = game.add.sprite(965,35,'m_bird');
+	Bird_3 = game.add.sprite(1115,35,'m_bird');
+	Bird_4 = game.add.sprite(855,135,'m_bird');
+	Bird_5 = game.add.sprite(1005,135,'m_bird');
+	Bird_6 = game.add.sprite(1155,135,'m_bird');
+
+	Bird_1.scale.setTo(0.5);
+	Bird_2.scale.setTo(0.5);
+	Bird_3.scale.setTo(0.5);
+	Bird_4.scale.setTo(0.5);
+	Bird_5.scale.setTo(0.5);
+	Bird_6.scale.setTo(0.5);
+
+	Bird_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Bird_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Bird_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Bird_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Bird_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Bird_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+
+	Bird_1.animations.play('walk');
+	Bird_2.animations.play('walk');
+	Bird_3.animations.play('walk');
+	Bird_4.animations.play('walk');
+	Bird_5.animations.play('walk');
+	Bird_6.animations.play('walk');
 	
 	sound[0] = game.sound.add('1');
 	sound[1] = game.sound.add('2');
@@ -294,7 +319,12 @@ function update() {
 	if(backgroundCount ==2){
 		if(bg.x > -650){
 			bg.x -=direction;
-			bird.x -= direction;
+			Bird_1.x -= direction;
+			Bird_2.x -= direction;
+			Bird_3.x -= direction;
+			Bird_4.x -= direction;
+			Bird_5.x -= direction;
+			Bird_6.x -= direction;
 
 			m_player.animations.play('walk');
 			

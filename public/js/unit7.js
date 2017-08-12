@@ -3,14 +3,14 @@
 var game = new Phaser.Game(1366, 768, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
-    game.load.spritesheet('bot', 'assets/images/unit7/character/duck.png', 1493.25, 1973, 8);
-	game.load.spritesheet('buom', 'assets/images/unit7/character/frog.png', 982, 554, 4);
+    game.load.spritesheet('duck', 'assets/images/unit7/character/duck.png', 140, 236);
+	game.load.spritesheet('frog', 'assets/images/unit7/character/frog.png', 140, 236, 8);
 
 	game.load.image('bg','assets/images/unit7/bg.png');
 	game.load.image('bg_lotus','assets/images/unit7/bg_lotus.png');
 
-	game.load.image('duck', 'assets/images/unit7/ic_duck2.png');
-	game.load.image('frog', 'assets/images/unit7/ic_frog2.png');
+	//game.load.image('duck', 'assets/images/unit7/ic_duck2.png');
+	//game.load.image('frog', 'assets/images/unit7/ic_frog2.png');
 
 	game.load.image('ic_duck', 'assets/images/unit7/ic_duck.png');
 	game.load.image('ic_frog', 'assets/images/unit7/ic_frog.png');
@@ -67,44 +67,43 @@ function create() {
 	game.world.setBounds(0,0,6096,768);
 	game.scale.forceOrientation(false, true);
 	
-	m_player = game.add.sprite(0, 0, 'm_player');
-	m_player.scale.setTo(0.1, 0.1);
+	Duck = game.add.sprite(50,350,'duck');
+	Duck.scale.setTo(1,1);
 
-	// add animation
-	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 10, true);
-	//game.add.tween(m_player ).to({ x: game.width }, 10000, Phaser.Easing.Linear.None, true);
+	Duck1 = game.add.sprite(200,350,'duck');
+	Duck1.scale.setTo(1,1);
 
-	//animations stop
-	m_player.animations.add('idle', [0], 8, true);
+	Duck2 = game.add.sprite(350,350,'duck');
+	Duck2.scale.setTo(1,1);
 
-	// Add physic for player .. physic type > ARCADE
-	game.physics.enable(m_player, Phaser.Physics.ARCADE);
-	m_player.body.collideWorldBounds = true;
-	m_player.body.bounce.setTo(0.8, 0.8);
+	Duck3 = game.add.sprite(500,350,'duck');
+	Duck3.scale.setTo(1,1);
 
-	// Setting camera follow player.
-	game.camera.follow(m_player);
+	Duck4 = game.add.sprite(650,350,'duck');
+	Duck4.scale.setTo(1,1);
 
-	duck = game.add.sprite(50,350,'duck');
-	duck.scale.setTo(1,1);
+	Duck5 = game.add.sprite(800,350,'duck');
+	Duck5.scale.setTo(1,1);
 
-	duck1 = game.add.sprite(200,350,'duck');
-	duck1.scale.setTo(1,1);
+	Duck6 = game.add.sprite(950,350,'duck');
+	Duck6.scale.setTo(1,1);
 
-	duck2 = game.add.sprite(350,350,'duck');
-	duck2.scale.setTo(1,1);
+	Duck.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Duck1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Duck2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Duck3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Duck4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Duck5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+	Duck6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
 
-	duck3 = game.add.sprite(500,350,'duck');
-	duck3.scale.setTo(1,1);
 
-	duck4 = game.add.sprite(650,350,'duck');
-	duck4.scale.setTo(1,1);
-
-	duck5 = game.add.sprite(800,350,'duck');
-	duck5.scale.setTo(1,1);
-
-	duck6 = game.add.sprite(950,350,'duck');
-	duck6.scale.setTo(1,1);
+	Duck.animations.play('walk');
+	Duck1.animations.play('walk');
+	Duck2.animations.play('walk');
+	Duck3.animations.play('walk');
+	Duck4.animations.play('walk');
+	Duck5.animations.play('walk');
+	Duck6.animations.play('walk');
 
 	
 	sound[0] = game.sound.add('1');
@@ -248,30 +247,47 @@ function backPlayerBackgroundTwo() {
 }
 
 function backPlayerBackgroundThree() {
-	start =0;
+
+	Frog_1 = game.add.sprite(50,130,'frog');
+	Frog_1.scale.setTo(1,1);
+
+	Frog_2 = game.add.sprite(400,100,'frog');
+	Frog_2.scale.setTo(1,1);
+
+	Frog_3 = game.add.sprite(880,140,'frog');
+	Frog_3.scale.setTo(1,1);
+
+	Frog_4 = game.add.sprite(80,270,'frog');
+	Frog_4.scale.setTo(1,1);
+
+	Frog_5 = game.add.sprite(630,250,'frog');
+	Frog_5.scale.setTo(1,1);
+
+	Frog_6 = game.add.sprite(950,350,'frog');
+	Frog_6.scale.setTo(1,1);
+
+	Frog_7 = game.add.sprite(500,480,'frog');
+	Frog_7.scale.setTo(1,1);
+
+
 	setTimeout(function () {
-		frog = game.add.sprite(50,230,'frog');
-		frog.scale.setTo(1,1);
+		Frog_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Frog_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Frog_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Frog_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Frog_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Frog_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Frog_7.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
 
-		frog = game.add.sprite(400,200,'frog');
-		frog.scale.setTo(1,1);
-
-		frog = game.add.sprite(880,240,'frog');
-		frog.scale.setTo(1,1);
-
-		frog = game.add.sprite(80,370,'frog');
-		frog.scale.setTo(1,1);
-
-		frog = game.add.sprite(630,350,'frog');
-		frog.scale.setTo(1,1);
-
-		frog = game.add.sprite(950,450,'frog');
-		frog.scale.setTo(1,1);
-
-		frog = game.add.sprite(500,580,'frog');
-		frog.scale.setTo(1,1);
-
-	}, 100);
+		Frog_1.animations.play('walk');
+		Frog_2.animations.play('walk');
+		Frog_3.animations.play('walk');
+		Frog_4.animations.play('walk');
+		Frog_5.animations.play('walk');
+		Frog_6.animations.play('walk');
+		Frog_7.animations.play('walk');
+	},500);
+	start =0;
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
