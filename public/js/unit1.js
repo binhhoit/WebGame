@@ -42,9 +42,11 @@ function preload() {
 
 
 	// Load spritesheet
-	game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit.png', 198.375, 283, 8);
+	//game.load.spritesheet('m_player', 'assets/images/unit1/character/animation_rabbit.png', 198.375, 283, 8);
 	game.load.spritesheet('m_player_carrot', 'assets/images/unit1/character/animation_rabbit_carrot.png', 198.375, 283, 8);
 
+
+		game.load.spritesheet('m_player', 'assets/images/unit1/character/chip_flying.png', 300, 247, 8);
 	// Load sound
 	game.load.audio('Thokia', 'assets/sounds/unit1/1_Chutho.mp3');
 	game.load.audio('Thodaochoi', 'assets/sounds/unit1/1_Thodaochoi.mp3');
