@@ -169,7 +169,7 @@ function score_s() {
 function stopDrag_1() {
 	if (Fish_1.y < 286 && Fish_1.y > 168 && Fish_1.x < 282 && Fish_1.x > 174) {
 		Fish_1.inputEnabled = false;
-		Fish_1.angle = -90.
+		Fish_1.angle = -90 ;
 		Fish_1.x = '228.9';
 		Fish_1.y = '300';
 		// Fish_1.anchor.x = 0.1;
@@ -188,7 +188,7 @@ function stopDrag_1() {
 function stopDrag_2() {
 	if  (Fish_2.y < 286 && Fish_2.y > 168 && Fish_2.x < 282 && Fish_2.x > 174) {
 		Fish_2.inputEnabled = false;
-		Fish_2.angle = -90.
+		Fish_2.angle = -90 ;
 		Fish_2.x = '238.9';
 		Fish_2.y = '300';
 		Score++;
@@ -205,7 +205,7 @@ function stopDrag_2() {
 function stopDrag_3() {
 	if  (Fish_3.y < 286 && Fish_3.y > 168 && Fish_3.x < 658 && Fish_3.x > 528) {
 		Fish_3.inputEnabled = false;
-		Fish_3.angle = -90.
+		Fish_3.angle = -90 ;
 		Fish_3.x = '562';
 		Fish_3.y = '300';
 		Score++;
@@ -222,7 +222,7 @@ function stopDrag_3() {
 function stopDrag_4() {
 	if  (Fish_4.y < 286 && Fish_4.y > 168 && Fish_4.x < 658 && Fish_4.x > 528) {
 		Fish_4.inputEnabled = false;
-		Fish_4.angle = -90.
+		Fish_4.angle = -90 ;
 		Fish_4.x = '582';
 		Fish_4.y = '300';
 		Score++;
@@ -239,7 +239,7 @@ function stopDrag_4() {
 function stopDrag_5() {
 	if  (Fish_5.y < 286 && Fish_5.y > 168 && Fish_5.x < 980 && Fish_5.x > 852) {
 		Fish_5.inputEnabled = false;
-		Fish_5.angle = -90.
+		Fish_5.angle = -90 ;
 		Fish_5.x = '896';
 		Fish_5.y = '300';
 		Score++;
@@ -257,7 +257,7 @@ function stopDrag_5() {
 function stopDrag_6() {
 	if (Fish_6.y < 286 && Fish_6.y > 168 && Fish_6.x < 980 && Fish_6.x > 852) {
 		Fish_6.inputEnabled = false;
-		Fish_6.angle = -90.
+		Fish_6.angle = -90 ;
 		Fish_6.x = '916';
 		Fish_6.y = '300';
 		Score++;
@@ -274,7 +274,7 @@ function stopDrag_6() {
 function stopDrag_7() {
 	if (Fish_7.y < 286 && Fish_7.y > 168 && Fish_7.x < 980 && Fish_7.x > 852) {
 		Fish_7.inputEnabled = false;
-		Fish_7.angle = -90.
+		Fish_7.angle = -90 ;
 		Fish_7.x = '926';
 		Fish_7.y = '300';
 		Score++;
@@ -292,7 +292,7 @@ function stopDrag_7() {
 function stopDrag_8() {
 	if (Fish_8.y < 286 && Fish_8.y > 168 && Fish_8.x < 980 && Fish_8.x > 852) {
 		Fish_8.inputEnabled = false;
-		Fish_8.angle = -90.
+		Fish_8.angle = -90 ;
 		Fish_8.x = '936';
 		Fish_8.y = '300';
 		Score++;
@@ -310,7 +310,7 @@ function stopDrag_8() {
 function stopDrag_9() {
 	if (Fish_9.y < 286 && Fish_9.y > 168 && Fish_9.x < 980 && Fish_9.x > 852) {
 		Fish_9.inputEnabled = false;
-		Fish_9.angle = -90.
+		Fish_9.angle = -90 ;
 		Fish_9.x = '956';
 		Fish_9.y = '300';
 		Score++;
@@ -328,7 +328,7 @@ function stopDrag_9() {
 function stopDrag_10() {
 	if (Fish_10.y < 286 && Fish_10.y > 168 && Fish_10.x < 980 && Fish_10.x > 852) {
 		Fish_10.inputEnabled = false;
-		Fish_10.angle = -90.
+		Fish_10.angle = -90 ;
 		Fish_10.x = '976';
 		Fish_10.y = '300';
 		Score++;

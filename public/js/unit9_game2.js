@@ -1,5 +1,18 @@
 (function () {
 
+	setTimeout(function () {
+		var soundFile = document.createElement("audio");
+		soundFile.preload = "auto";
+		var src = document.createElement("source");
+		src.src = "assets/sounds/game_bg" + ".mp3";
+		soundFile.appendChild(src);
+		soundFile.load();
+		soundFile.play();
+		soundFile.volume = 0.1;
+		setTimeout(function () {
+			soundFile.volume = 1;
+		}, 4000);
+	}, 10);
 	var Memory = {
 
 		init: function (cards) {

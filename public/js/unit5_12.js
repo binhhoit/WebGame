@@ -30,6 +30,7 @@ function preload() {
 	game.load.audio('fail', SOUND_FAIL);
 	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('music_bg', SOUND_BG);
 	// load button
 	game.load.image('again', BUTTON_AGAIN);
 	game.load.image('btn', BUTTON_IMAGE);
@@ -56,6 +57,12 @@ function create() {
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
 
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 5000);
 	// create Basket
 
 	//load button
@@ -68,9 +75,9 @@ function create() {
 	button5 = game.add.button(So_5_POSX, So_5_POSY, 'So5', Faile1, this, 2, 1, 0);
 	button5.scale.setTo(1.1, 1);
 
-	game.add.button(BANANA_1_POSX, BANANA_1_POSY, 'banana');
-	game.add.button(BANANA_3_POSX, BANANA_3_POSY, 'banana');
-	game.add.button(BANANA_5_POSX, BANANA_5_POSY, 'banana');
+	banana1 = game.add.button(BANANA_1_POSX, BANANA_1_POSY, 'banana');
+	banana2 = game.add.button(BANANA_3_POSX, BANANA_3_POSY, 'banana');
+	banana3 = game.add.button(BANANA_5_POSX, BANANA_5_POSY, 'banana');
 
 
 }
@@ -121,10 +128,25 @@ function Process1() {
 
 }
 
+var anchorB = true;
 function update() {
 	game.scale.forceOrientation(false, true);
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-
+	if (anchorB) {
+		setTimeout(function () {
+			anchorB = false;
+			banana1.angle = -10;
+			banana2.angle = -10;
+			banana3.angle = -10;
+		}, 500);
+	} else {
+		setTimeout(function () {
+			anchorB = true;
+			banana1.angle = 10;
+			banana2.angle = 10;
+			banana3.angle = 10;
+		}, 500);
+	}
 }
 function render() {
 	//game.debug.spriteInfo(Score,32,32);

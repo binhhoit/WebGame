@@ -34,8 +34,9 @@ function preload() {
 	game.load.audio('start', SOUND_START);
 	game.load.audio('Score_a', SOUND_SCORE);
 	game.load.audio('fail', SOUND_FAIL);
-	//game.load.audio('end',SOUND_END);
+	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('music_bg', SOUND_BG);
 	// load button
 	//game.load.image('again',BUTTON_AGAIN);
 	//game.load.image('btn',BUTTON_IMAGE);
@@ -62,8 +63,12 @@ function create() {
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
 
-
-
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 5000);
 
 	Apple_1 = game.add.sprite(APPLE_1_POSX, APPLE_1_POSY, 'Apple_4');
 	Apple_2 = game.add.sprite(APPLE_2_POSX, APPLE_2_POSY, 'Apple_5');
@@ -303,7 +308,7 @@ function Process() {
 	if (Score == 10) {
 		game.time.events.add(Phaser.Timer.SECOND * 1, Delay1, this);
 		button = game.add.button(1200, 650, 'next', Process2, this, 2, 1, 0);
-		button.scale.setTo(1.2,1.2);
+		button.scale.setTo(1.2, 1.2);
 		game.time.events.add(Phaser.Timer.SECOND * 4, Process2, this);
 	}
 }

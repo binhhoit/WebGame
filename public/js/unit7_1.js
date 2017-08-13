@@ -34,11 +34,10 @@ function preload() {
 	game.load.audio('start', SOUND_START);
 	game.load.audio('Score_a', SOUND_SCORE);
 	game.load.audio('fail', SOUND_FAIL);
-	//game.load.audio('end',SOUND_END);
+	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
-
 	game.load.image('next', BUTTON_NEXT);
-
+	game.load.audio('music_bg', SOUND_BG);
 }
 
 // Fuction called after 'preload' to setup the game  
@@ -53,6 +52,13 @@ function create() {
 	sound[2] = game.add.audio('fail');
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
+	
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 5000);
 
 
 
@@ -265,12 +271,12 @@ function Process() {
 	}
 }
 function Delay1() {
-	setTimeout(function() {
+	setTimeout(function () {
 		sound[3].play();
 	}, 1000);
 }
 function Process2() {
-	setTimeout(function() {
+	setTimeout(function () {
 		window.location = "unit7_game2"
 	}, 2000);
 

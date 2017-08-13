@@ -84,9 +84,9 @@ const BASKET_9_POSX = 919;
 const BASKET_9_POSY = 540;
 
 // Load sound
-const SOUND_START = "assets/sounds/unit4_1/4_Game 1.mp3";
+const SOUND_START = "assets/sounds/unit4_1/start.mp3";
 const SOUND_DROP = "assets/sounds/unit4_1/drop.mp3";
 const SOUND_SCORE = "assets/sounds/unit4_1/Score.mp3";
 const SOUND_FAIL = "assets/sounds/unit4_1/Fail.mp3";
 const SOUND_END = "assets/sounds/unit4_1/End.mp3";
-
+const SOUND_BG = "assets/sounds/game_bg.mp3";

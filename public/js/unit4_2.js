@@ -37,13 +37,14 @@ function preload() {
 	game.load.audio('start', SOUND_START);
 	game.load.audio('Score_a', SOUND_SCORE);
 	game.load.audio('fail', SOUND_FAIL);
-	//game.load.audio('end',SOUND_END);
+	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('music_bg', SOUND_BG);
 	// load button
 	//game.load.image('again',BUTTON_AGAIN);
 	//game.load.image('btn',BUTTON_IMAGE);
 	game.load.image('next', BUTTON_NEXT);
-	// process responsive
 
 }
 
@@ -64,6 +65,14 @@ function create() {
 	sound[2] = game.add.audio('fail');
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
+
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 5000);
+
 
 	// create Spuirrel
 	Spuirrel_1 = game.add.sprite(40, 450, 'Spuirrel1');
@@ -181,17 +190,18 @@ function stopDrag_4() {
 
 function Process() {
 	if (Score == 4) {
-		game.time.events.add(Phaser.Timer.SECOND * 1, Delay1, this);
-		var String_1 = 'tuyệt vời , bạn giỏi lắm'
-		var info = game.add.text(100, 30, String_1, style);
+		setTimeout(function () {
+			music_bg.volume = 0.1;
+			sound[3].play();
+		}, 1000);
 		button = game.add.button(1200, 650, 'next', Process2, this, 2, 1, 0);
 		button.scale.setTo(1.2);
-		game.time.events.add(Phaser.Timer.SECOND * 1000, Process2, this);
+		setTimeout(function () {
+			Process2();
+		}, 6000);
 	}
 }
-function Delay1() {
-	game.add.tween(sound[3].play()).to(2000, Phaser.Easing.Linear.None, true);
-}
+
 function Process2() {
 	game.add.tween(winx = window.location = "/api").to(
 		{ alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);

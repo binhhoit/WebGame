@@ -79,5 +79,6 @@ const SOUND_START ="assets/sounds/unit5_2/start.mp3";
 const SOUND_DROP ="assets/sounds/unit5_2/drop.mp3";
 const SOUND_SCORE ="assets/sounds/unit5_2/Score.mp3";
 const SOUND_FAIL ="assets/sounds/unit5_2/Fail.mp3";
-const SOUND_END ="assets/sounds/unit5_2/End.mp3";
+const SOUND_END ="assets/sounds/unit5_2/finish.mp3";
+const SOUND_BG = "assets/sounds/game_bg.mp3";
 

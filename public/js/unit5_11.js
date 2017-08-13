@@ -4,18 +4,15 @@ var game = new Phaser.Game(1366, 768, Phaser.CANVAS, 'gameContainer', { preload:
 
 // Creates a new 'main' state that wil contain the game
 var background;
-//var basket;
-var text;
-
 var sound = new Array(4);
-var ScoreText;
 var Score = 0;
-var style;
 var tween = new Array(4);
 var count = 0;
 var button;
 var button1;
-var strText;
+
+var banana1, banana2, banana3, banana4, banana5;
+
 
 //var sound =new Array();
 // Function called first to load all the assetsme
@@ -30,6 +27,7 @@ function preload() {
 	game.load.audio('fail', SOUND_FAIL);
 	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('music_bg', SOUND_BG);
 	// load button
 	game.load.image('again', BUTTON_AGAIN);
 	game.load.image('btn', BUTTON_IMAGE);
@@ -56,6 +54,12 @@ function create() {
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
 
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 5000);
 	// create Basket
 
 	//load button
@@ -68,11 +72,11 @@ function create() {
 	button5 = game.add.button(So_5_POSX, So_5_POSY, 'So5', Pass, this, 2, 1, 0);
 	button5.scale.setTo(1.1, 1);
 
-	game.add.button(BANANA_1_POSX, BANANA_1_POSY, 'banana');
-	game.add.button(BANANA_2_POSX, BANANA_2_POSY, 'banana');
-	game.add.button(BANANA_3_POSX, BANANA_3_POSY, 'banana');
-	game.add.button(BANANA_4_POSX, BANANA_4_POSY, 'banana');
-	game.add.button(BANANA_5_POSX, BANANA_5_POSY, 'banana');
+	banana1 = game.add.button(BANANA_1_POSX, BANANA_1_POSY, 'banana');
+	banana2 = game.add.button(BANANA_2_POSX, BANANA_2_POSY, 'banana');
+	banana3 = game.add.button(BANANA_3_POSX, BANANA_3_POSY, 'banana');
+	banana4 = game.add.button(BANANA_4_POSX, BANANA_4_POSY, 'banana');
+	banana5 = game.add.button(BANANA_5_POSX, BANANA_5_POSY, 'banana');
 
 
 }
@@ -123,10 +127,30 @@ function Process1() {
 
 }
 
+var anchorB = true;
 function update() {
 	game.scale.forceOrientation(false, true);
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+	if (anchorB) {
+		setTimeout(function () {
+			anchorB = false;
+			banana1.angle = -10;
+			banana2.angle = -10;
+			banana3.angle = -10;
+			banana4.angle = -10;
+			banana5.angle = -10;
 
+		}, 500);
+	} else {
+		setTimeout(function () {
+			anchorB = true;
+			banana1.angle = 10;
+			banana2.angle = 10;
+			banana3.angle = 10;
+			banana4.angle = 10;
+			banana5.angle = 10;
+		}, 500);
+	}
 }
 function render() {
 	//game.debug.spriteInfo(Score,32,32);
