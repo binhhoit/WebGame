@@ -18,11 +18,9 @@ function preload() {
 
 	game.load.audio('music', 'assets/sounds/unit1_1/score.mp3');
 	game.load.audio('music1', 'assets/sounds/unit1_1/fail1.mp3');
-	game.load.audio('music3', 'assets/sounds/unit1_1/gioi_qua.mp3');
-	game.load.audio('music4', 'assets/sounds/unit1_1/hoan_ho.mp3');
 	game.load.audio('music5', 'assets/sounds/unit1_1/yeah.mp3');
 	game.load.audio('music6', 'assets/sounds/unit1_1/1_Game1.mp3');
-	game.load.audio('music7', 'assets/sounds/unit1_1/fail1.mp3');
+	game.load.audio('music_bg', 'assets/sounds/game_bg.mp3');
 
 	game.load.image('background', 'assets/images/unit1_game1/bg.png');
 
@@ -35,8 +33,7 @@ function create() {
 	var background = game.add.tileSprite(0, 0, 1366, 768, 'background');
 	var style = { font: "30px r0c0iLinotte", fill: "#000" };
 
-	music6 = game.add.audio('music6');
-	music6.onDecoded.add(start, this);
+	start();
 
 	//1->5 carrot 1 / 6->8 carrot 2
 	var carrot_one = game.add.sprite(277.7, 223.2, 'carrot1');
@@ -114,8 +111,15 @@ function render() {
 }
 
 function start() {
-
-	music6.fadeIn(4000);
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	music6 = game.add.audio('music6');
+	music6.volume = 1;
+	music6.play()
+	setTimeout(function () {
+		music_bg.volume = 1
+	}, 5000);
 
 }
 
@@ -143,8 +147,6 @@ function score1() {
 function score2() {
 	music = game.add.audio('music');
 	music.play();
-
-
 	music = game.add.audio('music5');
 	music.play();
 
@@ -162,7 +164,7 @@ function animation(image) {
 	image.animations.add('teeter');
 	image.animations.play('teeter', 5, true);
 	game.add.tween(image).to({ x: [249.2, 33.1], y: [-7.3, 62.1] }, 2000, Phaser.Easing.Quadratic.InOut, true);
-
+	process1();
 }
 
 function animation1(image) {
@@ -171,6 +173,7 @@ function animation1(image) {
 	image.animations.add('teeter');
 	image.animations.play('teeter', 5, true);
 	game.add.tween(image).to({ x: [249.2, 61.4], y: [-7.3, 62.1] }, 2000, Phaser.Easing.Quadratic.InOut, true);
+	process1();
 }
 
 function animation2(image) {
@@ -179,6 +182,7 @@ function animation2(image) {
 	image.animations.add('teeter');
 	image.animations.play('teeter', 5, true);
 	game.add.tween(image).to({ x: [249.2, 99.7], y: [-7.3, 62.1] }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	process1();
 }
 
 function animation3(image) {
@@ -187,7 +191,7 @@ function animation3(image) {
 	image.animations.add('teeter');
 	image.animations.play('teeter', 5, true);
 	game.add.tween(image).to({ x: [249.2, 130.8], y: [-7.3, 62.1] }, 3000, Phaser.Easing.Quadratic.InOut, true);
-
+	process1();
 }
 
 function animation4(image) {
@@ -196,6 +200,7 @@ function animation4(image) {
 	image.animations.add('teeter');
 	image.animations.play('teeter', 5, true);
 	game.add.tween(image).to({ x: [249.2, 162.1], y: [-7.3, 62.1] }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	process1();
 }
 
 function animation5(image) {
@@ -219,16 +224,15 @@ function animation7(image) {
 
 
 function process1() {
-	if (diem >= 5) {
-		music = game.add.audio('music3');
+	if (diem == 5) {
+		music = game.add.audio('music');
 		music.play();
 		setTimeout(function () {
-			Delay1;
+			Delay1();
 		}, 3000);
+
 	}
-	else {
-		false;
-	}
+	console.log(diem);
 }
 
 function Delay1() {

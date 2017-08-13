@@ -32,6 +32,9 @@ function preload() {
 	game.load.audio('score', SOUND_SCORE);
 	game.load.audio('fail', SOUND_FAIL);
 	game.load.audio('end', SOUND_END);
+	game.load.audio('thua', SOUND_THUA);
+	game.load.audio('thieu', SOUND_THIEU);
+	game.load.audio('music_bg', SOUND_BG);
 	// load button
 	game.load.image('again', BUTTON_AGAIN);
 	game.load.image('btnCheck', BUTTON_CHECK);
@@ -74,6 +77,8 @@ function create() {
 	sound[1] = game.add.audio('score');
 	sound[2] = game.add.audio('fail');
 	sound[3] = game.add.audio('end');
+	sound[4] = game.add.audio('thua');
+	sound[5] = game.add.audio('thieu');
 	// add tween
 	tween[0] = game.add.tween(Honey[0]);
 	tween[1] = game.add.tween(Honey[1]);
@@ -109,6 +114,12 @@ function create() {
 	//	game.input.setInteractiveCandidateHandler(handler, this);
 	// finish game 
 
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 9000);
 
 
 }
@@ -200,21 +211,31 @@ function Process() {
 	} else
 		if (score < 3) {
 			score = 0;
+			sound[5].play();
+			music_bg.volume = 0.1;
+			setTimeout(function () {
+				music_bg.volume = 1;
+			}, 3000);
 			Honey[0].inputEnabled = false;
 			Honey[1].inputEnabled = false;
 			Honey[2].inputEnabled = false;
 			Honey[3].inputEnabled = false;
 			Honey[4].inputEnabled = false;
+			game.time.events.add(Phaser.Timer.SECOND * 6, Process1, this);
 			Button();
 		} else {
-
+			music_bg.volume = 0.1;
+			setTimeout(function () {
+				music_bg.volume = 1;
+			}, 3000);
+			sound[4].play();
 			score = 0;
 			Honey[0].inputEnabled = false;
 			Honey[1].inputEnabled = false;
 			Honey[2].inputEnabled = false;
 			Honey[3].inputEnabled = false;
 			Honey[4].inputEnabled = false;
-			game.time.events.add(Phaser.Timer.SECOND * 3, Process1, this);
+			game.time.events.add(Phaser.Timer.SECOND * 6, Process1, this);
 			Button();
 		}
 

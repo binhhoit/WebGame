@@ -27,7 +27,7 @@ function preload() {
 	game.load.audio('start', SOUND_START);
 	game.load.audio('score', SOUND_SCORE);
 	game.load.audio('fail', SOUND_FAIL);
-	game.load.audio('end', SOUND_END);
+	game.load.audio('music_bg', SOUND_BG);
 	game.load.audio('drop', SOUND_DROP);
 	// load button
 	/*game.load.image('btn','assets/images/nextbutton.png');*/
@@ -43,6 +43,12 @@ function create() {
 	// create background
 	background = game.add.sprite(0, 0, 'bg');
 
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 5000);
 	// create sprite bees
 
 	bee[0] = game.add.sprite(BEE_0_POSX, BEE_0_POSY, 'Bee1');
