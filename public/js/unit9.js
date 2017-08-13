@@ -244,7 +244,7 @@ function backPlayerBackgroundThree() {
 }
 
 function backToNextGame() {
-	window_next = window.location = "api/unit9_game1";
+	window_next = window.location = "unit9_game1";
 }
 
 
