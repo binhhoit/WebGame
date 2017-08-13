@@ -35,8 +35,9 @@ function preload() {
 	game.load.audio('start', SOUND_START);
 	game.load.audio('Score_a', SOUND_SCORE);
 	game.load.audio('fail', SOUND_FAIL);
-	//game.load.audio('end',SOUND_END);
+	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('music_bg', SOUND_BG);
 	// load button
 	game.load.image('next', BUTTON_NEXT);
 	// process responsive
@@ -60,6 +61,14 @@ function create() {
 	sound[2] = game.add.audio('fail');
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
+
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 7000);
+
 
 	Frog_1 = game.add.sprite(FROG_1_POSX, FROG_1_POSY, 'Frog_1');
 	Frog_1.scale.setTo(0.9);

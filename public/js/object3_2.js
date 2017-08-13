@@ -49,10 +49,12 @@ const HONEY_5_POSY = 450;
 // Load sound
 
 const SOUND_START = "assets/sounds/unit3_2/start_intro.mp3";
-const SOUND_SCORE = "assets/sounds/unit3_2/Score.mp3";
 const SOUND_THUA = "assets/sounds/unit3_2/Fail_thieu.mp3";
 const SOUND_THIEU = "assets/sounds/unit3_2/Fail_thua.mp3";
-const SOUND_FAIL = "assets/sounds/unit3_2/Fail.mp3";
 const SOUND_END = "assets/sounds/unit3_2/finish.mp3";
 const SOUND_BG = "assets/sounds/game_bg.mp3";
+const SOUND_FINISH = "assets/sounds/unit3_2/finish_.mp3";
 
+const SOUND_DROP = "assets/sounds/drop.mp3";
+const SOUND_SCORE = "assets/sounds/score.mp3";
+const SOUND_FAIL = "assets/sounds/fail.mp3";

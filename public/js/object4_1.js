@@ -22,6 +22,11 @@ const CHESTNUT= "assets/images/unit4_game1/chestnut.png";
 
 const SQUIRREL = "assets/images/unit4_game1/squirrel_animation.png";
 
+const BASKET_2 = "assets/images/unit4_game1/basket2.png";
+const BASKET_3 = "assets/images/unit4_game1/basket3.png";
+const BASKET_4 = "assets/images/unit4_game1/basket4.png";
+
+
 // button 
 const BUTTON_IMAGE = "assets/images/unit4_game1/ic_button_back.png";
 const BUTTON_AGAIN = "assets/images/unit4_game1/ic_button_restart.png";
@@ -85,8 +90,8 @@ const BASKET_9_POSY = 540;
 
 // Load sound
 const SOUND_START = "assets/sounds/unit4_1/start.mp3";
-const SOUND_DROP = "assets/sounds/unit4_1/drop.mp3";
-const SOUND_SCORE = "assets/sounds/unit4_1/Score.mp3";
-const SOUND_FAIL = "assets/sounds/unit4_1/Fail.mp3";
+const SOUND_DROP = "assets/sounds/drop.mp3";
+const SOUND_SCORE = "assets/sounds/score.mp3";
+const SOUND_FAIL = "assets/sounds/fail.mp3";
 const SOUND_END = "assets/sounds/unit4_1/End.mp3";
 const SOUND_BG = "assets/sounds/game_bg.mp3";

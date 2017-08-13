@@ -54,9 +54,9 @@ const BASKET_4_POSY = 119.6;
 
 // Load sound
 const SOUND_START ="assets/sounds/unit4_2/start.mp3";
-const SOUND_DROP ="assets/sounds/unit4_2/drop.mp3";
-const SOUND_SCORE ="assets/sounds/unit4_2/Score.mp3";
-const SOUND_FAIL ="assets/sounds/unit4_2/Fail.mp3";
+const SOUND_DROP = "assets/sounds/drop.mp3";
+const SOUND_SCORE = "assets/sounds/score.mp3";
+const SOUND_FAIL = "assets/sounds/fail.mp3";
 const SOUND_END ="assets/sounds/unit4_2/finish.mp3";
 const SOUND_BG = "assets/sounds/game_bg.mp3";
 

@@ -775,7 +775,7 @@ function process() {
 		delay();
 		setTimeout(function () {
 			next();
-		}, 3000);
+		}, 9000);
 	}, 1000);
 
 
@@ -786,8 +786,9 @@ function next() {
 
 function delay() {
 	setTimeout(function () {
+		music_bg.volume = 0.1;
 		sound[3].play();
-	}, 2000);
+	}, 1000);
 }
 
 function button() {

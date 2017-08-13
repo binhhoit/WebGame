@@ -35,6 +35,7 @@ function preload() {
 	game.load.audio('thua', SOUND_THUA);
 	game.load.audio('thieu', SOUND_THIEU);
 	game.load.audio('music_bg', SOUND_BG);
+	game.load.audio('finish', SOUND_FINISH);
 	// load button
 	game.load.image('again', BUTTON_AGAIN);
 	game.load.image('btnCheck', BUTTON_CHECK);
@@ -79,6 +80,8 @@ function create() {
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('thua');
 	sound[5] = game.add.audio('thieu');
+	sound[6] = game.add.audio('finish');
+
 	// add tween
 	tween[0] = game.add.tween(Honey[0]);
 	tween[1] = game.add.tween(Honey[1]);
@@ -242,8 +245,16 @@ function Process() {
 }
 
 function Delay1() {
-	game.add.tween(sound[3].play()).to(2000, Phaser.Easing.Linear.None, true);
-	game.time.events.add(Phaser.Timer.SECOND * 3, Next, this);
+	setTimeout(function () {
+		sound[3].play();
+		setTimeout(function () {
+			sound[6].play();
+			music_bg.volume = 0.1;
+		}, 3000);
+	}, 1000);
+	setTimeout(function () {
+		Next();
+	}, 10000);
 }
 
 function Next() {

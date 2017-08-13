@@ -20,6 +20,11 @@ function preload() {
 
 	game.load.spritesheet('Squirrel', SQUIRREL, 189, 256);
 
+	game.load.image('Basket_2', BASKET_2);
+	game.load.image('Basket_3', BASKET_3);
+	game.load.image('Basket_4', BASKET_4);
+
+
 	// load sound
 	game.load.audio('start', SOUND_START);
 	game.load.audio('Score_a', SOUND_SCORE);
@@ -58,7 +63,6 @@ function create() {
 	setTimeout(function () {
 		music_bg.volume = 1;
 	}, 5000);
-
 
 	Chestnut_1 = game.add.sprite(CHESTNUT_1_POSX, CHESTNUT_1_POSY, 'Chestnut');
 	Chestnut_1.scale.setTo(0.8);
@@ -130,7 +134,9 @@ function create() {
 	Chestnut_9.events.onInputDown.add(score_s, this);
 	Chestnut_9.events.onDragStop.add(stopDrag_9);
 
-
+	game.add.sprite(229.4, 517.1, 'Basket_2');
+	game.add.sprite(523.7, 517.1, 'Basket_3');
+	game.add.sprite(810.9, 516.1, 'Basket_4');
 }
 
 function score_s() {
@@ -691,6 +697,7 @@ function stopDrag_9() {
 function Process() {
 	console.log(countBasket_2, countBasket_3, countBasket_4)
 	if (countBasket_4 == 4 && countBasket_2 == 2 && countBasket_3 == 3) {
+		music_bg.volume = 0.2;
 		sound[3].play();
 		setTimeout(function () {
 			Process2();
@@ -711,5 +718,5 @@ function update() {
 }
 function render() {
 	//game.debug.spriteInfo(Score,32,32);
-	//game.debug.spriteInfo(Chestnut_9, 32, 32);
+	//game.debug.spriteInfo(Basket_2, 32, 32);
 }

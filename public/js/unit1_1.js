@@ -16,7 +16,7 @@ function preload() {
 	game.load.image('btnNext', 'assets/images/unit1_game1/ic_button_next.png');
 	game.load.image('btnRestart', 'assets/images/unit1_game1/ic_button_restart.png');
 
-	game.load.audio('music', 'assets/sounds/unit1_1/score.mp3');
+	game.load.audio('music', 'assets/sounds/score.mp3');
 	game.load.audio('music1', 'assets/sounds/unit1_1/fail1.mp3');
 	game.load.audio('music5', 'assets/sounds/unit1_1/yeah.mp3');
 	game.load.audio('music6', 'assets/sounds/unit1_1/1_Game1.mp3');

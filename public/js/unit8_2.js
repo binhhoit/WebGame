@@ -33,6 +33,7 @@ function preload() {
 	game.load.audio('fail', SOUND_FAIL);
 	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('music_bg', SOUND_BG);
 
 }
 
@@ -48,6 +49,13 @@ function create() {
 	sound[2] = game.add.audio('fail');
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
+
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 7000);
 
 	Dragonfly_6 = game.add.sprite(DRAGONFLY_6_POSX, DRAGONFLY_6_POSY, 'Dragonfly_6');
 	Dragonfly_6.scale.setTo(0.8);

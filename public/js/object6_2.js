@@ -18,8 +18,8 @@ const BACKGROUND_HEIGHT = 720;
 
 // Load sound
 // const SOUND_START ="assets/sounds/Start.mp3";
-// const SOUND_DROP ="assets/sounds/drop.mp3";
-// const SOUND_SCORE ="assets/sounds/Score.mp3";
-// const SOUND_FAIL ="assets/sounds/Fail.mp3";
+const SOUND_DROP = "assets/sounds/drop.mp3";
+const SOUND_SCORE = "assets/sounds/score.mp3";
+const SOUND_FAIL = "assets/sounds/fail.mp3";
 // const SOUND_END ="assets/sounds/End.mp3";
 

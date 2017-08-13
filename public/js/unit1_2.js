@@ -14,7 +14,7 @@ function preload() {
 	game.load.image('basketMushroom2', 'assets/images/unit1_game2/basketMushroomTwo.png');
 
 
-	game.load.audio('music', 'assets/sounds/unit1_2/score.mp3');
+	game.load.audio('music', 'assets/sounds/score.mp3');
 	game.load.audio('music1', 'assets/sounds/unit1_2/fail1.mp3');
 	game.load.audio('music3', 'assets/sounds/unit1_2/yeah.mp3');
 	game.load.audio('music4', 'assets/sounds/unit1_2/1_Game2.mp3');

@@ -79,8 +79,9 @@ const FISH_10_POSY = 573;
 
 // Load sound
 const SOUND_START ="assets/sounds/unit5_1/start.mp3";
-const SOUND_DROP ="assets/sounds/unit5_1/drop.mp3";
-const SOUND_SCORE ="assets/sounds/unit5_1/Score.mp3";
-const SOUND_FAIL ="assets/sounds/unit5_1/Fail.mp3";
+const SOUND_DROP = "assets/sounds/drop.mp3";
+const SOUND_SCORE = "assets/sounds/score.mp3";
+const SOUND_FAIL = "assets/sounds/fail.mp3";
 const SOUND_END ="assets/sounds/unit5_1/End.mp3";
 
+const SOUND_BG = "assets/sounds/game_bg.mp3";

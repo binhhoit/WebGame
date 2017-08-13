@@ -42,6 +42,7 @@ function preload() {
 	game.load.audio('fail', SOUND_FAIL);
 	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('music_bg', SOUND_BG);
 
 }
 
@@ -63,7 +64,12 @@ function create() {
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
 
-
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 7000);
 
 	Number_1 = game.add.sprite(NUMBER_1_POSX, NUMBER_1_POSY, 'Number_1');
 	Number_2 = game.add.sprite(NUMBER_2_POSX, NUMBER_2_POSY, 'Number_2');
@@ -302,16 +308,16 @@ function StopDrag_8() {
 function Process() {
 	if (Score == 3) {
 		sound[3].play();
-		setTimeout(function() {
+		setTimeout(function () {
 			Process2();
 		}, 4000);
 	}
 }
 
 function Process2() {
-setTimeout(function() {
-	 window.location = "unit8_game2";
-}, 2000);
+	setTimeout(function () {
+		window.location = "unit8_game2";
+	}, 2000);
 
 }
 
