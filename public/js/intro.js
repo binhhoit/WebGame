@@ -19,18 +19,8 @@ function preload() {
 	game.load.spritesheet('m_player_fly', 'assets/images/intro/chip_flying.png', 200, 189, 23);
 
 	// Load sound
-	game.load.audio('Thokia', 'assets/sounds/intro/1_Chutho.mp3');
-	game.load.audio('Thodaochoi', 'assets/sounds/intro/1_Thodaochoi.mp3');
-	game.load.audio('so1', 'assets/sounds/intro/1_So1.mp3');
-	game.load.audio('Motchutho', 'assets/sounds/intro/1_Motchutho.mp3');
-	game.load.audio('Thothaycarrot', 'assets/sounds/intro/1_3.mp3');
-	game.load.audio('Motcarrot', 'assets/sounds/intro/1_Carot.mp3');
-	game.load.audio('thothaymushroom', 'assets/sounds/intro/1_5.mp3');
-	game.load.audio('mushroom', 'assets/sounds/intro/1_Cay nam.mp3');
-	game.load.audio('carrot', 'assets/sounds/intro/1_4.mp3');
-	game.load.audio('haimushroom', 'assets/sounds/intro/1_ThoHainam.mp3');
-	game.load.audio('yeah', 'assets/sounds/intro/yeah.mp3');
-	game.load.audio('1_2', 'assets/sounds/intro/1_2.mp3');
+	game.load.audio('intro', 'assets/sounds/intro/intro.wav');
+	
 }
 
 function create() {
@@ -62,24 +52,15 @@ function create() {
 	game.camera.follow(m_player_fly);
 
 	// Add sound
-	sound[0] = game.sound.add('Thokia');
-	sound[1] = game.sound.add('Thodaochoi');
-	sound[2] = game.sound.add('so1');
-	sound[3] = game.sound.add('Motchutho');
-	sound[4] = game.sound.add('Thothaycarrot');
-	sound[5] = game.sound.add('Motcarrot');
-	sound[6] = game.sound.add('Thohaicarrot');
-	sound[7] = game.sound.add('thothaymushroom');
-	sound[10] = game.sound.add('mushroom');
-	sound[11] = game.sound.add('carrot');
-	sound[12] = game.sound.add('haimushroom');
-	sound[13] = game.sound.add('1_2');
 
-	//m_sound[0] = game.add.audio('m_sound1');
-	sound[0].play();
+	sound[0] = game.add.audio('intro');
+	
 }
 
 function showChipSpeak() {
+	setTimeout(function() {
+		sound[0].play();
+	}, 2000);
 	m_player = game.add.sprite(500, 400, 'm_player');
 	m_player.scale.setTo(1.6, 1.6);
 	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], 3, true);
@@ -93,7 +74,7 @@ function showChipSpeak() {
 		m_player.destroy();
 
 		showChipFly();
-	}, 22000);
+	}, 10000);
 }
 
 function showChipFly() {
