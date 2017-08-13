@@ -30,6 +30,7 @@ function preload()  {
 
 	// Load spritesheet
 	game.load.spritesheet('bear', 'assets/images/unit3/character/bear.png', 110, 205);
+	game.load.image('bear_honey', 'assets/images/unit3/character/bear_honey.png');
 
 	//thay am thanh, doi ten vaf duong dan
 	game.load.audio('1','assets/sounds/unit3/3_Gioithieu.mp3');
@@ -207,10 +208,8 @@ function mission() {
 		text_number3.destroy();
 		toong.destroy();
 
-		bg = game.add.tileSprite(0,0,1366,768,'bg');
-		gau = game.add.sprite(500, 320, 'gau');
-		gau.scale.setTo(1, 1);
-		gau.inputEnabled = true;
+		bg_bee = game.add.tileSprite(0,0,1366,768,'bg_bee');
+	
 		backPlayerBackgroundThree();
 	}
 
@@ -239,17 +238,8 @@ function backPlayerBackgroundThree() {
 	showBehive_= false;
 	bg_bee.destroy();
 	setTimeout(function () {
-		matong = game.add.sprite(485,325,'matong');
-		matong.scale.setTo(0.65,0.65);
-		matong.inputEnabled= true;
-
-		matong1 = game.add.sprite(810,380,'matong');
-		matong1.scale.setTo(0.5,0.5);
-		matong1.inputEnabled= true;
-
-		matong2 = game.add.sprite(935,350,'matong');
-		matong2.scale.setTo(0.65,0.65);
-		matong2.inputEnabled= true;
+		bear_honey = game.add.sprite(100,450,'bear_honey');
+		bear_honey.scale.setTo(1,1);
 
 	}, 1000);
 
