@@ -147,6 +147,7 @@ function stopDrag_1() {
 	if (Chestnut_1.y > 500 && Chestnut_1.x > 200 && Chestnut_1.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
 		sound[1].play();
+		Chestnut_1.enableDrag = false;
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_1.x = BASKET_1_POSX;
 			Chestnut_1.y = BASKET_1_POSY;
@@ -208,6 +209,7 @@ function stopDrag_1() {
 function stopDrag_2() {
 	if (Chestnut_2.y > 500 && Chestnut_2.x > 200 && Chestnut_2.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
+		Chestnut_2.enableDrag = false;
 		sound[1].play();
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_2.x = BASKET_1_POSX;
@@ -269,6 +271,7 @@ function stopDrag_2() {
 function stopDrag_3() {
 	if (Chestnut_3.y > 500 && Chestnut_3.x > 200 && Chestnut_3.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
+		Chestnut_3.enableDrag = false;
 		sound[1].play();
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_3.x = BASKET_1_POSX;
@@ -330,6 +333,7 @@ function stopDrag_3() {
 function stopDrag_4() {
 	if (Chestnut_4.y > 500 && Chestnut_4.x > 200 && Chestnut_4.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
+		Chestnut_4.enableDrag = false;
 		sound[1].play();
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_4.x = BASKET_1_POSX;
@@ -391,6 +395,7 @@ function stopDrag_4() {
 function stopDrag_5() {
 	if (Chestnut_5.y > 500 && Chestnut_5.x > 200 && Chestnut_5.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
+		Chestnut_5.enableDrag = false;
 		sound[1].play();
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_5.x = BASKET_1_POSX;
@@ -452,6 +457,7 @@ function stopDrag_5() {
 function stopDrag_6() {
 	if (Chestnut_6.y > 500 && Chestnut_6.x > 200 && Chestnut_6.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
+		Chestnut_6.enableDrag = false;
 		sound[1].play();
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_6.x = BASKET_1_POSX;
@@ -514,6 +520,7 @@ function stopDrag_7() {
 
 	if (Chestnut_7.y > 500 && Chestnut_7.x > 200 && Chestnut_7.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
+		Chestnut_7.enableDrag = false;
 		sound[1].play();
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_7.x = BASKET_1_POSX;
@@ -575,6 +582,7 @@ function stopDrag_7() {
 function stopDrag_8() {
 	if (Chestnut_8.y > 500 && Chestnut_8.x > 200 && Chestnut_8.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
+		Chestnut_8.enableDrag = false;
 		sound[1].play();
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_8.x = BASKET_1_POSX;
@@ -636,6 +644,7 @@ function stopDrag_8() {
 function stopDrag_9() {
 	if (Chestnut_9.y > 500 && Chestnut_9.x > 200 && Chestnut_9.x < 378 && countBasket_2 < 2) {
 		countBasket_2++;
+		Chestnut_9.enableDrag = false;
 		sound[1].play();
 		if (positionBasket_2 % 2 == 0) {
 			Chestnut_9.x = BASKET_1_POSX;
