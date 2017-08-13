@@ -56,7 +56,7 @@ const BEE_8_POSY = 120;
 const SOUND_START = "assets/sounds/unit2_1/2_Game1.mp3";
 const SOUND_SCORE = "assets/sounds/unit2_1/Score.mp3";
 const SOUND_FAIL = "assets/sounds/unit2_1/Fail.mp3";
-const SOUND_END = "assets/sounds/unit2_1/End.mp3";
+const SOUND_BG = "assets/sounds/game_bg.mp3";
 const SOUND_DROP = "assets/sounds/unit2_1/drop.mp3";
 
 

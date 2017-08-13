@@ -57,4 +57,5 @@ const SOUND_DROP ="assets/sounds/unit3_1/drop.mp3";
 const SOUND_SCORE ="assets/sounds/unit3_1/Score.mp3";
 const SOUND_FAIL ="assets/sounds/unit3_1/Fail.mp3";
 const SOUND_END ="assets/sounds/unit3_1/End.mp3";
+const SOUND_BG = "assets/sounds/game_bg.mp3";
 

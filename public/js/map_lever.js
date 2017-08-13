@@ -28,8 +28,8 @@ function preload() {
   game.load.image('unit_0', 'api/assets/images/map_lever/ic_unit0.png');
 
   // Load sound
-  //game.load.audio('bg_sound', 'map_level/api/assets/sounds/music.mp3');
   game.scale.forceOrientation(false, true);
+	game.load.audio('start', 'api/assets/sounds/maplever/map_lever.mp3');
 
 
 }
@@ -44,6 +44,10 @@ function create() {
 
   // BACGROUND
   bg = game.add.image(0, 0, 'bg');
+
+  sound[0] = game.add.audio('start');
+  sound[0].play();
+  sound[0].loopFull();
 
   //Button level lession
   level[0] = game.add.button(220.1, 209.1, 'unit_1', openlink_lv1, this);
@@ -65,7 +69,7 @@ function create() {
   level[8] = game.add.button(402.8, 485.5, 'unit_9', openlink_lv9, this);
 
   level[9] = game.add.button(221.3, 477.4, 'unit_0', openlink_0, this);
-  
+
 }
 
 // Open link to lesson and practical.

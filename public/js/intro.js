@@ -20,7 +20,9 @@ function preload() {
 
 	// Load sound
 	game.load.audio('intro', 'assets/sounds/intro/intro.wav');
-	
+	game.load.audio('intro_bg', 'assets/sounds/intro/intro_bg.mp3');
+
+
 }
 
 function create() {
@@ -28,17 +30,25 @@ function create() {
 	// PHYSICS SYSTEM
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	game.world.setBounds(0, 0, 1366, 768);
+
+	// Add sound
+	sound[0] = game.add.audio('intro_bg');
+	sound[0].play();
+
+	sound[1] = game.add.audio('intro');
 	// BACKGROUND
 	bg = game.add.tileSprite(0, 0, 1366, 768, 'bg');
 
+
+
 	// PLAYER
 
-	m_player_fly = game.add.sprite(0, 2, 'm_player_fly');
+	m_player_fly = game.add.sprite(-100, 0, 'm_player_fly');
 	m_player_fly.scale.setTo(1.6, 1.6);
 
 	// add animation
 	m_player_fly.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8, true);
-	game.add.tween(m_player_fly).to({ x: game.width }, 20000, Phaser.Easing.Linear.None, true);
+	game.add.tween(m_player_fly).to({ x: game.width }, 22000, Phaser.Easing.Linear.None, true);
 	m_player_fly.animations.play('walk');
 
 	setTimeout(function () {
@@ -46,21 +56,18 @@ function create() {
 		m_player_fly.destroy();
 
 		showChipSpeak();
-	}, 6000);
+	}, 7000);
 
 	// Setting camera follow player.
 	game.camera.follow(m_player_fly);
 
-	// Add sound
-
-	sound[0] = game.add.audio('intro');
-	
 }
 
 function showChipSpeak() {
-	setTimeout(function() {
-		sound[0].play();
-	}, 2000);
+	setTimeout(function () {
+		sound[0].volume = 0.1;
+		sound[1].play();
+	}, 500);
 	m_player = game.add.sprite(500, 400, 'm_player');
 	m_player.scale.setTo(1.6, 1.6);
 	m_player.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], 3, true);
@@ -72,9 +79,10 @@ function showChipSpeak() {
 	setTimeout(function () {
 		fly = true;
 		m_player.destroy();
-
+		sound[0].volume = 1;
+		sound[1].stop();
 		showChipFly();
-	}, 10000);
+	}, 9000);
 }
 
 function showChipFly() {
@@ -85,7 +93,7 @@ function showChipFly() {
 	game.add.tween(m_player_fly).to({ x: game.width }, 15000, Phaser.Easing.Linear.None, true);
 
 	setTimeout(function () {
-		var winx = window.location = "/unit1";
+		var winx = window.location = "/api";
 	}, 9000);
 }
 

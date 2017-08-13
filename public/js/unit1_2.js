@@ -15,12 +15,10 @@ function preload() {
 
 
 	game.load.audio('music', 'assets/sounds/unit1_2/score.mp3');
-	//game.load.audio('music2', 'assets/sounds/unit1_2/music.mp3');
 	game.load.audio('music1', 'assets/sounds/unit1_2/fail1.mp3');
 	game.load.audio('music3', 'assets/sounds/unit1_2/yeah.mp3');
 	game.load.audio('music4', 'assets/sounds/unit1_2/1_Game2.mp3');
-	game.load.audio('music5', 'assets/sounds/unit1_2/gioi_qua.mp3');
-	game.load.audio('music6', 'assets/sounds/unit1_2/fail1.mp3');
+	game.load.audio('music_bg', 'assets/sounds/game_bg.mp3');
 
 	game.scale.forceOrientation(false, true);
 
@@ -30,8 +28,16 @@ function preload() {
 function create() {
 	var background = game.add.sprite(0, 0, 'background');
 
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 5000);
+
 	music4 = game.add.audio('music4');
-	music4.onDecoded.add(start, this);
+	music4.play();
+	music4.volume = 1;
 
 	mushroom_one = game.add.sprite(98.6, 529, 'basketMushroom1');
 	mushroom_one.scale.setTo(0.8, 0.8);

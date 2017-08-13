@@ -32,6 +32,7 @@ function preload() {
 	game.load.audio('fail', SOUND_FAIL);
 	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
+	game.load.audio('music_bg', SOUND_BG);
 	// load button
 	game.load.image('again', BUTTON_AGAIN);
 	game.load.image('btn', BUTTON_IMAGE);
@@ -52,6 +53,13 @@ function create() {
 	sound[2] = game.add.audio('fail');
 	sound[3] = game.add.audio('end');
 	sound[4] = game.add.audio('drop');
+	music_bg = game.add.audio('music_bg');
+	music_bg.play();
+	music_bg.volume = 0.1;
+	setTimeout(function () {
+		music_bg.volume = 1;
+	}, 5000);
+
 
 	// create StumpTree
 	StumpTree_1 = game.add.sprite(560, 423.6, 'StumpTree1');
