@@ -56,7 +56,7 @@ const SOUND_START = "assets/sounds/unit2_2/2_game2.mp3";
 const SOUND_DROP = "assets/sounds/drop.mp3";
 const SOUND_SCORE = "assets/sounds/score.mp3";
 const SOUND_FAIL = "assets/sounds/fail.mp3";
-const SOUND_DROP = "assets/sounds/unit2_2/drop.mp3";
+const SOUND_END = "assets/sounds/unit2_2/finish.mp3";
 const SOUND_BG = "assets/sounds/game_bg.mp3";
 
 // Button

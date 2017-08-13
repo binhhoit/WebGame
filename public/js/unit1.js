@@ -46,18 +46,15 @@ function preload() {
 	game.load.spritesheet('m_player_carrot', 'assets/images/unit1/character/animation_rabbit_carrot.png', 198.375, 283, 8);
 
 	// Load sound
-	game.load.audio('Thokia', 'assets/sounds/unit1/1_Chutho.mp3');
-	game.load.audio('Thodaochoi', 'assets/sounds/unit1/1_Thodaochoi.mp3');
-	game.load.audio('so1', 'assets/sounds/unit1/1_So1.mp3');
-	game.load.audio('Motchutho', 'assets/sounds/unit1/1_Motchutho.mp3');
-	game.load.audio('Thothaycarrot', 'assets/sounds/unit1/1_3.mp3');
-	game.load.audio('Motcarrot', 'assets/sounds/unit1/1_Carot.mp3');
-	game.load.audio('thothaymushroom', 'assets/sounds/unit1/1_5.mp3');
-	game.load.audio('mushroom', 'assets/sounds/unit1/1_Cay nam.mp3');
-	game.load.audio('carrot', 'assets/sounds/unit1/1_4.mp3');
-	game.load.audio('haimushroom', 'assets/sounds/unit1/1_ThoHainam.mp3');
-	game.load.audio('yeah', 'assets/sounds/unit1/yeah.mp3');
+	game.load.audio('1_1', 'assets/sounds/unit1/1_1.mp3');
 	game.load.audio('1_2', 'assets/sounds/unit1/1_2.mp3');
+	game.load.audio('1_3', 'assets/sounds/unit1/1_3.mp3');
+	game.load.audio('1_4', 'assets/sounds/unit1/1_4.mp3');
+	game.load.audio('1_5', 'assets/sounds/unit1/1_5.mp3');
+	game.load.audio('cay_nam', 'assets/sounds/unit1/1_caynam.mp3');
+	game.load.audio('chu_tho', 'assets/sounds/unit1/1_chutho.mp3');
+	game.load.audio('carot', 'assets/sounds/unit1/1_carot.mp3');
+
 	// Load button sprite
 	game.load.image('btnNext', 'assets/images/unit1/ic_button_next.png');
 	game.load.image('btnBack', 'assets/images/unit1/ic_button_back.png');
@@ -96,21 +93,19 @@ function create() {
 	game.camera.follow(m_player);
 
 	// Add sound
-	sound[0] = game.sound.add('Thokia');
-	sound[1] = game.sound.add('Thodaochoi');
-	sound[2] = game.sound.add('so1');
-	sound[3] = game.sound.add('Motchutho');
-	sound[4] = game.sound.add('Thothaycarrot');
-	sound[5] = game.sound.add('Motcarrot');
-	sound[6] = game.sound.add('Thohaicarrot');
-	sound[7] = game.sound.add('thothaymushroom');
-	sound[10] = game.sound.add('mushroom');
-	sound[11] = game.sound.add('carrot');
-	sound[12] = game.sound.add('haimushroom');
-	sound[13] = game.sound.add('1_2');
+	sound[0] = game.sound.add('1_1');
+	sound[1] = game.sound.add('1_2');
+	sound[2] = game.sound.add('1_3');
+	sound[3] = game.sound.add('1_4');
+	sound[4] = game.sound.add('1_5');
+	sound[5] = game.sound.add('cay_nam');
+	sound[6] = game.sound.add('chu_tho');
+	sound[7] = game.sound.add('carot');
 
-	//m_sound[0] = game.add.audio('m_sound1');
-	sound[0].play();
+	setTimeout(function () {
+		sound[0].play();
+	}, 2000);
+
 
 	flag = true;
 }
@@ -128,6 +123,10 @@ function showRabbit() {
 	rabbit_ = game.add.tileSprite(-50, 700, 267, 416, 'rabbit_');
 	rabbit_.inputEnabled = true;
 	game.add.tween(rabbit_).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+		sound[6].play();
+	}, 3000);
 
 	setTimeout(function () {
 
@@ -157,6 +156,10 @@ function showCarrot() {
 	game.add.tween(carrot_).to({ x: 350, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
+		sound[7].play();
+	}, 3000);
+
+	setTimeout(function () {
 
 		text_number1 = game.add.tileSprite(1400, 700, 207, 516, 'text_number1');
 		text_carrot = game.add.tileSprite(500, -50, 352, 66, 'text_carrot');
@@ -181,6 +184,10 @@ function showMushroom() {
 	mushroom_.inputEnabled = true;
 	mushroom_.scale.setTo(1.5, 1.5);
 	game.add.tween(mushroom_).to({ x: 300, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	setTimeout(function () {
+		sound[5].play();
+	}, 3000);
 
 	setTimeout(function () {
 
@@ -253,6 +260,14 @@ function backPlayerBackgroundTwo() {
 		showCarrot_ = true;
 	}, 1000);
 
+	setTimeout(function () {
+		sound[1].play();
+	}, 500);
+
+	setTimeout(function () {
+		sound[2].play();
+	}, 8000);
+
 	game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
@@ -260,6 +275,15 @@ function backPlayerBackgroundThree() {
 	showCarrot_ = false;
 	carrot.destroy();
 	bg_carrot.destroy();
+
+	setTimeout(function () {
+		sound[3].play();
+	}, 500);
+
+	setTimeout(function () {
+		sound[4].play();
+	}, 8000);
+
 
 	setTimeout(function () {
 		mushroom = game.add.tileSprite(800, 500, 279, 244, 'mushroom');
