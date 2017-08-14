@@ -24,16 +24,15 @@ function preload()  {
 	game.load.image('text_chestnut', 'assets/images/unit4/text_chestnut.png');
 
 	// Load sound
-	game.load.audio('1', 'assets/sounds/unit4/4_Gioithieu.mp3');
-	game.load.audio('2', 'assets/sounds/unit4/4_1.mp3');
-	game.load.audio('3', 'assets/sounds/unit4/4_So 4.mp3');
+	game.load.audio('1', 'assets/sounds/unit4/4_1.mp3');
+	game.load.audio('2', 'assets/sounds/unit4/4_2.mp3');
+	game.load.audio('3', 'assets/sounds/unit4/4_3.mp3');
 	game.load.audio('4', 'assets/sounds/unit4/4_4 cai cay.mp3');
-	game.load.audio('5', 'assets/sounds/unit4/4_2.mp3');
-	game.load.audio('6', 'assets/sounds/unit4/4_3.mp3');
-	game.load.audio('7', 'assets/sounds/unit4/4_4 con soc.mp3');
-	game.load.audio('8', 'assets/sounds/unit4/4_4.mp3');
-	game.load.audio('9', 'assets/sounds/unit4/4_5.mp3');
-	game.load.audio('10', 'assets/sounds/unit4/4_4 hat de.mp3');
+	game.load.audio('5', 'assets/sounds/unit4/4_4 con soc.mp3');
+	game.load.audio('6', 'assets/sounds/unit4/4_4 hat de.mp3');
+	game.load.audio('7', 'assets/sounds/unit4/4_4.mp3');
+	game.load.audio('8', 'assets/sounds/unit4/4_Gioi thieu.mp3');
+	
 	
 	game.load.image('nen','assets/images/unit2/bg_board.png');
 	game.load.image('btnNext', 'assets/images/unit1/ic_button_next.png');
@@ -73,8 +72,7 @@ function create() {
 	sound[5] = game.sound.add('6');
 	sound[6] = game.sound.add('7');
 	sound[7] = game.sound.add('8');
-	sound[8] = game.sound.add('9');
-	sound[9] = game.sound.add('10');
+	
 	//m_sound[0] = game.add.audio('m_sound1');
 
 	flag= true;

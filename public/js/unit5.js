@@ -64,14 +64,15 @@ function preload()  {
 
 
 	// Load sound
-	game.load.audio('1','assets/sounds/unit5/5_Gioi thieu.mp3');
-	game.load.audio('2','assets/sounds/unit5/5_1.mp3');
-	game.load.audio('3','assets/sounds/unit5/5_So 5.mp3');
+	game.load.audio('1','assets/sounds/unit5/5_1.mp3');
+	game.load.audio('2','assets/sounds/unit5/5_3.mp3');
+	game.load.audio('3','assets/sounds/unit5/5_4.mp3');
 	game.load.audio('4','assets/sounds/unit5/5_5 con khi.mp3');
-	game.load.audio('5','assets/sounds/unit5/5_2.mp3');
-	game.load.audio('6','assets/sounds/unit5/5_3.mp3');
-	game.load.audio('7','assets/sounds/unit5/5_5 qua tao.mp3');
-	game.load.audio('8','assets/sounds/unit5/3_4.mp3');
+	game.load.audio('5','assets/sounds/unit5/5_5 qua chuoi.mp3');
+	game.load.audio('6','assets/sounds/unit5/5_5 qua tao.mp3');
+	game.load.audio('7','assets/sounds/unit5/5_5.mp3');
+	game.load.audio('8','assets/sounds/unit5/5_6.mp3');
+	game.load.audio('9','assets/sounds/unit5/5_Gioi thieu.mp3');
 
 
 	// Load button sprite
@@ -135,6 +136,7 @@ function create() {
 	sound[5] = game.sound.add('6');
 	sound[6] = game.sound.add('7');
 	sound[7] = game.sound.add('8');
+	sound[8] = game.sound.add('9');
 
 	//m_sound[0] = game.add.audio('m_sound1');
 

@@ -56,7 +56,7 @@ var direction = 2;
 // Setting sound start
 var speed = 2;
 var m_player;
-
+var showfish;
 function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
