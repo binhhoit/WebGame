@@ -40,7 +40,7 @@ function preload()  {
 	game.load.audio('5','assets/sounds/unit3/3_3 to ong.mp3');
 	game.load.audio('6','assets/sounds/unit3/3_3.mp3');
 	game.load.audio('7','assets/sounds/unit3/3_5.mp3');
-	game.load.audio('8','assets/sounds/unit3/3_Gioi thieu.mp3');
+	game.load.audio('8','assets/sounds/unit3/3_Gioithieu.mp3');
 	
 }
 
@@ -59,6 +59,7 @@ var toong;
 var zoom = true;
 
 var bear;
+var start =1;
 
 function create() {
 
@@ -81,11 +82,12 @@ function create() {
 	sound[5] = game.sound.add('6');
 	sound[6] = game.sound.add('7');
 	sound[7] = game.sound.add('8');
-	
 
-	//m_sound[0] = game.add.audio('m_sound1');
+	sound[7].play();
 
-	sound[0].play();
+	setTimeout(function(){
+		sound[0].play();
+	},7000);
 
 	flag = true;
   
@@ -109,7 +111,7 @@ function showBear() {
 	game.add.tween(gau).to({ x: 280, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[2].play();
 		text_number3 = game.add.tileSprite(1400, 700, 235, 516, 'text_number3');
 		text_bear = game.add.tileSprite(550, -50, 298, 66, 'text_bear');
 		text_number3.inputEnabled = true;
@@ -117,11 +119,11 @@ function showBear() {
 		text_bear.inputEnabled = true;
 		game.add.tween(text_bear).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 5000);
 }
 
 function showBehive() {
@@ -134,7 +136,7 @@ function showBehive() {
 	game.add.tween(toong1).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[4].play();
 		text_number3 = game.add.tileSprite(1400, 700, 235, 516, 'text_number3');
 		text_beehive = game.add.tileSprite(530, -50, 258, 66, 'text_beehive');
 		text_number3.inputEnabled = true;
@@ -142,11 +144,11 @@ function showBehive() {
 		text_beehive.inputEnabled = true;
 		game.add.tween(text_beehive).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 	
 }
@@ -160,7 +162,7 @@ function showHoney() {
 	game.add.tween(humatong).to({ x: 300, y: 240 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[3].play();
 		text_number3 = game.add.tileSprite(1400, 700, 235, 516, 'text_number3');
 		text_honey = game.add.tileSprite(450, -50, 390, 66, 'text_honey');
 		text_number3.inputEnabled = true;
@@ -168,11 +170,11 @@ function showHoney() {
 		text_honey.inputEnabled = true;
 		game.add.tween(text_honey).to({ x: 450, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 }
 
@@ -199,46 +201,53 @@ function mission() {
 
 		//bear.animations.add('walk', [0, 1, 2, 3, 4, 5], 10, true);
 		//bear.animations.play('walk');
-
-		backPlayerBackgroundTwo();
+		sound[1].play();
+		setTimeout(function(){
+			backPlayerBackgroundTwo();
+		},3000);
 	}
 
 	if (backgroundCount == 3) {
 		text_beehive.destroy();
 		text_number3.destroy();
 		toong.destroy();
+		toong1.destroy();
 
 		bg_bee = game.add.tileSprite(0,0,1366,768,'bg_bee');
-	
+		sound[6].play();
+
 		backPlayerBackgroundThree();
 	}
 
 	if (backgroundCount == 4) {
 		hoa.destroy();
-		text_butterfly.destroy();
-		text_number2.destroy();
-		buom.destroy();
+		text_honey.destroy();
+		text_number3.destroy();
+		humatong.destroy();
 		backToNextGame();
 	}
 }
 
 function backPlayerBackgroundTwo() {
+	start =0 ;
 	bg.destroy();
+	sound[5].play();
 	setTimeout(function () {
 		toong = game.add.sprite(720,12,'toong');
 		toong.scale.setTo(1,1);
 		toong.inputEnabled = true;
 
 		showBehive_=true;
-	}, 1000);
+	}, 500);
 	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
 function backPlayerBackgroundThree() {
+	start =0 ;
 	showBehive_= false;
 	bg_bee.destroy();
 	setTimeout(function () {
-		bear_honey = game.add.sprite(100,450,'bear_honey');
+		bear_honey = game.add.sprite(100,300,'bear_honey');
 		bear_honey.scale.setTo(1,1);
 
 	}, 1000);
@@ -253,7 +262,7 @@ function backToNextGame() {
 
 
 function backPlayer() {
-	if (gau.x < game.width / 3) {
+	if (start==0) {
 		loop = true;
 		temp = 0;
 	} else {
@@ -264,62 +273,28 @@ function backPlayer() {
 		}
 		temp++;
 	}
-}
-
-function backPlayer_2() {
-	if (gau.x < game.width /5) {
-		loop = true;
-		temp = 0;
-	} else {
-		if (temp == 1) {
-			loop = false;
-		} else {
-			loop = true;
-		}
-		temp++;
-	}
-}
-
-function backPlayer_3() {
-	if (backgroundCount ==3) {
-		loop = true;
-		temp = 0;
-	} else {
-		if (temp == 0) {
-			loop = false;
-		} else {
-			loop = true;
-		}
-		temp++;
-	}
-	backgroundCount ++;
+	start ++;
 }
 
 function update() {
-	if (backgroundCount ==3 || backgroundCount ==4){
-		backPlayer_3();
-	}
-	else if(backgroundCount ==2){
-		backPlayer_2();
-	}
-	else 
-		backPlayer();
+
+	backPlayer();
 
 	if(!loop && flag){
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				showBear();
-			},3000);
+			},10500);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				showBehive();
-			}, 4000);
+			}, 6000);
 		}
-		if (backgroundCount == 5) {
+		if (backgroundCount == 3) {
 			setTimeout(function () {
 				showHoney();
-			}, 3000);
+			}, 4500);
 		}
 	}
 	

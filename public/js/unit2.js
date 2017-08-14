@@ -40,7 +40,7 @@ var flag_sound = 0;
 var backgroundCount = 1;
 var start =1;
 
-var showFLower_;
+var showFLower_ = false;
 var hoa, hoa1;
 
 function create() {
@@ -55,11 +55,6 @@ function create() {
 
 	hoa1 = game.add.sprite(900, 400, 'hoa');
 	hoa1.scale.setTo(1, 1);
-	
-	setTimeout(function () {
-		showFLower_ = true;
-		sound[3].play();
-	},4500);
 	
 	game.camera.follow(hoa);
 	
@@ -350,6 +345,7 @@ function update() {
 	if( flag_sound == 0)
 	{
 		setTimeout(function(){sound[8].play();}, 0);
+		setTimeout(function () {		sound[3].play();		showFLower_ = true;	},4500);
 		flag_sound = -1;
 
 	}
