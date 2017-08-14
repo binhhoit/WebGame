@@ -251,7 +251,7 @@ function backPlayerBackgroundThree() {
 	showHoney_= true;
 	setTimeout(function () {
 		bear_honey = game.add.sprite(100,300,'bear_honey');
-		bear_honey.scale.setTo(1,1);
+		bear_honey.scale.setTo(0.8,0.8);
 
 	}, 1000);
 
@@ -334,13 +334,13 @@ function update() {
 		if(zoom){
 			setTimeout(function () {
 				zoom = false;
-				bear_honey.scale.setTo(1, 1);
+				bear_honey.scale.setTo(0.8, 0.8);
 			}, 500);
 		}
 		else {
 			setTimeout(function () {
 				zoom = true;
-				bear_honey.scale.setTo(1.2, 1.2);
+				bear_honey.scale.setTo(1, 1);
 			}, 500);
 		}
 	}
