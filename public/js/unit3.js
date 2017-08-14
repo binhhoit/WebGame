@@ -88,11 +88,10 @@ function create() {
 
 	setTimeout(function(){
 		sound[0].play();
+		showBear_ = true;
 	},7000);
 
 	flag = true;
-	showBear_ = true;
-  
 }
 //k doi
 function render(){
@@ -107,10 +106,10 @@ function btn() {
 function showBear() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	gau = game.add.tileSprite(-50, 700, 498, 262, 'gau');
-	gau.inputEnabled = true;
-	gau.scale.setTo(1, 1);
-	game.add.tween(gau).to({ x: 280, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	gau1 = game.add.tileSprite(-50, 700, 498, 262, 'gau');
+	gau1.inputEnabled = true;
+	gau1.scale.setTo(1, 1);
+	game.add.tween(gau1).to({ x: 280, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 		sound[2].play();
@@ -195,7 +194,7 @@ function mission() {
 		showBear_ = false;
 		text_bear.destroy();
 		text_number3.destroy();
-		gau.destroy();
+		gau1.destroy();
 
 		bg_bee = game.add.tileSprite(0,0,1366,768,'bg_bee');
 

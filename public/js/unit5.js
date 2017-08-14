@@ -25,12 +25,16 @@ var start =1;
 var stop = false;
 
 var tao;
-var khi2;
+var khi2,khi1,khi3,khi4,khi5;
 var chuoi;
 
 var showkhi_;
 var zoom = true;
 var run_banana =false;
+var start_sound = 1;
+
+var zoomkhi_;
+var zoomtao_;
 function preload()  { 
 
 	game.scale.forceOrientation(false, true);
@@ -138,10 +142,17 @@ function create() {
 	sound[7] = game.sound.add('8');
 	sound[8] = game.sound.add('9');
 
-	//m_sound[0] = game.add.audio('m_sound1');
+	sound[8].play();
+	setTimeout(function(){
+		sound[0].play();
+	},4000);
+
+	setTimeout(function () {
+		sound[1].play();
+		zoomkhi_ = true;
+	},7000);
 
 	flag= true;
-  
 }
 
 function render(){
@@ -161,7 +172,7 @@ function show1() {
 	game.add.tween(khi_).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[3].play();
 		text_number5 = game.add.tileSprite(1400, 700, 235, 500, 'text_number5');
 		text_monkey = game.add.tileSprite(550, -50, 322, 66, 'text_monkey');
 		text_number5.inputEnabled = true;
@@ -186,7 +197,7 @@ function show2() {
 	game.add.tween(tao_).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[5].play();
 		text_number5 = game.add.tileSprite(1400, 700, 235, 500, 'text_number5');
 		text_apple = game.add.tileSprite(530, -50, 342, 66, 'text_apple');
 		text_number5.inputEnabled = true;
@@ -212,7 +223,7 @@ function show3() {
 	game.add.tween(chuoi_).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[4].play();
 		text_number5 = game.add.tileSprite(1400, 700, 235, 500, 'text_number5');
 		text_banana = game.add.tileSprite(450, -50, 395, 66, 'text_banana');
 		text_number5.inputEnabled = true;
@@ -240,22 +251,27 @@ function mission() {
 	backgroundCount++;
 
 	if (backgroundCount == 2) {
+		zoomkhi_=false;
 		text_monkey.destroy();
 		text_number5.destroy();
 		khi_.destroy();
-
-		backPlayerBackgroundTwo();
+		sound[2].play();
+		setTimeout(function(){
+			backPlayerBackgroundTwo();
+		},5100);
 	}
 
 	if (backgroundCount == 3) {
+		zoomtao_ = false;
 		text_apple.destroy();
 		text_number5.destroy();
 		tao_.destroy();
 
 		showkhi_ = true;
+		sound[6].play();
 		setTimeout(function () {
 			run_banana =true;
-		},1000);
+		},8000);
 	}
 
 	if (backgroundCount == 4) {
@@ -269,6 +285,7 @@ function mission() {
 function backPlayerBackgroundTwo() {
 	start =0 ;
 	setTimeout(function () {
+		zoomtao_= true;
 		tao = game.add.sprite(200,25,'tao');
 		tao.scale.setTo(1,1);
 
@@ -321,6 +338,10 @@ function update() {
 
 			m_player.animations.play('walk');
 		}
+		if(bg.x < -800 && start_sound ==1){
+			sound[7].play();
+			start_sound =2;
+		}
 		if(bg.x <= -1230)
 		{
 			backPlayerBackgroundThree();
@@ -339,7 +360,7 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},3000);
+			},12500);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
@@ -364,6 +385,44 @@ function update() {
 			setTimeout(function () {
 				zoom = true;
 				khi2.scale.setTo(0.8, 0.8);
+			}, 500);
+		}
+	}
+
+	if(zoomkhi_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				khi1.scale.setTo(0.7, 0.7);
+				khi2.scale.setTo(0.7, 0.7);
+				khi3.scale.setTo(0.7, 0.7);
+				khi4.scale.setTo(0.7, 0.7);
+				khi5.scale.setTo(0.7, 0.7);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				khi1.scale.setTo(0.8, 0.8);
+				khi2.scale.setTo(0.8, 0.8);
+				khi3.scale.setTo(0.8, 0.8);
+				khi4.scale.setTo(0.8, 0.8);
+				khi5.scale.setTo(0.8, 0.8);
+			}, 500);
+		}
+	}
+
+	if(zoomtao_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				tao.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				tao.scale.setTo(1.2);
 			}, 500);
 		}
 	}
