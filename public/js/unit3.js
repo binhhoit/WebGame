@@ -60,7 +60,7 @@ var toong;
 
 var zoom = true;
 
-var bear;
+var bear,bear_honey;
 var start =1;
 
 function create() {
