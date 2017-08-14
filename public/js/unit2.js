@@ -9,6 +9,7 @@ function preload() {
 	game.load.image('bg','assets/images/unit2/bg.png');
 	//game.load.image('hoa','assets/images/unit2/hoa1.png');
 	game.load.image('hoa','assets/images/unit2/character/flower.png');
+	game.load.image('ic_butterfly','assets/images/unit2/ic_butterfly.png');
 
 	game.load.image('text_number2', 'assets/images/unit2/text_number2.png');
 	game.load.image('text_flower', 'assets/images/unit2/texy_flower.png');
@@ -50,10 +51,10 @@ function create() {
 	// BACKGROUND
 	bg = game.add.tileSprite(0,0,1366,768,'bg');
 	
-	hoa = game.add.sprite(700, 400, 'hoa');
+	hoa = game.add.sprite(500, 300, 'hoa');
 	hoa.scale.setTo(1, 1);
 
-	hoa1 = game.add.sprite(900, 400, 'hoa');
+	hoa1 = game.add.sprite(700, 300, 'hoa');
 	hoa1.scale.setTo(1, 1);
 	
 	game.camera.follow(hoa);
@@ -143,16 +144,11 @@ function showBee() {
 function showButterfly() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	buom = game.add.tileSprite(-50, 700, 222, 202, 'buom');
-	buom.inputEnabled = true;
-	buom.scale.setTo(1, 1);
+	ic_butterfly = game.add.tileSprite(-50, 700, 469, 213, 'ic_butterfly');
+	ic_butterfly.inputEnabled = true;
+	ic_butterfly.scale.setTo(1, 1);
 
-	buom1 = game.add.tileSprite(-50, 700, 222, 202, 'buom');
-	buom1.inputEnabled = true;
-	buom1.scale.setTo(1, 1);
-
-	game.add.tween(buom).to({ x: 250, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(buom1).to({ x: 550, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(ic_butterfly).to({ x: 250, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 		sound[1].play();
@@ -192,15 +188,30 @@ function mission() {
 
 		bg = game.add.tileSprite(0,0,1366,768,'bg');
 	
-		hoa2 = game.add.sprite(700, 400, 'hoa');
+		hoa2 = game.add.sprite(500, 300, 'hoa');
 		hoa2.scale.setTo(1, 1);
 
-		hoa3 = game.add.sprite(900, 400, 'hoa');
+		hoa3 = game.add.sprite(700, 300, 'hoa');
 		hoa3.scale.setTo(1, 1);
 		sound[4].play();
 		setTimeout(function(){
+			bot = game.add.sprite(550, 95, 'bot');
+			bot1 = game.add.sprite(750, 115, 'bot');
+			bot.inputEnabled = true;
+			bot1.inputEnabled = true;
+
+			bot.scale.setTo(0.15);
+			bot1.scale.setTo(0.15);
+
+			bot.animations.add('run');
+			bot1.animations.add('run');
+
+		    bot.animations.play('run', 10, true);
+			bot1.animations.play('run', 10, true);
+		},800);
+		setTimeout(function () {
 			backPlayerBackgroundTwo();
-		},2800);
+		},2500);
 	}
 
 	if (backgroundCount == 3) {
@@ -212,10 +223,10 @@ function mission() {
 
 		bg = game.add.tileSprite(0,0,1366,768,'bg');
 	
-		hoa4 = game.add.sprite(700, 400, 'hoa');
+		hoa4 = game.add.sprite(500, 300, 'hoa');
 		hoa4.scale.setTo(1, 1);
 
-		hoa5 = game.add.sprite(900, 400, 'hoa');
+		hoa5 = game.add.sprite(700, 300, 'hoa');
 		hoa5.scale.setTo(1, 1);
 
 		sound[6].play();
@@ -239,20 +250,6 @@ function backPlayerBackgroundTwo() {
 	start =0;
 	setTimeout(function () {
 		sound[5].play();
-		bot = game.add.sprite(750, 300, 'bot');
-		bot1 = game.add.sprite(950, 320, 'bot');
-		bot.inputEnabled = true;
-		bot1.inputEnabled = true;
-
-		bot.scale.setTo(0.1, 0.1);
-		bot1.scale.setTo(0.1, 0.1);
-
-		bot.animations.add('run');
-		bot1.animations.add('run');
-
-	    bot.animations.play('run', 10, true);
-		bot1.animations.play('run', 10, true);
-
 	}, 500);
 
 	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
@@ -262,12 +259,12 @@ function backPlayerBackgroundThree() {
 	start =0;
 	setTimeout(function () {
 		sound[7].play();
-		Butterfly_1 = game.add.sprite(760, 400, 'buom');
-		Butterfly_1.scale.setTo(0.5, 0.5);
+		Butterfly_1 = game.add.sprite(560, 200, 'buom');
+		Butterfly_1.scale.setTo(0.7);
 		Butterfly_1.inputEnabled = true;
 
-		Butterfly_2 = game.add.sprite(960, 400, 'buom');
-		Butterfly_2.scale.setTo(0.5, 0.5);
+		Butterfly_2 = game.add.sprite(760, 200, 'buom');
+		Butterfly_2.scale.setTo(0.7);
 		Butterfly_2.inputEnabled = true;
 
 		Butterfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
@@ -331,14 +328,14 @@ function update() {
 			showFLower_ = false;
 			hoa.scale.setTo(1.2);
 			hoa1.scale.setTo(1.2);
-		},500);
+		},1000);
 	}
 	else {
 		setTimeout(function () {
 			showFLower_ = true;
 			hoa.scale.setTo(1);
 			hoa1.scale.setTo(1);
-		},500);
+		},1000);
 	}
 	
 	
