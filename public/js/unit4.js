@@ -156,7 +156,6 @@ function show3() {
 	game.add.tween(hatde).to({ x: 340, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-		sound[5].play();
 		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
 		text_chestnut = game.add.tileSprite(450, -50, 289, 66, 'text_chestnut');
 		text_number4.inputEnabled = true;
@@ -199,7 +198,23 @@ function mission() {
 
 		bg_1 = game.add.tileSprite(0,0,1366,768,'bg_1');
 		sound[6].play();
-		backPlayerBackgroundThree();
+		sochatde = game.add.sprite(50,450,'sochatde');
+		sochatde.scale.setTo(1,1);
+
+		sochatde1 = game.add.sprite(300,500,'sochatde');
+		sochatde1.scale.setTo(1,1);
+
+		sochatde2 = game.add.sprite(550,500,'sochatde');
+		sochatde2.scale.setTo(1,1);
+
+		sochatde3 = game.add.sprite(750,470,'sochatde');
+		sochatde3.scale.setTo(1,1);
+		setTimeout(function () {
+			sound[5].play();
+		},3500);
+		setTimeout(function () {
+			backPlayerBackgroundThree();
+		},6500);
 	}
 
 	if (backgroundCount == 4) {
@@ -242,17 +257,6 @@ function backPlayerBackgroundThree() {
 	zoomSoc_ = false;
 	zoomSocDe_ = true;
 
-	sochatde = game.add.sprite(50,450,'sochatde');
-	sochatde.scale.setTo(1,1);
-
-	sochatde1 = game.add.sprite(300,500,'sochatde');
-	sochatde1.scale.setTo(1,1);
-
-	sochatde2 = game.add.sprite(550,500,'sochatde');
-	sochatde2.scale.setTo(1,1);
-
-	sochatde3 = game.add.sprite(750,470,'sochatde');
-	sochatde3.scale.setTo(1,1);
 	setTimeout(function () {
 		start =0 ;
 
