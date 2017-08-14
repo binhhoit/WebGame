@@ -54,6 +54,7 @@ var backgroundCount = 1;
 var m_player;
 
 var showBehive_;
+var showBear_;
 var toong;
 
 var zoom = true;
@@ -90,6 +91,7 @@ function create() {
 	},7000);
 
 	flag = true;
+	showBear_ = true;
   
 }
 //k doi
@@ -190,6 +192,7 @@ function mission() {
 	backgroundCount++;
 
 	if (backgroundCount == 2) {
+		showBear_ = false;
 		text_bear.destroy();
 		text_number3.destroy();
 		gau.destroy();
@@ -308,6 +311,21 @@ function update() {
 			setTimeout(function () {
 				zoom = true;
 				toong.scale.setTo(1.2, 1.2);
+			}, 500);
+		}
+	}
+
+	if(showBear_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				gau.scale.setTo(1, 1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				gau.scale.setTo(1.2, 1.2);
 			}, 500);
 		}
 	}

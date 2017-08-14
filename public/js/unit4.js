@@ -5,7 +5,7 @@ function preload()  {
 
 	game.scale.forceOrientation(false, true);
 	// Function called first to load all the assets
-	game.load.spritesheet('Squirrel', 'assets/images/unit4/character/squirrel_animation.png', 192, 252);
+	game.load.spritesheet('Squirrel', 'assets/images/charactor_animation/squirrel.png', 192, 252);
 	// Load background 
 	game.load.image('bg', 'assets/images/unit4/bg.png');
 	game.load.image('bg_1', 'assets/images/unit4/bg_1.png');
@@ -31,7 +31,7 @@ function preload()  {
 	game.load.audio('5', 'assets/sounds/unit4/4_4 con soc.mp3');
 	game.load.audio('6', 'assets/sounds/unit4/4_4 hat de.mp3');
 	game.load.audio('7', 'assets/sounds/unit4/4_4.mp3');
-	game.load.audio('8', 'assets/sounds/unit4/4_Gioi thieu.mp3');
+	game.load.audio('8', 'assets/sounds/unit4/4_Gioithieu.mp3');
 	
 	
 	game.load.image('nen','assets/images/unit2/bg_board.png');
@@ -73,7 +73,14 @@ function create() {
 	sound[6] = game.sound.add('7');
 	sound[7] = game.sound.add('8');
 	
-	//m_sound[0] = game.add.audio('m_sound1');
+	sound[7].play();
+	setTimeout(function(){
+		sound[0].play();
+	},5000);
+
+	setTimeout(function () {
+		sound[1].play();
+	},7000);
 
 	flag= true;
 }
@@ -93,7 +100,7 @@ function show1() {
 	game.add.tween(cay).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[3].play();
 		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
 		text_tree = game.add.tileSprite(550, -50, 318, 66, 'text_tree');
 		text_number4.inputEnabled = true;
@@ -101,11 +108,11 @@ function show1() {
 		text_tree.inputEnabled = true;
 		game.add.tween(text_tree).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 }
 
 function show2() {
@@ -118,7 +125,7 @@ function show2() {
 	game.add.tween(msoc).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[4].play();
 		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
 		text_squirrel = game.add.tileSprite(530, -50, 315, 66, 'text_squirrel');
 		text_number4.inputEnabled = true;
@@ -126,11 +133,11 @@ function show2() {
 		text_squirrel.inputEnabled = true;
 		game.add.tween(text_squirrel).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 	
 }
@@ -144,7 +151,7 @@ function show3() {
 	game.add.tween(hatde).to({ x: 340, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[5].play();
 		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
 		text_chestnut = game.add.tileSprite(450, -50, 289, 66, 'text_chestnut');
 		text_number4.inputEnabled = true;
@@ -175,7 +182,7 @@ function mission() {
 		text_tree.destroy();
 		text_number4.destroy();
 		cay.destroy();
-
+		sound[2].play();
 		backPlayerBackgroundTwo();
 	}
 
@@ -186,13 +193,14 @@ function mission() {
 		bg.destroy();
 
 		bg_1 = game.add.tileSprite(0,0,1366,768,'bg_1');
-
+		sound[6].play();
 		backPlayerBackgroundThree();
 	}
 
 	if (backgroundCount == 4) {
-		text_butterfly.destroy();
+		text_chestnut.destroy();
 		text_number4.destroy();
+		hatde.destroy();
 
 		backToNextGame();
 	}
@@ -273,12 +281,12 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},3000);
+			},12500);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				show2();
-			}, 4000);
+			}, 9500);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
