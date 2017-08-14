@@ -16,16 +16,12 @@ function preload() {
 	game.load.image('text_butterfly', 'assets/images/unit0/text_butterfly.png');
 	game.load.image('text_duck', 'assets/images/unit0/text_duck.png');
 	
-	game.load.audio('1', 'assets/sound/unit9/9_9 con ca.mp3');
-	game.load.audio('2', 'assets/sound/unit9/9_9 oc sen.mp3');
-	game.load.audio('3', 'assets/sound/unit9/9_9 con rua.mp3');
-	game.load.audio('4', 'assets/sound/unit9/9_2.mp3');
-	game.load.audio('5', 'assets/sound/unit9/9_3.mp3');
-	game.load.audio('6', 'assets/sound/unit9/9_4.mp3');
-	game.load.audio('7', 'assets/sound/unit9/9_5.mp3');
-	game.load.audio('8', 'assets/sound/unit9/9_Gioi thieu.mp3');
-	game.load.audio('9', 'assets/sound/unit9/9_So 9.mp3');
-	game.load.audio('10', 'assets/sound/unit9/9_1.mp3');
+	game.load.audio('1', 'assets/sounds/unit0/1_0 buom.mp3');
+	game.load.audio('2', 'assets/sounds/unit0/1_0 chuon chuon.mp3');
+	game.load.audio('3', 'assets/sounds/unit0/1_0 vịt.mp3');
+	game.load.audio('4', 'assets/sounds/unit0/1_1.mp3');
+	game.load.audio('5', 'assets/sounds/unit0/1_2.mp3');
+	game.load.audio('6', 'assets/sounds/unit0/1_3.mp3');
 
 
 	game.load.image('nen','assets/images/unit9/bg_board.png');
@@ -46,6 +42,7 @@ var direction = 2;
 
 // Setting sound start
 var speed = 2;
+var flag_sound = 0;
 var Duck,Duck1,Duck2;
 var Dragonfly_1,Dragonfly_2,Dragonfly_3,Dragonfly_4,Dragonfly_5,Dragonfly_6;
 var Butterfly_1,Butterfly_2,Butterfly_3,Butterfly_4,Butterfly_5,Butterfly_6,Butterfly_7,Butterfly_8;
@@ -58,11 +55,11 @@ function create() {
 	game.world.setBounds(0,0,6096,768);
 	game.scale.forceOrientation(false, true);
 
-	Duck = game.add.sprite(50, 350, 'duck');
+	Duck = game.add.sprite(550, 350, 'duck');
 	Duck.scale.setTo(0.8);
-	Duck1 = game.add.sprite(250, 350, 'duck');
+	Duck1 = game.add.sprite(750, 350, 'duck');
 	Duck1.scale.setTo(0.8);
-	Duck2 = game.add.sprite(450, 350, 'duck');
+	Duck2 = game.add.sprite(950, 350, 'duck');
 	Duck2.scale.setTo(0.8);
 
 
@@ -81,10 +78,7 @@ function create() {
 	sound[3] = game.sound.add('4');
 	sound[4] = game.sound.add('5');
 	sound[5] = game.sound.add('6');
-	sound[6] = game.sound.add('7');
-	sound[7] = game.sound.add('8');
-	sound[8] = game.sound.add('9');
-	sound[9] = game.sound.add('10');
+
 
 	flag = true;
 }
@@ -167,6 +161,7 @@ function mission() {
 		bg_dragonfly = game.add.tileSprite(0,0,6096,768, 'bg_dragonfly');
 
 		backPlayerBackgroundTwo();
+		flag_sound= 4;
 
 	}
 
@@ -184,6 +179,7 @@ function mission() {
 		bg_butterfly = game.add.tileSprite(0,0,6096,768, 'bg_butterfly');
 
 		backPlayerBackgroundThree();
+		flag_sound= 5;
 	}
 
 	if (backgroundCount == 4) {
@@ -362,18 +358,62 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},2000);
+				flag_sound =1;
+			},1000);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				show2();
-			}, 2000);
+				flag_sound= 2;
+			}, 1000);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
 				show3();
-			}, 2000);
+				flag_sound= 3;
+			}, 1000);
 		}
+	}
+
+	if( flag_sound == 0)
+	{
+		setTimeout(function(){sound[3].play();}, 0);
+		flag_sound = -1;
+
+	}
+	
+	if(flag_sound == 1)
+	{
+		setTimeout(function(){sound[2].play();}, 1000);
+		flag_sound = -1;
+	}
+	if( flag_sound == 2)
+	{
+		setTimeout(function(){sound[1].play();}, 1000);
+		flag_sound = -1;
+
+	}
+	
+	if( flag_sound == 3)
+	{
+		setTimeout(function(){sound[0].play();}, 1000);
+		flag_sound = -1;
+
+	}
+	
+	if( flag_sound == 4)
+	{
+		
+		setTimeout(function(){sound[4].play();}, 0);
+		flag_sound = -1;
+
+	}
+	
+	if( flag_sound == 5)
+	{
+		
+		setTimeout(function(){sound[5].play();}, 0);
+		flag_sound = -1;
 	}
 }
 

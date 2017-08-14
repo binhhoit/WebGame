@@ -5,7 +5,7 @@ function preload() {
 
     game.load.spritesheet('bot', 'assets/images/unit2/bee3.png', 1514.25, 1833, 8);
 	//game.load.spritesheet('khi', 'assets/images/unit2/tho1.png', 192.75, 284, 16);
-	game.load.spritesheet('buom', 'assets/images/unit2/buom2.png', 564.230769, 250, 13);
+	game.load.spritesheet('buom', 'assets/images/unit2/character/butterfly.png', 219, 202);
 	game.load.image('bg','assets/images/unit2/bg.png');
 	//game.load.image('hoa','assets/images/unit2/hoa1.png');
 	game.load.image('hoa','assets/images/unit2/character/flower.png');
@@ -19,15 +19,16 @@ function preload() {
 	game.load.image('btnNext', 'assets/images/unit1/ic_button_next.png');
 	game.load.image('btnBack', 'assets/images/unit1/ic_button_back.png');
 	
-	game.load.audio('1', 'assets/sound/unit2/2_2 bong hoa.mp3');
-	game.load.audio('2', 'assets/sound/unit2/2_2 con buom.mp3');
-	game.load.audio('3', 'assets/sound/unit2/2_2 con ong.mp3');
-	game.load.audio('4', 'assets/sound/unit2/2_2.mp3');
-	game.load.audio('5', 'assets/sound/unit2/2_3.mp3');
-	game.load.audio('6', 'assets/sound/unit2/2_4.mp3');
-	game.load.audio('7', 'assets/sound/unit2/2_5.mp3');
-	game.load.audio('8', 'assets/sound/unit2/2_Gioithieu.mp3');
-	game.load.audio('9', 'assets/sound/unit2/2_So 2.mp3');
+	game.load.audio('1', 'assets/sounds/unit2/2_2 bong hoa.mp3');
+	game.load.audio('2', 'assets/sounds/unit2/2_2 con buom.mp3');
+	game.load.audio('3', 'assets/sounds/unit2/2_2 con ong.mp3');
+	game.load.audio('4', 'assets/sounds/unit2/2_2.mp3');
+	game.load.audio('5', 'assets/sounds/unit2/2_3.mp3');
+	game.load.audio('6', 'assets/sounds/unit2/2_4.mp3');
+	game.load.audio('7', 'assets/sounds/unit2/2_5.mp3');
+	game.load.audio('8', 'assets/sounds/unit2/2_6.mp3');
+	game.load.audio('9', 'assets/sounds/unit2/2_Gioithieu.mp3');
+	game.load.audio('10', 'assets/sounds/unit2/2_So 2.mp3');
 	
 }
 var flag ;
@@ -39,6 +40,9 @@ var flag_sound = 0;
 var backgroundCount = 1;
 var start =1;
 
+var showFLower_;
+var hoa, hoa1;
+
 function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -49,8 +53,13 @@ function create() {
 	hoa = game.add.sprite(700, 400, 'hoa');
 	hoa.scale.setTo(1, 1);
 
-	hoa = game.add.sprite(900, 400, 'hoa');
-	hoa.scale.setTo(1, 1);
+	hoa1 = game.add.sprite(900, 400, 'hoa');
+	hoa1.scale.setTo(1, 1);
+	
+	setTimeout(function () {
+		showFLower_ = true;
+		sound[3].play();
+	},4500);
 	
 	game.camera.follow(hoa);
 	
@@ -63,11 +72,11 @@ function create() {
 	sound[6] = game.sound.add('7');
 	sound[7] = game.sound.add('8');
 	sound[8] = game.sound.add('9');
+	sound[9] = game.sound.add('10');
 
-	sound[0].play();
+	flag_sound = 0;
 
 	flag = true;
-	
 }
 
 function btn() {
@@ -78,18 +87,17 @@ function btn() {
 function showFlower() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	hoa = game.add.tileSprite(-50, 700, 203, 359, 'hoa');
-	hoa.scale.setTo(1, 1);
+	hoa_ = game.add.tileSprite(-50, 700, 203, 359, 'hoa');
+	hoa_.scale.setTo(1, 1);
 
-	hoa1 = game.add.tileSprite(-50, 700, 203, 359, 'hoa');
-	hoa1.scale.setTo(1, 1);
+	hoa_1 = game.add.tileSprite(-50, 700, 203, 359, 'hoa');
+	hoa_1.scale.setTo(1, 1);
 
-
-	game.add.tween(hoa).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(hoa1).to({ x: 500, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(hoa_).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(hoa_1).to({ x: 500, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+	flag_sound = 1;
 		text_number2 = game.add.tileSprite(1400, 700, 235, 516, 'text_number2');
 		text_flower = game.add.tileSprite(500, -50, 348, 66, 'text_flower');
 		text_number2.inputEnabled = true;
@@ -97,11 +105,11 @@ function showFlower() {
 		text_flower.inputEnabled = true;
 		game.add.tween(text_flower).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 5000);
 }
 
 function showBee() {
@@ -119,8 +127,8 @@ function showBee() {
 	game.add.tween(bot).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 	game.add.tween(bot1).to({ x: 410, y: 280 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	setTimeout(function () {
-
+	setTimeout(function () {	
+		sound[2].play();
 		text_number2 = game.add.tileSprite(1400, 700, 235, 516, 'text_number2');
 		text_bee = game.add.tileSprite(500, -50, 308, 66, 'text_bee');
 		text_number2.inputEnabled = true;
@@ -140,13 +148,19 @@ function showBee() {
 function showButterfly() {
 	nen = game.add.tileSprite(0, 0, 1366, 768, 'nen');
 
-	buom = game.add.tileSprite(-50, 700, 450, 250, 'buom');
+	buom = game.add.tileSprite(-50, 700, 222, 202, 'buom');
 	buom.inputEnabled = true;
 	buom.scale.setTo(1, 1);
-	game.add.tween(buom).to({ x: 300, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+
+	buom1 = game.add.tileSprite(-50, 700, 222, 202, 'buom');
+	buom1.inputEnabled = true;
+	buom1.scale.setTo(1, 1);
+
+	game.add.tween(buom).to({ x: 250, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(buom1).to({ x: 550, y: 250 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[1].play();
 		text_number2 = game.add.tileSprite(1400, 700, 235, 516, 'text_number2');
 		text_butterfly = game.add.tileSprite(500, -50, 355, 66, 'text_butterfly');
 		text_number2.inputEnabled = true;
@@ -175,12 +189,23 @@ function mission() {
 	backgroundCount++;
 
 	if (backgroundCount == 2) {
+		showFLower_= false;
 		text_flower.destroy();
 		text_number2.destroy();
-		hoa.destroy();
-		hoa1.destroy();
+		hoa_.destroy();
+		hoa_1.destroy();
 
-		backPlayerBackgroundTwo();
+		bg = game.add.tileSprite(0,0,1366,768,'bg');
+	
+		hoa2 = game.add.sprite(700, 400, 'hoa');
+		hoa2.scale.setTo(1, 1);
+
+		hoa3 = game.add.sprite(900, 400, 'hoa');
+		hoa3.scale.setTo(1, 1);
+		sound[4].play();
+		setTimeout(function(){
+			backPlayerBackgroundTwo();
+		},2800);
 	}
 
 	if (backgroundCount == 3) {
@@ -192,13 +217,17 @@ function mission() {
 
 		bg = game.add.tileSprite(0,0,1366,768,'bg');
 	
-		hoa = game.add.sprite(700, 400, 'hoa');
-		hoa.scale.setTo(1, 1);
+		hoa4 = game.add.sprite(700, 400, 'hoa');
+		hoa4.scale.setTo(1, 1);
 
-		hoa = game.add.sprite(900, 400, 'hoa');
-		hoa.scale.setTo(1, 1);
+		hoa5 = game.add.sprite(900, 400, 'hoa');
+		hoa5.scale.setTo(1, 1);
 
-		backPlayerBackgroundThree();
+		sound[6].play();
+
+		setTimeout(function(){
+			backPlayerBackgroundThree();
+		},2800);
 	}
 
 	if (backgroundCount == 4) {
@@ -206,6 +235,7 @@ function mission() {
 		text_butterfly.destroy();
 		text_number2.destroy();
 		buom.destroy();
+		buom1.destroy();
 		backToNextGame();
 	}
 }
@@ -213,6 +243,7 @@ function mission() {
 function backPlayerBackgroundTwo() {
 	start =0;
 	setTimeout(function () {
+		sound[5].play();
 		bot = game.add.sprite(750, 300, 'bot');
 		bot1 = game.add.sprite(950, 320, 'bot');
 		bot.inputEnabled = true;
@@ -235,14 +266,22 @@ function backPlayerBackgroundTwo() {
 function backPlayerBackgroundThree() {
 	start =0;
 	setTimeout(function () {
-		buom = game.add.sprite(760, 400, 'buom');
-		buom.scale.setTo(0.5, 0.5);
-		buom.inputEnabled = true;
+		sound[7].play();
+		Butterfly_1 = game.add.sprite(760, 400, 'buom');
+		Butterfly_1.scale.setTo(0.5, 0.5);
+		Butterfly_1.inputEnabled = true;
 
-		buom.animations.add('run');
-		buom.animations.play('run', 5, true);
+		Butterfly_2 = game.add.sprite(960, 400, 'buom');
+		Butterfly_2.scale.setTo(0.5, 0.5);
+		Butterfly_2.inputEnabled = true;
 
-	}, 100);
+		Butterfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Butterfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+
+		Butterfly_1.animations.play('walk');
+		Butterfly_2.animations.play('walk');
+
+	}, 500);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
@@ -278,78 +317,57 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				showFlower();
-			},3000);
+			},7000);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				showBee();
-			}, 2000);
+			}, 4000);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
 				showButterfly();
-			}, 2000);
+			}, 5000);
 		}
+	}
+
+	if(showFLower_){
+		setTimeout(function () {
+			showFLower_ = false;
+			hoa.scale.setTo(1.2);
+			hoa1.scale.setTo(1.2);
+		},500);
+	}
+	else {
+		setTimeout(function () {
+			showFLower_ = true;
+			hoa.scale.setTo(1);
+			hoa1.scale.setTo(1);
+		},500);
 	}
 	
 	
 	if( flag_sound == 0)
 	{
-		setTimeout(function(){sound[7].play();}, 9000);
+		setTimeout(function(){sound[8].play();}, 0);
 		flag_sound = -1;
 
 	}
 	
 	if(flag_sound == 1)
 	{
-		
-		setTimeout(function(){sound[8].play();}, 1000);
-		
-		setTimeout(function(){sound[0].play();}, 2000);
-		
-	
-		
+		setTimeout(function(){sound[0].play();}, 0);
 		flag_sound = -1;
 	}
 	if( flag_sound == 2)
 	{
-		
-		setTimeout(function(){sound[3].play();}, 0);
-		setTimeout(function(){sound[4].play();}, 2000);
+		setTimeout(function(){sound[1].play();}, 0);
 		flag_sound = -1;
-
 	}
 	
 	if( flag_sound == 3)
 	{
-		
-		setTimeout(function(){sound[8].play();}, 2000);
-		
-		setTimeout(function(){sound[2].play();}, 3000);
-	
+		setTimeout(function(){sound[2].play();}, 2000);
 		flag_sound = -1;
-
 	}
-	
-	if( flag_sound == 4)
-	{
-		
-		setTimeout(function(){sound[5].play();}, 0);
-		setTimeout(function(){sound[6].play();}, 2000);
-		flag_sound = -1;
-
-	}
-	
-	if( flag_sound == 5)
-	{
-		
-		setTimeout(function(){sound[8].play();}, 4000);
-		
-		setTimeout(function(){sound[1].play();}, 5000);
-	
-		flag_sound = -1;
-
-	}
-	
-	
 }
