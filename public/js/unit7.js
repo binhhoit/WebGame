@@ -24,14 +24,14 @@ function preload() {
 	game.load.audio('1', 'assets/sound/unit7/7_ 7 bong hoa.mp3');
 	game.load.audio('2', 'assets/sound/unit7/7_ 7 con vit.mp3');
 	game.load.audio('3', 'assets/sound/unit7/7_7 con ech.mp3');
-	game.load.audio('4', 'assets/sound/unit7/7_2.mp3');
+	game.load.audio('4', 'assets/sound/unit7/7_1.mp3');
 	game.load.audio('5', 'assets/sound/unit7/7_3.mp3');
 	game.load.audio('6', 'assets/sound/unit7/7_4.mp3');
 	game.load.audio('7', 'assets/sound/unit7/7_5.mp3');
-	game.load.audio('8', 'assets/sound/unit7/7_Gioi thieu.mp3');
-	game.load.audio('9', 'assets/sound/unit7/7_So 7.mp3');
-	game.load.audio('10', 'assets/sound/unit7/7_1.mp3');
-	game.load.audio('11', 'assets/sound/unit7/7_6.mp3');
+	game.load.audio('8', 'assets/sound/unit7/7_6.mp3');
+	game.load.audio('9', 'assets/sound/unit7/7_7 con ech.mp3');
+	game.load.audio('10', 'assets/sound/unit7/7_7.mp3');
+	game.load.audio('11', 'assets/sound/unit7/7_Gioi thieu.mp3');
 	
 	// Load spritesheet
 	game.load.spritesheet('m_player', 'assets/images/unit5/tho1.png', 1, 1);

@@ -24,18 +24,17 @@ function preload() {
 	game.load.image('text_dagronfly', 'assets/images/unit8/text_dagronfly.png');
 	game.load.image('text_ladybug', 'assets/images/unit8/text_ladybug.png');
 	
-	game.load.audio('1', 'assets/sound/unit8/7_ 7 bong hoa.mp3');
-	game.load.audio('2', 'assets/sound/unit8/8_8 bo dua.mp3');
-	game.load.audio('3', 'assets/sound/unit8/8_8 con buom.mp3');
-	game.load.audio('4', 'assets/sound/unit8/8_2.mp3');
-	game.load.audio('5', 'assets/sound/unit8/8_3.mp3');
-	game.load.audio('6', 'assets/sound/unit8/8_4.mp3');
-	game.load.audio('7', 'assets/sound/unit8/8_5.mp3');
-	game.load.audio('8', 'assets/sound/unit8/8_Gioi thieu.mp3');
-	game.load.audio('9', 'assets/sound/unit8/8_So 8.mp3');
-	game.load.audio('10', 'assets/sound/unit8/8_1.mp3');
-	game.load.audio('11', 'assets/sound/unit8/8_6.mp3');
-
+	game.load.audio('1', 'assets/sound/unit8/8_1.mp3');
+	game.load.audio('2', 'assets/sound/unit8/8_2.mp3');
+	game.load.audio('3', 'assets/sound/unit8/8_3.mp3');
+	game.load.audio('4', 'assets/sound/unit8/8_4.mp3');
+	game.load.audio('5', 'assets/sound/unit8/8_5.mp3');
+	game.load.audio('6', 'assets/sound/unit8/8_6.mp3');
+	game.load.audio('7', 'assets/sound/unit8/8_8 bo dua.mp3');
+	game.load.audio('8', 'assets/sound/unit8/8_8 chuon chuon.mp3');
+	game.load.audio('9', 'assets/sound/unit8/8_8 con buom.mp3');
+	game.load.audio('10', 'assets/sound/unit8/8_Gioi thieu.mp3');
+	
 	// Load spritesheet
 	game.load.spritesheet('m_player', 'assets/images/unit5/tho1.png', 1, 1);
 
@@ -126,8 +125,7 @@ function create() {
 	sound[7] = game.sound.add('8');
 	sound[8] = game.sound.add('9');
 	sound[9] = game.sound.add('10');
-	sound[10] = game.sound.add('11');
-
+	
 	flag= true;
 	
 }
