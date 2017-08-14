@@ -33,15 +33,15 @@ function preload()  {
 	game.load.image('bear_honey', 'assets/images/unit3/character/bear_honey.png');
 
 	//thay am thanh, doi ten vaf duong dan
-	game.load.audio('1','assets/sounds/unit3/3_Gioithieu.mp3');
-	game.load.audio('2','assets/sounds/unit3/3_1.mp3');
-	game.load.audio('3','assets/sounds/unit3/3_So 3.mp3');
-	game.load.audio('4','assets/sounds/unit3/3_3 chu gau.mp3');
-	game.load.audio('5','assets/sounds/unit3/3_2.mp3');
+	game.load.audio('1','assets/sounds/unit3/3_1.mp3');
+	game.load.audio('2','assets/sounds/unit3/3_2.mp3');
+	game.load.audio('3','assets/sounds/unit3/3_3 chu gau.mp3');
+	game.load.audio('4','assets/sounds/unit3/3_3 hu mat ong.mp3');
+	game.load.audio('5','assets/sounds/unit3/3_3 to ong.mp3');
 	game.load.audio('6','assets/sounds/unit3/3_3.mp3');
-	game.load.audio('7','assets/sounds/unit3/3_3 to ong.mp3');
-	game.load.audio('8','assets/sounds/unit3/3_4.mp3');
-	game.load.audio('9','assets/sounds/unit3/3_3 hu mat ong.mp3');
+	game.load.audio('7','assets/sounds/unit3/3_5.mp3');
+	game.load.audio('8','assets/sounds/unit3/3_Gioi thieu.mp3');
+	
 }
 
 var flag ;
@@ -81,7 +81,7 @@ function create() {
 	sound[5] = game.sound.add('6');
 	sound[6] = game.sound.add('7');
 	sound[7] = game.sound.add('8');
-	sound[8] = game.sound.add('9');
+	
 
 	//m_sound[0] = game.add.audio('m_sound1');
 
