@@ -24,7 +24,7 @@ var speed = 2;
 var start =1;
 var stop = false;
 
-var tao;
+var tao,chuoi;
 var khi2,khi1,khi3,khi4,khi5;
 var chuoi;
 
@@ -35,6 +35,7 @@ var start_sound = 1;
 
 var zoomkhi_;
 var zoomtao_;
+var zoomchuoi_;
 function preload()  { 
 
 	game.scale.forceOrientation(false, true);
@@ -295,11 +296,16 @@ function backPlayerBackgroundTwo() {
 
 function backPlayerBackgroundThree() {
 	showkhi_ = false;
+	zoomchuoi_ = true;
 	setTimeout(function () {
 		chuoi= game.add.sprite(740,615,'chuoi');
 		chuoi.scale.setTo(1,1);
 
 	}, 100);
+
+	setTimeout(function(){
+		start =0 ;
+	},1500);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
@@ -345,7 +351,6 @@ function update() {
 		if(bg.x <= -1230)
 		{
 			backPlayerBackgroundThree();
-			start =0 ;
 			bg.x = -1215;
 			direction = 0;
 			m_player.animations.play('idle');
@@ -423,6 +428,21 @@ function update() {
 			setTimeout(function () {
 				zoom = true;
 				tao.scale.setTo(1.2);
+			}, 500);
+		}
+	}
+
+	if(zoomchuoi_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				chuoi.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				chuoi.scale.setTo(1.2);
 			}, 500);
 		}
 	}

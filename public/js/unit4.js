@@ -49,11 +49,16 @@ var flag_sound = 0;
 var backgroundCount = 1;
 var m_player;
 
-var showBehive_;
 var toong;
 
 var zoom = true;
 var start =1;
+
+var zoomSoc_;
+var zoomSocDe_;
+var Squirrel1,Squirrel2,Squirrel3,Squirrel4;
+var sochatde,sochatde1,sochatde2,sochatde3;
+
 
 function create() {
 
@@ -207,7 +212,7 @@ function mission() {
 }
 
 function backPlayerBackgroundTwo() {
-	start =0 ;
+	zoomSoc_ = true;
 	
 	Squirrel1 = game.add.sprite(50, 450, 'Squirrel');
 	Squirrel1.scale.setTo(1);
@@ -228,26 +233,30 @@ function backPlayerBackgroundTwo() {
 		//Squirrel2.animations.play('walk');
 		//Squirrel3.animations.play('walk');
 		//Squirrel4.animations.play('walk');
-	},500)
+		start =0 ;
+	},2000)
 	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
 function backPlayerBackgroundThree() {
-	start =0 ;
+	zoomSoc_ = false;
+	zoomSocDe_ = true;
+
+	sochatde = game.add.sprite(50,450,'sochatde');
+	sochatde.scale.setTo(1,1);
+
+	sochatde1 = game.add.sprite(300,500,'sochatde');
+	sochatde1.scale.setTo(1,1);
+
+	sochatde2 = game.add.sprite(550,500,'sochatde');
+	sochatde2.scale.setTo(1,1);
+
+	sochatde3 = game.add.sprite(750,470,'sochatde');
+	sochatde3.scale.setTo(1,1);
 	setTimeout(function () {
-		sochatde = game.add.sprite(50,450,'sochatde');
-		sochatde.scale.setTo(1,1);
+		start =0 ;
 
-		sochatde1 = game.add.sprite(300,500,'sochatde');
-		sochatde1.scale.setTo(1,1);
-
-		sochatde2 = game.add.sprite(550,500,'sochatde');
-		sochatde2.scale.setTo(1,1);
-
-		sochatde3 = game.add.sprite(750,470,'sochatde');
-		sochatde3.scale.setTo(1,1);
-
-	}, 100);
+	}, 2000);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
@@ -292,6 +301,48 @@ function update() {
 			setTimeout(function () {
 				show3();
 			}, 3000);
+		}
+	}
+
+	if(zoomSoc_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				Squirrel1.scale.setTo(1);
+				Squirrel1.scale.setTo(1);
+				Squirrel1.scale.setTo(1);
+				Squirrel1.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				Squirrel1.scale.setTo(1.2);
+				Squirrel1.scale.setTo(1.2);
+				Squirrel1.scale.setTo(1.2);
+				Squirrel1.scale.setTo(1.2);
+			}, 500);
+		}
+	}
+
+	if(zoomSocDe_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				sochatde.scale.setTo(1);
+				sochatde1.scale.setTo(1);
+				sochatde2.scale.setTo(1);
+				sochatde3.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				sochatde.scale.setTo(1.2);
+				sochatde1.scale.setTo(1.2);
+				sochatde2.scale.setTo(1.2);
+				sochatde3.scale.setTo(1.2);
+			}, 500);
 		}
 	}
 }
