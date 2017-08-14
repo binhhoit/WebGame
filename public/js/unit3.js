@@ -55,6 +55,7 @@ var m_player;
 
 var showBehive_;
 var showBear_;
+var showHoney_;
 var toong;
 
 var zoom = true;
@@ -325,6 +326,20 @@ function update() {
 			setTimeout(function () {
 				zoom = true;
 				gau.scale.setTo(1.2, 1.2);
+			}, 500);
+		}
+	}
+	if(showHoney_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				bear_honey.scale.setTo(1, 1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				bear_honey.scale.setTo(1.2, 1.2);
 			}, 500);
 		}
 	}
