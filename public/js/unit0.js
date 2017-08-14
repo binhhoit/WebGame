@@ -345,7 +345,7 @@ function update() {
 			Butterfly_8.x +=direction;
 		}
 
-		if(Butterfly_5.x < 800 && playone ==1){
+		if(Butterfly_5.x > 750 && playone ==1){
 			flag_sound= 5;
 			playone =2;
 		}
