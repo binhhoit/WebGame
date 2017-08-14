@@ -179,7 +179,6 @@ function mission() {
 		bg_butterfly = game.add.tileSprite(0,0,6096,768, 'bg_butterfly');
 
 		backPlayerBackgroundThree();
-		flag_sound= 5;
 	}
 
 	if (backgroundCount == 4) {
@@ -283,7 +282,7 @@ function backPlayerBackgroundThree() {
 }
 
 function backToNextGame() {
-	window_next = window.location = "unit1";
+	window_next = window.location = "unit0_game1";
 }
 
 
@@ -343,6 +342,10 @@ function update() {
 			Butterfly_6.x +=direction;
 			Butterfly_7.x +=direction;
 			Butterfly_8.x +=direction;
+		}
+
+		if(Butterfly_5.x < 1000){
+			flag_sound= 5;
 		}
 
 		if(Butterfly_5.x == 1368){
