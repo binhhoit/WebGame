@@ -43,6 +43,7 @@ var direction = 2;
 // Setting sound start
 var speed = 2;
 var flag_sound = 0;
+var playone=1;
 var Duck,Duck1,Duck2;
 var Dragonfly_1,Dragonfly_2,Dragonfly_3,Dragonfly_4,Dragonfly_5,Dragonfly_6;
 var Butterfly_1,Butterfly_2,Butterfly_3,Butterfly_4,Butterfly_5,Butterfly_6,Butterfly_7,Butterfly_8;
@@ -344,8 +345,9 @@ function update() {
 			Butterfly_8.x +=direction;
 		}
 
-		if(Butterfly_5.x < 1000){
+		if(Butterfly_5.x < 800 && playone ==1){
 			flag_sound= 5;
+			playone =2;
 		}
 
 		if(Butterfly_5.x == 1368){
