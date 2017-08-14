@@ -251,7 +251,6 @@ function mission() {
 	}
 
 	if (backgroundCount == 4) {
-		hoa.destroy();
 		text_butterfly.destroy();
 		text_number2.destroy();
 		buom.destroy();
