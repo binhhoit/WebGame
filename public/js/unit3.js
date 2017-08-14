@@ -220,7 +220,6 @@ function mission() {
 	}
 
 	if (backgroundCount == 4) {
-		hoa.destroy();
 		text_honey.destroy();
 		text_number3.destroy();
 		humatong.destroy();
