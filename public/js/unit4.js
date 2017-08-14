@@ -309,18 +309,18 @@ function update() {
 			setTimeout(function () {
 				zoom = false;
 				Squirrel1.scale.setTo(1);
-				Squirrel1.scale.setTo(1);
-				Squirrel1.scale.setTo(1);
-				Squirrel1.scale.setTo(1);
+				Squirrel2.scale.setTo(1);
+				Squirrel3.scale.setTo(1);
+				Squirrel4.scale.setTo(1);
 			}, 500);
 		}
 		else {
 			setTimeout(function () {
 				zoom = true;
 				Squirrel1.scale.setTo(1.2);
-				Squirrel1.scale.setTo(1.2);
-				Squirrel1.scale.setTo(1.2);
-				Squirrel1.scale.setTo(1.2);
+				Squirrel2.scale.setTo(1.2);
+				Squirrel3.scale.setTo(1.2);
+				Squirrel4.scale.setTo(1.2);
 			}, 500);
 		}
 	}
