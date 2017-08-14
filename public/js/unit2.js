@@ -5,7 +5,7 @@ function preload() {
 
     game.load.spritesheet('bot', 'assets/images/unit2/bee3.png', 1514.25, 1833, 8);
 	//game.load.spritesheet('khi', 'assets/images/unit2/tho1.png', 192.75, 284, 16);
-	game.load.spritesheet('buom', 'assets/images/unit2/character/butterfly.png', 222, 202);
+	game.load.spritesheet('buom', 'assets/images/unit2/character/butterfly.png', 230, 220);
 	game.load.image('bg','assets/images/unit2/bg.png');
 	//game.load.image('hoa','assets/images/unit2/hoa1.png');
 	game.load.image('hoa','assets/images/unit2/character/flower.png');
@@ -231,11 +231,11 @@ function mission() {
 
 		sound[6].play();
 		setTimeout(function(){
-			Butterfly_1 = game.add.sprite(560, 150, 'buom');
+			Butterfly_1 = game.add.sprite(500, 130, 'buom');
 			Butterfly_1.scale.setTo(0.8);
 			Butterfly_1.inputEnabled = true;
 
-			Butterfly_2 = game.add.sprite(760, 150, 'buom');
+			Butterfly_2 = game.add.sprite(720, 130, 'buom');
 			Butterfly_2.scale.setTo(0.8);
 			Butterfly_2.inputEnabled = true;
 
@@ -253,8 +253,8 @@ function mission() {
 	if (backgroundCount == 4) {
 		text_butterfly.destroy();
 		text_number2.destroy();
-		buom.destroy();
-		buom1.destroy();
+		Butterfly_1.destroy();
+		Butterfly_2.destroy();
 		backToNextGame();
 	}
 }
