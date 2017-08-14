@@ -5,7 +5,7 @@ function preload() {
 
     game.load.spritesheet('bot', 'assets/images/unit2/bee3.png', 1514.25, 1833, 8);
 	//game.load.spritesheet('khi', 'assets/images/unit2/tho1.png', 192.75, 284, 16);
-	game.load.spritesheet('buom', 'assets/images/unit2/character/butterfly.png', 219, 202);
+	game.load.spritesheet('buom', 'assets/images/unit2/character/butterfly.png', 222, 202);
 	game.load.image('bg','assets/images/unit2/bg.png');
 	//game.load.image('hoa','assets/images/unit2/hoa1.png');
 	game.load.image('hoa','assets/images/unit2/character/flower.png');
@@ -114,14 +114,14 @@ function showBee() {
 	bot = game.add.tileSprite(-50, 700, 1500, 1800, 'bot');
 	bot1 = game.add.tileSprite(-120, 750, 1500, 1800, 'bot');
 
-	bot.scale.setTo(0.1, 0.1);
-	bot1.scale.setTo(0.1, 0.1);
+	bot.scale.setTo(0.15, 0.15);
+	bot1.scale.setTo(0.15, 0.15);
 
 	bot.inputEnabled = true;
 	bot1.inputEnabled = true;
 
 	game.add.tween(bot).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
-	game.add.tween(bot1).to({ x: 410, y: 280 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	game.add.tween(bot1).to({ x: 510, y: 280 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {	
 		sound[2].play();
@@ -230,10 +230,24 @@ function mission() {
 		hoa5.scale.setTo(1, 1);
 
 		sound[6].play();
+		setTimeout(function(){
+			Butterfly_1 = game.add.sprite(560, 200, 'buom');
+			Butterfly_1.scale.setTo(0.8);
+			Butterfly_1.inputEnabled = true;
 
+			Butterfly_2 = game.add.sprite(760, 200, 'buom');
+			Butterfly_2.scale.setTo(0.8);
+			Butterfly_2.inputEnabled = true;
+
+			Butterfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+			Butterfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+
+			Butterfly_1.animations.play('walk');
+			Butterfly_2.animations.play('walk');
+		},800);
 		setTimeout(function(){
 			backPlayerBackgroundThree();
-		},2800);
+		},2300);
 	}
 
 	if (backgroundCount == 4) {
@@ -259,19 +273,7 @@ function backPlayerBackgroundThree() {
 	start =0;
 	setTimeout(function () {
 		sound[7].play();
-		Butterfly_1 = game.add.sprite(560, 200, 'buom');
-		Butterfly_1.scale.setTo(0.7);
-		Butterfly_1.inputEnabled = true;
-
-		Butterfly_2 = game.add.sprite(760, 200, 'buom');
-		Butterfly_2.scale.setTo(0.7);
-		Butterfly_2.inputEnabled = true;
-
-		Butterfly_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-		Butterfly_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-
-		Butterfly_1.animations.play('walk');
-		Butterfly_2.animations.play('walk');
+		
 
 	}, 500);
 
