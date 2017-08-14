@@ -248,6 +248,7 @@ function backPlayerBackgroundThree() {
 	start =0 ;
 	showBehive_= false;
 	bg_bee.destroy();
+	showHoney_= true;
 	setTimeout(function () {
 		bear_honey = game.add.sprite(100,300,'bear_honey');
 		bear_honey.scale.setTo(1,1);

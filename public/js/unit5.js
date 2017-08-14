@@ -145,12 +145,12 @@ function create() {
 	sound[8].play();
 	setTimeout(function(){
 		sound[0].play();
-	},4000);
+	},4500);
 
 	setTimeout(function () {
 		sound[1].play();
 		zoomkhi_ = true;
-	},7000);
+	},7500);
 
 	flag= true;
 }
@@ -275,7 +275,7 @@ function mission() {
 	}
 
 	if (backgroundCount == 4) {
-		text_butterfly.destroy();
+		text_banana.destroy();
 		text_number5.destroy();
 
 		backToNextGame();
