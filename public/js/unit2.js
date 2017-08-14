@@ -247,7 +247,7 @@ function mission() {
 		},800);
 		setTimeout(function(){
 			backPlayerBackgroundThree();
-		},2300);
+		},2500);
 	}
 
 	if (backgroundCount == 4) {
