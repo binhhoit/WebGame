@@ -231,11 +231,11 @@ function mission() {
 
 		sound[6].play();
 		setTimeout(function(){
-			Butterfly_1 = game.add.sprite(560, 200, 'buom');
+			Butterfly_1 = game.add.sprite(560, 150, 'buom');
 			Butterfly_1.scale.setTo(0.8);
 			Butterfly_1.inputEnabled = true;
 
-			Butterfly_2 = game.add.sprite(760, 200, 'buom');
+			Butterfly_2 = game.add.sprite(760, 150, 'buom');
 			Butterfly_2.scale.setTo(0.8);
 			Butterfly_2.inputEnabled = true;
 
