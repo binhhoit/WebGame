@@ -124,6 +124,8 @@ function create() {
 	sound[8] = game.sound.add('9');
 	sound[9] = game.sound.add('10');
 
+	sound[8].play();
+
 	flag= true;
 	
 }
