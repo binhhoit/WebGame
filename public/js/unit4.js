@@ -211,6 +211,7 @@ function mission() {
 		sochatde3.scale.setTo(1,1);
 		setTimeout(function () {
 			sound[5].play();
+				zoomSocDe_ = true;
 		},3500);
 		setTimeout(function () {
 			backPlayerBackgroundThree();
@@ -255,7 +256,6 @@ function backPlayerBackgroundTwo() {
 
 function backPlayerBackgroundThree() {
 	zoomSoc_ = false;
-	zoomSocDe_ = true;
 
 	setTimeout(function () {
 		start =0 ;
