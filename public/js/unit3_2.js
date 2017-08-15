@@ -108,7 +108,7 @@ function create() {
 
 	//load button
 	button = game.add.button(650, 650, 'btnCheck', Process, this, 2, 1, 0);
-	button.scale.setTo(1.2, 1);
+	button.scale.setTo(0.8);
 
 	// create basket
 
@@ -278,10 +278,10 @@ function update() {
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
 	loop ? setTimeout(function () {
-		button.scale.setTo(1.2, 1);
+		button.scale.setTo(0.7);
 		loop = false;
 	}, 1000) : setTimeout(function () {
-		button.scale.setTo(1.15, 0.95);
+		button.scale.setTo(0.8);
 		loop = true;
 	}, 1000)
 
