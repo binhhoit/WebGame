@@ -111,6 +111,8 @@ function score() {
 	music = game.add.audio('music3');
 	music.play();
 	music.fadeIn(300);
+
+	process();
 }
 function fail() {
 	music = game.add.audio('music1');
@@ -140,18 +142,18 @@ function animationFalse_(image) {
 
 
 function process() {
-	if (diem >= 4) {
+	diem++;
+	console.log(diem)
+	if (diem == 4) {
 		music = game.add.audio('music5');
 		music.play();
 		setTimeout(function () {
 			delay();
 		}, 2000);
 	}
-	else {
-		false;
-	}
+
 }
 
 function delay() {
-	var winx = window.location = "/api/unit2";
+	var winx = window.location = "/api";
 }
