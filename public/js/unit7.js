@@ -283,7 +283,7 @@ function mission() {
 	}
 
 	if (backgroundCount == 4) {
-		text_butterfly.destroy();
+		text_frog.destroy();
 		text_number7.destroy();
 
 		backToNextGame();

@@ -237,7 +237,7 @@ function mission() {
 	}
 
 	if (backgroundCount == 4) {
-		text_butterfly.destroy();
+		text_snail.destroy();
 		text_number9.destroy();
 
 		backToNextGame();
@@ -310,13 +310,13 @@ function update() {
 		if(zoom){
 			setTimeout(function () {
 				zoom = false;
-				fish.scale.setTo(1);
+				fish.scale.setTo(0.8);
 			}, 500);
 		}
 		else {
 			setTimeout(function () {
 				zoom = true;
-				fish.scale.setTo(1.3);
+				fish.scale.setTo(1.1);
 			}, 500);
 		}
 	}
@@ -325,13 +325,13 @@ function update() {
 		if(zoom){
 			setTimeout(function () {
 				zoom = false;
-				turtle.scale.setTo(1);
+				turtle.scale.setTo(0.8);
 			}, 500);
 		}
 		else {
 			setTimeout(function () {
 				zoom = true;
-				turtle.scale.setTo(1.2);
+				turtle.scale.setTo(1.1);
 			}, 500);
 		}
 	}

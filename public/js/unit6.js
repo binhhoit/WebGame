@@ -56,7 +56,14 @@ var direction = 2;
 // Setting sound start
 var speed = 2;
 var Bird_1,Bird_2,Bird_3,Bird_4, Bird_5,Bird_6;
+var totrung,totrung1,totrung2,totrung3,totrung4,totrung5;
+var egg,egg1,egg2,egg3,egg4,egg5,egg6;
 var start_sound = 1;
+
+var zoomTo;
+var zoomTrung;
+var zoom = true;
+
 function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -128,7 +135,10 @@ function create() {
 	sound[7].play();
 	setTimeout(function(){
 		sound[9].play();
-	},4500);
+	},3500);
+	setTimeout(function(){
+		sound[3].play();
+	},8000);
 
 	flag= true;
 	
@@ -193,10 +203,10 @@ function show2() {
 function show3() {
 	nen = game.add.tileSprite(0, 0, 1500, 766, 'nen');
 
-	egg = game.add.tileSprite(-50, 700, 357, 246, 'egg');
-	egg.inputEnabled = true;
-	egg.scale.setTo(1.1, 1.1);
-	game.add.tween(egg).to({ x: 320, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
+	egg_ = game.add.tileSprite(-50, 700, 357, 246, 'egg');
+	egg_.inputEnabled = true;
+	egg_.scale.setTo(1.1, 1.1);
+	game.add.tween(egg_).to({ x: 320, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
 		sound[1].play();
@@ -230,21 +240,22 @@ function mission() {
 		text_bird.destroy();
 		text_number6.destroy();
 		bird_.destroy();
-
 	}
 
 	if (backgroundCount == 3) {
+		zoomTo = false;
 		text_nest.destroy();
 		text_number6.destroy();
 		nest.destroy();
-
+		sound[6].play();
+		zoomTrung = true;
 		backPlayerBackgroundThree();
 	}
 
 	if (backgroundCount == 4) {
-		text_butterfly.destroy();
+		text_egg.destroy();
 		text_number6.destroy();
-
+		egg.destroy();
 		backToNextGame();
 	}
 }
@@ -336,9 +347,13 @@ function update() {
 			
 		}
 
-		if(bg.x > -200 && start_sound == 1){
-			sound[3].play();
+		if(bg.x > -350 && start_sound == 1){
+			sound[4].play();
+			setTimeout(function(){
+				sound[5].play();
+			},3500)
 			start_sound = 2;
+			zoomTo = true;
 		}
 
 		if(bg.x <= -650){
@@ -358,17 +373,66 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},10000);
+			},14500);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				show2();
-			}, 4000);
+			}, 7000);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
 				show3();
-			}, 3000);
+			}, 11000);
+		}
+	}
+
+	if(zoomTo){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				totrung.scale.setTo(1);
+				totrung1.scale.setTo(1);
+				totrung2.scale.setTo(1);
+				totrung3.scale.setTo(1);
+				totrung4.scale.setTo(1);
+				totrung5.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				totrung.scale.setTo(1.1);
+				totrung1.scale.setTo(1.1);
+				totrung2.scale.setTo(1.1);
+				totrung3.scale.setTo(1.1);
+				totrung4.scale.setTo(1.1);
+				totrung5.scale.setTo(1.1);
+			}, 500);
+		}
+	}
+	if(zoomTrung){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				egg.scale.setTo(1);
+				egg1.scale.setTo(1);
+				egg2.scale.setTo(1);
+				egg3.scale.setTo(1);
+				egg4.scale.setTo(1);
+				egg5.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				egg.scale.setTo(1.1);
+				egg1.scale.setTo(1.1);
+				egg2.scale.setTo(1.1);
+				egg3.scale.setTo(1.1);
+				egg4.scale.setTo(1.1);
+				egg5.scale.setTo(1.1);
+			}, 500);
 		}
 	}
 }

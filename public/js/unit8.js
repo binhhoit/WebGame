@@ -179,11 +179,11 @@ function show2() {
 		text_butterfly.inputEnabled = true;
 		game.add.tween(text_butterfly).to({ x: 500, y: 80 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 	
 }
@@ -197,7 +197,7 @@ function show3() {
 	game.add.tween(ic_ladybug).to({ x: 280, y: 160 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[6].play();
 		text_number8 = game.add.tileSprite(1400, 700, 240, 442, 'text_number8');
 		text_ladybug = game.add.tileSprite(450, -50, 432, 66, 'text_ladybug');
 		text_number8.inputEnabled = true;
@@ -205,11 +205,11 @@ function show3() {
 		text_ladybug.inputEnabled = true;
 		game.add.tween(text_ladybug).to({ x: 450, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 }
 
@@ -230,7 +230,7 @@ function mission() {
 		ic_dragonfly.destroy();
 
 		bg_flower = game.add.tileSprite(0,0,6096,768, 'bg_flower');
-
+		sound[1].play();
 		backPlayerBackgroundTwo();
 
 	}
@@ -291,7 +291,7 @@ function mission() {
 	}
 
 	if (backgroundCount == 4) {
-		text_butterfly.destroy();
+		text_ladybug.destroy();
 		text_number8.destroy();
 
 		backToNextGame();
@@ -387,12 +387,12 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},3000);
+			},11500);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				show2();
-			}, 4000);
+			}, 7500);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {

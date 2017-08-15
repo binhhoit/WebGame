@@ -78,6 +78,9 @@ function preload()  {
 	game.load.audio('7','assets/sounds/unit5/5_5.mp3');
 	game.load.audio('8','assets/sounds/unit5/5_6.mp3');
 	game.load.audio('9','assets/sounds/unit5/5_Gioi thieu.mp3');
+	game.load.audio('10','assets/sounds/unit5/5_7.mp3');
+	game.load.audio('11','assets/sounds/unit5/5_8.mp3');
+	game.load.audio('12','assets/sounds/unit5/5_9.mp3');
 
 
 	// Load button sprite
@@ -142,6 +145,9 @@ function create() {
 	sound[6] = game.sound.add('7');
 	sound[7] = game.sound.add('8');
 	sound[8] = game.sound.add('9');
+	sound[9] = game.sound.add('10');
+	sound[10] = game.sound.add('11');
+	sound[11] = game.sound.add('12');
 
 	sound[8].play();
 	setTimeout(function(){
@@ -258,8 +264,16 @@ function mission() {
 		khi_.destroy();
 		sound[2].play();
 		setTimeout(function(){
-			backPlayerBackgroundTwo();
+			sound[9].play();
+			tao = game.add.sprite(200,25,'tao');
+			tao.scale.setTo(1,1);
 		},5100);
+		setTimeout(function(){
+			sound[10].play();
+			zoomtao_= true;
+
+		},9500);
+		backPlayerBackgroundTwo();
 	}
 
 	if (backgroundCount == 3) {
@@ -284,13 +298,10 @@ function mission() {
 }
 
 function backPlayerBackgroundTwo() {
-	start =0 ;
 	setTimeout(function () {
-		zoomtao_= true;
-		tao = game.add.sprite(200,25,'tao');
-		tao.scale.setTo(1,1);
+		start =0 ;
 
-	}, 1000);
+	}, 12000);
 	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
@@ -298,14 +309,15 @@ function backPlayerBackgroundThree() {
 	showkhi_ = false;
 	zoomchuoi_ = true;
 	setTimeout(function () {
+		sound[11].play();
 		chuoi= game.add.sprite(740,615,'chuoi');
 		chuoi.scale.setTo(1,1);
 
-	}, 100);
+	}, 2000);
 
 	setTimeout(function(){
 		start =0 ;
-	},1500);
+	},4500);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
