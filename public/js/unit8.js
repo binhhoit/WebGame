@@ -24,16 +24,16 @@ function preload() {
 	game.load.image('text_dagronfly', 'assets/images/unit8/text_dagronfly.png');
 	game.load.image('text_ladybug', 'assets/images/unit8/text_ladybug.png');
 	
-	game.load.audio('1', 'assets/sound/unit8/8_1.mp3');
-	game.load.audio('2', 'assets/sound/unit8/8_2.mp3');
-	game.load.audio('3', 'assets/sound/unit8/8_3.mp3');
-	game.load.audio('4', 'assets/sound/unit8/8_4.mp3');
-	game.load.audio('5', 'assets/sound/unit8/8_5.mp3');
-	game.load.audio('6', 'assets/sound/unit8/8_6.mp3');
-	game.load.audio('7', 'assets/sound/unit8/8_8 bo dua.mp3');
-	game.load.audio('8', 'assets/sound/unit8/8_8 chuon chuon.mp3');
-	game.load.audio('9', 'assets/sound/unit8/8_8 con buom.mp3');
-	game.load.audio('10', 'assets/sound/unit8/8_Gioi thieu.mp3');
+	game.load.audio('1', 'assets/sounds/unit8/8_1.mp3');
+	game.load.audio('2', 'assets/sounds/unit8/8_2.mp3');
+	game.load.audio('3', 'assets/sounds/unit8/8_3.mp3');
+	game.load.audio('4', 'assets/sounds/unit8/8_4.mp3');
+	game.load.audio('5', 'assets/sounds/unit8/8_5.mp3');
+	game.load.audio('6', 'assets/sounds/unit8/8_6.mp3');
+	game.load.audio('7', 'assets/sounds/unit8/8_8 bo dua.mp3');
+	game.load.audio('8', 'assets/sounds/unit8/8_8 chuon chuon.mp3');
+	game.load.audio('9', 'assets/sounds/unit8/8_8 con buom.mp3');
+	game.load.audio('10', 'assets/sounds/unit8/8_Gioi thieu.mp3');
 	
 	// Load spritesheet
 	game.load.spritesheet('m_player', 'assets/images/unit5/tho1.png', 1, 1);
@@ -127,6 +127,8 @@ function create() {
 	sound[9] = game.sound.add('10');
 	
 	flag= true;
+
+	sound[9].play();
 	
 }
 
@@ -144,7 +146,7 @@ function show1() {
 	game.add.tween(ic_dragonfly).to({ x: 280, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[7].play();
 		text_number8 = game.add.tileSprite(1400, 700, 240, 442, 'text_number8');
 		text_dagronfly = game.add.tileSprite(550, -50, 584, 66, 'text_dagronfly');
 		text_number8.inputEnabled = true;
@@ -152,11 +154,11 @@ function show1() {
 		text_dagronfly.inputEnabled = true;
 		game.add.tween(text_dagronfly).to({ x: 350, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 }
 
 function show2() {
@@ -169,7 +171,7 @@ function show2() {
 	game.add.tween(ic_butterfly).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[8].play();
 		text_number8 = game.add.tileSprite(1400, 700, 240, 442, 'text_number8');
 		text_butterfly = game.add.tileSprite(530, -50, 383, 66, 'text_butterfly');
 		text_number8.inputEnabled = true;
@@ -239,7 +241,52 @@ function mission() {
 		ic_butterfly.destroy();
 
 		bg_ladybug = game.add.tileSprite(0,0,6096,768, 'bg_ladybug');
+		sound[3].play();
+		setTimeout(function(){
+			sound[4].play();
+			Ladybug_1 = game.add.sprite(260,230,'bo');
+			Ladybug_1.scale.add(0.1,0.1);
 
+			Ladybug_2 = game.add.sprite(100,430,'bo');
+			Ladybug_2.scale.add(0.1,0.1);
+
+			Ladybug_3 = game.add.sprite(300,480,'bo');
+			Ladybug_3.scale.add(0.1,0.1);
+
+			Ladybug_4 = game.add.sprite(450,480,'bo');
+			Ladybug_4.scale.add(0.1,0.1);
+
+			Ladybug_5 = game.add.sprite(600,480,'bo');
+			Ladybug_5.scale.add(0.1,0.1);
+
+			Ladybug_6 = game.add.sprite(750,480,'bo');
+			Ladybug_6.scale.add(0.1,0.1);
+
+			Ladybug_7 = game.add.sprite(900,480,'bo');
+			Ladybug_7.scale.add(0.1,0.1);
+
+			Ladybug_8 = game.add.sprite(1050,480,'bo');
+			Ladybug_8.scale.add(0.1,0.1);
+
+
+			Ladybug_1.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+			Ladybug_2.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+			Ladybug_3.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+			Ladybug_4.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+			Ladybug_5.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+			Ladybug_6.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+			Ladybug_7.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+			Ladybug_8.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
+
+			Ladybug_1.animations.play('walk');
+			Ladybug_2.animations.play('walk');
+			Ladybug_3.animations.play('walk');
+			Ladybug_4.animations.play('walk');
+			Ladybug_5.animations.play('walk');
+			Ladybug_6.animations.play('walk');
+			Ladybug_7.animations.play('walk');
+			Ladybug_8.animations.play('walk');
+		},2500);
 		backPlayerBackgroundThree();
 	}
 
@@ -302,51 +349,10 @@ function backPlayerBackgroundTwo() {
 
 function backPlayerBackgroundThree() {
 	bg_flower
-	start =0;
+	
 	setTimeout(function () {
-		Ladybug_1 = game.add.sprite(260,230,'bo');
-		Ladybug_1.scale.add(0.1,0.1);
-
-		Ladybug_2 = game.add.sprite(100,430,'bo');
-		Ladybug_2.scale.add(0.1,0.1);
-
-		Ladybug_3 = game.add.sprite(300,480,'bo');
-		Ladybug_3.scale.add(0.1,0.1);
-
-		Ladybug_4 = game.add.sprite(450,480,'bo');
-		Ladybug_4.scale.add(0.1,0.1);
-
-		Ladybug_5 = game.add.sprite(600,480,'bo');
-		Ladybug_5.scale.add(0.1,0.1);
-
-		Ladybug_6 = game.add.sprite(750,480,'bo');
-		Ladybug_6.scale.add(0.1,0.1);
-
-		Ladybug_7 = game.add.sprite(900,480,'bo');
-		Ladybug_7.scale.add(0.1,0.1);
-
-		Ladybug_8 = game.add.sprite(1050,480,'bo');
-		Ladybug_8.scale.add(0.1,0.1);
-
-
-		Ladybug_1.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
-		Ladybug_2.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
-		Ladybug_3.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
-		Ladybug_4.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
-		Ladybug_5.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
-		Ladybug_6.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
-		Ladybug_7.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
-		Ladybug_8.animations.add('walk', [0, 1, 2, 3, 4], 5, true);
-
-		Ladybug_1.animations.play('walk');
-		Ladybug_2.animations.play('walk');
-		Ladybug_3.animations.play('walk');
-		Ladybug_4.animations.play('walk');
-		Ladybug_5.animations.play('walk');
-		Ladybug_6.animations.play('walk');
-		Ladybug_7.animations.play('walk');
-		Ladybug_8.animations.play('walk');
-	}, 100);
+		start =0;
+	}, 7500);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
