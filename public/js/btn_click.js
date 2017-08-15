@@ -14,6 +14,6 @@ function passToRegister()
 		console.log("string: b");
 }
     function login(){
-         window.location="/api/unit1";
+         window.location="/api/intro";
          //
     }

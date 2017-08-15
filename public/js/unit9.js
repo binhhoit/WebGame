@@ -25,16 +25,16 @@ function preload() {
 	game.load.image('text_turtle', 'assets/images/unit9/text_turtle.png');
 	game.load.image('text_snail', 'assets/images/unit9/text_snail.png');
 	
-	game.load.audio('1', 'assets/sound/unit9/9_9 con ca.mp3');
-	game.load.audio('2', 'assets/sound/unit9/9_9 oc sen.mp3');
-	game.load.audio('3', 'assets/sound/unit9/9_9 con rua.mp3');
-	game.load.audio('4', 'assets/sound/unit9/9_2.mp3');
-	game.load.audio('5', 'assets/sound/unit9/9_3.mp3');
-	game.load.audio('6', 'assets/sound/unit9/9_4.mp3');
-	game.load.audio('7', 'assets/sound/unit9/9_5.mp3');
-	game.load.audio('8', 'assets/sound/unit9/9_Gioi thieu.mp3');
-	game.load.audio('9', 'assets/sound/unit9/9_So 9.mp3');
-	game.load.audio('10', 'assets/sound/unit9/9_1.mp3');
+	game.load.audio('1', 'assets/sounds/unit9/9_9 con ca.mp3');
+	game.load.audio('2', 'assets/sounds/unit9/9_9 oc sen.mp3');
+	game.load.audio('3', 'assets/sounds/unit9/9_9 con rua.mp3');
+	game.load.audio('4', 'assets/sounds/unit9/9_2.mp3');
+	game.load.audio('5', 'assets/sounds/unit9/9_3.mp3');
+	game.load.audio('6', 'assets/sounds/unit9/9_4.mp3');
+	game.load.audio('7', 'assets/sounds/unit9/9_5.mp3');
+	game.load.audio('8', 'assets/sounds/unit9/9_Gioi thieu.mp3');
+	game.load.audio('9', 'assets/sounds/unit9/9_So 9.mp3');
+	game.load.audio('10', 'assets/sounds/unit9/9_1.mp3');
 
 
 	game.load.image('nen','assets/images/unit9/bg_board.png');
@@ -56,7 +56,13 @@ var direction = 2;
 // Setting sound start
 var speed = 2;
 var m_player;
+var zoom = true;
 
+var fish ,turtle,snail;
+
+var showCa_;
+var showRua_;
+var showOcSen_;
 function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -98,6 +104,13 @@ function create() {
 	sound[9] = game.sound.add('10');
 
 	flag = true;
+
+	sound[7].play();
+	setTimeout(function(){
+		sound[9].play();
+		showCa_ = true;
+	},5000);
+
 }
 
 
@@ -115,7 +128,7 @@ function show1() {
 	game.add.tween(ic_fish).to({ x: 300, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[0].play();
 		text_number9 = game.add.tileSprite(1400, 700, 240, 442, 'text_number9');
 		text_fish = game.add.tileSprite(550, -50, 296, 66, 'text_fish');
 		text_number9.inputEnabled = true;
@@ -123,11 +136,11 @@ function show1() {
 		text_fish.inputEnabled = true;
 		game.add.tween(text_fish).to({ x: 530, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 }
 
 function show2() {
@@ -140,7 +153,7 @@ function show2() {
 	game.add.tween(ic_turtle1).to({ x: 350, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[2].play();
 		text_number9 = game.add.tileSprite(1400, 700, 240, 442, 'text_number9');
 		text_turtle = game.add.tileSprite(530, -50, 326, 66, 'text_turtle');
 		text_number9.inputEnabled = true;
@@ -148,11 +161,11 @@ function show2() {
 		text_turtle.inputEnabled = true;
 		game.add.tween(text_turtle).to({ x: 530, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 	
 }
@@ -166,7 +179,7 @@ function show3() {
 	game.add.tween(ic_snail).to({ x: 350, y: 200 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[1].play();
 		text_number9 = game.add.tileSprite(1400, 700, 240, 442, 'text_number9');
 		text_snail = game.add.tileSprite(450, -50, 416, 66, 'text_snail');
 		text_number9.inputEnabled = true;
@@ -174,11 +187,11 @@ function show3() {
 		text_snail.inputEnabled = true;
 		game.add.tween(text_snail).to({ x: 530, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 }
 
@@ -199,18 +212,27 @@ function mission() {
 		ic_fish.destroy();
 
 		bg_turtle = game.add.tileSprite(0,0,6096,768, 'bg_turtle');
-
+		sound[3].play();
+		showCa_ = false;
+		showRua_ = true;
 		backPlayerBackgroundTwo();
 
 	}
 
 	if (backgroundCount == 3) {
+		showRua_ = false;
 		text_turtle.destroy();
 		text_number9.destroy();
 		ic_turtle1.destroy();
 
 		bg_snail = game.add.tileSprite(0,0,6096,768, 'bg_snail');
-
+		sound[4].play();
+		setTimeout(function(){
+			sound[5].play();
+			showOcSen_ = true;
+			snail = game.add.sprite(50,420,'snail');
+			snail.scale.setTo(1,1);
+		},3500);
 		backPlayerBackgroundThree();
 	}
 
@@ -233,18 +255,16 @@ function backPlayerBackgroundTwo() {
 
 function backPlayerBackgroundThree() {
 	bg_turtle.destroy();
-	start =0;
 	setTimeout(function () {
-		snail = game.add.sprite(50,420,'snail');
-		snail.scale.setTo(1,1);
-	}, 100);
+		start =0;
+	}, 8500);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
 
 function backToNextGame() {
-	window_next = window.location = "/api/unit9_game1";
+	window_next = window.location = "unit9_game1";
 }
 
 
@@ -272,7 +292,7 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},3000);
+			},12500);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
@@ -283,6 +303,51 @@ function update() {
 			setTimeout(function () {
 				show3();
 			}, 3000);
+		}
+	}
+
+	if(showCa_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				fish.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				fish.scale.setTo(1.3);
+			}, 500);
+		}
+	}
+
+	if(showRua_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				turtle.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				turtle.scale.setTo(1.2);
+			}, 500);
+		}
+	}
+
+	if(showOcSen_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				snail.scale.setTo(0.8);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				snail.scale.setTo(1);
+			}, 500);
 		}
 	}
 }

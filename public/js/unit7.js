@@ -21,17 +21,17 @@ function preload() {
 	game.load.image('text_frog', 'assets/images/unit7/text_frog.png');
 	game.load.image('text_lotus', 'assets/images/unit7/text_lotus.png');
 	
-	game.load.audio('1', 'assets/sound/unit7/7_ 7 bong hoa.mp3');
-	game.load.audio('2', 'assets/sound/unit7/7_ 7 con vit.mp3');
-	game.load.audio('3', 'assets/sound/unit7/7_7 con ech.mp3');
-	game.load.audio('4', 'assets/sound/unit7/7_2.mp3');
-	game.load.audio('5', 'assets/sound/unit7/7_3.mp3');
-	game.load.audio('6', 'assets/sound/unit7/7_4.mp3');
-	game.load.audio('7', 'assets/sound/unit7/7_5.mp3');
-	game.load.audio('8', 'assets/sound/unit7/7_Gioi thieu.mp3');
-	game.load.audio('9', 'assets/sound/unit7/7_So 7.mp3');
-	game.load.audio('10', 'assets/sound/unit7/7_1.mp3');
-	game.load.audio('11', 'assets/sound/unit7/7_6.mp3');
+	game.load.audio('1', 'assets/sounds/unit7/7_ 7 bong hoa.mp3');
+	game.load.audio('2', 'assets/sounds/unit7/7_ 7 con vit.mp3');
+	game.load.audio('3', 'assets/sounds/unit7/7_7 con ech.mp3');
+	game.load.audio('4', 'assets/sounds/unit7/7_1.mp3');
+	game.load.audio('5', 'assets/sounds/unit7/7_3.mp3');
+	game.load.audio('6', 'assets/sounds/unit7/7_4.mp3');
+	game.load.audio('7', 'assets/sounds/unit7/7_5.mp3');
+	game.load.audio('8', 'assets/sounds/unit7/7_6.mp3');
+	game.load.audio('9', 'assets/sounds/unit7/7_7 con ech.mp3');
+	game.load.audio('10', 'assets/sounds/unit7/7_7.mp3');
+	game.load.audio('11', 'assets/sounds/unit7/7_Gioi thieu.mp3');
 	
 	// Load spritesheet
 	game.load.spritesheet('m_player', 'assets/images/unit5/tho1.png', 1, 1);
@@ -88,24 +88,6 @@ function create() {
 	Duck6 = game.add.sprite(950,350,'duck');
 	Duck6.scale.setTo(1,1);
 
-	Duck.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-	Duck1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-	Duck2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-	Duck3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-	Duck4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-	Duck5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-	Duck6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-
-
-	Duck.animations.play('walk');
-	Duck1.animations.play('walk');
-	Duck2.animations.play('walk');
-	Duck3.animations.play('walk');
-	Duck4.animations.play('walk');
-	Duck5.animations.play('walk');
-	Duck6.animations.play('walk');
-
-	
 	sound[0] = game.sound.add('1');
 	sound[1] = game.sound.add('2');
 	sound[2] = game.sound.add('3');
@@ -117,6 +99,30 @@ function create() {
 	sound[8] = game.sound.add('9');
 	sound[9] = game.sound.add('10');
 	sound[10] = game.sound.add('11');
+
+	sound[10].play();
+	setTimeout(function () {
+		sound[3].play();
+	},3500);
+	setTimeout(function () {
+		sound[4].play();
+		Duck.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Duck1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Duck2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Duck3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Duck4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Duck5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+		Duck6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+
+
+		Duck.animations.play('walk');
+		Duck1.animations.play('walk');
+		Duck2.animations.play('walk');
+		Duck3.animations.play('walk');
+		Duck4.animations.play('walk');
+		Duck5.animations.play('walk');
+		Duck6.animations.play('walk');
+	},9000);
 
 	flag = true;
 	
@@ -136,7 +142,7 @@ function show1() {
 	game.add.tween(ic_duck).to({ x: 350, y: 205 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[1].play();
 		text_number7 = game.add.tileSprite(1400, 700, 216, 442, 'text_number7');
 		text_duck = game.add.tileSprite(550, -50, 310, 66, 'text_duck');
 		text_number7.inputEnabled = true;
@@ -144,11 +150,11 @@ function show1() {
 		text_duck.inputEnabled = true;
 		game.add.tween(text_duck).to({ x: 550, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 }
 
 function show2() {
@@ -161,7 +167,7 @@ function show2() {
 	game.add.tween(ic_lotus).to({ x: 350, y: 205 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[0].play();
 		text_number7 = game.add.tileSprite(1400, 700, 216, 442, 'text_number7');
 		text_lotus = game.add.tileSprite(530, -50, 338, 66, 'text_lotus');
 		text_number7.inputEnabled = true;
@@ -169,11 +175,11 @@ function show2() {
 		text_lotus.inputEnabled = true;
 		game.add.tween(text_lotus).to({ x: 500, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 	
 }
@@ -187,7 +193,7 @@ function show3() {
 	game.add.tween(ic_frog).to({ x: 350, y: 205 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[2].play();
 		text_number7 = game.add.tileSprite(1400, 700, 216, 442, 'text_number7');
 		text_frog = game.add.tileSprite(450, -50, 332, 66, 'text_frog');
 		text_number7.inputEnabled = true;
@@ -195,11 +201,11 @@ function show3() {
 		text_frog.inputEnabled = true;
 		game.add.tween(text_frog).to({ x: 500, y: 70 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 }
 
@@ -220,6 +226,10 @@ function mission() {
 		ic_duck.destroy();
 
 		bg_lotus = game.add.tileSprite(0,0,6096,768, 'bg_lotus');
+		sound[5].play();
+		setTimeout(function(){
+			sound[6].play();
+		},3500);
 
 		backPlayerBackgroundTwo();
 
@@ -229,7 +239,46 @@ function mission() {
 		text_lotus.destroy();
 		text_number7.destroy();
 		ic_lotus.destroy();
+		sound[7].play();
+		setTimeout(function(){
+			sound[9].play();
+			Frog_1 = game.add.sprite(50,130,'frog');
+			Frog_1.scale.setTo(1,1);
 
+			Frog_2 = game.add.sprite(400,100,'frog');
+			Frog_2.scale.setTo(1,1);
+
+			Frog_3 = game.add.sprite(880,140,'frog');
+			Frog_3.scale.setTo(1,1);
+
+			Frog_4 = game.add.sprite(80,270,'frog');
+			Frog_4.scale.setTo(1,1);
+
+			Frog_5 = game.add.sprite(630,250,'frog');
+			Frog_5.scale.setTo(1,1);
+
+			Frog_6 = game.add.sprite(950,350,'frog');
+			Frog_6.scale.setTo(1,1);
+
+			Frog_7 = game.add.sprite(500,480,'frog');
+			Frog_7.scale.setTo(1,1);
+
+			Frog_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+			Frog_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+			Frog_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+			Frog_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+			Frog_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+			Frog_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+			Frog_7.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
+
+			Frog_1.animations.play('walk');
+			Frog_2.animations.play('walk');
+			Frog_3.animations.play('walk');
+			Frog_4.animations.play('walk');
+			Frog_5.animations.play('walk');
+			Frog_6.animations.play('walk');
+			Frog_7.animations.play('walk');
+		},4500);
 		backPlayerBackgroundThree();
 	}
 
@@ -248,53 +297,14 @@ function backPlayerBackgroundTwo() {
 
 function backPlayerBackgroundThree() {
 
-	Frog_1 = game.add.sprite(50,130,'frog');
-	Frog_1.scale.setTo(1,1);
-
-	Frog_2 = game.add.sprite(400,100,'frog');
-	Frog_2.scale.setTo(1,1);
-
-	Frog_3 = game.add.sprite(880,140,'frog');
-	Frog_3.scale.setTo(1,1);
-
-	Frog_4 = game.add.sprite(80,270,'frog');
-	Frog_4.scale.setTo(1,1);
-
-	Frog_5 = game.add.sprite(630,250,'frog');
-	Frog_5.scale.setTo(1,1);
-
-	Frog_6 = game.add.sprite(950,350,'frog');
-	Frog_6.scale.setTo(1,1);
-
-	Frog_7 = game.add.sprite(500,480,'frog');
-	Frog_7.scale.setTo(1,1);
-
-
 	setTimeout(function () {
-		Frog_1.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-		Frog_2.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-		Frog_3.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-		Frog_4.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-		Frog_5.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-		Frog_6.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-		Frog_7.animations.add('walk', [0, 1, 2, 3, 4, 5, 6, 7, 8], 8, true);
-
-		Frog_1.animations.play('walk');
-		Frog_2.animations.play('walk');
-		Frog_3.animations.play('walk');
-		Frog_4.animations.play('walk');
-		Frog_5.animations.play('walk');
-		Frog_6.animations.play('walk');
-		Frog_7.animations.play('walk');
-	},500);
-	start =0;
-
-	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
-
+		start =0;
+	},10000);
+	
 }
 
 function backToNextGame() {
-	window_next = window.location = "/api/unit7_game1";
+	window_next = window.location = "unit7_game1";
 }
 
 
@@ -322,12 +332,12 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},3000);
+			},15500);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				show2();
-			}, 4000);
+			}, 11000);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {

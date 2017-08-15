@@ -5,7 +5,7 @@ function preload()  {
 
 	game.scale.forceOrientation(false, true);
 	// Function called first to load all the assets
-	game.load.spritesheet('Squirrel', 'assets/images/unit4/character/squirrel_animation.png', 192, 252);
+	game.load.spritesheet('Squirrel', 'assets/images/charactor_animation/squirrel.png', 192, 252);
 	// Load background 
 	game.load.image('bg', 'assets/images/unit4/bg.png');
 	game.load.image('bg_1', 'assets/images/unit4/bg_1.png');
@@ -24,16 +24,15 @@ function preload()  {
 	game.load.image('text_chestnut', 'assets/images/unit4/text_chestnut.png');
 
 	// Load sound
-	game.load.audio('1', 'assets/sounds/unit4/4_Gioithieu.mp3');
-	game.load.audio('2', 'assets/sounds/unit4/4_1.mp3');
-	game.load.audio('3', 'assets/sounds/unit4/4_So 4.mp3');
+	game.load.audio('1', 'assets/sounds/unit4/4_1.mp3');
+	game.load.audio('2', 'assets/sounds/unit4/4_2.mp3');
+	game.load.audio('3', 'assets/sounds/unit4/4_3.mp3');
 	game.load.audio('4', 'assets/sounds/unit4/4_4 cai cay.mp3');
-	game.load.audio('5', 'assets/sounds/unit4/4_2.mp3');
-	game.load.audio('6', 'assets/sounds/unit4/4_3.mp3');
-	game.load.audio('7', 'assets/sounds/unit4/4_4 con soc.mp3');
-	game.load.audio('8', 'assets/sounds/unit4/4_4.mp3');
-	game.load.audio('9', 'assets/sounds/unit4/4_5.mp3');
-	game.load.audio('10', 'assets/sounds/unit4/4_4 hat de.mp3');
+	game.load.audio('5', 'assets/sounds/unit4/4_4 con soc.mp3');
+	game.load.audio('6', 'assets/sounds/unit4/4_4 hat de.mp3');
+	game.load.audio('7', 'assets/sounds/unit4/4_4.mp3');
+	game.load.audio('8', 'assets/sounds/unit4/4_Gioithieu.mp3');
+	
 	
 	game.load.image('nen','assets/images/unit2/bg_board.png');
 	game.load.image('btnNext', 'assets/images/unit1/ic_button_next.png');
@@ -50,11 +49,16 @@ var flag_sound = 0;
 var backgroundCount = 1;
 var m_player;
 
-var showBehive_;
 var toong;
 
 var zoom = true;
 var start =1;
+
+var zoomSoc_;
+var zoomSocDe_;
+var Squirrel1,Squirrel2,Squirrel3,Squirrel4;
+var sochatde,sochatde1,sochatde2,sochatde3;
+
 
 function create() {
 
@@ -73,9 +77,15 @@ function create() {
 	sound[5] = game.sound.add('6');
 	sound[6] = game.sound.add('7');
 	sound[7] = game.sound.add('8');
-	sound[8] = game.sound.add('9');
-	sound[9] = game.sound.add('10');
-	//m_sound[0] = game.add.audio('m_sound1');
+	
+	sound[7].play();
+	setTimeout(function(){
+		sound[0].play();
+	},5000);
+
+	setTimeout(function () {
+		sound[1].play();
+	},7000);
 
 	flag= true;
 }
@@ -95,7 +105,7 @@ function show1() {
 	game.add.tween(cay).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[3].play();
 		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
 		text_tree = game.add.tileSprite(550, -50, 318, 66, 'text_tree');
 		text_number4.inputEnabled = true;
@@ -103,11 +113,11 @@ function show1() {
 		text_tree.inputEnabled = true;
 		game.add.tween(text_tree).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 }
 
 function show2() {
@@ -120,7 +130,7 @@ function show2() {
 	game.add.tween(msoc).to({ x: 300, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[4].play();
 		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
 		text_squirrel = game.add.tileSprite(530, -50, 315, 66, 'text_squirrel');
 		text_number4.inputEnabled = true;
@@ -128,11 +138,11 @@ function show2() {
 		text_squirrel.inputEnabled = true;
 		game.add.tween(text_squirrel).to({ x: 500, y: 110 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 
 	
 }
@@ -146,7 +156,6 @@ function show3() {
 	game.add.tween(hatde).to({ x: 340, y: 190 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
 		text_number4 = game.add.tileSprite(1400, 700, 235, 500, 'text_number4');
 		text_chestnut = game.add.tileSprite(450, -50, 289, 66, 'text_chestnut');
 		text_number4.inputEnabled = true;
@@ -177,7 +186,7 @@ function mission() {
 		text_tree.destroy();
 		text_number4.destroy();
 		cay.destroy();
-
+		sound[2].play();
 		backPlayerBackgroundTwo();
 	}
 
@@ -188,20 +197,38 @@ function mission() {
 		bg.destroy();
 
 		bg_1 = game.add.tileSprite(0,0,1366,768,'bg_1');
+		sound[6].play();
+		sochatde = game.add.sprite(50,450,'sochatde');
+		sochatde.scale.setTo(1,1);
 
-		backPlayerBackgroundThree();
+		sochatde1 = game.add.sprite(300,500,'sochatde');
+		sochatde1.scale.setTo(1,1);
+
+		sochatde2 = game.add.sprite(550,500,'sochatde');
+		sochatde2.scale.setTo(1,1);
+
+		sochatde3 = game.add.sprite(750,470,'sochatde');
+		sochatde3.scale.setTo(1,1);
+		setTimeout(function () {
+			sound[5].play();
+				zoomSocDe_ = true;
+		},3500);
+		setTimeout(function () {
+			backPlayerBackgroundThree();
+		},6500);
 	}
 
 	if (backgroundCount == 4) {
-		text_butterfly.destroy();
+		text_chestnut.destroy();
 		text_number4.destroy();
+		hatde.destroy();
 
 		backToNextGame();
 	}
 }
 
 function backPlayerBackgroundTwo() {
-	start =0 ;
+	zoomSoc_ = true;
 	
 	Squirrel1 = game.add.sprite(50, 450, 'Squirrel');
 	Squirrel1.scale.setTo(1);
@@ -222,33 +249,25 @@ function backPlayerBackgroundTwo() {
 		//Squirrel2.animations.play('walk');
 		//Squirrel3.animations.play('walk');
 		//Squirrel4.animations.play('walk');
-	},500)
+		start =0 ;
+	},2000)
 	//game.add.tween(m_player).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 }
 
 function backPlayerBackgroundThree() {
-	start =0 ;
+	zoomSoc_ = false;
+
 	setTimeout(function () {
-		sochatde = game.add.sprite(50,450,'sochatde');
-		sochatde.scale.setTo(1,1);
+		start =0 ;
 
-		sochatde1 = game.add.sprite(300,500,'sochatde');
-		sochatde1.scale.setTo(1,1);
-
-		sochatde2 = game.add.sprite(550,500,'sochatde');
-		sochatde2.scale.setTo(1,1);
-
-		sochatde3 = game.add.sprite(750,470,'sochatde');
-		sochatde3.scale.setTo(1,1);
-
-	}, 100);
+	}, 2000);
 
 	//game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
 
 }
 
 function backToNextGame() {
-	window_next = window.location = "/api/unit4_game1";
+	window_next = window.location = "unit4_game1";
 }
 
 
@@ -275,17 +294,59 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},3000);
+			},12500);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
 				show2();
-			}, 4000);
+			}, 9500);
 		}
 		if (backgroundCount == 3) {
 			setTimeout(function () {
 				show3();
 			}, 3000);
+		}
+	}
+
+	if(zoomSoc_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				Squirrel1.scale.setTo(1);
+				Squirrel2.scale.setTo(1);
+				Squirrel3.scale.setTo(1);
+				Squirrel4.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				Squirrel1.scale.setTo(1.2);
+				Squirrel2.scale.setTo(1.2);
+				Squirrel3.scale.setTo(1.2);
+				Squirrel4.scale.setTo(1.2);
+			}, 500);
+		}
+	}
+
+	if(zoomSocDe_){
+		if(zoom){
+			setTimeout(function () {
+				zoom = false;
+				sochatde.scale.setTo(1);
+				sochatde1.scale.setTo(1);
+				sochatde2.scale.setTo(1);
+				sochatde3.scale.setTo(1);
+			}, 500);
+		}
+		else {
+			setTimeout(function () {
+				zoom = true;
+				sochatde.scale.setTo(1.2);
+				sochatde1.scale.setTo(1.2);
+				sochatde2.scale.setTo(1.2);
+				sochatde3.scale.setTo(1.2);
+			}, 500);
 		}
 	}
 }

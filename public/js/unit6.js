@@ -20,16 +20,16 @@ function preload() {
 	game.load.image('text_egg', 'assets/images/unit6/text_egg.png');
 	game.load.image('text_nest', 'assets/images/unit6/text_nest.png');
 	
-	game.load.audio('1', 'assets/sound/unit6/6_6 con chim.mp3');
-	game.load.audio('2', 'assets/sound/unit6/6_6 qua trung.mp3');
-	game.load.audio('3', 'assets/sound/unit6/6_ 6 to chim.mp3');
-	game.load.audio('4', 'assets/sound/unit6/6_2.mp3');
-	game.load.audio('5', 'assets/sound/unit6/6_3.mp3');
-	game.load.audio('6', 'assets/sound/unit6/6_4.mp3');
-	game.load.audio('7', 'assets/sound/unit6/6_5.mp3');
-	game.load.audio('8', 'assets/sound/unit6/6_gioi thieu.mp3');
-	game.load.audio('9', 'assets/sound/unit6/6_So 6.mp3');
-	game.load.audio('10', 'assets/sound/unit6/6_1.mp3');
+	game.load.audio('1', 'assets/sounds/unit6/6_6 con chim.mp3');
+	game.load.audio('2', 'assets/sounds/unit6/6_6 qua trung.mp3');
+	game.load.audio('3', 'assets/sounds/unit6/6_ 6 to chim.mp3');
+	game.load.audio('4', 'assets/sounds/unit6/6_2.mp3');
+	game.load.audio('5', 'assets/sounds/unit6/6_3.mp3');
+	game.load.audio('6', 'assets/sounds/unit6/6_4.mp3');
+	game.load.audio('7', 'assets/sounds/unit6/6_5.mp3');
+	game.load.audio('8', 'assets/sounds/unit6/6_gioi thieu.mp3');
+	game.load.audio('9', 'assets/sounds/unit6/6_So 6.mp3');
+	game.load.audio('10', 'assets/sounds/unit6/6_1.mp3');
 
 
 	// Load spritesheet
@@ -56,6 +56,7 @@ var direction = 2;
 // Setting sound start
 var speed = 2;
 var Bird_1,Bird_2,Bird_3,Bird_4, Bird_5,Bird_6;
+var start_sound = 1;
 function create() {
 	
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -124,6 +125,11 @@ function create() {
 	sound[8] = game.sound.add('9');
 	sound[9] = game.sound.add('10');
 
+	sound[7].play();
+	setTimeout(function(){
+		sound[9].play();
+	},4500);
+
 	flag= true;
 	
 }
@@ -142,7 +148,7 @@ function show1() {
 	game.add.tween(bird_).to({ x: 320, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[0].play();
 		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
 		text_bird = game.add.tileSprite(550, -50, 348, 66, 'text_bird');
 		text_number6.inputEnabled = true;
@@ -150,11 +156,11 @@ function show1() {
 		text_bird.inputEnabled = true;
 		game.add.tween(text_bird).to({ x: 500, y: 100 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
-	}, 4000);
+	}, 3000);
 
 	setTimeout(function () {
 		btn();
-	}, 8000);
+	}, 6000);
 }
 
 function show2() {
@@ -167,7 +173,7 @@ function show2() {
 	game.add.tween(nest).to({ x: 320, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[2].play();
 		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
 		text_nest = game.add.tileSprite(530, -50, 330, 66, 'text_nest');
 		text_number6.inputEnabled = true;
@@ -193,7 +199,7 @@ function show3() {
 	game.add.tween(egg).to({ x: 320, y: 220 }, 3000, Phaser.Easing.Quadratic.InOut, true);
 
 	setTimeout(function () {
-
+		sound[1].play();
 		text_number6 = game.add.tileSprite(1400, 700, 235, 500, 'text_number6');
 		text_egg = game.add.tileSprite(450, -50, 378, 66, 'text_egg');
 		text_number6.inputEnabled = true;
@@ -296,7 +302,7 @@ function backPlayerBackgroundThree() {
 }
 
 function backToNextGame() {
-	window_next = window.location = "/api/unit6_game1";
+	window_next = window.location = "unit6_game1";
 }
 
 
@@ -329,6 +335,12 @@ function update() {
 			m_player.animations.play('walk');
 			
 		}
+
+		if(bg.x > -200 && start_sound == 1){
+			sound[3].play();
+			start_sound = 2;
+		}
+
 		if(bg.x <= -650){
 			backPlayerBackgroundTwo();
 			start = 0;
@@ -346,7 +358,7 @@ function update() {
 		if(backgroundCount ==1){
 			setTimeout(function () {
 				show1();
-			},3000);
+			},10000);
 		}
 		if (backgroundCount == 2) {
 			setTimeout(function () {
