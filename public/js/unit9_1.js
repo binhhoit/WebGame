@@ -36,7 +36,6 @@ function preload() {
 	game.load.audio('start', SOUND_START);
 	game.load.audio('Score_a', SOUND_SCORE);
 	game.load.audio('fail', SOUND_FAIL);
-	game.load.audio('end', SOUND_END);
 	game.load.audio('drop', SOUND_DROP);
 	game.load.audio('music_bg', SOUND_BG);
 
@@ -57,8 +56,7 @@ function create() {
 	sound[0].play();
 	sound[1] = game.add.audio('Score_a');
 	sound[2] = game.add.audio('fail');
-	sound[3] = game.add.audio('end');
-	sound[4] = game.add.audio('drop');
+	sound[3] = game.add.audio('drop');
 
 
 	music_bg = game.add.audio('music_bg');
@@ -170,7 +168,7 @@ function create() {
 }
 
 function score_s() {
-	sound[4].play();
+	sound[3].play();
 }
 
 //drap and drop Apple 1 -4
@@ -355,12 +353,10 @@ function Process() {
 		game.time.events.add(Phaser.Timer.SECOND * 4, Process2, this);
 	}
 }
-function Delay1() {
-	game.add.tween(sound[3].play()).to(2000, Phaser.Easing.Linear.None, true);
-}
+
 function Process2() {
 	setTimeout(function () {
-		window.location = "/api"
+		window.location = "unit9_game2"
 	}, 2000);
 
 }

@@ -289,9 +289,9 @@ function backPlayerBackgroundThree() {
 		mushroom = game.add.tileSprite(800, 500, 279, 244, 'mushroom');
 		mushroom.scale.setTo(0.7, 0.7)
 		showMushroom_ = true;
-	}, 1000);
+	}, 6000);
 
-	game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 11000, Phaser.Easing.Linear.None, true);
+	game.add.tween(m_player_carrot).to({ x: game.width / 3 }, 15000, Phaser.Easing.Linear.None, true);
 
 }
 

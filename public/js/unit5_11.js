@@ -30,7 +30,6 @@ function preload() {
 	game.load.audio('music_bg', SOUND_BG);
 	// load button
 	game.load.image('again', BUTTON_AGAIN);
-	game.load.image('btn', BUTTON_IMAGE);
 	game.load.image('So3', BUTTON_3);
 	game.load.image('So4', BUTTON_4);
 	game.load.image('So5', BUTTON_5);
@@ -97,6 +96,7 @@ function Pass() {
 	score_s();
 	button3.inputEnabled = false;
 	button4.inputEnabled = false;
+	sound[3].play;
 	game.time.events.add(Phaser.Timer.SECOND * 1, next, this);
 
 }
@@ -122,6 +122,12 @@ function Faile2() {
 
 }
 function Process1() {
+	sound[0].destroy();
+	sound[1].destroy();
+	sound[2].destroy();
+	sound[3].destroy();
+	sound[4].destroy();
+	music_bg.destroy();
 	game.state.start(game.state.current);
 	//var winx = window.location="/index1.html";
 

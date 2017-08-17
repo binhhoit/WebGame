@@ -80,7 +80,7 @@ function create() {
 	carrot_six.scale.setTo(1, 1);
 	carrot_six.inputEnabled = true;
 
-	carrot_six.events.onInputDown.add(score2, this);
+	carrot_six.events.onInputDown.add(fail, this);
 	carrot_six.events.onInputDown.add(animation5, this);
 
 	var carrot_seven = game.add.sprite(932.2, 11, 'carrot2');

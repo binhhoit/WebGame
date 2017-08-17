@@ -14,7 +14,7 @@ const BACKGROUND_WIDTH = 1366;
 const BACKGROUND_HEIGHT = 768;
 
 // button 
-const BUTTON_IMAGE = "assets/images/unit5_game1/ic_button_next.png";
+const BUTTON_NEXT = "assets/images/unit2_game1/ic_button_next.png";
 const BUTTON_AGAIN = "assets/images/unit5_game1/ic_button_restart.png";
 
 const BUTTON_3 = "assets/images/unit5_game1/ic_button_3.png";

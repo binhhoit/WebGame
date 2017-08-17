@@ -75,11 +75,11 @@ function create() {
 	// add sound
 	sound[0] = game.add.audio('start');
 	sound[0].play();
-	sound[1] = game.add.audio('score');
-	sound[2] = game.add.audio('fail');
+	sound[1] = game.add.audio('fail');
+	sound[2] = game.add.audio('score');
 	sound[3] = game.add.audio('end');
-	sound[4] = game.add.audio('thua');
-	sound[5] = game.add.audio('thieu');
+	sound[4] = game.add.audio('thieu');
+	sound[5] = game.add.audio('thua');	
 	sound[6] = game.add.audio('finish');
 
 	// add tween
@@ -200,8 +200,8 @@ function passBasket5() {
 function Process() {
 	button.visible = false;
 	if (score == 3) {
-		button = game.add.button(670, 665, 'next', Next, this, 2, 1, 0);
-		button.scale.setTo(1.5);
+		button_ = game.add.button(1200, 665, 'next', Next, this);
+		button_.scale.setTo(1.5);
 		sound[1].play();
 		game.time.events.add(Phaser.Timer.SECOND * 1, Delay1, this);
 		Honey[0].inputEnabled = false;
@@ -268,6 +268,13 @@ function Button() {
 }
 
 function Process1() {
+	sound[0].destroy();
+	sound[1].destroy();
+	sound[2].destroy();
+	sound[3].destroy();
+	sound[4].destroy();
+	sound[5].destroy();
+	music_bg.destroy();
 	game.state.start(game.state.current);
 }
 
